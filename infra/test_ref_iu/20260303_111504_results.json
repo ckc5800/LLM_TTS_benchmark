@@ -1,0 +1,26 @@
+[
+  {
+    "model_name": "Qwen3-TTS-0.6B",
+    "model_version": "",
+    "model_size_params": "0.6B",
+    "korean_support": true,
+    "test_text": "안녕하세요. 오늘 날씨가 정말 좋네요.",
+    "test_type": "TTS",
+    "run_index": 0,
+    "load_time_s": 3.898473999928683,
+    "ttfa_ms": 7078.330499818549,
+    "inference_time_s": 7.078330499818549,
+    "audio_duration_s": 2.4,
+    "rtf": 2.9493043749243952,
+    "vram_before_mb": 0.0,
+    "vram_after_mb": 2070.3466796875,
+    "vram_used_mb": 2070.3466796875,
+    "vram_peak_mb": 2818.31640625,
+    "sample_rate": 24000,
+    "output_wav": "test_ref_iu\\wav\\qwen3_tts_0.6b\\Qwen3-TTS-0.6B_0.wav",
+    "success": true,
+    "error": "",
+    "notes": "10개 언어 지원, qwen_tts 패키지",
+    "timestamp": "2026-03-03T11:16:08.868705"
+  }
+]

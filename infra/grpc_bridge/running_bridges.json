@@ -1,0 +1,186 @@
+﻿[
+    {
+        "id":  "cosyvoice2",
+        "port":  8321,
+        "pid":  33192,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\cosyvoice2.json",
+        "instance":  "bench-cosyvoice2",
+        "started":  true
+    },
+    {
+        "id":  "cosyvoice3",
+        "port":  8322,
+        "pid":  54360,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\cosyvoice3.json",
+        "instance":  "bench-cosyvoice3",
+        "started":  true
+    },
+    {
+        "id":  "fish_speech",
+        "port":  8323,
+        "pid":  52376,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\fish_speech.json",
+        "instance":  "bench-fish_speech",
+        "started":  true
+    },
+    {
+        "id":  "qwen3_tts_0_6b",
+        "port":  8324,
+        "pid":  40680,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\qwen3_tts_0_6b.json",
+        "instance":  "bench-qwen3_tts_0_6b",
+        "started":  true
+    },
+    {
+        "id":  "qwen3_tts_1_7b",
+        "port":  8325,
+        "pid":  11256,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\qwen3_tts_1_7b.json",
+        "instance":  "bench-qwen3_tts_1_7b",
+        "started":  true
+    },
+    {
+        "id":  "spark_tts",
+        "port":  8326,
+        "pid":  13512,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\spark_tts.json",
+        "instance":  "bench-spark_tts",
+        "started":  true
+    },
+    {
+        "id":  "index_tts2",
+        "port":  8327,
+        "pid":  7760,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\index_tts2.json",
+        "instance":  "bench-index_tts2",
+        "started":  true
+    },
+    {
+        "id":  "mio_tts_1_7b",
+        "port":  8328,
+        "pid":  24400,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\mio_tts_1_7b.json",
+        "instance":  "bench-mio_tts_1_7b",
+        "started":  true
+    },
+    {
+        "id":  "mio_tts_2_6b",
+        "port":  8329,
+        "pid":  26256,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\mio_tts_2_6b.json",
+        "instance":  "bench-mio_tts_2_6b",
+        "started":  true
+    },
+    {
+        "id":  "glm_tts",
+        "port":  8330,
+        "pid":  19052,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\glm_tts.json",
+        "instance":  "bench-glm_tts",
+        "started":  true
+    },
+    {
+        "id":  "bark",
+        "port":  8331,
+        "pid":  52036,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\bark.json",
+        "instance":  "bench-bark",
+        "started":  true
+    },
+    {
+        "id":  "gpt_sovits",
+        "port":  8332,
+        "pid":  50516,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\gpt_sovits.json",
+        "instance":  "bench-gpt_sovits",
+        "started":  true
+    },
+    {
+        "id":  "f5tts",
+        "port":  8333,
+        "pid":  51128,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\f5tts.json",
+        "instance":  "bench-f5tts",
+        "started":  true
+    },
+    {
+        "id":  "xtts",
+        "port":  8334,
+        "pid":  29464,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\xtts.json",
+        "instance":  "bench-xtts",
+        "started":  true
+    },
+    {
+        "id":  "melotts",
+        "port":  8335,
+        "pid":  38084,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\melotts.json",
+        "instance":  "bench-melotts",
+        "started":  true
+    },
+    {
+        "id":  "chatterbox",
+        "port":  8336,
+        "pid":  17764,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\chatterbox.json",
+        "instance":  "bench-chatterbox",
+        "started":  true
+    },
+    {
+        "id":  "outetss",
+        "port":  8337,
+        "pid":  25000,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\outetss.json",
+        "instance":  "bench-outetss",
+        "started":  true
+    },
+    {
+        "id":  "kokoro",
+        "port":  8338,
+        "pid":  28892,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\kokoro.json",
+        "instance":  "bench-kokoro",
+        "started":  true
+    },
+    {
+        "id":  "parler",
+        "port":  8339,
+        "pid":  32496,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\parler.json",
+        "instance":  "bench-parler",
+        "started":  true
+    },
+    {
+        "id":  "styletts2",
+        "port":  8340,
+        "pid":  55340,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\styletts2.json",
+        "instance":  "bench-styletts2",
+        "started":  true
+    },
+    {
+        "id":  "dia",
+        "port":  8341,
+        "pid":  55396,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\dia.json",
+        "instance":  "bench-dia",
+        "started":  true
+    },
+    {
+        "id":  "openvoice",
+        "port":  8342,
+        "pid":  55688,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\openvoice.json",
+        "instance":  "bench-openvoice",
+        "started":  true
+    },
+    {
+        "id":  "mars5",
+        "port":  8343,
+        "pid":  55980,
+        "config":  "d:\\tts-benchmark\\grpc_bridge\\models\\mars5.json",
+        "instance":  "bench-mars5",
+        "started":  true
+    }
+]

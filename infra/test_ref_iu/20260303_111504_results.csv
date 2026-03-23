@@ -1,0 +1,2 @@
+﻿model_name,model_version,model_size_params,korean_support,test_text,test_type,run_index,load_time_s,ttfa_ms,inference_time_s,audio_duration_s,rtf,vram_before_mb,vram_after_mb,vram_used_mb,vram_peak_mb,sample_rate,output_wav,success,error,notes,timestamp
+Qwen3-TTS-0.6B,,0.6B,True,안녕하세요. 오늘 날씨가 정말 좋네요.,TTS,0,3.898473999928683,7078.330499818549,7.078330499818549,2.4,2.9493043749243952,0.0,2070.3466796875,2070.3466796875,2818.31640625,24000,test_ref_iu\wav\qwen3_tts_0.6b\Qwen3-TTS-0.6B_0.wav,True,,"10개 언어 지원, qwen_tts 패키지",2026-03-03T11:16:08.868705

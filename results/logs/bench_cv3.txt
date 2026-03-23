@@ -1,0 +1,28 @@
+
+============================================================
+TTS Benchmark
+============================================================
+모델: ['cosyvoice3']
+반복: 1회
+텍스트: 안녕하세요. 인공지능 음성 합성 기술이 놀라울 정도로 발전했습니다. 한국어 발음의 정확성과...
+결과 저장: D:\tts-benchmark\results
+============================================================
+
+
+──────────────────────────────────────────────────
+모델: cosyvoice3
+──────────────────────────────────────────────────
+[DOWNLOAD] CosyVoice3-0.5B → D:\models\CosyVoice3-0.5B
+Fetching 19 files:   0%|          | 0/19 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 19 files:   5%|5         | 1/19 [00:00<00:06,  2.65it/s]Fetching 19 files:  16%|#5        | 3/19 [00:00<00:02,  7.27it/s]Fetching 19 files:  16%|#5        | 3/19 [00:20<00:02,  7.27it/s]Fetching 19 files:  21%|##1       | 4/19 [05:17<27:24, 109.63s/it]Fetching 19 files:  74%|#######3  | 14/19 [11:13<04:00, 48.10s/it]Fetching 19 files:  89%|########9 | 17/19 [12:59<01:29, 44.73s/it]Fetching 19 files: 100%|##########| 19/19 [12:59<00:00, 41.02s/it]
+[DOWNLOAD] 완료
+  [CosyVoice3-0.5B] FAILED: Load failed: CosyVoice3.__init__() got an unexpected keyword argument 'load_jit'
+
+============================================================
+벤치마크 완료 - 1개 결과
+  JSON: D:\tts-benchmark\results\20260226_145703_results.json
+  CSV:  D:\tts-benchmark\results\20260226_145703_results.csv
+  MD:   D:\tts-benchmark\results\20260226_145703_report.md
+============================================================
+2026-02-26 15:10:45,152 DEBUG close.started
+2026-02-26 15:10:45,152 DEBUG close.complete

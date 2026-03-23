@@ -1,0 +1,22 @@
+{
+  "bark": 0.0,
+  "chatterbox": 0.961538,
+  "cosyvoice2": 0.961538,
+  "cosyvoice3": 0.923077,
+  "f5tts": 0.884615,
+  "fish_speech": 0.0,
+  "gpt_sovits": 0.115385,
+  "index_tts2": 0.980769,
+  "kokoro": 1.442308,
+  "melotts": 0.0,
+  "mio_tts_1.7b": 1.192308,
+  "mio_tts_2.6b": 1.0,
+  "openvoice": 0.0,
+  "outetss": 0.0,
+  "parler": 1.384615,
+  "qwen3_tts_0.6b": 0.0,
+  "qwen3_tts_1.7b": 0.0,
+  "spark_tts": 0.0,
+  "styletts2": 3.230769,
+  "xtts": 0.0
+}

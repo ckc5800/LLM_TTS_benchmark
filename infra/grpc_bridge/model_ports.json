@@ -1,0 +1,163 @@
+[
+  {
+    "id": "cosyvoice2",
+    "name": "CosyVoice2-0.5B",
+    "voice_id": "bench-cosyvoice2",
+    "port": 8321,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\cosyvoice2.json"
+  },
+  {
+    "id": "cosyvoice3",
+    "name": "CosyVoice3-0.5B",
+    "voice_id": "bench-cosyvoice3",
+    "port": 8322,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\cosyvoice3.json"
+  },
+  {
+    "id": "fish_speech",
+    "name": "Fish-Speech-1.5",
+    "voice_id": "bench-fish-speech",
+    "port": 8323,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\fish_speech.json"
+  },
+  {
+    "id": "qwen3_tts_0_6b",
+    "name": "Qwen3-TTS-0.6B",
+    "voice_id": "bench-qwen3-0.6b",
+    "port": 8324,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\qwen3_tts_0_6b.json"
+  },
+  {
+    "id": "qwen3_tts_1_7b",
+    "name": "Qwen3-TTS-1.7B",
+    "voice_id": "bench-qwen3-1.7b",
+    "port": 8325,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\qwen3_tts_1_7b.json"
+  },
+  {
+    "id": "spark_tts",
+    "name": "Spark-TTS-0.5B",
+    "voice_id": "bench-spark-tts",
+    "port": 8326,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\spark_tts.json"
+  },
+  {
+    "id": "index_tts2",
+    "name": "IndexTTS-2",
+    "voice_id": "bench-index-tts2",
+    "port": 8327,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\index_tts2.json"
+  },
+  {
+    "id": "mio_tts_1_7b",
+    "name": "MioTTS-1.7B",
+    "voice_id": "bench-mio-1.7b",
+    "port": 8328,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\mio_tts_1_7b.json"
+  },
+  {
+    "id": "mio_tts_2_6b",
+    "name": "MioTTS-2.6B",
+    "voice_id": "bench-mio-2.6b",
+    "port": 8329,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\mio_tts_2_6b.json"
+  },
+  {
+    "id": "glm_tts",
+    "name": "GLM-TTS",
+    "voice_id": "bench-glm-tts",
+    "port": 8330,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\glm_tts.json"
+  },
+  {
+    "id": "bark",
+    "name": "Bark",
+    "voice_id": "bench-bark",
+    "port": 8331,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\bark.json"
+  },
+  {
+    "id": "gpt_sovits",
+    "name": "GPT-SoVITS-V3",
+    "voice_id": "bench-gpt-sovits",
+    "port": 8332,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\gpt_sovits.json"
+  },
+  {
+    "id": "f5tts",
+    "name": "F5-TTS",
+    "voice_id": "bench-f5tts",
+    "port": 8333,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\f5tts.json"
+  },
+  {
+    "id": "xtts",
+    "name": "XTTS-v2",
+    "voice_id": "bench-xtts",
+    "port": 8334,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\xtts.json"
+  },
+  {
+    "id": "melotts",
+    "name": "MeloTTS-KO",
+    "voice_id": "bench-melotts",
+    "port": 8335,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\melotts.json"
+  },
+  {
+    "id": "chatterbox",
+    "name": "Chatterbox-TTS",
+    "voice_id": "bench-chatterbox",
+    "port": 8336,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\chatterbox.json"
+  },
+  {
+    "id": "outetss",
+    "name": "OuteTTS-1.0-0.6B",
+    "voice_id": "bench-outetss",
+    "port": 8337,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\outetss.json"
+  },
+  {
+    "id": "kokoro",
+    "name": "Kokoro-82M",
+    "voice_id": "bench-kokoro",
+    "port": 8338,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\kokoro.json"
+  },
+  {
+    "id": "parler",
+    "name": "Parler-TTS-mini",
+    "voice_id": "bench-parler",
+    "port": 8339,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\parler.json"
+  },
+  {
+    "id": "styletts2",
+    "name": "StyleTTS2",
+    "voice_id": "bench-styletts2",
+    "port": 8340,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\styletts2.json"
+  },
+  {
+    "id": "dia",
+    "name": "Dia-1.6B",
+    "voice_id": "bench-dia",
+    "port": 8341,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\dia.json"
+  },
+  {
+    "id": "openvoice",
+    "name": "OpenVoice-v2",
+    "voice_id": "bench-openvoice",
+    "port": 8342,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\openvoice.json"
+  },
+  {
+    "id": "mars5",
+    "name": "MARS5-TTS",
+    "voice_id": "bench-mars5",
+    "port": 8343,
+    "config": "d:\\tts-benchmark\\grpc_bridge\\models\\mars5.json"
+  }
+]
