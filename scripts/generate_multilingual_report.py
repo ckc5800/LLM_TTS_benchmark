@@ -1675,7 +1675,13 @@ def generate_html(results_dir, output_path):
 
             # 인라인 오디오 (항상 표시)
             if src:
-                inline_audio = f'<audio controls preload="none" src="{src}" class="inline-audio"></audio>'
+                inline_audio = (
+                    f'<div class="mini-player">'
+                    f'<audio preload="none" src="{src}"></audio>'
+                    f'<button class="play-btn" onclick="togglePlay(this)" title="재생">▶</button>'
+                    f'<button class="stop-btn" onclick="stopPlay(this)" title="정지">■</button>'
+                    f'</div>'
+                )
             else:
                 inline_audio = '<span style="color:var(--text2);font-size:11px">—</span>'
 
@@ -2266,8 +2272,18 @@ def generate_html(results_dir, output_path):
     .spk-toggle.open {{ background: rgba(79,70,229,.15); color: var(--accent); }}
 
     /* 인라인 오디오 셀 */
-    .audio-cell {{ min-width: 200px; }}
-    .inline-audio {{ width: 100%; height: 30px; accent-color: var(--accent); display: block; }}
+    .audio-cell {{ min-width: 72px; width: 72px; }}
+    .mini-player {{ display: flex; gap: 5px; align-items: center; justify-content: center; }}
+    .play-btn, .stop-btn {{
+        border: none; border-radius: 50%; width: 28px; height: 28px;
+        cursor: pointer; font-size: 11px; display: flex; align-items: center; justify-content: center;
+        transition: background .15s, transform .1s;
+    }}
+    .play-btn {{ background: var(--accent); color: #fff; }}
+    .play-btn:hover {{ background: #4338ca; transform: scale(1.1); }}
+    .play-btn.playing {{ background: #0ea5e9; }}
+    .stop-btn {{ background: #e2e8f0; color: #475569; }}
+    .stop-btn:hover {{ background: #cbd5e1; transform: scale(1.1); }}
 
     /* detail 행 전체 레이아웃 */
     .spk-detail-cell {{ white-space: normal !important; padding: 0 !important; border-top: none !important; }}
@@ -2409,6 +2425,32 @@ def generate_html(results_dir, output_path):
 
 <script>
   const TEXT_CONTENT = {text_content_js};
+
+  let _curAudio = null, _curPlayBtn = null;
+  function togglePlay(btn) {{
+    const audio = btn.closest('.mini-player').querySelector('audio');
+    if (_curAudio && _curAudio !== audio) {{
+      _curAudio.pause(); _curAudio.currentTime = 0;
+      _curPlayBtn.textContent = '▶'; _curPlayBtn.classList.remove('playing');
+    }}
+    if (audio.paused) {{
+      audio.play();
+      btn.textContent = '⏸'; btn.classList.add('playing');
+      _curAudio = audio; _curPlayBtn = btn;
+      audio.onended = () => {{ btn.textContent = '▶'; btn.classList.remove('playing'); _curAudio = null; _curPlayBtn = null; }};
+    }} else {{
+      audio.pause(); audio.currentTime = 0;
+      btn.textContent = '▶'; btn.classList.remove('playing');
+      _curAudio = null; _curPlayBtn = null;
+    }}
+  }}
+  function stopPlay(btn) {{
+    const audio = btn.closest('.mini-player').querySelector('audio');
+    audio.pause(); audio.currentTime = 0;
+    const pb = btn.previousElementSibling;
+    if (pb) {{ pb.textContent = '▶'; pb.classList.remove('playing'); }}
+    if (_curAudio === audio) {{ _curAudio = null; _curPlayBtn = null; }}
+  }}
 
   function toggleSpk(rowId) {{
     const row = document.getElementById(rowId);
