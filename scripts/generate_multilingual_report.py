@@ -1499,10 +1499,8 @@ def build_overview_section(averages, cer_scores, sim_scores):
         matrix_rows.append(
             f'<tr data-arch="{arch}">'
             f'<td style="text-align:center; color:#94a3b8; font-size:12px; font-weight:700;">{idx}</td>'
-            f'<td class="ov-name">'
-            f'  <span class="arch-badge sm" style="background:{color}">{arch}</span>'
-            f'  <strong style="margin-left:5px">{d["name"]}</strong>'
-            f'</td>'
+            f'<td class="ov-name"><strong>{d["name"]}</strong></td>'
+            f'<td style="text-align:center"><span class="arch-badge sm" style="background:{color}">{arch}</span></td>'
             f'<td style="white-space:nowrap; padding:4px;">{langs_html}</td>'
             + rtf_td(d["ko_rtf"]) + rtf_td(d["en_rtf"])
             + rtf_td(d["ja_rtf"]) + rtf_td(d["zh_rtf"])
@@ -1539,9 +1537,10 @@ def build_overview_section(averages, cer_scores, sim_scores):
             f'<tr data-arch="{arch_excl}" style="opacity:.7;background:#fafafa;">'
             f'<td style="text-align:center;color:#94a3b8;font-size:11px;font-weight:700">{excl_idx}</td>'
             f'<td class="ov-name" style="color:var(--text2);">'
-            f'  {arch_badge}<strong style="margin-left:2px">{m["model"]}</strong>'
-            f'  <span style="color:var(--text2);font-size:10px;margin-left:4px">{m["org"]}</span>'
+            f'<strong>{m["model"]}</strong>'
+            f'<span style="color:var(--text2);font-size:10px;margin-left:4px">{m["org"]}</span>'
             f'</td>'
+            f'<td style="text-align:center">{arch_badge}</td>'
             f'<td style="white-space:nowrap;padding:4px;">{langs_html_excl}</td>'
             + reason_cell
             + f'<td class="ov-num" style="color:var(--text2)">—</td>'
@@ -1563,7 +1562,8 @@ def build_overview_section(averages, cer_scores, sim_scores):
       <table class="ov-table" style="min-width:700px">
         <thead><tr>
           <th style="width:30px; text-align:center;">#</th>
-          <th style="text-align:left;min-width:180px">모델</th>
+          <th style="text-align:left;min-width:160px">모델</th>
+          <th>구조</th>
           <th>지원 언어</th>
           <th>KO RTF</th><th>EN RTF</th><th>JA RTF</th><th>ZH RTF</th>
           <th>KO CER</th><th>EN WER</th><th>VRAM</th>
