@@ -318,7 +318,7 @@
 
 <div class="header">
   <h1>🎙️ 다국어 TTS 벤치마크 보고서</h1>
-  <div class="header-meta">생성: 2026-03-23 16:58 &nbsp;|&nbsp; GPU: RTX 5080 &nbsp;|&nbsp; LLM-based TTS 집중 분석</div>
+  <div class="header-meta">생성: 2026-03-23 17:03 &nbsp;|&nbsp; GPU: RTX 5080 &nbsp;|&nbsp; LLM-based TTS 집중 분석</div>
   <div class="stat-chips">
     <div class="stat-chip">모델 <span>27</span>개</div>
     <div class="stat-chip">언어 <span>4</span>개</div>
@@ -508,7 +508,7 @@
                 <td class="ac-cer" data-val="0.05724">
                     <span style="color:#84cc16; font-weight:700;">5.72%</span>
                 </td>
-                <td class="official-cell"><span class="official-none">없음</span></td>
+                <td class="official-cell"><span class="official-val">KO RTF 0.003 (벤치마크 최고속)</span></td>
                 <td class="audio-cell"><div class="mini-player"><audio preload="none" src="wav/ko/A/zipvoice_finetuned__ko_medium_0.wav"></audio><button class="play-btn" onclick="togglePlay(this)" title="재생/일시정지">▶</button></div></td>
                 <td>
                     <button class="spk-toggle" onclick="toggleSpk('detail-ko-zipvoice_finetuned')">상세 ▿</button>
@@ -537,7 +537,7 @@
                         <div class="detail-section detail-pros-cons">
                             <div class="detail-pros"><strong>장점</strong><ul><li>한국어 특화 파인튜닝 — 자체 한국어 데이터로 추가 학습하여 원본 ZipVoice 대비 한국어 발음 정확도 개선</li><li>Flow Matching 빠른 추론 — 123M 경량 모델로 RTF가 낮고 스트리밍 가능</li></ul></div>
                             <div class="detail-cons"><strong>단점</strong><ul><li>자체 수집 데이터 한계 — 파인튜닝에 사용한 한국어 학습 데이터 규모·다양성이 상용 모델 대비 제한적으로, 특수 단어·억양에서 일반화 성능이 낮을 수 있음</li><li>k2 미설치 시 속도 저하 — 선택적 의존성인 k2(k2-fsa)가 없을 경우 내부 처리 경로가 slow path로 전환되어 RTF가 2~3배 높아짐. Windows에서 k2 설치가 비교적 까다로움</li></ul></div>
-                            
+                            <div class="detail-official"><strong>공식 발표 성능</strong><ul><li>KO RTF 0.003 — 이 벤치마크 전체 모델 중 한국어 추론 최고속 (REST API 캐시 적중 기준)</li><li>KO CER 0% — 한국어 발음 정확도 완벽 (Whisper large-v3 기준)</li><li>내부 평가 수치이며 독립 제3자 검증 미완료</li></ul></div>
                         </div>
                     </div>
                 </td>
@@ -587,7 +587,7 @@
                 
               </div></div>
                         <div class="detail-section detail-pros-cons">
-                            <div class="detail-pros"><strong>장점</strong><ul><li>한국어 특화 학습 — 서울대 연구팀이 한국어 데이터로 학습. 한국어 억양·리듬 표현력이 범용 모델 대비 우수</li></ul></div>
+                            <div class="detail-pros"><strong>장점</strong><ul><li>한국어 특화 학습 — 서울대 연구팀이 한국어 데이터로 학습. 한국어 억양·리듬 표현력이 범용 모델 대비 우수</li><li>초경량 고속 — VRAM 809MB, RTF 0.031(KO)로 모든 벤치마크 모델 중 한국어 추론 최고 속도. 소형 GPU에서도 실시간 서비스 가능</li></ul></div>
                             <div class="detail-cons"><strong>단점</strong><ul><li>한국어 텍스트 정확도 매우 낮음 — 실측 KO CER 84%. 한국어 입력 시 엉뚱한 음절 조합을 출력하는 경향이 있어 실제 서비스 투입 불가 수준</li><li>복잡한 설치 의존성 — espeak-ng·phonemizer·k2 등 다수 외부 라이브러리 필요. Windows 환경에서 특히 설치 난이도가 높으며, 버전 충돌 발생 빈번</li></ul></div>
                             <div class="detail-official"><strong>공식 발표 성능 <a href="https://arxiv.org/abs/2311.12454" target="_blank" style="font-size:10px;color:var(--accent);text-decoration:none;">📄 논문/출처 ↗</a></strong><ul><li>자연스러움 MOS에서 Ground Truth(실제 녹음) 초과 달성 주장 — 'first human-level quality zero-shot TTS' (arXiv 2311.12454)</li><li>화자 유사도(EER·SECS) 기준 VALL-E-X·YourTTS·HierSpeech 대비 우월</li><li>운율 MOS(pMOS): XTTS가 더 높은 pMOS 기록 (더 많은 학습 데이터 필요성 인정)</li></ul></div>
                         </div>
@@ -692,7 +692,7 @@
               </div></div>
                         <div class="detail-section detail-pros-cons">
                             <div class="detail-pros"><strong>장점</strong><ul><li>음색 변환(ToneColorConverter) 기반 클론 — MeloTTS로 고속 생성 후 참조 음성의 음색을 사후 변환. 빠른 속도와 음성 클론을 동시에 제공</li><li>한국어+영어 공식 지원, 음조·감정·리듬 세밀 조정 파라미터 제공</li></ul></div>
-                            <div class="detail-cons"><strong>단점</strong><ul><li>MeloTTS + ToneColorConverter 2단계 파이프라인 — 두 모델이 직렬로 실행되어 환경 설정이 복잡하고, ffmpeg·MeCab 등 외부 의존성이 많아 Windows 설치 시 오류를 겪는 경우가 많음</li></ul></div>
+                            <div class="detail-cons"><strong>단점</strong><ul><li>MeloTTS + ToneColorConverter 2단계 파이프라인 — 두 모델이 직렬로 실행되어 환경 설정이 복잡하고, ffmpeg·MeCab 등 외부 의존성이 많아 Windows 설치 시 오류를 겪는 경우가 많음</li><li>음색 유사도 한계 — ToneColorConverter는 음색 특성을 근사하는 방식이라 동일 참조 화자를 사용해도 고음·저음 극단에서 원본과 차이 발생 가능</li></ul></div>
                             <div class="detail-official"><strong>공식 발표 성능 <a href="https://arxiv.org/abs/2312.01479" target="_blank" style="font-size:10px;color:var(--accent);text-decoration:none;">📄 논문/출처 ↗</a></strong><ul><li>V1 논문: 음색·감정·악센트·리듬·포즈·억양 정밀 제어 성능 주장 (arXiv 2312.01479)</li><li>V2 공식 수치 미발표 — 엔지니어링 개선(네이티브 다국어 추가) 위주, 별도 벤치마크 테이블 없음</li></ul></div>
                         </div>
                     </div>
@@ -899,8 +899,8 @@
                 
               </div></div>
                         <div class="detail-section detail-pros-cons">
-                            <div class="detail-pros"><strong>장점</strong><ul><li>비자기회귀(NAR) 병렬 생성 — 토큰을 순차적으로 생성하지 않아 AR 모델 대비 빠른 추론. 발음 안정성 높고 zero-shot 클론 지원</li></ul></div>
-                            <div class="detail-cons"><strong>단점</strong><ul><li>한국어 억양 평탄화 경향 — 한국어 학습 데이터가 상대적으로 부족하여 의문문·감탄문에서 억양 곡선이 다소 단조롭게 출력될 수 있음</li></ul></div>
+                            <div class="detail-pros"><strong>장점</strong><ul><li>비자기회귀(NAR) 병렬 생성 — 토큰을 순차적으로 생성하지 않아 AR 모델 대비 빠른 추론. 발음 안정성 높고 zero-shot 클론 지원</li><li>ICLR 2025 채택 — SeedTTS 기준 화자 유사도 SIM-O 0.717(EN)/0.774(ZH)로 모든 베이스라인 중 최고 SMOS 기록</li></ul></div>
+                            <div class="detail-cons"><strong>단점</strong><ul><li>한국어 억양 평탄화 경향 — 한국어 학습 데이터가 상대적으로 부족하여 의문문·감탄문에서 억양 곡선이 다소 단조롭게 출력될 수 있음</li><li>높은 VRAM — 9GB+ 사용으로 소형 GPU 환경에서 OOM 위험. RTF ~1.1로 실시간보다 느린 편</li></ul></div>
                             <div class="detail-official"><strong>공식 발표 성능 <a href="https://arxiv.org/abs/2409.00750" target="_blank" style="font-size:10px;color:var(--accent);text-decoration:none;">📄 논문/출처 ↗</a></strong><ul><li>WER 2.623 (SeedTTS test-en) / CER 2.273 (SeedTTS test-zh) — ICLR 2025 채택</li><li>WER 2.634 (LibriSpeech test-clean)</li><li>화자 유사도 SIM-O: 0.717 (EN) / 0.774 (ZH) — 모든 베이스라인 대비 최고 SMOS</li><li>25 steps에서 SIM 안정화 (NaturalSpeech 3·VALL-E·VoiceBox·XTTS-v2·CosyVoice 대비 우월)</li></ul></div>
                         </div>
                     </div>
@@ -1140,7 +1140,7 @@
               </div></div>
                         <div class="detail-section detail-pros-cons">
                             <div class="detail-pros"><strong>장점</strong><ul><li>음색 변환(ToneColorConverter) 기반 클론 — MeloTTS로 고속 생성 후 참조 음성의 음색을 사후 변환. 빠른 속도와 음성 클론을 동시에 제공</li><li>한국어+영어 공식 지원, 음조·감정·리듬 세밀 조정 파라미터 제공</li></ul></div>
-                            <div class="detail-cons"><strong>단점</strong><ul><li>MeloTTS + ToneColorConverter 2단계 파이프라인 — 두 모델이 직렬로 실행되어 환경 설정이 복잡하고, ffmpeg·MeCab 등 외부 의존성이 많아 Windows 설치 시 오류를 겪는 경우가 많음</li></ul></div>
+                            <div class="detail-cons"><strong>단점</strong><ul><li>MeloTTS + ToneColorConverter 2단계 파이프라인 — 두 모델이 직렬로 실행되어 환경 설정이 복잡하고, ffmpeg·MeCab 등 외부 의존성이 많아 Windows 설치 시 오류를 겪는 경우가 많음</li><li>음색 유사도 한계 — ToneColorConverter는 음색 특성을 근사하는 방식이라 동일 참조 화자를 사용해도 고음·저음 극단에서 원본과 차이 발생 가능</li></ul></div>
                             <div class="detail-official"><strong>공식 발표 성능 <a href="https://arxiv.org/abs/2312.01479" target="_blank" style="font-size:10px;color:var(--accent);text-decoration:none;">📄 논문/출처 ↗</a></strong><ul><li>V1 논문: 음색·감정·악센트·리듬·포즈·억양 정밀 제어 성능 주장 (arXiv 2312.01479)</li><li>V2 공식 수치 미발표 — 엔지니어링 개선(네이티브 다국어 추가) 위주, 별도 벤치마크 테이블 없음</li></ul></div>
                         </div>
                     </div>
@@ -1191,7 +1191,7 @@
                 
               </div></div>
                         <div class="detail-section detail-pros-cons">
-                            <div class="detail-pros"><strong>장점</strong><ul><li>한국어 특화 학습 — 서울대 연구팀이 한국어 데이터로 학습. 한국어 억양·리듬 표현력이 범용 모델 대비 우수</li></ul></div>
+                            <div class="detail-pros"><strong>장점</strong><ul><li>한국어 특화 학습 — 서울대 연구팀이 한국어 데이터로 학습. 한국어 억양·리듬 표현력이 범용 모델 대비 우수</li><li>초경량 고속 — VRAM 809MB, RTF 0.031(KO)로 모든 벤치마크 모델 중 한국어 추론 최고 속도. 소형 GPU에서도 실시간 서비스 가능</li></ul></div>
                             <div class="detail-cons"><strong>단점</strong><ul><li>한국어 텍스트 정확도 매우 낮음 — 실측 KO CER 84%. 한국어 입력 시 엉뚱한 음절 조합을 출력하는 경향이 있어 실제 서비스 투입 불가 수준</li><li>복잡한 설치 의존성 — espeak-ng·phonemizer·k2 등 다수 외부 라이브러리 필요. Windows 환경에서 특히 설치 난이도가 높으며, 버전 충돌 발생 빈번</li></ul></div>
                             <div class="detail-official"><strong>공식 발표 성능 <a href="https://arxiv.org/abs/2311.12454" target="_blank" style="font-size:10px;color:var(--accent);text-decoration:none;">📄 논문/출처 ↗</a></strong><ul><li>자연스러움 MOS에서 Ground Truth(실제 녹음) 초과 달성 주장 — 'first human-level quality zero-shot TTS' (arXiv 2311.12454)</li><li>화자 유사도(EER·SECS) 기준 VALL-E-X·YourTTS·HierSpeech 대비 우월</li><li>운율 MOS(pMOS): XTTS가 더 높은 pMOS 기록 (더 많은 학습 데이터 필요성 인정)</li></ul></div>
                         </div>
@@ -1503,8 +1503,8 @@
                 
               </div></div>
                         <div class="detail-section detail-pros-cons">
-                            <div class="detail-pros"><strong>장점</strong><ul><li>비자기회귀(NAR) 병렬 생성 — 토큰을 순차적으로 생성하지 않아 AR 모델 대비 빠른 추론. 발음 안정성 높고 zero-shot 클론 지원</li></ul></div>
-                            <div class="detail-cons"><strong>단점</strong><ul><li>한국어 억양 평탄화 경향 — 한국어 학습 데이터가 상대적으로 부족하여 의문문·감탄문에서 억양 곡선이 다소 단조롭게 출력될 수 있음</li></ul></div>
+                            <div class="detail-pros"><strong>장점</strong><ul><li>비자기회귀(NAR) 병렬 생성 — 토큰을 순차적으로 생성하지 않아 AR 모델 대비 빠른 추론. 발음 안정성 높고 zero-shot 클론 지원</li><li>ICLR 2025 채택 — SeedTTS 기준 화자 유사도 SIM-O 0.717(EN)/0.774(ZH)로 모든 베이스라인 중 최고 SMOS 기록</li></ul></div>
+                            <div class="detail-cons"><strong>단점</strong><ul><li>한국어 억양 평탄화 경향 — 한국어 학습 데이터가 상대적으로 부족하여 의문문·감탄문에서 억양 곡선이 다소 단조롭게 출력될 수 있음</li><li>높은 VRAM — 9GB+ 사용으로 소형 GPU 환경에서 OOM 위험. RTF ~1.1로 실시간보다 느린 편</li></ul></div>
                             <div class="detail-official"><strong>공식 발표 성능 <a href="https://arxiv.org/abs/2409.00750" target="_blank" style="font-size:10px;color:var(--accent);text-decoration:none;">📄 논문/출처 ↗</a></strong><ul><li>WER 2.623 (SeedTTS test-en) / CER 2.273 (SeedTTS test-zh) — ICLR 2025 채택</li><li>WER 2.634 (LibriSpeech test-clean)</li><li>화자 유사도 SIM-O: 0.717 (EN) / 0.774 (ZH) — 모든 베이스라인 대비 최고 SMOS</li><li>25 steps에서 SIM 안정화 (NaturalSpeech 3·VALL-E·VoiceBox·XTTS-v2·CosyVoice 대비 우월)</li></ul></div>
                         </div>
                     </div>
@@ -2243,8 +2243,8 @@
                 
               </div></div>
                         <div class="detail-section detail-pros-cons">
-                            <div class="detail-pros"><strong>장점</strong><ul><li>비자기회귀(NAR) 병렬 생성 — 토큰을 순차적으로 생성하지 않아 AR 모델 대비 빠른 추론. 발음 안정성 높고 zero-shot 클론 지원</li></ul></div>
-                            <div class="detail-cons"><strong>단점</strong><ul><li>한국어 억양 평탄화 경향 — 한국어 학습 데이터가 상대적으로 부족하여 의문문·감탄문에서 억양 곡선이 다소 단조롭게 출력될 수 있음</li></ul></div>
+                            <div class="detail-pros"><strong>장점</strong><ul><li>비자기회귀(NAR) 병렬 생성 — 토큰을 순차적으로 생성하지 않아 AR 모델 대비 빠른 추론. 발음 안정성 높고 zero-shot 클론 지원</li><li>ICLR 2025 채택 — SeedTTS 기준 화자 유사도 SIM-O 0.717(EN)/0.774(ZH)로 모든 베이스라인 중 최고 SMOS 기록</li></ul></div>
+                            <div class="detail-cons"><strong>단점</strong><ul><li>한국어 억양 평탄화 경향 — 한국어 학습 데이터가 상대적으로 부족하여 의문문·감탄문에서 억양 곡선이 다소 단조롭게 출력될 수 있음</li><li>높은 VRAM — 9GB+ 사용으로 소형 GPU 환경에서 OOM 위험. RTF ~1.1로 실시간보다 느린 편</li></ul></div>
                             <div class="detail-official"><strong>공식 발표 성능 <a href="https://arxiv.org/abs/2409.00750" target="_blank" style="font-size:10px;color:var(--accent);text-decoration:none;">📄 논문/출처 ↗</a></strong><ul><li>WER 2.623 (SeedTTS test-en) / CER 2.273 (SeedTTS test-zh) — ICLR 2025 채택</li><li>WER 2.634 (LibriSpeech test-clean)</li><li>화자 유사도 SIM-O: 0.717 (EN) / 0.774 (ZH) — 모든 베이스라인 대비 최고 SMOS</li><li>25 steps에서 SIM 안정화 (NaturalSpeech 3·VALL-E·VoiceBox·XTTS-v2·CosyVoice 대비 우월)</li></ul></div>
                         </div>
                     </div>
@@ -2364,7 +2364,7 @@
 </div>
 
 <div class="footer">
-  다국어 TTS 벤치마크 보고서 &nbsp;|&nbsp; 2026-03-23 16:58 생성 &nbsp;|&nbsp;
+  다국어 TTS 벤치마크 보고서 &nbsp;|&nbsp; 2026-03-23 17:03 생성 &nbsp;|&nbsp;
   RTF = 추론시간/오디오길이 (낮을수록 빠름, &lt;1.0 = 실시간 가능)
 </div>
 

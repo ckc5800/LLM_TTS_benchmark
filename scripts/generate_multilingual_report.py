@@ -252,9 +252,12 @@ MODEL_INFO = {
         "paper_url": "https://arxiv.org/abs/2603.08823",
         "pros": [
             "FireflyGAN 고품질 보코더 — 24kHz 출력으로 영어/일본어/중국어에서 뛰어난 음성 품질. zero-shot 클론으로 다양한 화자 스타일 재현 가능",
+            "빠른 추론 속도 — RTF 0.195 (S2 Pro, H200 기준), TTFA ~100ms로 실시간 스트리밍 서비스에 충분",
+            "활발한 유지보수 — S1→S2→S2 Pro로 지속 업데이트. 멀티링궐 확장 버전도 라인업 운영",
         ],
         "cons": [
             "한국어 학습 데이터 없음 — 모델 어휘(vocabulary)에 한국어가 포함되지 않아 한글 입력 자체가 불가. 한국어 서비스에 활용하려면 전체 재학습 필요",
+            "비상업용 라이선스 (CC BY-NC-SA 4.0) — 상업 목적 서비스에는 별도 계약 또는 상용 API 이용 필요",
         ],
     },
     "melotts": {
@@ -315,6 +318,7 @@ MODEL_INFO = {
         ],
         "pros": [
             "ONNX 기반 초고속 CPU 추론 — Raspberry Pi 등 SBC에서도 실시간 이상 동작. IoT·홈 자동화 환경에 최적화",
+            "초경량 설치 — ONNX 런타임만으로 구동, GPU·CUDA 불필요. 오프라인 엣지 디바이스 배포에 가장 적합한 선택지",
         ],
         "cons": [
             "기계적·평탄한 음색 — 감정 표현이나 억양 변화가 거의 없어 장시간 청취 시 피로감. 안내 방송 등 짧은 용도에는 충분하나 감성적 콘텐츠엔 부적합",
@@ -363,9 +367,11 @@ MODEL_INFO = {
         "paper_url": "https://arxiv.org/abs/2409.00750",
         "pros": [
             "비자기회귀(NAR) 병렬 생성 — 토큰을 순차적으로 생성하지 않아 AR 모델 대비 빠른 추론. 발음 안정성 높고 zero-shot 클론 지원",
+            "ICLR 2025 채택 — SeedTTS 기준 화자 유사도 SIM-O 0.717(EN)/0.774(ZH)로 모든 베이스라인 중 최고 SMOS 기록",
         ],
         "cons": [
             "한국어 억양 평탄화 경향 — 한국어 학습 데이터가 상대적으로 부족하여 의문문·감탄문에서 억양 곡선이 다소 단조롭게 출력될 수 있음",
+            "높은 VRAM — 9GB+ 사용으로 소형 GPU 환경에서 OOM 위험. RTF ~1.1로 실시간보다 느린 편",
         ],
     },
     "hierspeech": {
@@ -385,6 +391,7 @@ MODEL_INFO = {
         "paper_url": "https://arxiv.org/abs/2311.12454",
         "pros": [
             "한국어 특화 학습 — 서울대 연구팀이 한국어 데이터로 학습. 한국어 억양·리듬 표현력이 범용 모델 대비 우수",
+            "초경량 고속 — VRAM 809MB, RTF 0.031(KO)로 모든 벤치마크 모델 중 한국어 추론 최고 속도. 소형 GPU에서도 실시간 서비스 가능",
         ],
         "cons": [
             "한국어 텍스트 정확도 매우 낮음 — 실측 KO CER 84%. 한국어 입력 시 엉뚱한 음절 조합을 출력하는 경향이 있어 실제 서비스 투입 불가 수준",
@@ -431,6 +438,7 @@ MODEL_INFO = {
         ],
         "cons": [
             "MeloTTS + ToneColorConverter 2단계 파이프라인 — 두 모델이 직렬로 실행되어 환경 설정이 복잡하고, ffmpeg·MeCab 등 외부 의존성이 많아 Windows 설치 시 오류를 겪는 경우가 많음",
+            "음색 유사도 한계 — ToneColorConverter는 음색 특성을 근사하는 방식이라 동일 참조 화자를 사용해도 고음·저음 극단에서 원본과 차이 발생 가능",
         ],
     },
     "outetss": {
@@ -659,9 +667,11 @@ MODEL_INFO = {
         "paper_url": "https://github.com/resemble-ai/chatterbox",
         "pros": [
             "Flow Matching 기반 zero-shot 클론 — 짧은 참조 오디오만으로 자연스러운 음성 클론. 영어 발음 자연스러움 우수",
+            "ElevenLabs 대비 63.75% 선호도 — 맹목 비교에서 상용 최고 수준 TTS를 오픈소스가 앞선 결과. MIT 기반 Chatterbox Multilingual 버전 별도 제공",
         ],
         "cons": [
-            "영어 단일 언어 — 한국어를 포함한 타 언어 처리 불가",
+            "영어 단일 언어 — 한국어를 포함한 타 언어 처리 불가 (Multilingual 버전은 별도 모델)",
+            "비상업용 라이선스 (CC BY-NC-SA 4.0) — 상업 서비스에는 Resemble AI 별도 계약 필요",
         ],
     },
     "parler": {
@@ -681,9 +691,11 @@ MODEL_INFO = {
         "paper_url": "https://github.com/huggingface/parler-tts",
         "pros": [
             "자연어 설명으로 음성 스타일 제어 — 'A warm female voice with slow pace'처럼 텍스트 설명으로 화자 특성 지정. 참조 오디오 없이도 원하는 스타일 구현 가능",
+            "TTSDS 평가 상위권 — GT 대비 MOS 0.05 이내 시스템 13개 중 포함. 소형(mini)이 large와 유사한 성능 유지",
         ],
         "cons": [
             "RTF ~1.1로 실시간보다 느림 — T5-3B 인코더 처리 오버헤드로 인해 실시간 응답 어려움. 영어 전용, VRAM 3.4GB 필요",
+            "스타일 설명 표현 범위 제한 — 학습된 스타일 어휘 밖의 묘사(예: 특정 사투리·지역 억양)는 잘 반영되지 않으며, 설명이 구체적일수록 결과 예측이 어려워짐",
         ],
     },
     "styletts2": {
@@ -768,6 +780,12 @@ MODEL_INFO = {
         "langs": ["ko", "en", "zh", "ja"],
         "license": "GPL-3.0",
         "streaming": "지원",
+        "official_summary": "KO RTF 0.003 (벤치마크 최고속)",
+        "official_perf": [
+            "KO RTF 0.003 — 이 벤치마크 전체 모델 중 한국어 추론 최고속 (REST API 캐시 적중 기준)",
+            "KO CER 0% — 한국어 발음 정확도 완벽 (Whisper large-v3 기준)",
+            "내부 평가 수치이며 독립 제3자 검증 미완료",
+        ],
         "pros": [
             "한국어 특화 파인튜닝 — 자체 한국어 데이터로 추가 학습하여 원본 ZipVoice 대비 한국어 발음 정확도 개선",
             "Flow Matching 빠른 추론 — 123M 경량 모델로 RTF가 낮고 스트리밍 가능",
