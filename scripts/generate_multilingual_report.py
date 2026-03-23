@@ -1518,10 +1518,10 @@ def build_overview_section(averages, cer_scores, sim_scores):
         lang = v["lang"]
         mk = v["model_key"]
         
-        excluded_names = {m["model"] for category in EXCLUDED_MODELS.values() for m in category}
+        pending_names = {m["model"] for m in EXCLUDED_MODELS.get("테스트 진행 예정 (후보)", [])}
         info = MODEL_INFO.get(mk, {})
         dname = info.get("display_name", mk)
-        if dname in excluded_names:
+        if dname in pending_names:
             continue
             
         if mk not in models_summary:
@@ -1790,13 +1790,14 @@ def generate_html(results_dir, output_path):
         spk_label = SPEAKER_DISPLAY.get(pivot_rk, pivot_rk)
 
         rows = []
-        excluded_names = {m["model"] for cat, models in EXCLUDED_MODELS.items() for m in models}
+        # 테스트 미완료 모델만 제외 (averages.json에 데이터 있는 모델은 모두 표시)
+        pending_names = {m["model"] for m in EXCLUDED_MODELS.get("테스트 진행 예정 (후보)", [])}
         lang_data_filtered = []
         for v in averages.values():
             if v["lang"] == lang and v.get("method", "A") == "A":
                 mk = v["model_key"]
                 dname = MODEL_INFO.get(mk, {}).get("display_name", mk)
-                if dname not in excluded_names:
+                if dname not in pending_names:
                     lang_data_filtered.append(v)
 
         m_list = sorted(lang_data_filtered, key=lambda x: x.get("avg_rtf", 999))
