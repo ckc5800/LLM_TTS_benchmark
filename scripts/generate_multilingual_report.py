@@ -195,7 +195,7 @@ MODEL_INFO = {
         "langs": ["ko","en","ja","zh"],
         "license": "MIT",
         "streaming": "지원",
-        "official_summary": "공식 수치 미발표 (커뮤니티 평가 상위권)",
+        "official_summary": None,
         "official_perf": [
             "공식 논문 없음 (GitHub Wiki 문서 기반)",
             "학습 데이터 7,000시간 (MOS 기반 음질 필터링 적용)",
@@ -220,7 +220,7 @@ MODEL_INFO = {
         "langs": ["ko","en","ja","zh"],
         "license": "CPAL-1.0 (Non-commercial)",
         "streaming": "지원",
-        "official_summary": "UTMOS 4.007 / 다국어 CER 우월 (공식 논문)",
+        "official_summary": "UTMOS 4.007",
         "official_perf": [
             "CMOS(자연스러움/음질/인간 유사도): HierSpeech++ 및 Mega-TTS 2 대비 우월",
             "SMOS(화자 유사도): HierSpeech++ 대비 약간 열세",
@@ -265,7 +265,7 @@ MODEL_INFO = {
         "langs": ["ko","en"],
         "license": "MIT",
         "streaming": "미지원",
-        "official_summary": "CPU 환경 실시간 25배 속도 달성 (공식 레포 주장)",
+        "official_summary": None,
         "official_perf": [
             "공식 MOS/WER/RTF 벤치마크 미발표 (GitHub 오픈소스 릴리즈만 존재)",
             "VITS 기반 고품질 다국어 TTS (영어, 스페인어, 프랑스어, 중국어, 일본어, 한국어 지원) 주장",
@@ -288,7 +288,7 @@ MODEL_INFO = {
         "langs": ["en","zh"],
         "license": "CC BY-NC-SA 4.0",
         "streaming": "미지원",
-        "official_summary": "대화형 자연스러움(Prosody) 등 오픈소스 최고 수준 (정량 수치 미제공)",
+        "official_summary": None,
         "official_perf": [
             "학습 데이터 40,000시간 기반 고품질 대화형 음성 생성",
             "공식 벤치마크(MOS, WER) 통계표 미발표 (보안 목적으로 오디오에 고주파 노이즈 추가됨)"
@@ -309,7 +309,7 @@ MODEL_INFO = {
         "langs": ["ko"],
         "license": "MIT / CC",
         "streaming": "미지원",
-        "official_summary": "저사양 환경(라즈베리파이 등) 실시간 이상 고속 구동 강점",
+        "official_summary": None,
         "official_perf": [
             "라즈베리파이 4 기준 실시간 대비 빠른 생성 가능 (공식 수치 미발표)"
         ],
@@ -376,7 +376,7 @@ MODEL_INFO = {
         "langs": ["ko","en"],
         "license": "MIT",
         "streaming": "미지원",
-        "official_summary": "제로샷 음성 변환(VC)에서 인간 수준(Human-level) nMOS 달성",
+        "official_summary": None,
         "official_perf": [
             "자연스러움 MOS에서 Ground Truth(실제 녹음) 초과 달성 주장 — 'first human-level quality zero-shot TTS' (arXiv 2311.12454)",
             "화자 유사도(EER·SECS) 기준 VALL-E-X·YourTTS·HierSpeech 대비 우월",
@@ -399,7 +399,7 @@ MODEL_INFO = {
         "langs": ["en"],
         "license": "MIT",
         "streaming": "지원",
-        "official_summary": "30M 초소형 어댑터 수준의 TTS (경량화가 가장 큰 특징)",
+        "official_summary": None,
         "official_perf": [
             "파라미터 크기 30M 내외로 오버헤드 최소화 (정량 벤치마크 미비)"
         ],
@@ -419,7 +419,7 @@ MODEL_INFO = {
         "langs": ["ko","en"],
         "license": "MIT",
         "streaming": "미지원",
-        "official_summary": "음색/감정/악센트 정밀 제어 등 유연성 강점 (V1 기준)",
+        "official_summary": None,
         "official_perf": [
             "V1 논문: 음색·감정·악센트·리듬·포즈·억양 정밀 제어 성능 주장 (arXiv 2312.01479)",
             "V2 공식 수치 미발표 — 엔지니어링 개선(네이티브 다국어 추가) 위주, 별도 벤치마크 테이블 없음",
@@ -441,7 +441,7 @@ MODEL_INFO = {
         "langs": ["ko","en","ja","zh"],
         "license": "Apache-2.0",
         "streaming": "미지원",
-        "official_summary": "LLaMA 기반 고품질 자연스러움 주장 (정량 수치 미제공)",
+        "official_summary": None,
         "official_perf": [
             "공식 MOS/WER/RTF 벤치마크 미발표 (GitHub 릴리즈 전용)",
             "30초 이하 생성 배치에서 최적 성능 권장",
@@ -487,7 +487,7 @@ MODEL_INFO = {
         "langs": ["en"],
         "license": "MIT",
         "streaming": "미지원",
-        "official_summary": "비언어적 오디오(웃음, 한숨) 포함 자연스러운 생성 (수치 미제공)",
+        "official_summary": None,
         "official_perf": [
             "공식 MOS/WER/RTF 벤치마크 미발표 (GitHub 오픈소스 릴리즈만 존재)",
             "다국어 음성 + 음악·효과음 생성, 비언어 표현(웃음·한숨 등) 지원이 주요 차별화 포인트",
@@ -557,7 +557,10 @@ MODEL_INFO = {
         "license": "Apache-2.0",
         "streaming": "지원",
         "official_summary": "EN WER ~3% / RTF < 0.5 (A100)",
-        "official_perf": "EN WER ~3% (MioTeam 내부 평가), JA 평가 미공개; RTF < 0.5 (A100 기준)",
+        "official_perf": [
+            "EN WER ~3% (MioTeam 내부 평가, 제3자 미검증), JA 공식 평가 미공개",
+            "RTF < 0.5 (A100 기준, 내부 측정)",
+        ],
         "pros": [
             "Qwen3-1.7B 기반 영어·일본어 고품질 — 최신 LLM 백본으로 복잡한 영어 문장과 일본어 경어·구어체를 자연스럽게 처리",
             "스트리밍 지원 — 청크 단위 실시간 출력 가능, 지연 시간 최소화",
@@ -577,7 +580,10 @@ MODEL_INFO = {
         "license": "Apache-2.0",
         "streaming": "지원",
         "official_summary": "EN WER ~2% / RTF < 0.6 (A100)",
-        "official_perf": "EN WER ~2% (MioTeam 내부 평가, 1.7B 대비 개선); RTF < 0.6 (A100 기준)",
+        "official_perf": [
+            "EN WER ~2% (MioTeam 내부 평가, 1.7B 대비 개선, 제3자 미검증)",
+            "RTF < 0.6 (A100 기준, 내부 측정)",
+        ],
         "pros": [
             "LFM2-2.6B 대형 모델 — 1.7B 대비 더 풍부한 표현력. 영어·일본어 중 높은 품질이 필요한 콘텐츠 제작에 최적",
             "스트리밍 지원 — 청크 단위 실시간 출력, 방송·게임 등 실시간 서비스 적합",
@@ -886,7 +892,7 @@ MODEL_INFO = {
         "langs": ["ko", "en", "zh"],
         "license": "Apache 2.0",
         "streaming": "미확인",
-        "official_summary": "KO 1위 주장 (자체 평가)",
+        "official_summary": None,
         "official_perf": [
             "한국어 자연스러움 1위 주장 — 약 10만 시간(100K hr) 다국어 학습 데이터 기반",
             "RTF 미공개 — 실시간 추론 성능 공식 수치 없음",
@@ -2186,11 +2192,8 @@ def generate_html(results_dir, output_path):
     .sortable:hover {{ color: var(--text); }}
     .sortable.sort-asc::after  {{ content: " ▲"; font-size: 10px; color: var(--accent); }}
     .sortable.sort-desc::after {{ content: " ▼"; font-size: 10px; color: var(--accent); }}
-    .rank {{ color: var(--text2); font-weight: 700; width: 32px; position: sticky; left: 0; z-index: 2; background: var(--bg2); }}
-    .model-name {{ font-weight: 600; color: var(--text); position: sticky; left: 58px; z-index: 2; background: var(--bg2); box-shadow: 2px 0 6px rgba(0,0,0,.08); }}
-    .rankings-table thead th:nth-child(1) {{ position: sticky; left: 0; z-index: 3; background: var(--bg3); }}
-    .rankings-table thead th:nth-child(2) {{ position: sticky; left: 58px; z-index: 3; background: var(--bg3); box-shadow: 2px 0 6px rgba(0,0,0,.08); }}
-    .rankings-table tr:hover td.rank, .rankings-table tr:hover td.model-name {{ background: rgba(79,70,229,.07); }}
+    .rank {{ color: var(--text2); font-weight: 700; width: 32px; }}
+    .model-name {{ font-weight: 600; color: var(--text); }}
     .size {{ color: var(--text2); }}
     .rtf-cell {{ }}
     .rtf-val {{ font-weight: 700; font-size: 14px; display: block; }}
