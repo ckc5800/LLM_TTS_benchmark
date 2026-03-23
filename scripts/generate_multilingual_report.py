@@ -76,10 +76,10 @@ EXCLUDED_MODELS = {
         {"model": "Stable Audio Open 1.0", "org": "Stability AI", "lic": "Stability AI Community", "reason": "음악·효과음 생성 전용 오디오 모델, 한국어 TTS 범위 밖"},
     ],
     "테스트 진행 예정 (후보)": [
-        {"model": "Chatterbox-ML",    "org": "Resemble AI", "lic": "MIT",              "reason": "TTS Arena V2 오픈소스 1위(ELO 1501), 23언어 — 벤치마크 실행 예정"},
-        {"model": "Supertonic-v2",    "org": "Supertone",   "lic": "MIT+OpenRAIL-M",   "reason": "RTF ~0.001 보고 (초고속 추론), KO/EN/ES/PT/FR — 설치·검증 진행 중"},
-        {"model": "Higgs Audio V2.5", "org": "Boson AI",    "lic": "Apache 2.0",       "reason": "KO 1위 주장(~10만 시간 학습) — RTF 미공개, 벤치마크 예정"},
-        {"model": "GPT-SoVITS V4",    "org": "RVC-Boss",    "lic": "MIT",              "reason": "V3 측정 완료, V4(48kHz 고품질) 추가 측정 예정"},
+        {"model": "Chatterbox-ML",    "org": "Resemble AI", "lic": "MIT",              "reason": "2025.09 출시 — 벤치마크 환경 설정 미완료"},
+        {"model": "Supertonic-v2",    "org": "Supertone",   "lic": "MIT+OpenRAIL-M",   "reason": "설치 및 API 검증 진행 중"},
+        {"model": "Higgs Audio V2.5", "org": "Boson AI",    "lic": "Apache 2.0",       "reason": "RTF 미공개로 사전 검증 불가 — 벤치마크 환경 구성 예정"},
+        {"model": "GPT-SoVITS V4",    "org": "RVC-Boss",    "lic": "MIT",              "reason": "V3 측정 완료, V4(48kHz) 별도 환경 구성 예정"},
     ]
 }
 
