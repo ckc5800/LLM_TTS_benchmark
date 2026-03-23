@@ -2755,7 +2755,7 @@ def generate_html(results_dir, output_path):
        const pivotKey = (lang === 'ko' ? 'ko_medium' : lang + '_medium');
        el.textContent = TEXT_CONTENT[pivotKey] || '';
     }});
-    filterArch('all');
+    filterArch('LLM');
   }});
 </script>
 </body>
