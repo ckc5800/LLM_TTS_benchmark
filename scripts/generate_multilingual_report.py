@@ -75,11 +75,11 @@ EXCLUDED_MODELS = {
     "TTS 범위 외 (음악·효과음 등)": [
         {"model": "Stable Audio Open 1.0", "org": "Stability AI", "lic": "Stability AI Community", "reason": "음악·효과음 생성 전용 오디오 모델, 한국어 TTS 범위 밖"},
     ],
-    "테스트 진행 예정 (후보)": [
-        {"model": "Chatterbox-ML",    "org": "Resemble AI", "lic": "MIT",              "reason": "2025.09 출시 — 벤치마크 환경 설정 미완료"},
-        {"model": "Supertonic-v2",    "org": "Supertone",   "lic": "MIT+OpenRAIL-M",   "reason": "설치 및 API 검증 진행 중"},
-        {"model": "Higgs Audio V2.5", "org": "Boson AI",    "lic": "Apache 2.0",       "reason": "RTF 미공개로 사전 검증 불가 — 벤치마크 환경 구성 예정"},
-        {"model": "GPT-SoVITS V4",    "org": "RVC-Boss",    "lic": "MIT",              "reason": "V3 측정 완료, V4(48kHz) 별도 환경 구성 예정"},
+    "중복 또는 구조적 비호환": [
+        {"model": "Chatterbox-ML",    "org": "Resemble AI", "lic": "MIT",              "reason": "기존 Chatterbox-TTS(동일 아키텍처) 결과 중복 — 멀티링구얼 버전은 언어 확장판이며 한국어 품질이 V1 대비 퇴보했다는 사용자 보고 존재"},
+        {"model": "Supertonic-v2",    "org": "Supertone",   "lic": "MIT+OpenRAIL-M",   "reason": "레퍼런스 오디오 기반 음성 복제 미지원 (preset 화자 고정) — 동일 레퍼런스로 공정 비교하는 벤치마크 프레임워크와 구조적으로 비호환"},
+        {"model": "Higgs Audio V2.5", "org": "Boson AI",    "lic": "Custom",           "reason": "V2.5(1B) 가중치 미공개(API 전용) — V2(3B)는 VRAM 24GB 권장으로 RTX 5080 16GB 단독 운용 불가"},
+        {"model": "GPT-SoVITS V4",    "org": "RVC-Boss",    "lic": "MIT",              "reason": "V3와 모델 구조·파라미터·언어 지원 동일 — 48kHz 출력·아티팩트 제거 외 RTF 등 성능 지표 사실상 동일하여 추가 측정 인사이트 제한적"},
     ]
 }
 
