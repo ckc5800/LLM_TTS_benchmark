@@ -751,7 +751,7 @@ MODEL_INFO = {
         "arch_detail": "Flow Matching, ZipVoice 123M, Vocos 24kHz",
         "langs": ["ko", "en", "zh", "ja"],
         "license": "GPL-3.0",
-        "streaming": "미확인",
+        "streaming": "지원",
         "pros": [
             "한국어 특화 파인튜닝 — 자체 한국어 데이터로 추가 학습하여 원본 ZipVoice 대비 한국어 발음 정확도 개선",
             "Flow Matching 빠른 추론 — 123M 경량 모델로 RTF가 낮고 스트리밍 가능",
