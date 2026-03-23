@@ -57,3 +57,7 @@
 - Chatterbox Multilingual: https://github.com/resemble-ai/chatterbox
 - Higgs Audio V2.5: https://github.com/boson-ai/higgs-audio
 - GPT-SoVITS V4: https://github.com/RVC-Boss/GPT-SoVITS
+
+### 참고: 스트리밍 특화 모델 (KO 미확인)
+- VoXtream (herimor/voxtream): MIT/Apache 혼합(코드), 가중치 CC BY 4.0 출처 표기; 스트리밍 지연 ~102 ms, RTF~0.17(A100, compile); 입력-출력 풀 스트리밍/출력 스트리밍 지원; 학습 9k h, 언어=EN 중심, KO 공식 지원 미확인 → 본선 후보 아님(참고용).
+

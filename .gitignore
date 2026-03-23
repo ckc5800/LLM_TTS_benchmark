@@ -1,6 +1,9 @@
 # 모델 가중치 (수십~수백GB)
 models/
 
+# 엔진 소스 (서드파티 클론, 하위 .git 존재)
+engines/
+
 # Python 가상환경
 .venv/
 */.venv/

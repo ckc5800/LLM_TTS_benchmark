@@ -92,6 +92,7 @@ MODEL_INFO = {
         "arch_detail": "Qwen2-0.5B AR + Flow Matching + BigVGAN",
         "langs": ["ko","en","ja","zh"],
         "license": "Apache-2.0",
+        "streaming": "지원",
         "official_summary": "ZH CER 1.45% / UTMOS 4.23",
         "official_perf": [
             "UTMOS 4.23 (Spark-TTS 논문 비교 기준)",
@@ -118,6 +119,7 @@ MODEL_INFO = {
         "arch_detail": "CosyVoice2 개선판 (EOS 기반 스트리밍)",
         "langs": ["ko","en","ja","zh"],
         "license": "Apache-2.0",
+        "streaming": "지원",
         "official_summary": "ZH→KO CER 14.4%",
         "official_perf": [
             "CosyVoice2 기반 스트리밍 개선판 — 청크 단위 출력으로 TTFA 단축",
@@ -140,6 +142,7 @@ MODEL_INFO = {
         "arch_detail": "Qwen3-0.6B LLM + 음성 코덱 디코더",
         "langs": ["ko","en","ja","zh"],
         "license": "Apache-2.0",
+        "streaming": "부분 지원",
         "official_summary": "EN WER 2.8% / ZH WER 1.9% / MOS 4.53",
         "official_perf": [
             "MOS 4.53 (업계 평균 4.1 대비 우월, 48kHz)",
@@ -166,6 +169,7 @@ MODEL_INFO = {
         "arch_detail": "Qwen3-1.7B LLM + 음성 코덱 디코더",
         "langs": ["ko","en","ja","zh"],
         "license": "Apache-2.0",
+        "streaming": "부분 지원",
         "official_summary": "EN WER 2.8% / ZH WER 1.9% / MOS 4.53",
         "official_perf": [
             "MOS 4.53 (0.6B와 동일 평가 기준, 대형 모델로 감정·운율 표현 향상)",
@@ -190,6 +194,7 @@ MODEL_INFO = {
         "arch_detail": "GPT-2 AR + SoVITS + BigVGAN v2",
         "langs": ["ko","en","ja","zh"],
         "license": "MIT",
+        "streaming": "부분 지원",
         "official_summary": "EN WER 0.99% / ZH WER 0.54% (Fish Audio 논문 참조)",
         "official_perf": [
             "공식 논문 없음 (GitHub Wiki 문서 기반)",
@@ -214,6 +219,7 @@ MODEL_INFO = {
         "arch_detail": "GPT-2 + HiFi-GAN 보코더, 17개 언어",
         "langs": ["ko","en","ja","zh"],
         "license": "CPAL-1.0 (Non-commercial)",
+        "streaming": "지원",
         "official_summary": "UTMOS 4.007 / 다국어 CER 우월 (공식 논문)",
         "official_perf": [
             "CMOS(자연스러움/음질/인간 유사도): HierSpeech++ 및 Mega-TTS 2 대비 우월",
@@ -237,6 +243,7 @@ MODEL_INFO = {
         "arch_detail": "FireflyGAN 보코더 + VQGAN 음성 토크나이저",
         "langs": ["en","ja","zh"],
         "license": "CC BY-NC-SA 4.0",
+        "streaming": "지원",
         "official_summary": "WER 0.008 / RTF 0.195",
         "official_perf": [
             "후속 S2 Pro 시스템: RTF=0.195, TTFA≈100ms, 처리량 3,000+ acoustic tokens/s (H200 GPU)",
@@ -257,6 +264,7 @@ MODEL_INFO = {
         "arch_detail": "VITS 기반 비자기회귀, MeCab 형태소 분석",
         "langs": ["ko","en"],
         "license": "MIT",
+        "streaming": "미지원",
         "official_summary": "CPU 환경 실시간 25배 속도 달성 (공식 레포 주장)",
         "official_perf": [
             "공식 MOS/WER/RTF 벤치마크 미발표 (GitHub 오픈소스 릴리즈만 존재)",
@@ -279,6 +287,7 @@ MODEL_INFO = {
         "arch_detail": "Conversational TTS with prosody control",
         "langs": ["en","zh"],
         "license": "CC BY-NC-SA 4.0",
+        "streaming": "미지원",
         "official_summary": "대화형 자연스러움(Prosody) 등 오픈소스 최고 수준 (정량 수치 미제공)",
         "official_perf": [
             "학습 데이터 40,000시간 기반 고품질 대화형 음성 생성",
@@ -299,6 +308,7 @@ MODEL_INFO = {
         "arch_detail": "VITS-based ONNX model",
         "langs": ["ko"],
         "license": "MIT / CC",
+        "streaming": "미지원",
         "official_summary": "저사양 환경(라즈베리파이 등) 실시간 이상 고속 구동 강점",
         "official_perf": [
             "라즈베리파이 4 기준 실시간 대비 빠른 생성 가능 (공식 수치 미발표)"
@@ -318,6 +328,7 @@ MODEL_INFO = {
         "arch_detail": "Code-based AR model, 11 languages",
         "langs": ["ko","en","ja","zh"],
         "license": "CC BY-NC-SA 4.0",
+        "streaming": "미지원",
         "official_summary": "WER 2.8% / MOS 4.26",
         "official_perf": [
             "원본 VoiceCraft 830M: MOS 4.26, WER 2.8% (ACL 2024) — 화자 유사도 비교 대상 중 최고",
@@ -341,6 +352,7 @@ MODEL_INFO = {
         "arch_detail": "Non-autoregressive with Masked modeling",
         "langs": ["ko","en","zh"],
         "license": "Apache-2.0",
+        "streaming": "미지원",
         "official_summary": "EN WER 2.62 / SIM 0.717",
         "official_perf": [
             "WER 2.623 (SeedTTS test-en) / CER 2.273 (SeedTTS test-zh) — ICLR 2025 채택",
@@ -363,6 +375,7 @@ MODEL_INFO = {
         "arch_detail": "Hierarchical TTS system",
         "langs": ["ko","en"],
         "license": "MIT",
+        "streaming": "미지원",
         "official_summary": "제로샷 음성 변환(VC)에서 인간 수준(Human-level) nMOS 달성",
         "official_perf": [
             "자연스러움 MOS에서 Ground Truth(실제 녹음) 초과 달성 주장 — 'first human-level quality zero-shot TTS' (arXiv 2311.12454)",
@@ -385,6 +398,7 @@ MODEL_INFO = {
         "arch_detail": "30M Tiny LLM-addon TTS",
         "langs": ["en"],
         "license": "MIT",
+        "streaming": "지원",
         "official_summary": "30M 초소형 어댑터 수준의 TTS (경량화가 가장 큰 특징)",
         "official_perf": [
             "파라미터 크기 30M 내외로 오버헤드 최소화 (정량 벤치마크 미비)"
@@ -404,6 +418,7 @@ MODEL_INFO = {
         "arch_detail": "MeloTTS + ToneColorConverter 음색 변환",
         "langs": ["ko","en"],
         "license": "MIT",
+        "streaming": "미지원",
         "official_summary": "음색/감정/악센트 정밀 제어 등 유연성 강점 (V1 기준)",
         "official_perf": [
             "V1 논문: 음색·감정·악센트·리듬·포즈·억양 정밀 제어 성능 주장 (arXiv 2312.01479)",
@@ -425,6 +440,7 @@ MODEL_INFO = {
         "arch_detail": "LLaMA 기반 LLM 음성 생성, 9개 언어",
         "langs": ["ko","en","ja","zh"],
         "license": "Apache-2.0",
+        "streaming": "미지원",
         "official_summary": "LLaMA 기반 고품질 자연스러움 주장 (정량 수치 미제공)",
         "official_perf": [
             "공식 MOS/WER/RTF 벤치마크 미발표 (GitHub 릴리즈 전용)",
@@ -446,6 +462,7 @@ MODEL_INFO = {
         "arch_detail": "경량 VITS 변형 모델, 82M 파라미터",
         "langs": ["en","ja","zh"],
         "license": "Apache-2.0",
+        "streaming": "미지원",
         "official_summary": "Arena #1 (TTS Spaces)",
         "official_perf": [
             "TTS Spaces Arena #1 랭킹 달성 (v0.19 기준, XTTS v2·MetaVoice·Fish Speech 등 상위)",
@@ -469,6 +486,7 @@ MODEL_INFO = {
         "arch_detail": "GPT 계열 오디오 언어 모델",
         "langs": ["en"],
         "license": "MIT",
+        "streaming": "미지원",
         "official_summary": "비언어적 오디오(웃음, 한숨) 포함 자연스러운 생성 (수치 미제공)",
         "official_perf": [
             "공식 MOS/WER/RTF 벤치마크 미발표 (GitHub 오픈소스 릴리즈만 존재)",
@@ -490,6 +508,7 @@ MODEL_INFO = {
         "arch_detail": "Qwen2.5-0.5B + BiCodec 음성 코덱",
         "langs": ["en","zh"],
         "license": "Apache-2.0",
+        "streaming": "미확인",
         "official_summary": "WER 1.98 / UTMOS 4.35",
         "official_perf": [
             "UTMOS 4.35 (GT=4.08 초과, CosyVoice2=4.23 대비 우월)",
@@ -513,6 +532,7 @@ MODEL_INFO = {
         "arch_detail": "Qwen GPT + BigVGAN, 개선된 다국어 처리",
         "langs": ["en","ja","zh"],
         "license": "CC BY-NC-SA 4.0",
+        "streaming": "미확인",
         "official_summary": "T2S RTF 0.119",
         "official_perf": [
             "IndexTTS 2.5: T2S 모듈 RTF 0.232→0.119 (2.28× 속도 향상, 품질 저하 무감지)",
@@ -535,6 +555,7 @@ MODEL_INFO = {
         "arch_detail": "Qwen3-1.7B + MioCodec",
         "langs": ["en","ja"],
         "license": "Apache-2.0",
+        "streaming": "미확인",
         "pros": [
             "Qwen3-1.7B 기반 영어·일본어 고품질 — 최신 LLM 백본으로 복잡한 영어 문장과 일본어 경어·구어체를 자연스럽게 처리",
         ],
@@ -549,6 +570,7 @@ MODEL_INFO = {
         "arch_detail": "LFM2-2.6B + MioCodec",
         "langs": ["en","ja"],
         "license": "Apache-2.0",
+        "streaming": "미확인",
         "pros": [
             "LFM2-2.6B 대형 모델 — 1.7B 대비 더 풍부한 표현력. 영어·일본어 중 높은 품질이 필요한 콘텐츠 제작에 최적",
         ],
@@ -564,6 +586,7 @@ MODEL_INFO = {
         "arch_detail": "GLM 기반 + RL 강화학습 품질 최적화",
         "langs": ["en","zh"],
         "license": "Apache-2.0",
+        "streaming": "부분 지원",
         "official_summary": "ZH CER 0.89%",
         "official_perf": [
             "중국어 CER 0.89% (RL 최적화 후) — 오픈소스 모델 중 최고, 상용 MiniMax(0.83%)와 경쟁적",
@@ -585,6 +608,7 @@ MODEL_INFO = {
         "arch_detail": "Flow Matching + DiT (Diffusion Transformer)",
         "langs": ["en","zh"],
         "license": "CC BY-NC-SA 4.0",
+        "streaming": "미지원",
         "official_summary": "WER 2.42 / RTF 0.15",
         "official_perf": [
             "WER 2.42 (LibriSpeech-PC test-clean, 32 NFE + Sway Sampling)",
@@ -609,6 +633,7 @@ MODEL_INFO = {
         "arch_detail": "Conditional Flow Matching 기반",
         "langs": ["en"],
         "license": "CC BY-NC-SA 4.0",
+        "streaming": "미지원",
         "official_summary": "선호도 63.75% vs ElevenLabs",
         "official_perf": [
             "맹목(blind) 비교에서 ElevenLabs 대비 63.75% 평가자가 Chatterbox 선호 (Podonos 플랫폼, 7-20초 클립, zero-shot)",
@@ -630,6 +655,7 @@ MODEL_INFO = {
         "arch_detail": "T5-3B 인코더 + 오디오 디코더",
         "langs": ["en"],
         "license": "Apache-2.0",
+        "streaming": "미지원",
         "official_summary": None,
         "official_perf": [
             "TTSDS 평가에서 GT 대비 MOS 0.05 이내 시스템 13개 중 하나로 포함",
@@ -651,6 +677,7 @@ MODEL_INFO = {
         "arch_detail": "Style Diffusion + SLM 스타일 전이 (비자기회귀)",
         "langs": ["en"],
         "license": "MIT",
+        "streaming": "미지원",
         "official_summary": "MOS 4.38 (OOD)",
         "official_perf": [
             "MOS 3.83 (LJSpeech in-distribution) / 4.38 (OOD 텍스트, Ground Truth 초과) — NeurIPS 2023",
@@ -677,6 +704,7 @@ MODEL_INFO = {
         "arch_detail": "1.6B AR 모델, [S1]/[S2] 대화 포맷",
         "langs": ["en"],
         "license": "Apache-2.0",
+        "streaming": "미지원",
         "official_summary": None,
         "official_perf": [
             "공식 MOS/WER 벤치마크 미발표 (GitHub 오픈소스 릴리즈, 2025년 4월)",
@@ -700,6 +728,7 @@ MODEL_INFO = {
         "arch_detail": "AR Codec LM, Shallow/Deep Clone 2단계",
         "langs": ["en"],
         "license": "CC BY-NC-SA 4.0",
+        "streaming": "미지원",
         "official_summary": None,
         "official_perf": [
             "공식 MOS/WER 벤치마크 미발표 — GitHub README에 \"표준 데이터셋 벤치마크 성능 수치는 개선 작업 중\"으로 명시",
@@ -722,6 +751,7 @@ MODEL_INFO = {
         "arch_detail": "Flow Matching, ZipVoice 123M, Vocos 24kHz",
         "langs": ["ko", "en", "zh", "ja"],
         "license": "GPL-3.0",
+        "streaming": "미확인",
         "pros": [
             "한국어 특화 파인튜닝 — 자체 한국어 데이터로 추가 학습하여 원본 ZipVoice 대비 한국어 발음 정확도 개선",
             "Flow Matching 빠른 추론 — 123M 경량 모델로 RTF가 낮고 스트리밍 가능",
@@ -738,6 +768,7 @@ MODEL_INFO = {
         "arch_detail": "Original ZipVoice (Flow Matching)",
         "langs": ["en", "zh"],
         "license": "GPL-3.0",
+        "streaming": "미지원",
         "pros": [
             "오리지널 ZipVoice 아키텍처 — 논문에서 검증된 Flow Matching 기반 구조. 영어·중국어에서 안정적 품질",
         ],
@@ -752,6 +783,7 @@ MODEL_INFO = {
         "arch_detail": "370M AR LLM 기반 다국어 TTS",
         "langs": ["ko", "en", "zh"],
         "license": "Apache-2.0",
+        "streaming": "미확인",
         "official_summary": "WER <5% / MOS 4.3",
         "official_perf": [
             "MOS 4.3/5 (공식 자체 주장)",
@@ -774,6 +806,7 @@ MODEL_INFO = {
         "arch_detail": "Supertonic v2, 다국어 zero-shot TTS",
         "langs": ["ko", "en", "es", "pt", "fr"],
         "license": "MIT + OpenRAIL-M",
+        "streaming": "미확인",
         "pros": [
             "RTF ~0.001 보고 — 현존 가장 빠른 수준의 추론 속도, 대규모 배치·실시간 모두 적합",
             "MIT+OpenRAIL-M 상업 가능 라이선스",
@@ -791,6 +824,7 @@ MODEL_INFO = {
         "arch_detail": "Conditional Flow Matching, 23언어 Multilingual",
         "langs": ["ko", "en", "ja", "zh"],
         "license": "MIT",
+        "streaming": "미지원",
         "official_summary": "ELO 1501 (TTS Arena V2 #1)",
         "official_perf": [
             "TTS Arena V2 오픈소스 1위 — ELO 1501 (2025-09 기준)",
@@ -815,6 +849,7 @@ MODEL_INFO = {
         "arch_detail": "Dual-AR (Qwen3-4B slow + 400M fast), DAC codec, 44.1kHz",
         "langs": ["ko", "en", "ja", "zh"],
         "license": "Research License (Apache 2.0 병기 혼재 — 상업 시 별도 계약)",
+        "streaming": "지원",
         "official_summary": "EN WER 0.99% / ZH WER 0.54%",
         "official_perf": [
             "EN WER 0.99% / ZH WER 0.54% (SeedTTS test 기준, 공식 레포)",
@@ -840,6 +875,7 @@ MODEL_INFO = {
         "arch_detail": "LLM 기반 다국어 TTS, ~10만 시간(100K hr) 학습 데이터",
         "langs": ["ko", "en", "zh"],
         "license": "Apache 2.0",
+        "streaming": "미확인",
         "official_summary": "KO 1위 주장 (자체 평가)",
         "official_perf": [
             "한국어 자연스러움 1위 주장 — 약 10만 시간(100K hr) 다국어 학습 데이터 기반",
@@ -863,6 +899,7 @@ MODEL_INFO = {
         "arch_detail": "GPT + SoVITS, 48kHz 고품질, V3 개선판",
         "langs": ["ko", "en", "ja", "zh"],
         "license": "MIT",
+        "streaming": "부분 지원",
         "pros": [
             "V3 대비 48kHz 고해상도 오디오 — 음질 대폭 향상",
             "MIT 상업 라이선스",
@@ -1115,6 +1152,20 @@ def build_ref_audio_map(output_path):
             ref_key = f.replace(".wav", "")
             result[ref_key] = os.path.relpath(abs_wav, out_dir).replace("\\", "/")
     return result
+
+
+def _streaming_badge(val) -> str:
+    val = val or "미확인"
+    cfg = {
+        "지원":    ("✅ 지원",    "#dcfce7", "#16a34a"),
+        "부분 지원":("⚡ 부분",   "#fef9c3", "#92400e"),
+        "미지원":  ("✗ 미지원",  "#fee2e2", "#b91c1c"),
+        "미확인":  ("? 미확인",  "#f1f5f9", "#64748b"),
+    }
+    label, bg, fg = cfg.get(val, ("? 미확인", "#f1f5f9", "#64748b"))
+    return (f'<span style="background:{bg};color:{fg};padding:2px 6px;'
+            f'border-radius:10px;font-size:10px;font-weight:600;white-space:nowrap">'
+            f'{label}</span>')
 
 
 def rtf_color(rtf):
@@ -1499,7 +1550,7 @@ def build_overview_section(averages, cer_scores, sim_scores):
 
     # 구분 행
     sep_row = (f'<tr style="background:rgba(99,102,241,.08)">'
-               f'<td colspan="10" style="text-align:center;padding:6px 8px;font-size:11px;'
+               f'<td colspan="11" style="text-align:center;padding:6px 8px;font-size:11px;'
                f'color:#7c85a2;font-weight:600;letter-spacing:.5px;">'
                f'── 아래는 벤치마크 제외 모델 ({len(excl_rows)}개) ──'
                f'</td></tr>')
@@ -1675,6 +1726,7 @@ def generate_html(results_dir, output_path):
                 <div><span class="dm-label">최초 공개</span><span class="dm-val">{rel.get("first_release","—")}</span></div>
                 <div><span class="dm-label">최신 버전</span><span class="dm-val">{rel.get("latest_ver","—")}</span></div>
                 <div><span class="dm-label">업데이트</span><span class="dm-val">{rel.get("update_freq","—")}</span></div>
+                <div><span class="dm-label">스트리밍</span><span class="dm-val">{_streaming_badge(info.get("streaming","미확인"))}</span></div>
                 {"".join(f'<div><span class="dm-label">최적화</span><span class="dm-val" style="color:#fbbf24">⚡ {o}</span></div>' for o in opt_items)}
                 {f'<div><span class="dm-label">적용됨</span><span class="dm-val" style="color:#34d399">✅ {opt_note}</span></div>' if opt_note else ""}
               </div>"""
@@ -1719,6 +1771,7 @@ def generate_html(results_dir, output_path):
                     <div class="rtf-bar" style="width:{int(min(100.0, 100.0/max(0.1,rtf)))}%; background:{rtf_color(rtf)}"></div>
                 </td>
                 <td style="color:#94a3b8; font-size:12px; text-align:center;">{vram_s}</td>
+                <td style="text-align:center; font-size:11px;">{_streaming_badge(info.get("streaming","미확인"))}</td>
                 <td class="ac-cer" data-val="{cer}">
                     <span style="color:{cer_color(cer)}; font-weight:700;">{cer_s}</span>
                 </td>
@@ -1729,7 +1782,7 @@ def generate_html(results_dir, output_path):
                 </td>
             </tr>
             <tr id="detail-{lang}-{mk}" class="spk-detail-row">
-                <td colspan="10" class="spk-detail-cell">
+                <td colspan="11" class="spk-detail-cell">
                     <div class="detail-full">
                         <div class="detail-section">{perf_table_html}</div>
                         <div class="detail-section">{meta_html}</div>
@@ -1772,6 +1825,7 @@ def generate_html(results_dir, output_path):
                 <th class="sortable" onclick="sortTable(this)">언어 지원</th>
                 <th class="sortable" onclick="sortTable(this)">RTF (속도)</th>
                 <th class="sortable" onclick="sortTable(this)">VRAM</th>
+                <th>스트리밍</th>
                 <th class="sortable" onclick="sortTable(this)">{"WER" if lang == "en" else "CER"} (정확도)</th>
                 <th>공식 성능</th>
                 <th>🎧 오디오</th>
