@@ -556,7 +556,7 @@ MODEL_INFO = {
         "langs": ["en","ja"],
         "license": "Apache-2.0",
         "streaming": "지원",
-        "official_summary": "Qwen3-1.7B LLM 백본에 MioCodec 음성 코덱을 결합한 경량 TTS. 영어·일본어에서 자연스러운 억양과 감정 표현을 지원하며 스트리밍 출력 가능.",
+        "official_summary": "EN WER ~3% / RTF < 0.5 (A100)",
         "official_perf": "EN WER ~3% (MioTeam 내부 평가), JA 평가 미공개; RTF < 0.5 (A100 기준)",
         "pros": [
             "Qwen3-1.7B 기반 영어·일본어 고품질 — 최신 LLM 백본으로 복잡한 영어 문장과 일본어 경어·구어체를 자연스럽게 처리",
@@ -576,7 +576,7 @@ MODEL_INFO = {
         "langs": ["en","ja"],
         "license": "Apache-2.0",
         "streaming": "지원",
-        "official_summary": "LFM2-2.6B 선형 변환 모델(Liquid Foundation Model)에 MioCodec을 적용한 중형 TTS. 1.7B 대비 표현력이 높고 감정·스타일 제어 범위가 넓음.",
+        "official_summary": "EN WER ~2% / RTF < 0.6 (A100)",
         "official_perf": "EN WER ~2% (MioTeam 내부 평가, 1.7B 대비 개선); RTF < 0.6 (A100 기준)",
         "pros": [
             "LFM2-2.6B 대형 모델 — 1.7B 대비 더 풍부한 표현력. 영어·일본어 중 높은 품질이 필요한 콘텐츠 제작에 최적",
@@ -2425,7 +2425,7 @@ def generate_html(results_dir, output_path):
     .detail-pros li, .detail-cons li {{ font-size: 12px; color: var(--text3); line-height: 1.7;
                                         white-space: normal; word-break: break-word; overflow-wrap: anywhere; }}
     /* 공식 성능 컬럼 */
-    .official-cell {{ font-size: 11px; min-width: 140px; max-width: 280px; white-space: normal; word-break: break-word; overflow-wrap: anywhere; }}
+    .official-cell {{ font-size: 11px; min-width: 120px; max-width: 200px; white-space: normal; word-break: break-word; overflow-wrap: anywhere; }}
     .official-val {{ color: var(--accent); line-height: 1.5; }}
     .official-none {{ color: var(--text2); font-style: italic; }}
     /* 공식 성능 (detail) */

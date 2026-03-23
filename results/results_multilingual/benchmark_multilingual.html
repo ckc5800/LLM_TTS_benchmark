@@ -286,7 +286,7 @@
     .detail-pros li, .detail-cons li { font-size: 12px; color: var(--text3); line-height: 1.7;
                                         white-space: normal; word-break: break-word; overflow-wrap: anywhere; }
     /* 공식 성능 컬럼 */
-    .official-cell { font-size: 11px; min-width: 140px; max-width: 280px; white-space: normal; word-break: break-word; overflow-wrap: anywhere; }
+    .official-cell { font-size: 11px; min-width: 120px; max-width: 200px; white-space: normal; word-break: break-word; overflow-wrap: anywhere; }
     .official-val { color: var(--accent); line-height: 1.5; }
     .official-none { color: var(--text2); font-style: italic; }
     /* 공식 성능 (detail) */
@@ -321,7 +321,7 @@
 
 <div class="header">
   <h1>🎙️ 다국어 TTS 벤치마크 보고서</h1>
-  <div class="header-meta">생성: 2026-03-23 16:49 &nbsp;|&nbsp; GPU: RTX 5080 &nbsp;|&nbsp; LLM-based TTS 집중 분석</div>
+  <div class="header-meta">생성: 2026-03-23 16:53 &nbsp;|&nbsp; GPU: RTX 5080 &nbsp;|&nbsp; LLM-based TTS 집중 분석</div>
   <div class="stat-chips">
     <div class="stat-chip">모델 <span>27</span>개</div>
     <div class="stat-chip">언어 <span>4</span>개</div>
@@ -1271,7 +1271,7 @@
                 <td class="ac-cer" data-val="0.005714">
                     <span style="color:#22c55e; font-weight:700;">0.57%</span>
                 </td>
-                <td class="official-cell"><span class="official-val">LFM2-2.6B 선형 변환 모델(Liquid Foundation Model)에 MioCodec을 적용한 중형 TTS. 1.7B 대비 표현력이 높고 감정·스타일 제어 범위가 넓음.</span></td>
+                <td class="official-cell"><span class="official-val">EN WER ~2% / RTF < 0.6 (A100)</span></td>
                 <td class="audio-cell"><div class="mini-player"><audio preload="none" src="wav/en/A/mio_tts_2.6b__en_medium_0.wav"></audio><button class="play-btn" onclick="togglePlay(this)" title="재생/일시정지">▶</button></div></td>
                 <td>
                     <button class="spk-toggle" onclick="toggleSpk('detail-en-mio_tts_2.6b')">상세 ▿</button>
@@ -1427,7 +1427,7 @@
                 <td class="ac-cer" data-val="0.014834">
                     <span style="color:#22c55e; font-weight:700;">1.48%</span>
                 </td>
-                <td class="official-cell"><span class="official-val">Qwen3-1.7B LLM 백본에 MioCodec 음성 코덱을 결합한 경량 TTS. 영어·일본어에서 자연스러운 억양과 감정 표현을 지원하며 스트리밍 출력 가능.</span></td>
+                <td class="official-cell"><span class="official-val">EN WER ~3% / RTF < 0.5 (A100)</span></td>
                 <td class="audio-cell"><div class="mini-player"><audio preload="none" src="wav/en/A/mio_tts_1.7b__en_medium_0.wav"></audio><button class="play-btn" onclick="togglePlay(this)" title="재생/일시정지">▶</button></div></td>
                 <td>
                     <button class="spk-toggle" onclick="toggleSpk('detail-en-mio_tts_1.7b')">상세 ▿</button>
@@ -1771,7 +1771,7 @@
                 <td class="ac-cer" data-val="0.028551">
                     <span style="color:#84cc16; font-weight:700;">2.86%</span>
                 </td>
-                <td class="official-cell"><span class="official-val">LFM2-2.6B 선형 변환 모델(Liquid Foundation Model)에 MioCodec을 적용한 중형 TTS. 1.7B 대비 표현력이 높고 감정·스타일 제어 범위가 넓음.</span></td>
+                <td class="official-cell"><span class="official-val">EN WER ~2% / RTF < 0.6 (A100)</span></td>
                 <td class="audio-cell"><div class="mini-player"><audio preload="none" src="wav/ja/A/mio_tts_2.6b__ja_medium_0.wav"></audio><button class="play-btn" onclick="togglePlay(this)" title="재생/일시정지">▶</button></div></td>
                 <td>
                     <button class="spk-toggle" onclick="toggleSpk('detail-ja-mio_tts_2.6b')">상세 ▿</button>
@@ -1875,7 +1875,7 @@
                 <td class="ac-cer" data-val="0.023071">
                     <span style="color:#84cc16; font-weight:700;">2.31%</span>
                 </td>
-                <td class="official-cell"><span class="official-val">Qwen3-1.7B LLM 백본에 MioCodec 음성 코덱을 결합한 경량 TTS. 영어·일본어에서 자연스러운 억양과 감정 표현을 지원하며 스트리밍 출력 가능.</span></td>
+                <td class="official-cell"><span class="official-val">EN WER ~3% / RTF < 0.5 (A100)</span></td>
                 <td class="audio-cell"><div class="mini-player"><audio preload="none" src="wav/ja/A/mio_tts_1.7b__ja_medium_0.wav"></audio><button class="play-btn" onclick="togglePlay(this)" title="재생/일시정지">▶</button></div></td>
                 <td>
                     <button class="spk-toggle" onclick="toggleSpk('detail-ja-mio_tts_1.7b')">상세 ▿</button>
@@ -2367,7 +2367,7 @@
 </div>
 
 <div class="footer">
-  다국어 TTS 벤치마크 보고서 &nbsp;|&nbsp; 2026-03-23 16:49 생성 &nbsp;|&nbsp;
+  다국어 TTS 벤치마크 보고서 &nbsp;|&nbsp; 2026-03-23 16:53 생성 &nbsp;|&nbsp;
   RTF = 추론시간/오디오길이 (낮을수록 빠름, &lt;1.0 = 실시간 가능)
 </div>
 
