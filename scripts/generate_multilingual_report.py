@@ -142,7 +142,7 @@ MODEL_INFO = {
         "arch_detail": "Qwen3-0.6B LLM + 음성 코덱 디코더",
         "langs": ["ko","en","ja","zh"],
         "license": "Apache-2.0",
-        "streaming": "부분 지원",
+        "streaming": "지원",
         "official_summary": "EN WER 2.8% / ZH WER 1.9% / MOS 4.53",
         "official_perf": [
             "MOS 4.53 (업계 평균 4.1 대비 우월, 48kHz)",
@@ -169,7 +169,7 @@ MODEL_INFO = {
         "arch_detail": "Qwen3-1.7B LLM + 음성 코덱 디코더",
         "langs": ["ko","en","ja","zh"],
         "license": "Apache-2.0",
-        "streaming": "부분 지원",
+        "streaming": "지원",
         "official_summary": "EN WER 2.8% / ZH WER 1.9% / MOS 4.53",
         "official_perf": [
             "MOS 4.53 (0.6B와 동일 평가 기준, 대형 모델로 감정·운율 표현 향상)",
@@ -194,7 +194,7 @@ MODEL_INFO = {
         "arch_detail": "GPT-2 AR + SoVITS + BigVGAN v2",
         "langs": ["ko","en","ja","zh"],
         "license": "MIT",
-        "streaming": "부분 지원",
+        "streaming": "지원",
         "official_summary": "EN WER 0.99% / ZH WER 0.54% (Fish Audio 논문 참조)",
         "official_perf": [
             "공식 논문 없음 (GitHub Wiki 문서 기반)",
@@ -586,7 +586,7 @@ MODEL_INFO = {
         "arch_detail": "GLM 기반 + RL 강화학습 품질 최적화",
         "langs": ["en","zh"],
         "license": "Apache-2.0",
-        "streaming": "부분 지원",
+        "streaming": "지원",
         "official_summary": "ZH CER 0.89%",
         "official_perf": [
             "중국어 CER 0.89% (RL 최적화 후) — 오픈소스 모델 중 최고, 상용 MiniMax(0.83%)와 경쟁적",
@@ -899,7 +899,7 @@ MODEL_INFO = {
         "arch_detail": "GPT + SoVITS, 48kHz 고품질, V3 개선판",
         "langs": ["ko", "en", "ja", "zh"],
         "license": "MIT",
-        "streaming": "부분 지원",
+        "streaming": "지원",
         "pros": [
             "V3 대비 48kHz 고해상도 오디오 — 음질 대폭 향상",
             "MIT 상업 라이선스",
