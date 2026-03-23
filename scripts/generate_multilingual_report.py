@@ -195,7 +195,7 @@ MODEL_INFO = {
         "langs": ["ko","en","ja","zh"],
         "license": "MIT",
         "streaming": "지원",
-        "official_summary": "EN WER 0.99% / ZH WER 0.54% (Fish Audio 논문 참조)",
+        "official_summary": "공식 수치 미발표 (커뮤니티 평가 상위권)",
         "official_perf": [
             "공식 논문 없음 (GitHub Wiki 문서 기반)",
             "학습 데이터 7,000시간 (MOS 기반 음질 필터링 적용)",
