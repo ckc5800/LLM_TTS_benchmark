@@ -38,7 +38,7 @@ PIVOT_CONFIG = {
 EXCLUDED_MODELS = {
     "라이선스 문제 (비상업 전용)": [
         {"model": "Fish-Speech",    "org": "Fish Audio",   "lic": "CC BY-NC-SA 4.0", "reason": "영리 목적 사용 불가"},
-        {"model": "F5-TTS",         "org": "SWivid",       "lic": "CC BY-NC 4.0",    "reason": "비상업적 연구용으로만 제한"},
+        {"model": "F5-TTS",         "org": "SWivid",       "lic": "코드 MIT / 가중치 CC BY-NC 4.0", "reason": "모델 가중치가 Emilia 학습 데이터 라이선스(CC BY-NC) 상속 — 상업 배포 불가"},
         {"model": "ChatTTS",        "org": "2Noise",       "lic": "CC BY-NC 4.0",    "reason": "비상업 용도 및 한국어 미지원"},
         {"model": "SeamlessM4T v2", "org": "Meta",         "lic": "CC BY-NC",        "reason": "상업적 활용 불가 라이선스"},
         {"model": "XTTS-v2",        "org": "Coqui",        "lic": "CPML",            "reason": "비상업 용도로만 공개 (공식 지원 중단)"},
@@ -48,14 +48,13 @@ EXCLUDED_MODELS = {
         {"model": "IndexTTS-2",     "org": "Bilibili",     "lic": "CC BY-NC-SA 4.0", "reason": "비상업 전용 + 한국어 미지원"},
     ],
     "한국어 미지원 (OOV 문제)": [
-        {"model": "Spark-TTS",       "org": "SparkAudio",   "lic": "Apache 2.0", "reason": "ZH/EN만 지원, 한국어 어휘 없음"},
-        {"model": "Dia",             "org": "Nari Labs",    "lic": "Apache 2.0", "reason": "영어 전용 대화형 모델"},
-        {"model": "StyleTTS2 (S2)",  "org": "yl4579",       "lic": "MIT",        "reason": "영어 전용 합성 모델"},
-        {"model": "Parler-TTS-mini", "org": "HuggingFace",  "lic": "Apache 2.0", "reason": "영어 전용 합성 모델"},
-        {"model": "Kokoro",          "org": "hexgrad",      "lic": "Apache 2.0", "reason": "다국어 지원하나 한국어 미포함"},
-        {"model": "Bark",            "org": "Suno AI",      "lic": "MIT",        "reason": "GPT 기반 RTF 매우 높음, 영어 위주"},
-        {"model": "Chatterbox-TTS",  "org": "Resemble AI",  "lic": "CC BY-NC-SA", "reason": "영어 전용 단일 모델"},
-        {"model": "LLMVoX",          "org": "MBZUAI",       "lic": "MIT",        "reason": "영어 전용 단일 모델"},
+        {"model": "Spark-TTS",       "org": "SparkAudio",   "lic": "Apache 2.0",  "reason": "ZH/EN만 지원, 한국어 어휘 없음"},
+        {"model": "Dia",             "org": "Nari Labs",    "lic": "Apache 2.0",  "reason": "영어 전용 대화형 모델"},
+        {"model": "StyleTTS2 (S2)",  "org": "yl4579",       "lic": "MIT",         "reason": "영어 전용 합성 모델"},
+        {"model": "Parler-TTS-mini", "org": "HuggingFace",  "lic": "Apache 2.0",  "reason": "영어 전용 합성 모델"},
+        {"model": "Kokoro",          "org": "hexgrad",      "lic": "Apache 2.0",  "reason": "다국어 지원하나 한국어 미포함"},
+        {"model": "Chatterbox-TTS",  "org": "Resemble AI",  "lic": "MIT",         "reason": "기본 모델(500M) 영어 전용 — 한국어 포함 멀티링구얼은 Chatterbox-ML로 별도 공개"},
+        {"model": "LLMVoX",          "org": "MBZUAI",       "lic": "MIT",         "reason": "영어 전용 단일 모델"},
     ],
     "기술적 제약 (G2P 필수 등)": [
         {"model": "Piper-TTS", "org": "Home Assistant", "lic": "MIT",      "reason": "phoneme 변환(G2P) 전처리 필수 (End-to-End 아님)"},
@@ -65,6 +64,7 @@ EXCLUDED_MODELS = {
     "속도 기준 미달 (RTF > 1.0)": [
         {"model": "Kani-TTS", "org": "Kani Team", "lic": "Apache 2.0", "reason": "KO RTF 4.9 (심각하게 느림)"},
         {"model": "OuteTTS",  "org": "OuteAI",    "lic": "Apache 2.0", "reason": "RTF 3.3 내외로 실시간 활용 불가"},
+        {"model": "Bark",     "org": "Suno AI",   "lic": "MIT",        "reason": "한국어 공식 지원하나 Transformer 3단계 생성(semantic→coarse→fine) 구조로 RTF 극도로 높음 — 실시간 서비스 불가"},
     ],
     "가중치 비공개 (Closed)": [
         {"model": "Seed-TTS",           "org": "ByteDance",  "lic": "비공개", "reason": "가중치·모델카드 미공개, 블로그만 존재, 상업 불가 — 공식 수치·라이선스 기반 조사 대상 아님"},
@@ -79,7 +79,9 @@ EXCLUDED_MODELS = {
         {"model": "Chatterbox-ML",    "org": "Resemble AI", "lic": "MIT",              "reason": "기존 Chatterbox-TTS(동일 아키텍처) 결과 중복 — 멀티링구얼 버전은 언어 확장판이며 한국어 품질이 V1 대비 퇴보했다는 사용자 보고 존재"},
         {"model": "Supertonic-v2",    "org": "Supertone",   "lic": "MIT+OpenRAIL-M",   "reason": "레퍼런스 오디오 기반 음성 복제 미지원 (preset 화자 고정) — 동일 레퍼런스로 공정 비교하는 벤치마크 프레임워크와 구조적으로 비호환"},
         {"model": "Higgs Audio V2.5", "org": "Boson AI",    "lic": "Custom",           "reason": "V2.5(1B) 가중치 미공개(API 전용) — V2(3B)는 VRAM 24GB 권장으로 RTX 5080 16GB 단독 운용 불가"},
-        {"model": "GPT-SoVITS V4",    "org": "RVC-Boss",    "lic": "MIT",              "reason": "V3와 모델 구조·파라미터·언어 지원 동일 — 48kHz 출력·아티팩트 제거 외 RTF 등 성능 지표 사실상 동일하여 추가 측정 인사이트 제한적"},
+    ],
+    "테스트 진행 예정 (후보)": [
+        {"model": "GPT-SoVITS V4",    "org": "RVC-Boss",    "lic": "MIT",              "reason": "V3 측정 완료 — V4는 48kHz 출력·metallic 아티팩트 제거 개선판. 별도 환경 구성 후 추가 측정 예정"},
     ]
 }
 
