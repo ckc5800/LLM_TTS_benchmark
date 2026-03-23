@@ -1362,7 +1362,7 @@ def build_anomalies_section():
     <p style="margin-top:12px;color:var(--text2);font-size:12px;">* CER &gt; 1.0은 수학적으로 가능합니다 — 가설 텍스트가 참조보다 훨씬 길 때 (무한 반복, 환각 현상 등).</p>
   </div>"""
 
-def build_overview_section(averages, cer_scores, sim_scores, audio_map=None):
+def build_overview_section(averages, cer_scores, sim_scores):
     """카테고리별 1위 모델 + 전체 비교 매트릭스"""
     # ── 모델별 종합 스탯 수집 ───────────────────────────────────────────────
     models_summary = {}
@@ -1384,8 +1384,6 @@ def build_overview_section(averages, cer_scores, sim_scores, audio_map=None):
                 "developer": info.get("developer", ""),
                 "license": info.get("license", "-"),
                 "langs": info.get("langs", []),
-                "streaming": info.get("streaming", "미확인"),
-                "official_summary": info.get("official_summary", ""),
                 "ko_rtf": None, "en_rtf": None, "ja_rtf": None, "zh_rtf": None,
                 "ko_cer": None, "en_cer": None,
                 "vram": None,
@@ -1498,100 +1496,63 @@ def build_overview_section(averages, cer_scores, sim_scores, audio_map=None):
         color = ARCH_COLORS.get(arch, "#64748b")
         vram_s = f"{d['vram']}MB" if d["vram"] else "—"
         langs_html = " ".join(f'<span class="lang-badge lang-{l}" style="margin-right:2px">{l.upper()}</span>' for l in d.get("langs", []))
-        streaming_badge = _streaming_badge(d.get("streaming", "미확인"))
-        official_s = d.get("official_summary") or "—"
-        # 오디오: KO 우선, 없으면 EN
-        ov_src = ""
-        if audio_map:
-            for try_lang in ("ko", "en", "ja", "zh"):
-                lang_audio = audio_map.get(try_lang, {})
-                for tk, model_dict in lang_audio.items():
-                    for k, v in model_dict.items():
-                        if k.split("|")[0] == mk:
-                            ov_src = v; break
-                    if ov_src: break
-                if ov_src: break
-        audio_cell = (
-            f'<div class="mini-player"><audio preload="none" src="{ov_src}"></audio>'
-            f'<button class="play-btn" onclick="togglePlay(this)">▶</button></div>'
-            if ov_src else '<span style="color:#94a3b8;font-size:11px">—</span>'
-        )
         matrix_rows.append(
             f'<tr data-arch="{arch}">'
-            f'<td style="text-align:center;color:#94a3b8;font-size:12px;font-weight:700">{idx}</td>'
-            f'<td class="ov-name"><strong>{d["name"]}</strong>'
-            f'<div style="font-size:10px;color:var(--text2)">{d["developer"]}</div></td>'
-            f'<td style="text-align:center"><span class="arch-badge sm" style="background:{color}">{arch}</span></td>'
-            f'<td style="white-space:nowrap;padding:4px">{langs_html}</td>'
+            f'<td style="text-align:center; color:#94a3b8; font-size:12px; font-weight:700;">{idx}</td>'
+            f'<td class="ov-name">'
+            f'  <span class="arch-badge sm" style="background:{color}">{arch}</span>'
+            f'  <strong style="margin-left:5px">{d["name"]}</strong>'
+            f'</td>'
+            f'<td style="white-space:nowrap; padding:4px;">{langs_html}</td>'
             + rtf_td(d["ko_rtf"]) + rtf_td(d["en_rtf"])
             + rtf_td(d["ja_rtf"]) + rtf_td(d["zh_rtf"])
-            + f'<td class="ov-num" style="color:#94a3b8">{vram_s}</td>'
-            + f'<td style="text-align:center">{streaming_badge}</td>'
             + cer_td(d["ko_cer"], "CER") + cer_td(d["en_cer"], "WER")
-            + f'<td style="font-size:11px;color:var(--text2);max-width:160px">{official_s}</td>'
-            + f'<td style="text-align:center">{audio_cell}</td>'
+            + f'<td class="ov-num" style="color:#94a3b8">{vram_s}</td>'
             + f'</tr>'
         )
 
-    # ── 제외 모델 행 추가 (데이터행 + 이유 서브행) ───────────────────────────
+    # ── 제외 모델 행 추가 ─────────────────────────────────────────────────────
     excl_rows = []
-    excl_start = len(all_sorted) + 1
-    for excl_idx, (cat, m) in enumerate(
+    excl_start = len(all_sorted) + 1  # 벤치마크 번호 이어서
+    for excl_idx, (cat, models_list) in enumerate(
             [(cat, m) for cat, ml in EXCLUDED_MODELS.items() for m in ml], excl_start):
+        cat, m = cat, models_list  # unpack
+        # MODEL_INFO에서 상세 정보 조회 (display_name 역방향 매핑)
         mk_excl = next((k for k, v in MODEL_INFO.items()
                         if v.get("display_name") == m["model"]), None)
         info_excl = MODEL_INFO.get(mk_excl, {}) if mk_excl else {}
         arch_excl = info_excl.get("arch_type", "—")
         color_excl = ARCH_COLORS.get(arch_excl, "#94a3b8")
         langs_excl = info_excl.get("langs", [])
-        official_s = info_excl.get("official_summary") or "—"
-        streaming_excl = _streaming_badge(info_excl.get("streaming", "미확인")) if info_excl else "—"
+        official_s = info_excl.get("official_summary", "")
+        arch_badge = (f'<span class="arch-badge sm" style="background:{color_excl};opacity:.6">{arch_excl}</span> '
+                      if arch_excl != "—" else "")
         langs_html_excl = (" ".join(
-            f'<span class="lang-badge lang-{l}" style="margin-right:2px;opacity:.7">{l.upper()}</span>'
+            f'<span class="lang-badge lang-{l}" style="margin-right:2px;opacity:.6">{l.upper()}</span>'
             for l in langs_excl) if langs_excl else
-            '<span style="color:#94a3b8;font-size:11px">—</span>')
-        arch_cell_excl = (
-            f'<span class="arch-badge sm" style="background:{color_excl};opacity:.7">{arch_excl}</span>'
-            if arch_excl != "—" else "—"
-        )
-        # 행 1: 모델 데이터 (RTF/CER/오디오는 없음)
+            f'<span style="color:#475569;font-size:11px">{m["lic"]}</span>')
+        reason_cell = (f'<td class="ov-num" colspan="6" style="color:#b91c1c;font-size:11px;text-align:left;padding-left:8px">'
+                       f'🚫 {m["reason"]}'
+                       + (f' <span style="color:#94a3b8;font-size:10px">| {official_s}</span>' if official_s else "")
+                       + '</td>')
         excl_rows.append(
-            f'<tr data-arch="{arch_excl}" style="background:#fafafa;">'
+            f'<tr data-arch="{arch_excl}" style="opacity:.7;background:#fafafa;">'
             f'<td style="text-align:center;color:#94a3b8;font-size:11px;font-weight:700">{excl_idx}</td>'
-            f'<td class="ov-name" style="opacity:.75">'
-            f'<strong>{m["model"]}</strong>'
-            f'<div style="font-size:10px;color:var(--text2)">{m["org"]}</div>'
+            f'<td class="ov-name" style="color:var(--text2);">'
+            f'  {arch_badge}<strong style="margin-left:2px">{m["model"]}</strong>'
+            f'  <span style="color:var(--text2);font-size:10px;margin-left:4px">{m["org"]}</span>'
             f'</td>'
-            f'<td style="text-align:center;opacity:.75">{arch_cell_excl}</td>'
-            f'<td style="white-space:nowrap;padding:4px">{langs_html_excl}</td>'
-            f'<td class="ov-num" style="color:#94a3b8">—</td>'
-            f'<td class="ov-num" style="color:#94a3b8">—</td>'
-            f'<td class="ov-num" style="color:#94a3b8">—</td>'
-            f'<td class="ov-num" style="color:#94a3b8">—</td>'
-            f'<td class="ov-num" style="color:#94a3b8">—</td>'
-            f'<td style="text-align:center">{streaming_excl}</td>'
-            f'<td class="ov-num" style="color:#94a3b8">—</td>'
-            f'<td class="ov-num" style="color:#94a3b8">—</td>'
-            f'<td style="font-size:11px;color:var(--text2);max-width:160px">{official_s}</td>'
-            f'<td style="text-align:center;color:#94a3b8">—</td>'
-            f'</tr>'
-        )
-        # 행 2: 제외 이유 서브행
-        excl_rows.append(
-            f'<tr style="background:#fff5f5;border-top:none">'
-            f'<td></td>'
-            f'<td colspan="13" style="padding:5px 10px 8px 12px;font-size:11px;color:#b91c1c;'
-            f'border-top:none;line-height:1.5">'
-            f'🚫 <strong style="color:#991b1b">{cat}</strong> — {m["reason"]}'
-            f'</td>'
+            f'<td style="white-space:nowrap;padding:4px;">{langs_html_excl}</td>'
+            + reason_cell
+            + f'<td class="ov-num" style="color:var(--text2)">—</td>'
             f'</tr>'
         )
 
     # 구분 행
     sep_row = (f'<tr style="background:rgba(99,102,241,.08)">'
-               f'<td colspan="14" style="text-align:center;padding:6px 8px;font-size:11px;'
+               f'<td colspan="11" style="text-align:center;padding:6px 8px;font-size:11px;'
                f'color:#7c85a2;font-weight:600;letter-spacing:.5px;">'
-               f'── 아래는 벤치마크 제외 모델 ({len(excl_rows) // 2}개) ──'
+               f'── 아래는 벤치마크 제외 모델 ({len(excl_rows)}개) ──'
                f'</td></tr>')
 
     total_cnt = len(all_sorted) + len(excl_rows)
@@ -1601,14 +1562,11 @@ def build_overview_section(averages, cer_scores, sim_scores, audio_map=None):
       <div style="overflow-x:auto;margin-top:12px">
       <table class="ov-table" style="min-width:700px">
         <thead><tr>
-          <th style="width:30px;text-align:center">#</th>
-          <th style="text-align:left;min-width:160px">모델</th>
-          <th>구조</th>
-          <th>언어</th>
+          <th style="width:30px; text-align:center;">#</th>
+          <th style="text-align:left;min-width:180px">모델</th>
+          <th>지원 언어</th>
           <th>KO RTF</th><th>EN RTF</th><th>JA RTF</th><th>ZH RTF</th>
-          <th>VRAM</th><th>스트리밍</th>
-          <th>KO CER</th><th>EN WER</th>
-          <th>공식 성능</th><th>오디오</th>
+          <th>KO CER</th><th>EN WER</th><th>VRAM</th>
         </tr></thead>
         <tbody>{"".join(matrix_rows)}{sep_row}{"".join(excl_rows)}</tbody>
       </table>
@@ -2315,12 +2273,12 @@ def generate_html(results_dir, output_path):
     /* 인라인 오디오 셀 */
     .audio-cell {{ min-width: 72px; width: 72px; }}
     .mini-player {{ display: flex; gap: 5px; align-items: center; justify-content: center; }}
-    .play-btn, .stop-btn {{
+    .play-btn {{
         border: none; border-radius: 50%; width: 28px; height: 28px;
         cursor: pointer; font-size: 11px; display: flex; align-items: center; justify-content: center;
         transition: background .15s, transform .1s;
+        background: var(--accent); color: #fff;
     }}
-    .play-btn {{ background: var(--accent); color: #fff; }}
     .play-btn:hover {{ background: #4338ca; transform: scale(1.1); }}
     .play-btn.playing {{ background: #0ea5e9; }}
 
@@ -2447,7 +2405,7 @@ def generate_html(results_dir, output_path):
       </div>
     </div>
 
-    {build_overview_section(averages, cer_scores, sim_scores, audio_map)}
+    {build_overview_section(averages, cer_scores, sim_scores)}
 
   <div class="tab-nav" style="position:sticky; top:36px; z-index:9; margin:0 -24px; padding:0 24px; border-radius:0;">
     {tab_buttons()}
