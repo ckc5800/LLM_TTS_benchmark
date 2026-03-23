@@ -555,7 +555,7 @@ MODEL_INFO = {
         "arch_detail": "Qwen3-1.7B + MioCodec",
         "langs": ["en","ja"],
         "license": "Apache-2.0",
-        "streaming": "미확인",
+        "streaming": "지원",
         "pros": [
             "Qwen3-1.7B 기반 영어·일본어 고품질 — 최신 LLM 백본으로 복잡한 영어 문장과 일본어 경어·구어체를 자연스럽게 처리",
         ],
@@ -570,7 +570,7 @@ MODEL_INFO = {
         "arch_detail": "LFM2-2.6B + MioCodec",
         "langs": ["en","ja"],
         "license": "Apache-2.0",
-        "streaming": "미확인",
+        "streaming": "지원",
         "pros": [
             "LFM2-2.6B 대형 모델 — 1.7B 대비 더 풍부한 표현력. 영어·일본어 중 높은 품질이 필요한 콘텐츠 제작에 최적",
         ],
