@@ -20,16 +20,16 @@
 | 순위 | 모델 | KO RTF | EN RTF | VRAM | 라이선스 | 비고 |
 |---|---|---|---|---|---|---|
 | 1 | GPT-SoVITS V3 | 0.546 | 0.377 | ~2.1GB | MIT | KO/EN 품질 우수, ref 필수 |
-| 2 | Qwen3-TTS 0.6B | 0.547 | 0.501 | ~2.7GB | Apache 2.0 | 10언어, AR codec |
-| 3 | Qwen3-TTS 1.7B | 0.556 | 0.500 | ~4.3GB | Apache 2.0 | 품질↑, 자원↑ |
+| 2 | Qwen3-TTS 0.6B | 0.547 | 0.501 | ~2.7GB | Apache 2.0 | 10언어, AR codec, 공식 지연 ~97ms 주장 citeturn0search7 |
+| 3 | Qwen3-TTS 1.7B | 0.556 | 0.500 | ~4.3GB | Apache 2.0 | 품질↑, 자원↑, 공식 지연 ~97ms 주장 citeturn0search7 |
 | 4 | CosyVoice3-0.5B | 0.558 | 0.532 | ~3.6GB | Apache 2.0 | EOS 트리거, zero-shot |
 | 5 | CosyVoice2-0.5B | 0.676 | 0.568 | ~4.1GB | Apache 2.0 | 품질 양호, RTF 느림 |
 
 ## 4. 즉시 테스트/추가 후보 (2026-03)
-- Supertonic v2 (Supertone): MIT+OpenRAIL-M, KO/EN/ES/PT/FR, RTF ~0.001 보고
-- Chatterbox Multilingual (Resemble AI): MIT, 23언어, TTS Arena V2 1위(ELO 1501, 2025.09 기준)
+- Supertonic v2 (Supertone): MIT+OpenRAIL-M, KO/EN/ES/PT/FR, RTF≈0.006(167× faster than RT, RTX4090 기준) citeturn0search3
+- Chatterbox Multilingual (Resemble AI): MIT, 23언어, TTS Arena V2 1위(ELO 1501, 2025.09 기준), 스트리밍 지연 <200ms 주장 citeturn1search2
 - Higgs Audio V2.5 (Boson AI): Apache 2.0, KO 1위 주장(약 10만 시간 데이터), RTF 미공개
-- Fish Audio S2 (Fish Audio): HF 모델카드 기본은 Research License(비상업), 일부 문서에 Apache 2.0 병기 → 상업 시 별도 계약; H200 RTF≈0.195·TTFA<100ms; Dual-AR(4B+400M)+Firefly-GAN; 80+언어; 인라인 emotion/화자 태그; SGLang 스트리밍; 벤치 미실행(보고서 미포함)
+- Fish Audio S2 (Fish Audio): HF 모델카드 기본은 Research License(비상업), 일부 문서에 Apache 2.0 병기 → 상업 시 별도 계약; H200 RTF≈0.195·TTFA<100ms citeturn1search6; Dual-AR(4B+400M)+Firefly-GAN; 80+언어; 인라인 emotion/화자 태그; SGLang 스트리밍; 벤치 미실행(보고서 미포함)
 - GPT-SoVITS V4 (RVC-Boss): MIT, 48kHz, multi-lingual, V3 개선판(미측정)
 
 ## 5. 라이선스 주의 / 상업 불가
@@ -57,7 +57,3 @@
 - Chatterbox Multilingual: https://github.com/resemble-ai/chatterbox
 - Higgs Audio V2.5: https://github.com/boson-ai/higgs-audio
 - GPT-SoVITS V4: https://github.com/RVC-Boss/GPT-SoVITS
-
-### 참고: 스트리밍 특화 모델 (KO 미확인)
-- VoXtream (herimor/voxtream): MIT/Apache 혼합(코드), 가중치 CC BY 4.0 출처 표기; 스트리밍 지연 ~102 ms, RTF~0.17(A100, compile); 입력-출력 풀 스트리밍/출력 스트리밍 지원; 학습 9k h, 언어=EN 중심, KO 공식 지원 미확인 → 본선 후보 아님(참고용).
-

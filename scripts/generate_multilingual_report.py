@@ -2670,6 +2670,7 @@ def generate_html(results_dir, output_path):
       const next = row.nextElementSibling;
       if (next && next.classList.contains('spk-detail-row')) {{
         if (!show) {{ next.classList.remove('visible'); next.style.display = 'none'; }}
+        else {{ next.style.display = ''; }}
       }}
     }});
 
@@ -2754,8 +2755,7 @@ def generate_html(results_dir, output_path):
        const pivotKey = (lang === 'ko' ? 'ko_medium' : lang + '_medium');
        el.textContent = TEXT_CONTENT[pivotKey] || '';
     }});
-    // 기본 필터를 LLM으로 설정
-    filterArch('LLM');
+    filterArch('all');
   }});
 </script>
 </body>

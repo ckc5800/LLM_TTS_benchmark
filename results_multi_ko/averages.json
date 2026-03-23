@@ -1,0 +1,659 @@
+{
+  "cosyvoice2": {
+    "model_name": "CosyVoice2-0.5B",
+    "model_size_params": "500M",
+    "korean_support": true,
+    "n_texts": 10,
+    "avg_rtf": 0.5389,
+    "std_rtf": 0.0139,
+    "avg_inference_time_s": 27.75,
+    "avg_audio_duration_s": 51.68,
+    "avg_vram_peak_mb": 4518.4,
+    "per_text": {
+      "ko_short": {
+        "rtf": 0.565323721160754,
+        "inference_time_s": 5.8793667000718415,
+        "audio_duration_s": 10.4,
+        "success": true
+      },
+      "ko_medium": {
+        "rtf": 0.5128584218740192,
+        "inference_time_s": 19.693763399962336,
+        "audio_duration_s": 38.4,
+        "success": true
+      },
+      "ko_long": {
+        "rtf": 0.531978082175623,
+        "inference_time_s": 45.96290629997384,
+        "audio_duration_s": 86.4,
+        "success": true
+      },
+      "ko_numbers": {
+        "rtf": 0.5289411576096967,
+        "inference_time_s": 29.19755190005526,
+        "audio_duration_s": 55.2,
+        "success": true
+      },
+      "ko_mixed": {
+        "rtf": 0.5459072520492645,
+        "inference_time_s": 26.640273900004104,
+        "audio_duration_s": 48.8,
+        "success": true
+      },
+      "ko_formal": {
+        "rtf": 0.5361881776307679,
+        "inference_time_s": 32.60024119995069,
+        "audio_duration_s": 60.8,
+        "success": true
+      },
+      "ko_conversational": {
+        "rtf": 0.5409515175779234,
+        "inference_time_s": 27.696717699989676,
+        "audio_duration_s": 51.2,
+        "success": true
+      },
+      "ko_technical": {
+        "rtf": 0.548095459338342,
+        "inference_time_s": 36.393538500065915,
+        "audio_duration_s": 66.4,
+        "success": true
+      },
+      "ko_question": {
+        "rtf": 0.5458056132082898,
+        "inference_time_s": 23.142158000031486,
+        "audio_duration_s": 42.4,
+        "success": true
+      },
+      "ko_proverb": {
+        "rtf": 0.5332915281690821,
+        "inference_time_s": 30.290958800003864,
+        "audio_duration_s": 56.8,
+        "success": true
+      }
+    }
+  },
+  "cosyvoice3": {
+    "model_name": "CosyVoice3-0.5B",
+    "model_size_params": "500M",
+    "korean_support": true,
+    "n_texts": 10,
+    "avg_rtf": 0.5593,
+    "std_rtf": 0.0196,
+    "avg_inference_time_s": 3.713,
+    "avg_audio_duration_s": 6.64,
+    "avg_vram_peak_mb": 3451.1,
+    "per_text": {
+      "ko_short": {
+        "rtf": 0.556901701798253,
+        "inference_time_s": 3.6978272999404,
+        "audio_duration_s": 6.64,
+        "success": true
+      },
+      "ko_medium": {
+        "rtf": 0.5268628614518444,
+        "inference_time_s": 3.4983694000402465,
+        "audio_duration_s": 6.64,
+        "success": true
+      },
+      "ko_long": {
+        "rtf": 0.5352903463764128,
+        "inference_time_s": 3.5543278999393806,
+        "audio_duration_s": 6.64,
+        "success": true
+      },
+      "ko_numbers": {
+        "rtf": 0.5451581626534406,
+        "inference_time_s": 3.6198502000188455,
+        "audio_duration_s": 6.64,
+        "success": true
+      },
+      "ko_mixed": {
+        "rtf": 0.5587937650642448,
+        "inference_time_s": 3.710390600026585,
+        "audio_duration_s": 6.64,
+        "success": true
+      },
+      "ko_formal": {
+        "rtf": 0.5747300150512482,
+        "inference_time_s": 3.816207299940288,
+        "audio_duration_s": 6.64,
+        "success": true
+      },
+      "ko_conversational": {
+        "rtf": 0.5619757078343958,
+        "inference_time_s": 3.7315187000203878,
+        "audio_duration_s": 6.64,
+        "success": true
+      },
+      "ko_technical": {
+        "rtf": 0.5802684638534212,
+        "inference_time_s": 3.852982599986717,
+        "audio_duration_s": 6.64,
+        "success": true
+      },
+      "ko_question": {
+        "rtf": 0.5894111746926344,
+        "inference_time_s": 3.913690199959092,
+        "audio_duration_s": 6.64,
+        "success": true
+      },
+      "ko_proverb": {
+        "rtf": 0.5632093674692618,
+        "inference_time_s": 3.7397101999958977,
+        "audio_duration_s": 6.64,
+        "success": true
+      }
+    }
+  },
+  "gpt_sovits": {
+    "model_name": "GPT-SoVITS-V3",
+    "model_size_params": "~200M",
+    "korean_support": true,
+    "n_texts": 10,
+    "avg_rtf": 0.3415,
+    "std_rtf": 0.0285,
+    "avg_inference_time_s": 4.361,
+    "avg_audio_duration_s": 13.072,
+    "avg_vram_peak_mb": 2163.2,
+    "per_text": {
+      "ko_short": {
+        "rtf": 0.40840838490040177,
+        "inference_time_s": 1.3199758999980986,
+        "audio_duration_s": 3.232,
+        "success": true
+      },
+      "ko_medium": {
+        "rtf": 0.3434133485342408,
+        "inference_time_s": 3.0623312999960035,
+        "audio_duration_s": 8.917333333333334,
+        "success": true
+      },
+      "ko_long": {
+        "rtf": 0.31293038811132606,
+        "inference_time_s": 5.9181394999613985,
+        "audio_duration_s": 18.912,
+        "success": true
+      },
+      "ko_numbers": {
+        "rtf": 0.3280780803574349,
+        "inference_time_s": 4.409369400003925,
+        "audio_duration_s": 13.44,
+        "success": true
+      },
+      "ko_mixed": {
+        "rtf": 0.3381189793582478,
+        "inference_time_s": 4.717436000006273,
+        "audio_duration_s": 13.952,
+        "success": true
+      },
+      "ko_formal": {
+        "rtf": 0.3164388646670992,
+        "inference_time_s": 5.75834349996876,
+        "audio_duration_s": 18.197333333333333,
+        "success": true
+      },
+      "ko_conversational": {
+        "rtf": 0.3372610465090094,
+        "inference_time_s": 4.640711999963969,
+        "audio_duration_s": 13.76,
+        "success": true
+      },
+      "ko_technical": {
+        "rtf": 0.3463374492779482,
+        "inference_time_s": 5.23477510001976,
+        "audio_duration_s": 15.114666666666666,
+        "success": true
+      },
+      "ko_question": {
+        "rtf": 0.3663556884060634,
+        "inference_time_s": 4.04456680000294,
+        "audio_duration_s": 11.04,
+        "success": true
+      },
+      "ko_proverb": {
+        "rtf": 0.31802331386609073,
+        "inference_time_s": 4.501514000003226,
+        "audio_duration_s": 14.154666666666667,
+        "success": true
+      }
+    }
+  },
+  "melotts": {
+    "model_name": "MeloTTS-KO",
+    "model_size_params": "~50M",
+    "korean_support": true,
+    "n_texts": 10,
+    "avg_rtf": 0.0402,
+    "std_rtf": 0.0059,
+    "avg_inference_time_s": 0.643,
+    "avg_audio_duration_s": 15.711,
+    "avg_vram_peak_mb": 861.1,
+    "per_text": {
+      "ko_short": {
+        "rtf": 0.03191681193943394,
+        "inference_time_s": 0.15241109998896718,
+        "audio_duration_s": 4.7752607709750565,
+        "success": true
+      },
+      "ko_medium": {
+        "rtf": 0.03504436453943036,
+        "inference_time_s": 0.4014176999917254,
+        "audio_duration_s": 11.454557823129251,
+        "success": true
+      },
+      "ko_long": {
+        "rtf": 0.038851783092923156,
+        "inference_time_s": 0.901336699957028,
+        "audio_duration_s": 23.19936507936508,
+        "success": true
+      },
+      "ko_numbers": {
+        "rtf": 0.042235157160485315,
+        "inference_time_s": 0.6856192999985069,
+        "audio_duration_s": 16.233378684807256,
+        "success": true
+      },
+      "ko_mixed": {
+        "rtf": 0.039230453720930064,
+        "inference_time_s": 0.6398914000019431,
+        "audio_duration_s": 16.31108843537415,
+        "success": true
+      },
+      "ko_formal": {
+        "rtf": 0.037383753277114025,
+        "inference_time_s": 0.7069911999860778,
+        "audio_duration_s": 18.91172335600907,
+        "success": true
+      },
+      "ko_conversational": {
+        "rtf": 0.04689563352562511,
+        "inference_time_s": 0.7516413000412285,
+        "audio_duration_s": 16.02795918367347,
+        "success": true
+      },
+      "ko_technical": {
+        "rtf": 0.034033958227242554,
+        "inference_time_s": 0.5415752000408247,
+        "audio_duration_s": 15.912789115646259,
+        "success": true
+      },
+      "ko_question": {
+        "rtf": 0.04698768490049421,
+        "inference_time_s": 0.7442210000008345,
+        "audio_duration_s": 15.838639455782314,
+        "success": true
+      },
+      "ko_proverb": {
+        "rtf": 0.048955078012541606,
+        "inference_time_s": 0.9028704001102597,
+        "audio_duration_s": 18.442834467120182,
+        "success": true
+      }
+    }
+  },
+  "openvoice": {
+    "model_name": "OpenVoice-v2",
+    "model_size_params": "~200M",
+    "korean_support": true,
+    "n_texts": 10,
+    "avg_rtf": 0.1151,
+    "std_rtf": 0.0238,
+    "avg_inference_time_s": 1.72,
+    "avg_audio_duration_s": 15.736,
+    "avg_vram_peak_mb": 1312.8,
+    "per_text": {
+      "ko_short": {
+        "rtf": 0.18038429700214584,
+        "inference_time_s": 0.8544570999220014,
+        "audio_duration_s": 4.73687074829932,
+        "success": true
+      },
+      "ko_medium": {
+        "rtf": 0.11218051063148167,
+        "inference_time_s": 1.2841794000705704,
+        "audio_duration_s": 11.447437641723356,
+        "success": true
+      },
+      "ko_long": {
+        "rtf": 0.09428839367812054,
+        "inference_time_s": 2.1992244001012295,
+        "audio_duration_s": 23.324444444444445,
+        "success": true
+      },
+      "ko_numbers": {
+        "rtf": 0.10136203573155782,
+        "inference_time_s": 1.646358500001952,
+        "audio_duration_s": 16.24235827664399,
+        "success": true
+      },
+      "ko_mixed": {
+        "rtf": 0.1128551576760713,
+        "inference_time_s": 1.8500671000219882,
+        "audio_duration_s": 16.39328798185941,
+        "success": true
+      },
+      "ko_formal": {
+        "rtf": 0.10528673491257398,
+        "inference_time_s": 1.9802500999066979,
+        "audio_duration_s": 18.808163265306124,
+        "success": true
+      },
+      "ko_conversational": {
+        "rtf": 0.11230257178277928,
+        "inference_time_s": 1.797982000047341,
+        "audio_duration_s": 16.01015873015873,
+        "success": true
+      },
+      "ko_technical": {
+        "rtf": 0.11520306237748085,
+        "inference_time_s": 1.8404068000381812,
+        "audio_duration_s": 15.975328798185942,
+        "success": true
+      },
+      "ko_question": {
+        "rtf": 0.10565333070018863,
+        "inference_time_s": 1.680486899917014,
+        "audio_duration_s": 15.905668934240364,
+        "success": true
+      },
+      "ko_proverb": {
+        "rtf": 0.11143148297908803,
+        "inference_time_s": 2.0634786000009626,
+        "audio_duration_s": 18.517913832199547,
+        "success": true
+      }
+    }
+  },
+  "outetss": {
+    "model_name": "OuteTTS-1.0-0.6B",
+    "model_size_params": "0.6B",
+    "korean_support": true,
+    "n_texts": 10,
+    "avg_rtf": 3.1517,
+    "std_rtf": 0.1064,
+    "avg_inference_time_s": 40.815,
+    "avg_audio_duration_s": 12.916,
+    "avg_vram_peak_mb": 4028.5,
+    "per_text": {
+      "ko_short": {
+        "rtf": 2.9873968861543276,
+        "inference_time_s": 14.697044299915433,
+        "audio_duration_s": 4.919682539682539,
+        "success": true
+      },
+      "ko_medium": {
+        "rtf": 3.0464733231921652,
+        "inference_time_s": 29.732612499967217,
+        "audio_duration_s": 9.75968253968254,
+        "success": true
+      },
+      "ko_long": {
+        "rtf": 3.059418737237644,
+        "inference_time_s": 61.35057250002865,
+        "audio_duration_s": 20.053015873015873,
+        "success": true
+      },
+      "ko_numbers": {
+        "rtf": 3.2621954836668525,
+        "inference_time_s": 44.40831890003756,
+        "audio_duration_s": 13.613015873015874,
+        "success": true
+      },
+      "ko_mixed": {
+        "rtf": 3.215254186326438,
+        "inference_time_s": 46.170029400032945,
+        "audio_duration_s": 14.35968253968254,
+        "success": true
+      },
+      "ko_formal": {
+        "rtf": 3.099085014353382,
+        "inference_time_s": 51.07193720003124,
+        "audio_duration_s": 16.47968253968254,
+        "success": true
+      },
+      "ko_conversational": {
+        "rtf": 3.101172203991377,
+        "inference_time_s": 30.390503100003116,
+        "audio_duration_s": 9.79968253968254,
+        "success": true
+      },
+      "ko_technical": {
+        "rtf": 3.2101607425474996,
+        "inference_time_s": 43.65716699999757,
+        "audio_duration_s": 13.59968253968254,
+        "success": true
+      },
+      "ko_question": {
+        "rtf": 3.3089381633954114,
+        "inference_time_s": 37.19141450000461,
+        "audio_duration_s": 11.239682539682539,
+        "success": true
+      },
+      "ko_proverb": {
+        "rtf": 3.2269203468982077,
+        "inference_time_s": 49.478420899948105,
+        "audio_duration_s": 15.333015873015873,
+        "success": true
+      }
+    }
+  },
+  "qwen3_tts_0.6b": {
+    "model_name": "Qwen3-TTS-0.6B",
+    "model_size_params": "0.6B",
+    "korean_support": true,
+    "n_texts": 10,
+    "avg_rtf": 1.6218,
+    "std_rtf": 0.0409,
+    "avg_inference_time_s": 20.221,
+    "avg_audio_duration_s": 12.52,
+    "avg_vram_peak_mb": 2824.5,
+    "per_text": {
+      "ko_short": {
+        "rtf": 1.6829767948738896,
+        "inference_time_s": 5.250887600006536,
+        "audio_duration_s": 3.12,
+        "success": true
+      },
+      "ko_medium": {
+        "rtf": 1.6013793638324256,
+        "inference_time_s": 14.348359099938534,
+        "audio_duration_s": 8.96,
+        "success": true
+      },
+      "ko_long": {
+        "rtf": 1.5692556227576555,
+        "inference_time_s": 35.02578549995087,
+        "audio_duration_s": 22.32,
+        "success": true
+      },
+      "ko_numbers": {
+        "rtf": 1.5870000653652157,
+        "inference_time_s": 19.42488080007024,
+        "audio_duration_s": 12.24,
+        "success": true
+      },
+      "ko_mixed": {
+        "rtf": 1.6793481878762013,
+        "inference_time_s": 22.70478750008624,
+        "audio_duration_s": 13.52,
+        "success": true
+      },
+      "ko_formal": {
+        "rtf": 1.6648228768795734,
+        "inference_time_s": 26.503980199922808,
+        "audio_duration_s": 15.92,
+        "success": true
+      },
+      "ko_conversational": {
+        "rtf": 1.6228433660788661,
+        "inference_time_s": 18.1758457000833,
+        "audio_duration_s": 11.2,
+        "success": true
+      },
+      "ko_technical": {
+        "rtf": 1.6165367364914887,
+        "inference_time_s": 23.924743700074032,
+        "audio_duration_s": 14.8,
+        "success": true
+      },
+      "ko_question": {
+        "rtf": 1.6116535470051827,
+        "inference_time_s": 15.08507719996851,
+        "audio_duration_s": 9.36,
+        "success": true
+      },
+      "ko_proverb": {
+        "rtf": 1.5817288008737134,
+        "inference_time_s": 21.764588300022297,
+        "audio_duration_s": 13.76,
+        "success": true
+      }
+    }
+  },
+  "qwen3_tts_1.7b": {
+    "model_name": "Qwen3-TTS-1.7B",
+    "model_size_params": "1.7B",
+    "korean_support": true,
+    "n_texts": 10,
+    "avg_rtf": 1.6362,
+    "std_rtf": 0.0625,
+    "avg_inference_time_s": 19.398,
+    "avg_audio_duration_s": 11.96,
+    "avg_vram_peak_mb": 4758.9,
+    "per_text": {
+      "ko_short": {
+        "rtf": 1.7014607691985124,
+        "inference_time_s": 3.539038399932906,
+        "audio_duration_s": 2.08,
+        "success": true
+      },
+      "ko_medium": {
+        "rtf": 1.6029931421961994,
+        "inference_time_s": 13.978100199950859,
+        "audio_duration_s": 8.72,
+        "success": true
+      },
+      "ko_long": {
+        "rtf": 1.5489853386450894,
+        "inference_time_s": 31.103625599993393,
+        "audio_duration_s": 20.08,
+        "success": true
+      },
+      "ko_numbers": {
+        "rtf": 1.5649084509132527,
+        "inference_time_s": 20.406406199908815,
+        "audio_duration_s": 13.04,
+        "success": true
+      },
+      "ko_mixed": {
+        "rtf": 1.696970072250902,
+        "inference_time_s": 23.486065799952485,
+        "audio_duration_s": 13.84,
+        "success": true
+      },
+      "ko_formal": {
+        "rtf": 1.5664072872397734,
+        "inference_time_s": 23.55876560008619,
+        "audio_duration_s": 15.04,
+        "success": true
+      },
+      "ko_conversational": {
+        "rtf": 1.691940977272514,
+        "inference_time_s": 14.889080599998124,
+        "audio_duration_s": 8.8,
+        "success": true
+      },
+      "ko_technical": {
+        "rtf": 1.616193239247897,
+        "inference_time_s": 24.04895540000871,
+        "audio_duration_s": 14.88,
+        "success": true
+      },
+      "ko_question": {
+        "rtf": 1.6911178781551177,
+        "inference_time_s": 16.09944220003672,
+        "audio_duration_s": 9.52,
+        "success": true
+      },
+      "ko_proverb": {
+        "rtf": 1.681336375006461,
+        "inference_time_s": 22.866174700087868,
+        "audio_duration_s": 13.6,
+        "success": true
+      }
+    }
+  },
+  "xtts": {
+    "model_name": "XTTS-v2",
+    "model_size_params": "~1.8B",
+    "korean_support": true,
+    "n_texts": 10,
+    "avg_rtf": 0.276,
+    "std_rtf": 0.0052,
+    "avg_inference_time_s": 5.82,
+    "avg_audio_duration_s": 21.1,
+    "avg_vram_peak_mb": 2000.0,
+    "per_text": {
+      "ko_short": {
+        "rtf": 0.2732208580933791,
+        "inference_time_s": 5.211232500034384,
+        "audio_duration_s": 19.073333333333334,
+        "success": true
+      },
+      "ko_medium": {
+        "rtf": 0.27215147775528303,
+        "inference_time_s": 4.50592130003497,
+        "audio_duration_s": 16.55666666666667,
+        "success": true
+      },
+      "ko_long": {
+        "rtf": 0.2698699743481576,
+        "inference_time_s": 8.276732199941762,
+        "audio_duration_s": 30.669333333333334,
+        "success": true
+      },
+      "ko_numbers": {
+        "rtf": 0.2724709902580027,
+        "inference_time_s": 4.345548999961466,
+        "audio_duration_s": 15.948666666666666,
+        "success": true
+      },
+      "ko_mixed": {
+        "rtf": 0.2746447343989669,
+        "inference_time_s": 4.532553600030951,
+        "audio_duration_s": 16.503333333333334,
+        "success": true
+      },
+      "ko_formal": {
+        "rtf": 0.282825937868077,
+        "inference_time_s": 6.197093399940059,
+        "audio_duration_s": 21.911333333333335,
+        "success": true
+      },
+      "ko_conversational": {
+        "rtf": 0.28277386299833823,
+        "inference_time_s": 7.025799400056712,
+        "audio_duration_s": 24.846,
+        "success": true
+      },
+      "ko_technical": {
+        "rtf": 0.28410617034318536,
+        "inference_time_s": 4.30970119999256,
+        "audio_duration_s": 15.169333333333332,
+        "success": true
+      },
+      "ko_question": {
+        "rtf": 0.27485701360623055,
+        "inference_time_s": 8.283274200046435,
+        "audio_duration_s": 30.136666666666667,
+        "success": true
+      },
+      "ko_proverb": {
+        "rtf": 0.2730185995039912,
+        "inference_time_s": 5.51042539998889,
+        "audio_duration_s": 20.183333333333334,
+        "success": true
+      }
+    }
+  }
+}
