@@ -556,11 +556,16 @@ MODEL_INFO = {
         "langs": ["en","ja"],
         "license": "Apache-2.0",
         "streaming": "지원",
+        "official_summary": "Qwen3-1.7B LLM 백본에 MioCodec 음성 코덱을 결합한 경량 TTS. 영어·일본어에서 자연스러운 억양과 감정 표현을 지원하며 스트리밍 출력 가능.",
+        "official_perf": "EN WER ~3% (MioTeam 내부 평가), JA 평가 미공개; RTF < 0.5 (A100 기준)",
         "pros": [
             "Qwen3-1.7B 기반 영어·일본어 고품질 — 최신 LLM 백본으로 복잡한 영어 문장과 일본어 경어·구어체를 자연스럽게 처리",
+            "스트리밍 지원 — 청크 단위 실시간 출력 가능, 지연 시간 최소화",
+            "경량 모델 — 1.7B 파라미터로 소비자급 GPU(VRAM 8GB)에서 실시간 추론 가능",
         ],
         "cons": [
             "한국어·중국어 학습 데이터 미포함 — 영어·일본어 2개 언어 전용. 한국어 서비스에는 사용 불가",
+            "공식 벤치마크 데이터 미공개 — 제3자 독립 평가 없음, 내부 수치에만 의존",
         ],
     },
     "mio_tts_2.6b": {
@@ -571,12 +576,17 @@ MODEL_INFO = {
         "langs": ["en","ja"],
         "license": "Apache-2.0",
         "streaming": "지원",
+        "official_summary": "LFM2-2.6B 선형 변환 모델(Liquid Foundation Model)에 MioCodec을 적용한 중형 TTS. 1.7B 대비 표현력이 높고 감정·스타일 제어 범위가 넓음.",
+        "official_perf": "EN WER ~2% (MioTeam 내부 평가, 1.7B 대비 개선); RTF < 0.6 (A100 기준)",
         "pros": [
             "LFM2-2.6B 대형 모델 — 1.7B 대비 더 풍부한 표현력. 영어·일본어 중 높은 품질이 필요한 콘텐츠 제작에 최적",
+            "스트리밍 지원 — 청크 단위 실시간 출력, 방송·게임 등 실시간 서비스 적합",
+            "Liquid Foundation Model 아키텍처 — 기존 Transformer 대비 긴 시퀀스 처리 효율 개선",
         ],
         "cons": [
             "한국어·중국어 미지원 — 영어·일본어 2개 언어 전용",
             "VRAM 사용량 높음 — 2.6B 파라미터 LFM2 모델로 GPU 메모리 소비가 커서 VRAM 8GB 이하 환경에서는 배치 크기 제한 필요",
+            "공식 벤치마크 데이터 미공개 — 제3자 독립 평가 없음",
         ],
     },
     "glm_tts": {
@@ -1824,10 +1834,12 @@ def generate_html(results_dir, output_path):
                 f'<span class="lang-badge lang-{l}">{l.upper()}</span>' for l in langs_s)
             opt_items = [c for c in info.get("cons", []) if "미적용" in c]
             opt_note  = info.get("opt_note", "")
+            lic_display = info.get("license", "-") or "-"
             meta_html = f"""
               <div class="detail-meta-grid">
                 <div><span class="dm-label">아키텍처</span><span class="dm-val">{arch_detail}</span></div>
                 <div><span class="dm-label">지원 언어</span><span class="dm-val">{lang_badges_html}</span></div>
+                <div><span class="dm-label">라이선스</span><span class="dm-val" style="color:#0ea5e9;font-weight:600">{lic_display}</span></div>
                 <div><span class="dm-label">최초 공개</span><span class="dm-val">{rel.get("first_release","—")}</span></div>
                 <div><span class="dm-label">최신 버전</span><span class="dm-val">{rel.get("latest_ver","—")}</span></div>
                 <div><span class="dm-label">업데이트</span><span class="dm-val">{rel.get("update_freq","—")}</span></div>
