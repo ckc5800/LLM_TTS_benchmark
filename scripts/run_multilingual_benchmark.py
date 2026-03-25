@@ -47,6 +47,13 @@ LANG_REF_GROUPS = {
     "zh": ["zh_female", "zh_male", "iu_long"],
 }
 
+# 모델별 참조음성 강제 지정 — 중국어 모델 등 특정 언어 참조가 더 적합한 경우
+MODEL_REF_OVERRIDE = {
+    # GPT-SoVITS: 중국어 전용 모델 — 모든 언어 합성 시 중국어 참조 음성 사용
+    "gpt_sovits":    ["zh_female", "zh_male"],
+    "gpt_sovits_v4": ["zh_female", "zh_male"],
+}
+
 # Method B: cross-lingual 참조 음성 그룹 (KO 참조 → 다른 언어)
 CROSS_LINGUAL_REF_GROUP = ["iu_long", "kor_female_calm", "kor_male_deep"]
 
@@ -57,6 +64,7 @@ CROSS_LINGUAL_MODELS = {
     "qwen3_tts_0.6b",
     "qwen3_tts_1.7b",
     "gpt_sovits",
+    "gpt_sovits_v4",
     "xtts",
     "fish_speech",
     "outetss",
@@ -311,7 +319,7 @@ def main():
     total_combos = 0
     for lang in languages:
         lang_texts = TEXT_SUITES.get(lang, [])
-        ref_keys_A = LANG_REF_GROUPS.get(lang, ["en_female"])
+        ref_keys_A_default = LANG_REF_GROUPS.get(lang, ["en_female"])
         for mk in model_keys:
             info = MODEL_REGISTRY.get(mk, {})
             if info.get("status") != "ready":
@@ -319,6 +327,7 @@ def main():
             if lang not in info.get("supported_languages", []):
                 continue
             if do_A:
+                ref_keys_A = MODEL_REF_OVERRIDE.get(mk, ref_keys_A_default)
                 total_combos += len(lang_texts) * len(ref_keys_A)
             if do_B and mk in CROSS_LINGUAL_MODELS and lang != "ko":
                 total_combos += len(lang_texts) * len(CROSS_LINGUAL_REF_GROUP)
@@ -453,13 +462,14 @@ def main():
         if args.dry_run and lang_texts:
             lang_texts = lang_texts[:1] # 드라이 런: 첫 번째 텍스트만
             
-        ref_keys_A  = LANG_REF_GROUPS.get(lang, ["en_female"])
+        ref_keys_A_default = LANG_REF_GROUPS.get(lang, ["en_female"])
 
         print(f"\n{'━'*70}")
-        print(f"  언어: {lang.upper()}  |  텍스트 {len(lang_texts)}개  |  참조음성그룹(A): {ref_keys_A}")
+        print(f"  언어: {lang.upper()}  |  텍스트 {len(lang_texts)}개")
         print(f"{'━'*70}")
 
         for model_key in model_keys:
+            ref_keys_A = MODEL_REF_OVERRIDE.get(model_key, ref_keys_A_default)
             info = MODEL_REGISTRY.get(model_key, {})
             if info.get("status") != "ready":
                 continue

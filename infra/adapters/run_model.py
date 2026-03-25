@@ -244,13 +244,13 @@ def run_cosyvoice2(args):
             # Zero-shot cloning
             gen_func = lambda: model.inference_zero_shot(args.text, REF_TEXT, REF_WAV, stream=False)
 
+        t0 = time.perf_counter()
         for i, result in enumerate(gen_func()):
             if i == 0:
                 ttfa_ms = (time.perf_counter() - t0) * 1000
             chunks.append(result['tts_speech'])
         sync_gpu()
         inf_time = time.perf_counter() - t0
-        
 
         if not is_warmup:
             import torch, numpy as np, soundfile as sf
@@ -326,6 +326,7 @@ def run_cosyvoice3(args):
             gen_func = lambda: model.inference_zero_shot(tts_text, REF_TEXT, REF_WAV, stream=False)
 
         # 스트리밍 결과 반환 루프
+        t0 = time.perf_counter()
         for i, result in enumerate(gen_func()):
             if i == 0:
                 ttfa_ms = (time.perf_counter() - t0) * 1000
@@ -1222,10 +1223,13 @@ def run_gpt_sovits(args):
 
     # output_path 절대경로 변환 (chdir 전에 필수)
     args.output_path = os.path.abspath(args.output_path)
+    model_dir_abs = os.path.abspath(args.model_dir)
 
     sys.path.insert(0, GSV_REPO)
     sys.path.insert(0, os.path.join(GSV_REPO, "GPT_SoVITS"))
     os.chdir(GSV_REPO)  # chinese2.py가 'GPT_SoVITS/text/G2PWModel' 상대경로 사용
+    # chinese2.py는 bert_path 환경변수가 없으면 상대경로 default 사용 → 절대경로로 설정
+    os.environ["bert_path"] = os.path.join(model_dir_abs, "chinese-roberta-wwm-ext-large")
 
     # config를 임포트하기 전에 환경 변수나 패치를 통해 경로를 설정해야 함
     # 하지만 api.py에 정의된 클래스와 함수들이 필요하므로 필요한 것만 가져오거나 모방함
@@ -1244,8 +1248,8 @@ def run_gpt_sovits(args):
     is_half = True if device == "cuda" else False
     dtype = torch.float16 if is_half else torch.float32
 
-    # 모델 경로 설정
-    model_dir = args.model_dir
+    # 모델 경로 설정 (chdir 이후이므로 절대경로 사용)
+    model_dir = model_dir_abs
     bert_path = os.path.join(model_dir, "chinese-roberta-wwm-ext-large")
     cnhubert_path = os.path.join(model_dir, "chinese-hubert-base")
     sovits_path = os.path.join(model_dir, "s2Gv3.pth")
@@ -1363,6 +1367,7 @@ def run_gpt_sovits(args):
         refer = spectrogram_torch(ref_audio, hps.data.filter_length, hps.data.sampling_rate, hps.data.hop_length, hps.data.win_length, center=False).to(dtype)
 
     # Auto-detect language from text (ko/zh/en)
+    # Note: Japanese text falls through to "zh" (uses Chinese G2P) since pyopenjtalk unavailable
     def _detect_lang(text):
         ko = sum(1 for c in text if '\uac00' <= c <= '\ud7a3' or '\u3130' <= c <= '\u318f')
         zh = sum(1 for c in text if '\u4e00' <= c <= '\u9fff')
@@ -1457,6 +1462,258 @@ def run_gpt_sovits(args):
             })
             
     # Cleanup
+    del t2s_model, vq_model, vocoder_model, ssl_model, bert_model
+    gc.collect()
+    torch.cuda.empty_cache()
+    return results
+
+
+def run_gpt_sovits_v4(args):
+    """GPT-SoVITS V4 인퍼런스 (48kHz, HiFiGAN vocoder)"""
+    import torch, gc
+    import numpy as np
+    import soundfile as sf
+    import librosa
+    import sys
+    from io import BytesIO
+
+    GSV_REPO = os.path.join(ROOT_DIR, "engines", "gptsovits")
+
+    args.output_path = os.path.abspath(args.output_path)
+
+    sys.path.insert(0, GSV_REPO)
+    sys.path.insert(0, os.path.join(GSV_REPO, "GPT_SoVITS"))
+    os.chdir(GSV_REPO)
+
+    from feature_extractor import cnhubert
+    from transformers import AutoModelForMaskedLM, AutoTokenizer
+    from module.models import SynthesizerTrnV3, Generator
+    from AR.models.t2s_lightning_module import Text2SemanticLightningModule
+    from process_ckpt import load_sovits_new
+    from text import cleaned_text_to_sequence
+    from text.cleaner import clean_text
+    from module.mel_processing import spectrogram_torch, mel_spectrogram_torch
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    is_half = True if device == "cuda" else False
+    dtype = torch.float16 if is_half else torch.float32
+
+    model_dir = args.model_dir
+    bert_path = os.path.join(model_dir, "chinese-roberta-wwm-ext-large")
+    cnhubert_path = os.path.join(model_dir, "chinese-hubert-base")
+    sovits_path = os.path.join(model_dir, "gsv-v4-pretrained", "s2Gv4.pth")
+    gpt_path = os.path.join(model_dir, "s1v3.ckpt")
+    vocoder_path = os.path.join(model_dir, "gsv-v4-pretrained", "vocoder.pth")
+
+    # chinese2.py가 env var로 bert 경로를 읽음 (V2와 동일하게 설정)
+    os.environ["bert_path"] = bert_path
+
+    vram_before = get_vram_mb()
+    t_load = time.perf_counter()
+
+    cnhubert.cnhubert_base_path = cnhubert_path
+    ssl_model = cnhubert.get_model().to(device)
+    if is_half: ssl_model = ssl_model.half()
+
+    tokenizer = AutoTokenizer.from_pretrained(bert_path)
+    bert_model = AutoModelForMaskedLM.from_pretrained(bert_path).to(device)
+    if is_half: bert_model = bert_model.half()
+
+    dict_s1 = torch.load(gpt_path, map_location="cpu", weights_only=False)
+    gpt_config = dict_s1["config"]
+    max_sec = gpt_config["data"]["max_sec"]
+    t2s_model = Text2SemanticLightningModule(gpt_config, "****", is_train=False)
+    t2s_model.load_state_dict(dict_s1["weight"])
+    if is_half: t2s_model = t2s_model.half()
+    t2s_model = t2s_model.to(device).eval()
+
+    dict_s2 = load_sovits_new(sovits_path)
+    hps = dict_s2["config"]
+    class AttrDict(dict):
+        def __getattr__(self, key): return self[key]
+        def __init__(self, d):
+            for k, v in d.items():
+                if isinstance(v, dict): v = AttrDict(v)
+                self[k] = v
+    hps = AttrDict(hps)
+
+    vq_model = SynthesizerTrnV3(
+        hps.data.filter_length // 2 + 1,
+        hps.train.segment_size // hps.data.hop_length,
+        n_speakers=hps.data.n_speakers,
+        **dict(hps.model)
+    )
+    vq_model.load_state_dict(dict_s2["weight"], strict=False)
+    if is_half: vq_model = vq_model.half()
+    vq_model = vq_model.to(device).eval()
+
+    # V4 vocoder: HiFiGAN (not BigVGAN)
+    vocoder_model = Generator(
+        initial_channel=100,
+        resblock="1",
+        resblock_kernel_sizes=[3, 7, 11],
+        resblock_dilation_sizes=[[1, 3, 5], [1, 3, 5], [1, 3, 5]],
+        upsample_rates=[10, 6, 2, 2, 2],
+        upsample_initial_channel=512,
+        upsample_kernel_sizes=[20, 12, 4, 4, 4],
+        gin_channels=0,
+        is_bias=True,
+    )
+    vocoder_model.remove_weight_norm()
+    state_dict_g = torch.load(vocoder_path, map_location="cpu", weights_only=False)
+    vocoder_model.load_state_dict(state_dict_g)
+    if is_half: vocoder_model = vocoder_model.half()
+    vocoder_model = vocoder_model.to(device).eval()
+
+    load_time = time.perf_counter() - t_load
+    vram_after_load = get_vram_mb()
+
+    # V4 mel: 32kHz reference
+    mel_fn = lambda x: mel_spectrogram_torch(x, n_fft=1280, win_size=1280, hop_size=320, num_mels=100, sampling_rate=32000, fmin=0, fmax=None, center=False)
+
+    def get_bert_feature(text, word2ph):
+        with torch.no_grad():
+            inputs = tokenizer(text, return_tensors="pt")
+            for i in inputs: inputs[i] = inputs[i].to(device)
+            res = bert_model(**inputs, output_hidden_states=True)
+            res = torch.cat(res["hidden_states"][-3:-2], -1)[0].cpu()[1:-1]
+        phone_level_feature = []
+        for i in range(len(word2ph)):
+            repeat_feature = res[i].repeat(word2ph[i], 1)
+            phone_level_feature.append(repeat_feature)
+        return torch.cat(phone_level_feature, dim=0).T
+
+    def get_phones_and_bert(text, lang):
+        phones, word2ph, norm_text = clean_text(text, lang, "v4")
+        phones = cleaned_text_to_sequence(phones, "v4")
+        if lang == "zh":
+            bert = get_bert_feature(norm_text, word2ph).to(device)
+        else:
+            bert = torch.zeros((1024, len(phones)), dtype=dtype).to(device)
+        return phones, bert, norm_text
+
+    results = []
+    sr = 48000
+    T_ref, T_chunk = 500, 1000
+
+    # 참조 데이터: 32kHz로 리샘플 (V4 spec), 5초 분량
+    ref_wav_path, prompt_text = get_reference_data(args, target_sr=32000, max_sec=5.0)
+    MAX_REF_SECS = 5.0
+
+    # 참조 음성 언어 감지 (ref_key 기반: zh_* → zh, ja_* → ja, en_* → en, else → ko)
+    _rk = getattr(args, "ref_key", "")
+    _ref_lang = "zh" if _rk.startswith("zh") else "ja" if _rk.startswith("ja") else "en" if _rk.startswith("en") else "ko"
+    phones1, bert1, _ = get_phones_and_bert(prompt_text, _ref_lang)
+
+    with torch.no_grad():
+        wav16k, _ = librosa.load(ref_wav_path, sr=16000)
+        wav16k = wav16k[:int(MAX_REF_SECS * 16000)]
+        wav16k = torch.from_numpy(wav16k).to(device)
+        if is_half: wav16k = wav16k.half()
+        ssl_content = ssl_model.model(wav16k.unsqueeze(0))["last_hidden_state"].transpose(1, 2)
+        codes = vq_model.extract_latent(ssl_content)
+        prompt_semantic = codes[0, 0].unsqueeze(0)
+
+        ref_audio, _sr = sf.read(ref_wav_path)
+        if ref_audio.ndim == 2:
+            ref_audio = ref_audio.mean(axis=1)
+        ref_audio = ref_audio[:int(MAX_REF_SECS * _sr)]
+        ref_audio = torch.from_numpy(ref_audio).to(device).float().unsqueeze(0)
+        if _sr != 32000:
+            import torchaudio
+            ref_audio = torchaudio.transforms.Resample(_sr, 32000).to(device)(ref_audio)
+
+        mel2 = mel_fn(ref_audio)
+        mel2 = (mel2 - (-12)) / (2 - (-12)) * 2 - 1  # norm_spec
+        refer = spectrogram_torch(ref_audio, hps.data.filter_length, hps.data.sampling_rate, hps.data.hop_length, hps.data.win_length, center=False).to(dtype)
+
+    def _detect_lang(text):
+        ko = sum(1 for c in text if '\uac00' <= c <= '\ud7a3' or '\u3130' <= c <= '\u318f')
+        zh = sum(1 for c in text if '\u4e00' <= c <= '\u9fff')
+        en = sum(1 for c in text if c.isalpha() and ord(c) < 128)
+        total = ko + zh + en
+        if total == 0: return "ko"
+        if ko > total * 0.2: return "ko"
+        if zh > total * 0.2: return "zh"
+        return "en"
+    text_lang = _detect_lang(args.text)
+
+    for run_idx in range(-WARMUP_RUNS, args.runs):
+        is_warmup = run_idx < 0
+        reset_vram_peak()
+        t0 = time.perf_counter()
+
+        phones2, bert2, _ = get_phones_and_bert(args.text, text_lang)
+        bert = torch.cat([bert1, bert2], 1).unsqueeze(0)
+        all_phones = torch.LongTensor(phones1 + phones2).to(device).unsqueeze(0)
+        all_len = torch.tensor([all_phones.shape[-1]]).to(device)
+
+        with torch.no_grad():
+            pred_semantic, idx = t2s_model.model.infer_panel(
+                all_phones, all_len, prompt_semantic, bert,
+                top_k=15, top_p=1.0, temperature=1.0, early_stop_num=50 * max_sec
+            )
+            pred_semantic = pred_semantic[:, -idx:].unsqueeze(0)
+
+            phoneme_ids0 = torch.LongTensor(phones1).to(device).unsqueeze(0)
+            phoneme_ids1 = torch.LongTensor(phones2).to(device).unsqueeze(0)
+
+            fea_ref, ge = vq_model.decode_encp(prompt_semantic.unsqueeze(0), phoneme_ids0, refer)
+            fea_todo, ge = vq_model.decode_encp(pred_semantic, phoneme_ids1, refer, ge, 1.0)
+
+            T_min = min(mel2.shape[2], fea_ref.shape[2])
+            if T_min > T_ref:
+                mel2 = mel2[:, :, -T_ref:]
+                fea_ref = fea_ref[:, :, -T_ref:]
+                T_min = T_ref
+            m2 = mel2[:, :, :T_min].to(dtype)
+            f_ref = fea_ref[:, :, :T_min]
+
+            chunk_len = T_chunk - T_min
+            idx_fea = 0
+            cfm_resss = []
+            while True:
+                fea_chunk = fea_todo[:, :, idx_fea : idx_fea + chunk_len]
+                if fea_chunk.shape[-1] == 0: break
+                idx_fea += chunk_len
+                fea = torch.cat([f_ref, fea_chunk], 2).transpose(2, 1)
+                cfm_res = vq_model.cfm.inference(
+                    fea, torch.LongTensor([fea.size(1)]).to(device), m2, 32, 0
+                )
+                cfm_res = cfm_res[:, :, m2.shape[2]:]
+                m2 = cfm_res[:, :, -T_min:]
+                f_ref = fea_chunk[:, :, -T_min:]
+                cfm_resss.append(cfm_res)
+
+            cfm_res_full = torch.cat(cfm_resss, 2)
+            cfm_res_full = (cfm_res_full + 1) / 2 * (2 - (-12)) + (-12)  # denorm_spec
+
+            wav_gen = vocoder_model(cfm_res_full)
+            audio = wav_gen[0][0].cpu().float().numpy()
+
+        sync_gpu()
+        inf_time = time.perf_counter() - t0
+
+        if not is_warmup:
+            max_val = np.abs(audio).max()
+            if max_val > 1.0: audio /= max_val
+            out_path = args.output_path.replace('.wav', f'_{run_idx}.wav')
+            sf.write(out_path, audio, sr, subtype='PCM_16')
+            duration = len(audio) / sr
+            results.append({
+                "run_index": run_idx,
+                "load_time_s": load_time,
+                "ttfa_ms": inf_time * 1000,
+                "inference_time_s": inf_time,
+                "audio_duration_s": duration,
+                "vram_before_mb": vram_before,
+                "vram_after_mb": vram_after_load,
+                "vram_peak_mb": get_vram_peak_mb(),
+                "sample_rate": sr,
+                "output_wav": out_path,
+                "success": True,
+            })
+
     del t2s_model, vq_model, vocoder_model, ssl_model, bert_model
     gc.collect()
     torch.cuda.empty_cache()
@@ -3349,6 +3606,7 @@ RUNNERS = {
     "bark": run_bark,
     "mio_tts": run_mio_tts,
     "gpt_sovits": run_gpt_sovits,
+    "gpt_sovits_v4": run_gpt_sovits_v4,
     "f5tts": run_f5tts,
     "xtts": run_xtts,
     "melotts": run_melotts,

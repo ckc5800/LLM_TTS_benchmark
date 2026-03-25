@@ -114,14 +114,21 @@ def find_wav_files(results_dir: str, langs: list, method: str = "A") -> dict:
             continue
         for wav_path in sorted(glob.glob(os.path.join(wav_dir, "*_0.wav"))):
             fname = os.path.basename(wav_path)  # e.g. fish_speech__en_short_0.wav
-            # 파싱: {model_key}__{lang}_{text_key}_0.wav
-            m = re.match(r"^(.+?)__(" + lang + r"_\w+)_0\.wav$", fname)
+            # 신형: {model_key}__{ref_key}__{lang}_{text_key}_0.wav
+            m = re.match(r"^(.+?)__(?:.+?)__(" + lang + r"_\w+)_0\.wav$", fname)
+            if not m:
+                # 구형: {model_key}__{lang}_{text_key}_0.wav
+                m = re.match(r"^(.+?)__(" + lang + r"_\w+)_0\.wav$", fname)
             if not m:
                 continue
             mk, tk = m.group(1), m.group(2)
             if tk not in TEST_TEXTS:
                 continue
-            out.setdefault(lang, {}).setdefault(tk, {})[mk] = wav_path
+            # 같은 model+text에 여러 ref_key가 있으면 첫 번째만 사용
+            lang_map = out.setdefault(lang, {})
+            tk_map = lang_map.setdefault(tk, {})
+            if mk not in tk_map:
+                tk_map[mk] = wav_path
     return out
 
 

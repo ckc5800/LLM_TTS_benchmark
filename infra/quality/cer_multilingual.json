@@ -12,8 +12,9 @@
     "hyp": "한글자막 by 한효정 한글자막 by 한효정 한글자막 by 한효정"
   },
   "ko|cosyvoice2|ko_medium": {
-    "score": 1.442308,
-    "hyp": "ciudad 밤이 되기 좋습니다. 이거를 squared 양말을 저는 simpler 형식으로 변수할겁니다. 그리고 homo hied orden만 에게 교육을 합니다. 한글자막 by 한효정"
+    "score": 1.0,
+    "hyp": "ciudad 밤이 되기 좋습니다. 이거를 squared 양말을 저는 simpler 형식으로 변수할겁니다. 그리고 homo hied orden만 에게 교육을 합니다. 한글자막 by 한효정",
+    "score_uncapped": 1.442308
   },
   "ko|cosyvoice2|ko_mixed": {
     "score": 0.987179,
@@ -39,7 +40,7 @@
     "score": 0.976471,
     "hyp": "아멘 아멘 아멘 아멘 아멘"
   },
-  "ko|cosyvoice2|AVG": 1.021766,
+  "ko|cosyvoice2|AVG": 0.9775355,
   "ko|cosyvoice3|ko_conversational": {
     "score": 0.964286,
     "hyp": "영어 자막 제공 및 자막 제공 및 광고를 포함하고 있습니다."
@@ -82,46 +83,56 @@
   },
   "ko|cosyvoice3|AVG": 0.952533,
   "ko|gpt_sovits|ko_conversational": {
-    "score": 0.446429,
-    "hyp": "쇼핑의 담점과 시간이 시청자 분들의 다른 손에다 대는 당연해 야 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데 아니면 짜장면도 괜찮고 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 네 생각은 어때?"
+    "score": 0.0,
+    "hyp": "쇼핑의 담점과 시간이 시청자 분들의 다른 손에다 대는 당연해 야 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데 아니면 짜장면도 괜찮고 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 네 생각은 어때?",
+    "score_with_prefix": 0.446429
   },
   "ko|gpt_sovits|ko_formal": {
-    "score": 0.290323,
-    "hyp": "2순위의 감정과 시장이 시청장은 될 때 간호성계가 되는 간면에 존경하는 여러분 오늘 이 자리에 함께 해주셔서 감사드립니다. 저희 회사는 지난 1억년간 꾸준한 성장을 거듭하며 글로벌 시장에서 경쟁력을 갖춘 기업으로 발"
+    "score": 0.3225806,
+    "hyp": "2순위의 감정과 시장이 시청장은 될 때 간호성계가 되는 간면에 존경하는 여러분 오늘 이 자리에 함께 해주셔서 감사드립니다. 저희 회사는 지난 1억년간 꾸준한 성장을 거듭하며 글로벌 시장에서 경쟁력을 갖춘 기업으로 발",
+    "score_with_prefix": 0.290323
   },
   "ko|gpt_sovits|ko_long": {
-    "score": 0.238938,
-    "hyp": "수미의 감성과 시간이 시청자분들께 바로 소개가 되는 안면은 안녕하세요. 오늘은 여러가지 오픈소스 TTS 모델들을 벤치마크 테스트합니다. 인공지능 음성합성 기술은 최근 몇 년 사이에 놀라울 정도로 발전했으며 자연스러운"
+    "score": 0.4070796,
+    "hyp": "수미의 감성과 시간이 시청자분들께 바로 소개가 되는 안면은 안녕하세요. 오늘은 여러가지 오픈소스 TTS 모델들을 벤치마크 테스트합니다. 인공지능 음성합성 기술은 최근 몇 년 사이에 놀라울 정도로 발전했으며 자연스러운",
+    "score_with_prefix": 0.238938
   },
   "ko|gpt_sovits|ko_medium": {
-    "score": 0.480769,
-    "hyp": "신이의 당장과 시간이 수상도 흔들 때 가능성계가 되는 안나네. 안녕하세요. 인공지능 음성 합성 기술이 놀라울 정도로 발전했습니다. 한국어 발음의 정확성과 자연스러움을 평가하고 있습니다."
+    "score": 0.0,
+    "hyp": "신이의 당장과 시간이 수상도 흔들 때 가능성계가 되는 안나네. 안녕하세요. 인공지능 음성 합성 기술이 놀라울 정도로 발전했습니다. 한국어 발음의 정확성과 자연스러움을 평가하고 있습니다.",
+    "score_with_prefix": 0.480769
   },
   "ko|gpt_sovits|ko_mixed": {
-    "score": 0.384615,
-    "hyp": "스키니의 감정 머시간이 시청자분들께 바로 섭외가 되는 반면에 AI와 머시러닝 기술을 활용한 TTS 시스템이 발전하고 있습니다. GPT와 CLA-UD 같은 대형 언어 모델들도 음성 기능을 지원합니다. RTF0, O2하"
+    "score": 0.2179487,
+    "hyp": "스키니의 감정 머시간이 시청자분들께 바로 섭외가 되는 반면에 AI와 머시러닝 기술을 활용한 TTS 시스템이 발전하고 있습니다. GPT와 CLA-UD 같은 대형 언어 모델들도 음성 기능을 지원합니다. RTF0, O2하",
+    "score_with_prefix": 0.384615
   },
   "ko|gpt_sovits|ko_numbers": {
-    "score": 0.61194,
-    "hyp": "춘희의 강정과 시밤이 시청자분들께 강성해가 되는 방면에 2026년 3월 2일 오후 3시 4분입니다. 서울 기온은 영하 2.5도이며 내일 강소 확률은 8%입니다. 문의 전화번호는 010-12345678입니다."
+    "score": 0.2537313,
+    "hyp": "춘희의 강정과 시밤이 시청자분들께 강성해가 되는 방면에 2026년 3월 2일 오후 3시 4분입니다. 서울 기온은 영하 2.5도이며 내일 강소 확률은 8%입니다. 문의 전화번호는 010-12345678입니다.",
+    "score_with_prefix": 0.61194
   },
   "ko|gpt_sovits|ko_proverb": {
-    "score": 0.397436,
-    "hyp": "희니의 감정과 시간이 시청 가면 될 때 가로 소개가 되는 방면에 가는 말이 고와야 오는 말이 곱다고 했습니다. 천리길 또한 걸음부터 시작되니 포기하지 말고 꾸준히 노력해보세요. 3살 벌은 80까지 간다는 말처럼 좋은"
+    "score": 0.2820513,
+    "hyp": "희니의 감정과 시간이 시청 가면 될 때 가로 소개가 되는 방면에 가는 말이 고와야 오는 말이 곱다고 했습니다. 천리길 또한 걸음부터 시작되니 포기하지 말고 꾸준히 노력해보세요. 3살 벌은 80까지 간다는 말처럼 좋은",
+    "score_with_prefix": 0.397436
   },
   "ko|gpt_sovits|ko_question": {
-    "score": 0.433333,
-    "hyp": "주니의 감정과 시간이 시청자 분들 때에 다로 속에 가게 된 단면에… 정말요? 믿을 수가 없네요. 그게 사실이라면 정말 대단한 일이 아닐 수 없어요. 어떻게 그런 생각을 하게 되셨나요? 혹시 더 자세히 설명해 주실 수"
+    "score": 0.0666667,
+    "hyp": "주니의 감정과 시간이 시청자 분들 때에 다로 속에 가게 된 단면에… 정말요? 믿을 수가 없네요. 그게 사실이라면 정말 대단한 일이 아닐 수 없어요. 어떻게 그런 생각을 하게 되셨나요? 혹시 더 자세히 설명해 주실 수",
+    "score_with_prefix": 0.433333
   },
   "ko|gpt_sovits|ko_short": {
-    "score": 1.666667,
-    "hyp": "지니의 단점과 시간이 시참 적응될 때 바로 소개하자는 단면에 안녕하세요 오늘 날씨가 정말 좋네요"
+    "score": 0.0,
+    "hyp": "지니의 단점과 시간이 시참 적응될 때 바로 소개하자는 단면에 안녕하세요 오늘 날씨가 정말 좋네요",
+    "score_with_prefix": 1.666667
   },
   "ko|gpt_sovits|ko_technical": {
-    "score": 0.294118,
-    "hyp": "기기의 감정과 시간이 시청자 분들 때 강소되려 되는 악련에 딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 작용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터"
+    "score": 0.2117647,
+    "hyp": "기기의 감정과 시간이 시청자 분들 때 강소되려 되는 악련에 딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 작용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터",
+    "score_with_prefix": 0.294118
   },
-  "ko|gpt_sovits|AVG": 0.524457,
+  "ko|gpt_sovits|AVG": 0.0486225,
   "ko|melotts|ko_conversational": {
     "score": 0.017857,
     "hyp": "야, 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데. 아니면 짜장면도 괜찮고. 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 내 생각은 어때?"
@@ -162,7 +173,7 @@
     "score": 0.0,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|melotts|AVG": 0.05256,
+  "ko|melotts|AVG": 0.0527375,
   "ko|openvoice|ko_conversational": {
     "score": 0.017857,
     "hyp": "야, 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데. 아니면 짜장면도 괜찮고. 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 내 생각은 어때?"
@@ -203,7 +214,7 @@
     "score": 0.0,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|openvoice|AVG": 0.053599,
+  "ko|openvoice|AVG": 0.0535987,
   "ko|outetss|ko_conversational": {
     "score": 0.321429,
     "hyp": "야, 오늘 점심 뭐 먹을래, 나는 김치찌개가 당기는데, 아니면 짜장면도 최고 아니겠어, 내 생각은 어때?"
@@ -244,7 +255,7 @@
     "score": 0.129412,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효율을 높입니다. 트랜스포어머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|outetss|AVG": 0.096885,
+  "ko|outetss|AVG": 0.0968848,
   "ko|qwen3_tts_0.6b|ko_conversational": {
     "score": 0.035714,
     "hyp": "야 오늘 점심 뭐 먹을래? 나는 김치찌개가 담기는데 아니면 짜장면도 괜찮고 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 내 생각은 어때?"
@@ -285,7 +296,7 @@
     "score": 0.0,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|qwen3_tts_0.6b|AVG": 0.036005,
+  "ko|qwen3_tts_0.6b|AVG": 0.0717588,
   "ko|qwen3_tts_1.7b|ko_conversational": {
     "score": 0.035714,
     "hyp": "아 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데? 아니면 짜장면도 괜찮고 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 내 생각은 어때?"
@@ -326,10 +337,11 @@
     "score": 0.0,
     "hyp": "딥러닝 모델의 학습 과정에서 배치, 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|qwen3_tts_1.7b|AVG": 0.037287,
+  "ko|qwen3_tts_1.7b|AVG": 0.05313,
   "ko|xtts|ko_conversational": {
-    "score": 1.089286,
-    "hyp": "야, 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데 아니면 짜장면도 괜찮고 날씨 딱 사나이 나키탈타우나라다가 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 없다고 하러 갈 다 아니겠어? 네, 사실은 저하고 대화"
+    "score": 1.0,
+    "hyp": "야, 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데 아니면 짜장면도 괜찮고 날씨 딱 사나이 나키탈타우나라다가 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 없다고 하러 갈 다 아니겠어? 네, 사실은 저하고 대화",
+    "score_uncapped": 1.089286
   },
   "ko|xtts|ko_formal": {
     "score": 0.150538,
@@ -360,14 +372,15 @@
     "hyp": "정말요? 믿을 수가 없네요. 그게 사실이라면 정말 대단한 일이 아닐 수 없어요. 어떻게 그런 생각을 하게 되셨나요? 혹시 더 자세히 설명해 주실 수 있을까요?"
   },
   "ko|xtts|ko_short": {
-    "score": 2.266667,
-    "hyp": "안녕하세요 루이와 샤프가니테의 온라인 로펠트 시어치야 날씨는 약간 더 밝고 더 안나와 있어요 오늘 날씨가 정말 좋네요"
+    "score": 1.0,
+    "hyp": "안녕하세요 루이와 샤프가니테의 온라인 로펠트 시어치야 날씨는 약간 더 밝고 더 안나와 있어요 오늘 날씨가 정말 좋네요",
+    "score_uncapped": 2.266667
   },
   "ko|xtts|ko_technical": {
     "score": 0.011765,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규어와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|xtts|AVG": 0.421979,
+  "ko|xtts|AVG": 0.24977,
   "ko|zipvoice_finetuned|ko_conversational": {
     "score": 0.035714,
     "hyp": "오늘 점심 뭐 먹을래, 나는 김치찌개가 당기는데, 아니면 짜장면도 괜찮고. 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어, 내 생각은 어때?"
@@ -408,7 +421,7 @@
     "score": 0.0,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|zipvoice_finetuned|AVG": 0.05724,
+  "ko|zipvoice_finetuned|AVG": 0.0572405,
   "en|bark|en_conversational": {
     "score": 0.028571,
     "hyp": "Hey, what's up? Are you free this weekend? I was thinking we can grab some coffee and catch up. It's been ages since we "
@@ -490,7 +503,7 @@
     "score": 0.032258,
     "hyp": "The TransformR architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving "
   },
-  "en|chatterbox|AVG": 0.020369,
+  "en|chatterbox|AVG": 0.0203686,
   "en|cosyvoice2|en_conversational": {
     "score": 0.942857,
     "hyp": "Here we go. and it will cut out for the E-curriculum, and I will teach you all over and over and over and over and over."
@@ -565,14 +578,15 @@
     "hyp": "So, chat, chat, jeep, I just, oh."
   },
   "en|cosyvoice3|en_short": {
-    "score": 1.3,
-    "hyp": "I hope you enjoyed this video, and I'll see you in the next one!"
+    "score": 1.0,
+    "hyp": "I hope you enjoyed this video, and I'll see you in the next one!",
+    "score_uncapped": 1.3
   },
   "en|cosyvoice3|en_technical": {
     "score": 1.0,
     "hyp": "So,"
   },
-  "en|cosyvoice3|AVG": 1.006944,
+  "en|cosyvoice3|AVG": 0.9769441,
   "en|dia|en_conversational": {
     "score": 0.742857,
     "hyp": "Hey, what's up? Are you free this weekend? What's up? Hey"
@@ -586,20 +600,24 @@
     "hyp": "Ladies and gentlemen, we are pleased to announce the launch. Ladies and gentlemen, we are pleased to announce the launch"
   },
   "en|dia|en_long": {
-    "score": 3.692308,
-    "hyp": "Artificial intelligence is transforming industries across the globe, at an uns forming industries across the globe, at a"
+    "score": 1.0,
+    "hyp": "Artificial intelligence is transforming industries across the globe, at an uns forming industries across the globe, at a",
+    "score_uncapped": 3.692308
   },
   "en|dia|en_medium": {
-    "score": 2.16,
-    "hyp": "Artificial Intelligence Speech Synthesis Technology Has Made Remarkable Progress Artificial Intelligence Speech Synthesi"
+    "score": 1.0,
+    "hyp": "Artificial Intelligence Speech Synthesis Technology Has Made Remarkable Progress Artificial Intelligence Speech Synthesi",
+    "score_uncapped": 2.16
   },
   "en|dia|en_names": {
-    "score": 4.794872,
-    "hyp": "Apple CEO Tim Cook met with Microsoft founder Tim Cook, met with Microsoft founder Tim Cook, met with Microsoft founder "
+    "score": 1.0,
+    "hyp": "Apple CEO Tim Cook met with Microsoft founder Tim Cook, met with Microsoft founder Tim Cook, met with Microsoft founder ",
+    "score_uncapped": 4.794872
   },
   "en|dia|en_numbers": {
-    "score": 2.228571,
-    "hyp": "The meeting is scheduled for March 2nd, 2026 at 3.45 p.m. The meeting is scheduled for March 2nd, 2026 at 3.45 p.m. The "
+    "score": 1.0,
+    "hyp": "The meeting is scheduled for March 2nd, 2026 at 3.45 p.m. The meeting is scheduled for March 2nd, 2026 at 3.45 p.m. The ",
+    "score_uncapped": 2.228571
   },
   "en|dia|en_punctuation": {
     "score": 1.0,
@@ -610,10 +628,11 @@
     "hyp": ""
   },
   "en|dia|en_technical": {
-    "score": 2.064516,
-    "hyp": "The transformer architecture uses multi-head self-attention mechanisms, uses multi-head self-attention mechanisms, uses "
+    "score": 1.0,
+    "hyp": "The transformer architecture uses multi-head self-attention mechanisms, uses multi-head self-attention mechanisms, uses ",
+    "score_uncapped": 2.064516
   },
-  "en|dia|AVG": 1.91058,
+  "en|dia|AVG": 0.9165531,
   "en|f5tts|en_conversational": {
     "score": 0.514286,
     "hyp": "Are you free this weekend? We could grab some woven ketchup. It's been ages since we last hung out."
@@ -654,7 +673,7 @@
     "score": 0.83871,
     "hyp": "The transfer mark has been processed to sequential data. The performance of the pre-vident check continues due to the GP"
   },
-  "en|f5tts|AVG": 0.661537,
+  "en|f5tts|AVG": 0.6615367,
   "en|fish_speech|en_conversational": {
     "score": 0.0,
     "hyp": "hey what's up are you free this weekend i was thinking we could grab some coffee and catch up it's been ages since we la"
@@ -695,7 +714,7 @@
     "score": 0.193548,
     "hyp": "The transformer architectures is multi-hand self-attaching mechanisms to process the sequential data and parallel achiev"
   },
-  "en|fish_speech|AVG": 0.252513,
+  "en|fish_speech|AVG": 0.2525134,
   "en|gpt_sovits|en_conversational": {
     "score": 0.085714,
     "hyp": "What's up? Are you free this weekend? I was thinking we could grab some coffee and ketchup. It's been ages since we last"
@@ -736,7 +755,7 @@
     "score": 0.16129,
     "hyp": "The transformer architecture uses multi-head silver tension mechanisms to process sequential data in parallel, achieving"
   },
-  "en|gpt_sovits|AVG": 0.067349,
+  "en|gpt_sovits|AVG": 0.0673487,
   "en|kokoro|en_conversational": {
     "score": 0.0,
     "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
@@ -777,7 +796,7 @@
     "score": 0.0,
     "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
   },
-  "en|kokoro|AVG": 0.008571,
+  "en|kokoro|AVG": 0.0085714,
   "en|mars5|en_conversational": {
     "score": 0.742857,
     "hyp": "Hey, what's up, right? Free this word that I slid in was speaking of Graves and Cassie and Ted Jug. No, you know God, we"
@@ -807,18 +826,20 @@
     "hyp": "The meeting is stretched from March 2nd to, say, 22.6 at 3.53 and the other proper case is until 2.5. The temperature is"
   },
   "en|mars5|en_punctuation": {
-    "score": 1.033333,
-    "hyp": "Sweet. At least you're a good girl now. Since you've been so successful, you've gotten a lot of love from the world, so "
+    "score": 1.0,
+    "hyp": "Sweet. At least you're a good girl now. Since you've been so successful, you've gotten a lot of love from the world, so ",
+    "score_uncapped": 1.033333
   },
   "en|mars5|en_short": {
-    "score": 2.1,
-    "hyp": "Well, guys, that's it for Fulgon Tay 66 on the Panacea. That's the Wiener Aber, a revered big Quebec surprise, eh?"
+    "score": 1.0,
+    "hyp": "Well, guys, that's it for Fulgon Tay 66 on the Panacea. That's the Wiener Aber, a revered big Quebec surprise, eh?",
+    "score_uncapped": 2.1
   },
   "en|mars5|en_technical": {
     "score": 0.580645,
     "hyp": "The transforlage virtually enhances multi-hexafiltration modernisms to carry net and lay-out attuned in-stake of perform"
   },
-  "en|mars5|AVG": 0.637931,
+  "en|mars5|AVG": 0.5245975,
   "en|melotts|en_conversational": {
     "score": 0.0,
     "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
@@ -859,7 +880,7 @@
     "score": 0.032258,
     "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
   },
-  "en|melotts|AVG": 0.01513,
+  "en|melotts|AVG": 0.0151305,
   "en|mio_tts_1.7b|en_conversational": {
     "score": 0.0,
     "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
@@ -900,7 +921,7 @@
     "score": 0.0,
     "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
   },
-  "en|mio_tts_1.7b|AVG": 0.014834,
+  "en|mio_tts_1.7b|AVG": 0.0148338,
   "en|mio_tts_2.6b|en_conversational": {
     "score": 0.0,
     "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
@@ -941,7 +962,7 @@
     "score": 0.0,
     "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
   },
-  "en|mio_tts_2.6b|AVG": 0.005714,
+  "en|mio_tts_2.6b|AVG": 0.0057143,
   "en|openvoice|en_conversational": {
     "score": 0.0,
     "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
@@ -982,7 +1003,7 @@
     "score": 0.16129,
     "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
   },
-  "en|openvoice|AVG": 0.028034,
+  "en|openvoice|AVG": 0.0280337,
   "en|outetss|en_conversational": {
     "score": 0.0,
     "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
@@ -1023,7 +1044,7 @@
     "score": 0.0,
     "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
   },
-  "en|outetss|AVG": 0.02185,
+  "en|outetss|AVG": 0.0218498,
   "en|parler|en_conversational": {
     "score": 0.0,
     "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
@@ -1064,7 +1085,7 @@
     "score": 0.225806,
     "hyp": "the transform architecture uses multi head self-attention mechanisms to process sequential data on parallel achieving st"
   },
-  "en|parler|AVG": 0.090346,
+  "en|parler|AVG": 0.0903462,
   "en|qwen3_tts_0.6b|en_conversational": {
     "score": 0.0,
     "hyp": "hey what's up are you free this weekend i was thinking we could grab some coffee and catch up it's been ages since we la"
@@ -1105,7 +1126,7 @@
     "score": 0.032258,
     "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
   },
-  "en|qwen3_tts_0.6b|AVG": 0.046083,
+  "en|qwen3_tts_0.6b|AVG": 0.0460829,
   "en|qwen3_tts_1.7b|en_conversational": {
     "score": 0.0,
     "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
@@ -1187,7 +1208,7 @@
     "score": 0.0,
     "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
   },
-  "en|spark_tts|AVG": 0.008571,
+  "en|spark_tts|AVG": 0.0085714,
   "en|styletts2|en_conversational": {
     "score": 0.085714,
     "hyp": "hey what's up are you for this wee kind i was thinking we could grab some coffee and catch up it's been ages since we la"
@@ -1228,7 +1249,7 @@
     "score": 0.387097,
     "hyp": "The transformer architecture use is multi-head self-attention mechanisms to process sequential data in parallel achievin"
   },
-  "en|styletts2|AVG": 0.072281,
+  "en|styletts2|AVG": 0.0722807,
   "en|xtts|en_conversational": {
     "score": 0.0,
     "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
@@ -1269,217 +1290,7 @@
     "score": 0.032258,
     "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
   },
-  "en|xtts|AVG": 0.018654,
-  "ja|cosyvoice2|ja_conversational": {
-    "score": 0.962963,
-    "hyp": "左手は ぽーぽーギリギリギリー おーおー"
-  },
-  "ja|cosyvoice2|ja_formal": {
-    "score": 0.849315,
-    "hyp": "ご視聴ありがとうございました"
-  },
-  "ja|cosyvoice2|ja_medium": {
-    "score": 0.954545,
-    "hyp": "ご視聴ありがとうございました"
-  },
-  "ja|cosyvoice2|ja_short": {
-    "score": 0.888889,
-    "hyp": "ご視聴ありがとうございました"
-  },
-  "ja|cosyvoice2|ja_technical": {
-    "score": 0.979381,
-    "hyp": "お疲れ様でした ご視聴ありがとうございました"
-  },
-  "ja|cosyvoice2|AVG": 0.927019,
-  "ja|cosyvoice3|ja_conversational": {
-    "score": 0.944444,
-    "hyp": "ご視聴ありがとうございました"
-  },
-  "ja|cosyvoice3|ja_formal": {
-    "score": 0.945205,
-    "hyp": "次の動画でお会いしましょう"
-  },
-  "ja|cosyvoice3|ja_medium": {
-    "score": 0.969697,
-    "hyp": "次の動画でお会いしましょう。"
-  },
-  "ja|cosyvoice3|ja_short": {
-    "score": 1.0,
-    "hyp": "終わった"
-  },
-  "ja|cosyvoice3|ja_technical": {
-    "score": 0.989691,
-    "hyp": "お疲れ様でした"
-  },
-  "ja|cosyvoice3|AVG": 0.969807,
-  "ja|fish_speech|ja_conversational": {
-    "score": 0.074074,
-    "hyp": "今日の昼はどうするラーメンかカレーか迷ってるんだけど 最近寒いし温かいものが食べたいよね あなたはどう思う?"
-  },
-  "ja|fish_speech|ja_formal": {
-    "score": 0.082192,
-    "hyp": "皆さま、本日はお集まりいただきありがとうございます。 今朝はこの10年間、継続的な成長を遂げてまいりました。 今後ともご支援、ご協力のほどよろしくお願い申し上げます。"
-  },
-  "ja|fish_speech|ja_medium": {
-    "score": 0.424242,
-    "hyp": "日本人の温泉保存技術は、おそらく進歩を遂げています。 西洋連合創りと水素学習の組み合わせにより、 より自然で文化の養護性が実現されています。"
-  },
-  "ja|fish_speech|ja_short": {
-    "score": 0.055556,
-    "hyp": "こんにちは 今日はとてもいい天気ですね"
-  },
-  "ja|fish_speech|ja_technical": {
-    "score": 0.134021,
-    "hyp": "トランスフォーマーアーキテクチャは、マルチヘッド自己注意報についてシーケンスデータをエリス処理します。 パッチ的化とドロップアウトを組み合わせることで、モデルの反対性能を幅に向上させることができます。"
-  },
-  "ja|fish_speech|AVG": 0.154017,
-  "ja|gpt_sovits|ja_conversational": {
-    "score": 0.925926,
-    "hyp": "お気に入りの感想と、 視聴者の皆さまの感想をお聞かせください。 今日のお食事は、最近、温室です。"
-  },
-  "ja|gpt_sovits|ja_formal": {
-    "score": 0.945205,
-    "hyp": "次の動画でお会いしましょう。"
-  },
-  "ja|gpt_sovits|ja_medium": {
-    "score": 0.530303,
-    "hyp": "人工知能音声合成技術 目絶近部推 自然言語出力 深層学習組合 自然流暢音声合成実現"
-  },
-  "ja|gpt_sovits|ja_short": {
-    "score": 1.277778,
-    "hyp": "ゆうしんの感情と時間が 視聴者の時に 紹介される反面"
-  },
-  "ja|gpt_sovits|ja_technical": {
-    "score": 0.969072,
-    "hyp": "次の動画でお会いしましょう。"
-  },
-  "ja|gpt_sovits|AVG": 0.929657,
-  "ja|kokoro|ja_conversational": {
-    "score": 0.925926,
-    "hyp": "日本語字幕をオンにしてご視聴ください。"
-  },
-  "ja|kokoro|ja_formal": {
-    "score": 0.986301,
-    "hyp": "日本語字幕"
-  },
-  "ja|kokoro|ja_medium": {
-    "score": 0.984848,
-    "hyp": "日本語字幕"
-  },
-  "ja|kokoro|ja_short": {
-    "score": 12.388889,
-    "hyp": "日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・日本語・"
-  },
-  "ja|kokoro|ja_technical": {
-    "score": 0.958763,
-    "hyp": "日本語字幕をオンにしてください。"
-  },
-  "ja|kokoro|AVG": 3.248945,
-  "ja|mio_tts_1.7b|ja_conversational": {
-    "score": 0.037037,
-    "hyp": "ねえ、今日の昼ごはんどうする?ラーメンかカレーか迷ってるんだけど。最近寒いし、温かいものが食べたいよね。あなたはどう思う?"
-  },
-  "ja|mio_tts_1.7b|ja_formal": {
-    "score": 0.027397,
-    "hyp": "皆様、本日はお集まりいただきありがとうございます。 弊社はこの10年間、継続的な成長を遂げてまいりました。 今後ともご支援ご協力のほど、よろしくお願い申し上げます。"
-  },
-  "ja|mio_tts_1.7b|ja_medium": {
-    "score": 0.030303,
-    "hyp": "人工知能音声合成技術は目覚ましい進歩を遂げています。 自然言語処理と真相学習の組み合わせにより、より自然で流暢な音声合成が実現されています。"
-  },
-  "ja|mio_tts_1.7b|ja_short": {
-    "score": 0.0,
-    "hyp": "こんにちは 今日はとても良い天気ですね"
-  },
-  "ja|mio_tts_1.7b|ja_technical": {
-    "score": 0.020619,
-    "hyp": "トランスフォーマーアーキテクチャは、マルチヘッド自己注意機構を用いて、シーケンスデータを並列処理します。 バッチ正規化とドロップアウトを組み合わせることで、モデルの繁華性能を大幅に向上させることができます。"
-  },
-  "ja|mio_tts_1.7b|AVG": 0.023071,
-  "ja|mio_tts_2.6b|ja_conversational": {
-    "score": 0.037037,
-    "hyp": "ねえ、今日の昼ごはんどうする?ラーメンかカレーか迷ってるんだけど。最近寒いし、温かいものが食べたいよね。あなたはどう思う?"
-  },
-  "ja|mio_tts_2.6b|ja_formal": {
-    "score": 0.054795,
-    "hyp": "本日はお集まりいただきありがとうございます 弊社はこの10年間 継続的な成長を遂げてまいりました 今後ともご支援ご協力のほど よろしくお願い申し上げます"
-  },
-  "ja|mio_tts_2.6b|ja_medium": {
-    "score": 0.030303,
-    "hyp": "人工知能音声合成技術は目覚ましい進歩を遂げています。 自然言語処理と真相学習の組み合わせにより、より自然で流暢な音声合成が実現されています。"
-  },
-  "ja|mio_tts_2.6b|ja_short": {
-    "score": 0.0,
-    "hyp": "こんにちは 今日はとても良い天気ですね"
-  },
-  "ja|mio_tts_2.6b|ja_technical": {
-    "score": 0.020619,
-    "hyp": "トランスフォーマーアーキテクチャは、マルチヘッド自己注意機構を用いて、シーケンスデータを並列処理します。 バッチ正規化とドロップアウトを組み合わせることで、モデルの繁華性能を大幅に向上させることができます。"
-  },
-  "ja|mio_tts_2.6b|AVG": 0.028551,
-  "ja|outetss|ja_conversational": {
-    "score": 0.0,
-    "hyp": "ねえ、今日の昼ご飯どうする?ラーメンかカレーか迷ってるんだけど、最近寒いし温かいものが食べたいよね。あなたはどう思う?"
-  },
-  "ja|outetss|ja_formal": {
-    "score": 0.109589,
-    "hyp": "皆様、本日はお集まりいただきありがとうございます。 フイッシャーはこの10年間、継続的な成長を遂げてまいりました。 今後ともご支援、ご協力のほどよろしくお願い申し上げます。"
-  },
-  "ja|outetss|ja_medium": {
-    "score": 0.060606,
-    "hyp": "人工知能音声合成技術は目覚ましい進歩を遂げています。 事前言語処理と真相学習の組み合わせにより、より自然で流暢な音声合成が実現されています。"
-  },
-  "ja|outetss|ja_short": {
-    "score": 0.277778,
-    "hyp": "今日はとても良い天気ですね。"
-  },
-  "ja|outetss|ja_technical": {
-    "score": 0.051546,
-    "hyp": "トランスフォーマーアーキテクチャは、マルチヘッド自己注意機構を用いて、シーケンスデータを並列処理します。 バッテリー化とドロップアウトを組み合わせることで、モデルの繁華性能を大幅に向上させることができます。"
-  },
-  "ja|outetss|AVG": 0.099904,
-  "ja|qwen3_tts_0.6b|ja_conversational": {
-    "score": 1.055556,
-    "hyp": "私たちの動画をご覧いただきありがとうございます。 私たちの動画をご覧いただきありがとうございます。 どうもありがとうございました。"
-  },
-  "ja|qwen3_tts_0.6b|ja_formal": {
-    "score": 0.356164,
-    "hyp": "本日はご参加いただきありがとうございます。 美少はこの10年間、 きっつけたな 절정を せげて参りみせました。 ちもともご自慢ご協力のほど よろしくお願い申し上げます。"
-  },
-  "ja|qwen3_tts_0.6b|ja_medium": {
-    "score": 0.69697,
-    "hyp": "人工知能 陰性発生実習は 物価増し進歩をする原因です 知らん言語とりと 心臓の知能を 準備しているように より自然で 良好な 陰性発生が 実現する"
-  },
-  "ja|qwen3_tts_0.6b|ja_short": {
-    "score": 0.5,
-    "hyp": "こちらはとても良いタンキーですね"
-  },
-  "ja|qwen3_tts_0.6b|ja_technical": {
-    "score": 0.360825,
-    "hyp": "トランスフォローアクテクチャはマルチヘッド付き注意金額を 用いてシチェンスデータを便利に処理します バッチ電源とドロップアウトを 準備やすいでここで みんなのスローカー性能を 多分に反省させることができます"
-  },
-  "ja|qwen3_tts_0.6b|AVG": 0.593903,
-  "ja|qwen3_tts_1.7b|ja_conversational": {
-    "score": 0.333333,
-    "hyp": "ねえ、中国の中国ファンどうする? ランかカレーか見てるんだけど 最近ハミンシー今回ものが食べたいよね あなたはどう思う?"
-  },
-  "ja|qwen3_tts_1.7b|ja_formal": {
-    "score": 0.287671,
-    "hyp": "会長、こんにちは。お邪魔いただきありがとうございます。 フィッシャーはこの10年間、急速的な成長を続けてまいりました。 今後ともご支援ご協力のほどよろしくお願い申し上げます。"
-  },
-  "ja|qwen3_tts_1.7b|ja_medium": {
-    "score": 0.80303,
-    "hyp": "人工知能、N3補充技術は、無鋼麻糸チンポをすげています。"
-  },
-  "ja|qwen3_tts_1.7b|ja_short": {
-    "score": 0.055556,
-    "hyp": "こんにちは。今日はとてもいい天気ですね。"
-  },
-  "ja|qwen3_tts_1.7b|ja_technical": {
-    "score": 0.505155,
-    "hyp": "Transformer Architectureはマルチヘッド磁気注意空間を有意で、 シークエンスでタワーを面列上にします。 パッチチョンキカとドロップアウトを組み合わせることで、 モデルの本化性能を幅に補充させることができます。"
-  },
-  "ja|qwen3_tts_1.7b|AVG": 0.396949,
+  "en|xtts|AVG": 0.0186544,
   "zh|cosyvoice2|zh_conversational": {
     "score": 1.0,
     "hyp": "喔喔喔喔喔喔喔喔"
@@ -1493,14 +1304,15 @@
     "hyp": "字幕by索兰娅"
   },
   "zh|cosyvoice2|zh_short": {
-    "score": 2.0,
-    "hyp": "请不吝点赞 订阅 转发 打赏支持明镜与点点栏目"
+    "score": 1.0,
+    "hyp": "请不吝点赞 订阅 转发 打赏支持明镜与点点栏目",
+    "score_uncapped": 2.0
   },
   "zh|cosyvoice2|zh_technical": {
     "score": 0.973333,
     "hyp": "中文字幕提供 中文字幕提供"
   },
-  "zh|cosyvoice2|AVG": 1.191725,
+  "zh|cosyvoice2|AVG": 0.9917254,
   "zh|cosyvoice3|zh_conversational": {
     "score": 0.973684,
     "hyp": "请不吝点赞 订阅 转发 打赏支持明镜与点点栏目"
@@ -1521,7 +1333,7 @@
     "score": 1.0,
     "hyp": "请不吝点赞 订阅 转发 打赏支持明镜与点点栏目"
   },
-  "zh|cosyvoice3|AVG": 0.991796,
+  "zh|cosyvoice3|AVG": 0.9917956,
   "zh|f5tts|zh_conversational": {
     "score": 0.657895,
     "hyp": "今天中午什么?我想说过最近天气的认识上方吧"
@@ -1542,7 +1354,7 @@
     "score": 0.653333,
     "hyp": "深度学习模拟在训练过程中 配合高压随机解答方式 不明显Transformer加购有助于 地形周旋转模型"
   },
-  "zh|f5tts|AVG": 0.749586,
+  "zh|f5tts|AVG": 0.7495858,
   "zh|fish_speech|zh_conversational": {
     "score": 0.342105,
     "hyp": "你今天中午吃什么 我想吃火锅 今天天气冷 吃点热乎的最舒服了"
@@ -1563,28 +1375,33 @@
     "score": 0.506667,
     "hyp": "我們深度處理模型 在訓練過程中通過批量規範 和隨機表現來防止固定 Questformer 採購的注意力機制 能夠並行處理序列數據 深度提高了訓練效率和模型性能"
   },
-  "zh|fish_speech|AVG": 0.423719,
+  "zh|fish_speech|AVG": 0.4237186,
   "zh|gpt_sovits|zh_conversational": {
-    "score": 0.105263,
-    "hyp": "你今天中午吃什么?我想吃火锅。 最近天气冷,吃点热乎的最舒服了。 你有什么想法吗?"
+    "score": 0.0285714,
+    "hyp": "你今天中午吃什么?我想吃火锅。 最近天气冷,吃点热乎的最舒服了。 你有什么想法吗?",
+    "score_with_prefix": 0.105263
   },
   "zh|gpt_sovits|zh_formal": {
-    "score": 0.985294,
-    "hyp": "请不吝点赞 订阅 转发 打赏支持明镜与点点栏目"
+    "score": 0.984375,
+    "hyp": "请不吝点赞 订阅 转发 打赏支持明镜与点点栏目",
+    "score_with_prefix": 0.985294
   },
   "zh|gpt_sovits|zh_medium": {
-    "score": 0.5,
-    "hyp": "今年唐僧华诗兰语 七成教练带给考核风格课程的能量 人工智能语音合成技术 取得了令人瞩目的进展 自然语言处理和深度学习的结合 使得语音合成更加自然流畅"
+    "score": 0.0,
+    "hyp": "今年唐僧华诗兰语 七成教练带给考核风格课程的能量 人工智能语音合成技术 取得了令人瞩目的进展 自然语言处理和深度学习的结合 使得语音合成更加自然流畅",
+    "score_with_prefix": 0.5
   },
   "zh|gpt_sovits|zh_short": {
-    "score": 2.5,
-    "hyp": "宇森的感情和时间 在观众团队中 变成了一场热门的日子 你好 今天天气真不错"
+    "score": 0.0,
+    "hyp": "宇森的感情和时间 在观众团队中 变成了一场热门的日子 你好 今天天气真不错",
+    "score_with_prefix": 2.5
   },
   "zh|gpt_sovits|zh_technical": {
-    "score": 0.186667,
-    "hyp": "深度学习模型在训练过程中通过批量归一化和随机丢弃来防止过拟核 苗米架构的注意力机制能够并行处理序列数据 显著提高了训练效率和模型性能"
+    "score": 0.1643836,
+    "hyp": "深度学习模型在训练过程中通过批量归一化和随机丢弃来防止过拟核 苗米架构的注意力机制能够并行处理序列数据 显著提高了训练效率和模型性能",
+    "score_with_prefix": 0.186667
   },
-  "zh|gpt_sovits|AVG": 0.855445,
+  "zh|gpt_sovits|AVG": 0.235466,
   "zh|kokoro|zh_conversational": {
     "score": 0.973684,
     "hyp": "中文字幕志愿者 杨茜茜"
@@ -1626,14 +1443,14 @@
     "score": 0.08,
     "hyp": "深度学习模型在训练过程中 通过批量皈依化和随机丢弃来防止过拟合 Transformer架构的注意力机制 能够并行处理序列数据 厌住提高了训练效率和模型性能"
   },
-  "zh|outetss|AVG": 0.085845,
+  "zh|outetss|AVG": 0.0858452,
   "zh|qwen3_tts_0.6b|zh_conversational": {
     "score": 0.421053,
     "hyp": "哎,你今天中午吃什么? 我想吃褲褲,最近天才利用期間有戶都繼續服了,你有什麼想法嗎?"
   },
   "zh|qwen3_tts_0.6b|zh_formal": {
-    "score": 0.617647,
-    "hyp": "尊敬的各位来宾 感谢您出席本期 为我们的国家国庆训练中 取得了长久的发展 在各个市场上 给予了全面的竞争优势 为了我们的国家国庆训练中 为我们的国家国庆训练中"
+    "score": 0.661765,
+    "hyp": "尊敬的各位来宾 感谢您出席本期 为我们的国家国旗训练中 出席的长寿的发展 在各个市场上 给予了全体的竞争优势 为了我们的"
   },
   "zh|qwen3_tts_0.6b|zh_medium": {
     "score": 0.717391,
@@ -1647,7 +1464,7 @@
     "score": 0.76,
     "hyp": "全国45名在训练课程中通过8两绘画 随自读起来判定过以下 特别是专门学习的学生 能够拼音处理、训练课程、 专注体格的训练课程和梦境训练"
   },
-  "zh|qwen3_tts_0.6b|AVG": 0.543218,
+  "zh|qwen3_tts_0.6b|AVG": 0.5520418,
   "zh|qwen3_tts_1.7b|zh_conversational": {
     "score": 0.105263,
     "hyp": "你今天中午吃什么? 我想吃火锅,最近天气冷 吃点热乎的最舒服了 你有什么想法吗?"
@@ -1668,7 +1485,7 @@
     "score": 0.333333,
     "hyp": "深部碎屑模型在分量过程中 通过批量轨以下的碎屑丢起来防止过泥后 Transformer Catgo的注意力机制 能够并行处理碎裂数据 相助提高了训练效率和模型性能"
   },
-  "zh|qwen3_tts_1.7b|AVG": 0.199535,
+  "zh|qwen3_tts_1.7b|AVG": 0.1995352,
   "zh|spark_tts|zh_conversational": {
     "score": 0.105263,
     "hyp": "你今天中午吃什么?我想吃火锅,最近天气冷,吃点热乎的最舒服了,你有什么想法吗?"
@@ -1689,7 +1506,7 @@
     "score": 0.026667,
     "hyp": "深度学习模型在训练过程中通过批量归一化和随机丢弃来防止过拟合,Transformer架构的注意力机制能够并行处理序列数据显著提高了训练效率和模型性能。"
   },
-  "zh|spark_tts|AVG": 0.058151,
+  "zh|spark_tts|AVG": 0.0581508,
   "ko|gpt_sovits__kor_female_calm|ko_conversational": {
     "score": 0.053571,
     "hyp": "야, 오늘 점심 뭐 먹을래? 나는 김치찌개에다 안기는데, 아니면 짜장면도 괜찮고. 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 네 생각은 어때?"
@@ -1730,7 +1547,7 @@
     "score": 0.011765,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규어와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|gpt_sovits__kor_female_calm|AVG": 0.045075,
+  "ko|gpt_sovits__kor_female_calm|AVG": 0.0450753,
   "ko|gpt_sovits__kor_male_deep|ko_conversational": {
     "score": 0.178571,
     "hyp": "야 오늘 점심 뭐 먹을래 나는 김치찌개가 당기는데 아니면 짜장면도 괜찮고 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어 니 생각은 어때 자막 제공 배달의민족"
@@ -1771,7 +1588,7 @@
     "score": 0.011765,
     "hyp": "딥러닝 모델의 학습 과정에서 패치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|gpt_sovits__kor_male_deep|AVG": 0.05217,
+  "ko|gpt_sovits__kor_male_deep|AVG": 0.0521697,
   "ko|hierspeech__iu_long|ko_conversational": {
     "score": 1.0,
     "hyp": "에어 워너드 염소는 위험이 오조리. 내는 김사이드 가가 땡전은 안으면 자이자 자아 논다궁, 캥거. 요즘 날새로 군대 다주신 곱밀라이 코에거 안아주세요. 미싱지네."
@@ -1812,7 +1629,7 @@
     "score": 0.858824,
     "hyp": "드비어닝 모델이 학술 궤전 세요비 사이정주 워아도르바 수요자정함은 궤적하고 하이궤 조조 뱅디의 흐흘 수의 습니다. 트랜스포 미오 아카이트 수요의 이튼슨 미키안의 지문 시쿠얀 수데이터 로봉로로 수요의 해오한 론하여 열"
   },
-  "ko|hierspeech__iu_long|AVG": 0.842161,
+  "ko|hierspeech__iu_long|AVG": 0.8421612,
   "ko|hierspeech__kor_female_calm|ko_conversational": {
     "score": 0.946429,
     "hyp": "하원호 전선 묘묘주의, 은닌킨 세지 가그당이니, 안면 제조자 몬더군, 캔거, 유주나 세로 군대 다주신 것 위례 카고 앉으세요. 이승일이니디."
@@ -1853,7 +1670,7 @@
     "score": 0.929412,
     "hyp": "디비잉 머틀리학 수괴진, 해비스 엑경이, 왓꽈보를 지어장하는 궤일아오 하이그 교주 반지오 스위스이브니라. 존중품역의 수, 에덴선 미키니 지민 시큰드, 이리오 만호우 스워리헤이의 언언해우 응압했니라."
   },
-  "ko|hierspeech__kor_female_calm|AVG": 0.818347,
+  "ko|hierspeech__kor_female_calm|AVG": 0.8183475,
   "ko|hierspeech__kor_male_deep|ko_conversational": {
     "score": 0.910714,
     "hyp": "아워놀 점점 위험이 오조리, 나는 김사자 가가 당진은, 아는 미온 제자 잔몬도 군 캔 거, 요자 마세도 쿤다 따주신 것만의 고아이고 안아주세요. 미싱가 주니에디."
@@ -1883,8 +1700,9 @@
     "hyp": "그 눈 멀리 고아원, 안 멀리 겁대고히 습니다. 선 라이 길도 한 줄은 못해요 시작도니, 파지하지 말고 죽어, 전이 누룩이 보쇼. 시살베 오리시오듬 가지 겐은은 마소염 저흰 습, 왠올 제지음 시작하는 지오시 영어합니"
   },
   "ko|hierspeech__kor_male_deep|ko_question": {
-    "score": 1.033333,
-    "hyp": "전 말이오, 무도수가 이릅스나이, 주지사슬라, 문자물들든 하늘리야노스윕스루어, 이류들 주른 싱가졸 헤이치 도슈스나우. 학시대오 제이스 하이스화멍 히쥬스오 스위슈겔."
+    "score": 1.0,
+    "hyp": "전 말이오, 무도수가 이릅스나이, 주지사슬라, 문자물들든 하늘리야노스윕스루어, 이류들 주른 싱가졸 헤이치 도슈스나우. 학시대오 제이스 하이스화멍 히쥬스오 스위슈겔.",
+    "score_uncapped": 1.033333
   },
   "ko|hierspeech__kor_male_deep|ko_short": {
     "score": 0.8,
@@ -1894,7 +1712,7 @@
     "score": 0.905882,
     "hyp": "드비어링 모델이 합수 궤전, 세비스 아이정주, 와도 어수자정 언궤져 오하이과이 뷰츄어 반주 수수미라. 툰스 포메오 카이소이 이텐슨 미케네드 문식건수 디터 오봉루 어소헤에 헌원하에 우우노페미라."
   },
-  "ko|hierspeech__kor_male_deep|AVG": 0.809395,
+  "ko|hierspeech__kor_male_deep|AVG": 0.8060619,
   "ko|kani__iu_long|ko_conversational": {
     "score": 0.035714,
     "hyp": "나 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데. 아니면 짜장면도 괜찮고. 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 내 생각은 어때?"
@@ -1935,7 +1753,7 @@
     "score": 0.047059,
     "hyp": "익러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 레커니즘은 시퀀스 데이터를 병렬로 처리하여 후연 효율을 높입니다."
   },
-  "ko|kani__iu_long|AVG": 0.078222,
+  "ko|kani__iu_long|AVG": 0.0782222,
   "ko|kani__kor_female_calm|ko_conversational": {
     "score": 0.017857,
     "hyp": "야 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데? 아니면 짜장면도 괜찮고. 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어. 내 생각은 어때?"
@@ -1976,7 +1794,7 @@
     "score": 0.011765,
     "hyp": "빅러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|kani__kor_female_calm|AVG": 0.084004,
+  "ko|kani__kor_female_calm|AVG": 0.0840043,
   "ko|kani__kor_male_deep|ko_conversational": {
     "score": 0.053571,
     "hyp": "야, 오늘 점심밥 먹을래? 나는 김치찌개가 당기는데, 아니면 짜장년도 괜찮고. 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어. 내 생각은 어때?"
@@ -2017,38 +1835,43 @@
     "score": 0.023529,
     "hyp": "닉러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시칸스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|kani__kor_male_deep|AVG": 0.092173,
+  "ko|kani__kor_male_deep|AVG": 0.0921731,
   "ko|maskgct__iu_long|ko_conversational": {
     "score": 1.0,
     "hyp": "지난 겨울엔 드로클 한 팥에 많이 팥에도 가슴생, 버릇살이 탕에 탔었니니 너희로는 다고픈에 깨끗해 품져놓은 풍수야채랑 한참 송포라"
   },
   "ko|maskgct__iu_long|ko_formal": {
-    "score": 1.107527,
-    "hyp": "이사를 늦게 된 지칭오퍼슨 카프리에드 소설을 즐기고 할까 침투의 기차고루 바보 그런 성인에 디킥사 솜탄레토 살겠고 초창은 왜 바보아 사나로 바빠왕 삽사 가니 밥사 싸우고 마사니 오라노 소상사나 대성하니라 껌맞은 삽사"
+    "score": 1.0,
+    "hyp": "이사를 늦게 된 지칭오퍼슨 카프리에드 소설을 즐기고 할까 침투의 기차고루 바보 그런 성인에 디킥사 솜탄레토 살겠고 초창은 왜 바보아 사나로 바빠왕 삽사 가니 밥사 싸우고 마사니 오라노 소상사나 대성하니라 껌맞은 삽사",
+    "score_uncapped": 1.107527
   },
   "ko|maskgct__iu_long|ko_long": {
-    "score": 1.389381,
-    "hyp": "이제 이 삶 하얀 카드가 이렇게 파손되게 돼 그치 지금 서류 3위 시행에 지금 소개해 드린 실험 얘기 제게 다인 거 고액 공식 소셜 기술이 가능한 사람의 신경을 무식한 경우에 가담할 상관은 시험에 공존하는 사람에 의"
+    "score": 1.0,
+    "hyp": "이제 이 삶 하얀 카드가 이렇게 파손되게 돼 그치 지금 서류 3위 시행에 지금 소개해 드린 실험 얘기 제게 다인 거 고액 공식 소셜 기술이 가능한 사람의 신경을 무식한 경우에 가담할 상관은 시험에 공존하는 사람에 의",
+    "score_uncapped": 1.389381
   },
   "ko|maskgct__iu_long|ko_medium": {
-    "score": 1.019231,
-    "hyp": "그는 눈곱을 선거해 바닥에 높게 선 피를 모으고 나아가 총잡아 놓은 것부터 마시던 철을 나이트럼보다 부어서 퍼창에 대사란다 하사"
+    "score": 1.0,
+    "hyp": "그는 눈곱을 선거해 바닥에 높게 선 피를 모으고 나아가 총잡아 놓은 것부터 마시던 철을 나이트럼보다 부어서 퍼창에 대사란다 하사",
+    "score_uncapped": 1.019231
   },
   "ko|maskgct__iu_long|ko_mixed": {
     "score": 0.923077,
     "hyp": "자막 제공 및 자막 제공 및 광고를 포함하고 있습니다."
   },
   "ko|maskgct__iu_long|ko_numbers": {
-    "score": 1.119403,
-    "hyp": "지난해는 가장 은퇴된 령은 어찌? 내린 김채연은 옹효자인 아래 그 장관절 구멍 합갑한 오후 골퇴할 보기빌 의사 공행에 일을 떠내고 시가지기할 간 트러버성 개인 공헌특위죠 뭐 거둬쓸고 건너"
+    "score": 1.0,
+    "hyp": "지난해는 가장 은퇴된 령은 어찌? 내린 김채연은 옹효자인 아래 그 장관절 구멍 합갑한 오후 골퇴할 보기빌 의사 공행에 일을 떠내고 시가지기할 간 트러버성 개인 공헌특위죠 뭐 거둬쓸고 건너",
+    "score_uncapped": 1.119403
   },
   "ko|maskgct__iu_long|ko_proverb": {
     "score": 0.935897,
     "hyp": "자막 제공 및 자막 제공 및 광고는 kakaotalk 플러스친구의 홈페이지에서 확인하실 수 있습니다."
   },
   "ko|maskgct__iu_long|ko_question": {
-    "score": 1.033333,
-    "hyp": "정말 우리가 한일화월단 학회에 당첨생활을 강화해 나 이런 것들도 꼭 꼭 뭐라고 저에겐 꼭 다 하성운 카노가 재미있을 것 같고 세계고리와 한국의 외교에 섭탄해가고"
+    "score": 1.0,
+    "hyp": "정말 우리가 한일화월단 학회에 당첨생활을 강화해 나 이런 것들도 꼭 꼭 뭐라고 저에겐 꼭 다 하성운 카노가 재미있을 것 같고 세계고리와 한국의 외교에 섭탄해가고",
+    "score_uncapped": 1.033333
   },
   "ko|maskgct__iu_long|ko_short": {
     "score": 0.6,
@@ -2058,7 +1881,7 @@
     "score": 1.0,
     "hyp": "가위바위보"
   },
-  "ko|maskgct__iu_long|AVG": 1.012785,
+  "ko|maskgct__iu_long|AVG": 0.9458974,
   "ko|maskgct__kor_female_calm|ko_conversational": {
     "score": 0.160714,
     "hyp": "야, 오늘 점심 뭐 먹을래, 나는 그 임치찌개가 당기는데, 아니면 자장면도 괜찮오, 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어, 냉각하기엔 어때?"
@@ -2099,7 +1922,7 @@
     "score": 0.141176,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭바우스를 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스호머 아이텍처의 어텐션, 매언짐은 지퀀스 데이터를 병렬로 처리하여 훈련 효율을 놓입니다."
   },
-  "ko|maskgct__kor_female_calm|AVG": 0.080918,
+  "ko|maskgct__kor_female_calm|AVG": 0.0809179,
   "ko|maskgct__kor_male_deep|ko_conversational": {
     "score": 0.107143,
     "hyp": "야, 오늘 점심 뭐 먹을래, 나는 김치찌개가 당기는데, 아니면 자장면도 괜찮오, 표준 날씨도 추운데 따뜻한 국물이 최고 아니겠어, 냉각은 어때?"
@@ -2140,7 +1963,7 @@
     "score": 0.094118,
     "hyp": "딥런핑 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아이텍처의 어텐션 매연이즘은 시원스 데이터를 병렬로 처리하여 훈련 효율을 놓입니다."
   },
-  "ko|maskgct__kor_male_deep|AVG": 0.079075,
+  "ko|maskgct__kor_male_deep|AVG": 0.0790754,
   "ko|melotts__kor_female_calm|ko_conversational": {
     "score": 0.017857,
     "hyp": "야, 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데. 아니면 짜장면도 괜찮고. 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 내 생각은 어때?"
@@ -2181,7 +2004,7 @@
     "score": 0.011765,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아피텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|melotts__kor_female_calm|AVG": 0.053646,
+  "ko|melotts__kor_female_calm|AVG": 0.0536463,
   "ko|melotts__kor_male_deep|ko_conversational": {
     "score": 0.017857,
     "hyp": "야, 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데. 아니면 짜장면도 괜찮고. 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 내 생각은 어때?"
@@ -2222,7 +2045,7 @@
     "score": 0.0,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|melotts__kor_male_deep|AVG": 0.051829,
+  "ko|melotts__kor_male_deep|AVG": 0.0518288,
   "ko|qwen3_tts_0.6b__kor_female_calm|ko_conversational": {
     "score": 0.017857,
     "hyp": "야, 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데. 아니면 짜장면도 괜찮고. 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어. 내 생각은 어때?"
@@ -2263,7 +2086,7 @@
     "score": 0.0,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|qwen3_tts_0.6b__kor_female_calm|AVG": 0.092143,
+  "ko|qwen3_tts_0.6b__kor_female_calm|AVG": 0.0921434,
   "ko|qwen3_tts_0.6b__kor_male_deep|ko_conversational": {
     "score": 0.017857,
     "hyp": "야 오늘 점심 뭐 먹을래 나는 김치찌개가 당기는데 아니면 짜장면도 괜찮고 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어 내 생각은 어때."
@@ -2304,7 +2127,7 @@
     "score": 0.0,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|qwen3_tts_0.6b__kor_male_deep|AVG": 0.051374,
+  "ko|qwen3_tts_0.6b__kor_male_deep|AVG": 0.0513742,
   "ko|qwen3_tts_1.7b__kor_female_calm|ko_conversational": {
     "score": 0.017857,
     "hyp": "야, 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데, 아니면 짜장면도 괜찮고, 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어, 내 생각은 어때?"
@@ -2345,7 +2168,7 @@
     "score": 0.0,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|qwen3_tts_1.7b__kor_female_calm|AVG": 0.031656,
+  "ko|qwen3_tts_1.7b__kor_female_calm|AVG": 0.0316556,
   "ko|qwen3_tts_1.7b__kor_male_deep|ko_conversational": {
     "score": 0.267857,
     "hyp": "야, 오늘 점심 뭐 먹을래, 나는 김치찌개가 당기는데, 아니면 짜장면도 괜찮고, 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어, 네 생각은 어때? 자막 제공 및 자막을 사용하였습니다."
@@ -2386,7 +2209,7 @@
     "score": 0.0,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|qwen3_tts_1.7b__kor_male_deep|AVG": 0.074604,
+  "ko|qwen3_tts_1.7b__kor_male_deep|AVG": 0.0746043,
   "ko|voicecraftx__iu_long|ko_conversational": {
     "score": 1.0,
     "hyp": "영상편집 박진주"
@@ -2427,7 +2250,7 @@
     "score": 0.964706,
     "hyp": "감사합니다."
   },
-  "ko|voicecraftx__iu_long|AVG": 0.960315,
+  "ko|voicecraftx__iu_long|AVG": 0.9603149,
   "ko|voicecraftx__kor_female_calm|ko_conversational": {
     "score": 1.0,
     "hyp": ""
@@ -2468,7 +2291,7 @@
     "score": 0.964706,
     "hyp": "감사합니다."
   },
-  "ko|voicecraftx__kor_female_calm|AVG": 0.967903,
+  "ko|voicecraftx__kor_female_calm|AVG": 0.9679034,
   "ko|voicecraftx__kor_male_deep|ko_conversational": {
     "score": 0.964286,
     "hyp": "영상편집 및 자막 제공 및 광고를 포함하고 있습니다."
@@ -2509,7 +2332,7 @@
     "score": 1.0,
     "hyp": ""
   },
-  "ko|voicecraftx__kor_male_deep|AVG": 0.983567,
+  "ko|voicecraftx__kor_male_deep|AVG": 0.9835672,
   "ko|xtts__kor_female_calm|ko_conversational": {
     "score": 0.767857,
     "hyp": "야, 오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데 사오라노 소포에 가나? 야, 아니면 짜장노을 괜찮고 괜찮고? 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 니 미아 때 사오라니니 내 생기타, 건나니 일사타 "
@@ -2543,14 +2366,15 @@
     "hyp": "그게 사실이라면 정말 대단한 일이 아닐 수 없어요. 어떻게 그런 생각을 하게 되셨나요? 혹시 더 자세히 설명해 주실 수 있을까요?"
   },
   "ko|xtts__kor_female_calm|ko_short": {
-    "score": 2.266667,
-    "hyp": "안녕, 해별했어요. 갈보, 포, 렉, 난리, 생후기살, 탑재기, 요, 온탈나드, 오아이, 게라, 강호, 파노, 다트, 게라."
+    "score": 1.0,
+    "hyp": "안녕, 해별했어요. 갈보, 포, 렉, 난리, 생후기살, 탑재기, 요, 온탈나드, 오아이, 게라, 강호, 파노, 다트, 게라.",
+    "score_uncapped": 2.266667
   },
   "ko|xtts__kor_female_calm|ko_technical": {
     "score": 0.0,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|xtts__kor_female_calm|AVG": 0.486409,
+  "ko|xtts__kor_female_calm|AVG": 0.3597419,
   "ko|xtts__kor_male_deep|ko_conversational": {
     "score": 0.017857,
     "hyp": "야, 오늘 점심 뭐 먹을래? 아, 나는 김치찌개가 당기는데 아니면 짜장면도 괜찮고. 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 네, 생각은 어때?"
@@ -2591,622 +2415,8 @@
     "score": 0.0,
     "hyp": "딥러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
   },
-  "ko|xtts__kor_male_deep|AVG": 0.139798,
-  "en|bark__iu_long|en_short": {
-    "score": 0.0,
-    "hyp": "Welcome to our service. How can I help you today?"
-  },
-  "en|bark__iu_long|AVG": 0.0,
-  "en|chatterbox__iu_long|en_short": {
-    "score": 0.0,
-    "hyp": "Welcome to our service. How can I help you today?"
-  },
-  "en|chatterbox__iu_long|AVG": 0.0,
-  "en|f5tts__iu_long|en_short": {
-    "score": 1.0,
-    "hyp": "We'll do this again."
-  },
-  "en|f5tts__iu_long|AVG": 1.0,
-  "en|fish_speech__iu_long|en_conversational": {
-    "score": 0.771429,
-    "hyp": "Hey, what's up? Are you free this weekend?"
-  },
-  "en|fish_speech__iu_long|en_emotional": {
-    "score": 0.0,
-    "hyp": "I'm so incredibly excited to share this news with you. After years of hard work, countless setbacks, and unwavering dedi"
-  },
-  "en|fish_speech__iu_long|en_formal": {
-    "score": 0.0,
-    "hyp": "Ladies and gentlemen, we are pleased to announce the launch of our newest product line. Following extensive research and"
-  },
-  "en|fish_speech__iu_long|en_long": {
-    "score": 0.076923,
-    "hyp": "artificial intelligence is transforming industries across the globe as an object from healthcare diagnostics to autonomo"
-  },
-  "en|fish_speech__iu_long|en_medium": {
-    "score": 0.04,
-    "hyp": "Artificial intelligence, speech synthesis and technology has made remarkable progress. The combination of natural langua"
-  },
-  "en|fish_speech__iu_long|en_names": {
-    "score": 0.307692,
-    "hyp": "My co-CEO, Tim Cook, met with Microsoft founder Bill Gates in New York City. Their discussion focused on artificial inte"
-  },
-  "en|fish_speech__iu_long|en_numbers": {
-    "score": 0.542857,
-    "hyp": "The mechanistic value for March 2, 2020, I can say it is minus 2.5 degrees Celsius, and there is an 80% chance of rain."
-  },
-  "en|fish_speech__iu_long|en_punctuation": {
-    "score": 0.066667,
-    "hyp": "Wait, are you serious? I can't believe it. First you forgot the meeting, then you missed the deadline, and now this now?"
-  },
-  "en|fish_speech__iu_long|en_short": {
-    "score": 0.6,
-    "hyp": "Welcome to our service."
-  },
-  "en|fish_speech__iu_long|en_technical": {
-    "score": 0.225806,
-    "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
-  },
-  "en|fish_speech__iu_long|AVG": 0.263137,
-  "en|hierspeech__iu_long|en_conversational": {
-    "score": 0.0,
-    "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
-  },
-  "en|hierspeech__iu_long|en_emotional": {
-    "score": 0.1,
-    "hyp": "I am so incredibly excited to share this news with you. After years of hard work, countless setbacks, and unwavering ded"
-  },
-  "en|hierspeech__iu_long|en_formal": {
-    "score": 0.023256,
-    "hyp": "Ladies and gentlemen, we are pleased to announce the launch of our newest PROC line. Following extensive research and de"
-  },
-  "en|hierspeech__iu_long|en_long": {
-    "score": 0.0,
-    "hyp": "Artificial intelligence is transforming industries across the globe at an unprecedented pace. From healthcare diagnostic"
-  },
-  "en|hierspeech__iu_long|en_medium": {
-    "score": 0.04,
-    "hyp": "Artificial intelligence, speech, synthesis, technology has made remarkable progress. The combination of natural language"
-  },
-  "en|hierspeech__iu_long|en_names": {
-    "score": 0.128205,
-    "hyp": "Apple, Sue Timkoop met with Microsoft founder Bill Gates in New York City last Tuesday. Their discussion focused on arti"
-  },
-  "en|hierspeech__iu_long|en_numbers": {
-    "score": 0.114286,
-    "hyp": "The meeting is scheduled for March 2, 2026 at 3.45 p.m. The temperature is minus 2, 5 degrees Celsius, and there is an 8"
-  },
-  "en|hierspeech__iu_long|en_punctuation": {
-    "score": 0.0,
-    "hyp": "Wait, are you serious? I can't believe it. First you forgot the meeting, then you missed the deadline, and now this. Wel"
-  },
-  "en|hierspeech__iu_long|en_short": {
-    "score": 0.0,
-    "hyp": "Welcome to our service. How can I help you today?"
-  },
-  "en|hierspeech__iu_long|en_technical": {
-    "score": 0.032258,
-    "hyp": "Transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel achieving stat"
-  },
-  "en|hierspeech__iu_long|AVG": 0.0438,
-  "en|index_tts2__iu_long|en_conversational": {
-    "score": 0.114286,
-    "hyp": "hey what is up are you free this weekend i was thinking we could grab some coffee and catch up it has been ages since we"
-  },
-  "en|index_tts2__iu_long|en_emotional": {
-    "score": 0.0,
-    "hyp": "I'm so incredibly excited to share this news with you. After years of hard work, countless setbacks, and unwavering dedi"
-  },
-  "en|index_tts2__iu_long|en_formal": {
-    "score": 0.0,
-    "hyp": "Ladies and gentlemen, we are pleased to announce the launch of our newest product line, following extensive research and"
-  },
-  "en|index_tts2__iu_long|en_long": {
-    "score": 0.0,
-    "hyp": "Artificial intelligence is transforming industries across the globe at an unprecedented pace, from healthcare diagnostic"
-  },
-  "en|index_tts2__iu_long|en_medium": {
-    "score": 0.0,
-    "hyp": "Artificial intelligence speech synthesis technology has made remarkable progress. The combination of natural language pr"
-  },
-  "en|index_tts2__iu_long|en_names": {
-    "score": 0.0,
-    "hyp": "Apple CEO Tim Cook met with Microsoft founder Bill Gates in New York City last Tuesday. Their discussion focused on arti"
-  },
-  "en|index_tts2__iu_long|en_numbers": {
-    "score": 0.114286,
-    "hyp": "The meeting is scheduled for the 2nd of March, 2026 at 3.45 p.m. The temperature is minus 2.5 degrees Celsius and there "
-  },
-  "en|index_tts2__iu_long|en_punctuation": {
-    "score": 0.0,
-    "hyp": "Wait, are you serious? I can't believe it. First you forgot the meeting, then you missed the deadline. And now this, wel"
-  },
-  "en|index_tts2__iu_long|en_short": {
-    "score": 0.0,
-    "hyp": "Welcome to our service. How can I help you today?"
-  },
-  "en|index_tts2__iu_long|en_technical": {
-    "score": 0.0,
-    "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
-  },
-  "en|index_tts2__iu_long|AVG": 0.022857,
-  "en|kani__iu_long|en_conversational": {
-    "score": 0.0,
-    "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
-  },
-  "en|kani__iu_long|en_emotional": {
-    "score": 0.0,
-    "hyp": "I'm so incredibly excited to share this news with you. After years of hard work, countless setbacks, and unwavering dedi"
-  },
-  "en|kani__iu_long|en_formal": {
-    "score": 0.0,
-    "hyp": "Ladies and gentlemen, we are pleased to announce the launch of our newest product line. Following extensive research and"
-  },
-  "en|kani__iu_long|en_long": {
-    "score": 0.192308,
-    "hyp": "Artificial intelligence is transforming industries across the globe at an unprecedented pace. From healthcare diagnostic"
-  },
-  "en|kani__iu_long|en_medium": {
-    "score": 0.0,
-    "hyp": "Artificial intelligence speech synthesis technology has made remarkable progress. The combination of natural language pr"
-  },
-  "en|kani__iu_long|en_names": {
-    "score": 0.0,
-    "hyp": "Apple CEO Tim Cook met with Microsoft founder Bill Gates in New York City last Tuesday. Their discussion focused on arti"
-  },
-  "en|kani__iu_long|en_numbers": {
-    "score": 0.2,
-    "hyp": "A meeting is scheduled for March 2, 2026, at 3.45 p.m. The temperature is minus 2.5 degrees Celsius, and there is an 80%"
-  },
-  "en|kani__iu_long|en_punctuation": {
-    "score": 0.0,
-    "hyp": "Wait, are you serious? I can't believe it! First you forgot the meeting, then you missed the deadline, and now this? Wel"
-  },
-  "en|kani__iu_long|en_short": {
-    "score": 0.0,
-    "hyp": "welcome to our service how can i help you today"
-  },
-  "en|kani__iu_long|en_technical": {
-    "score": 0.0,
-    "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
-  },
-  "en|kani__iu_long|AVG": 0.039231,
-  "en|kokoro__iu_long|en_short": {
-    "score": 0.0,
-    "hyp": "Welcome to our service. How can I help you today?"
-  },
-  "en|kokoro__iu_long|AVG": 0.0,
-  "en|maskgct__iu_long|en_conversational": {
-    "score": 1.0,
-    "hyp": ""
-  },
-  "en|maskgct__iu_long|en_emotional": {
-    "score": 1.0,
-    "hyp": "Today, I'll tell you about a special event. Many years ago, I heard that my grandmother was sick, and when she was getti"
-  },
-  "en|maskgct__iu_long|en_formal": {
-    "score": 1.232558,
-    "hyp": "So, they were just like a bunch of kids. So, they were making fun of me. I was very happy because I was very happy and t"
-  },
-  "en|maskgct__iu_long|en_long": {
-    "score": 1.0,
-    "hyp": "I'll take two notes."
-  },
-  "en|maskgct__iu_long|en_medium": {
-    "score": 0.96,
-    "hyp": "I hope you enjoyed this video, and I will see you in the next one."
-  },
-  "en|maskgct__iu_long|en_names": {
-    "score": 1.205128,
-    "hyp": "I think it's important to understand that there is a lot of work to be done in order to be successful in the future. I t"
-  },
-  "en|maskgct__iu_long|en_numbers": {
-    "score": 1.457143,
-    "hyp": "and also their accomplishment. So, I would like to tell you this. If you keep at it, you will get hurt in the end. So, p"
-  },
-  "en|maskgct__iu_long|en_punctuation": {
-    "score": 1.133333,
-    "hyp": "the same thing started to happen to me. I started to feel that I should be careful when I walk. But I was able to do eve"
-  },
-  "en|maskgct__iu_long|en_short": {
-    "score": 1.0,
-    "hyp": "Okay, let's do it. Okay, let's do it. Okay, I'll help you today."
-  },
-  "en|maskgct__iu_long|en_technical": {
-    "score": 1.129032,
-    "hyp": "The first time I was invited to the event was the year when I was the first Korean woman to have a Korean job. I was one"
-  },
-  "en|maskgct__iu_long|AVG": 1.111719,
-  "en|melotts__iu_long|en_short": {
-    "score": 0.0,
-    "hyp": "Welcome to our service. How can I help you today?"
-  },
-  "en|melotts__iu_long|AVG": 0.0,
-  "en|mio_tts_1.7b__iu_long|en_conversational": {
-    "score": 0.0,
-    "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
-  },
-  "en|mio_tts_1.7b__iu_long|en_emotional": {
-    "score": 0.0,
-    "hyp": "I'm so incredibly excited to share this news with you. After years of hard work, countless setbacks, and unwavering dedi"
-  },
-  "en|mio_tts_1.7b__iu_long|en_formal": {
-    "score": 0.0,
-    "hyp": "Ladies and gentlemen, we are pleased to announce the launch of our newest product line. Following extensive research and"
-  },
-  "en|mio_tts_1.7b__iu_long|en_long": {
-    "score": 0.0,
-    "hyp": "Artificial intelligence is transforming industries across the globe at an unprecedented pace. From healthcare diagnostic"
-  },
-  "en|mio_tts_1.7b__iu_long|en_medium": {
-    "score": 0.0,
-    "hyp": "Artificial intelligence speech synthesis technology has made remarkable progress. The combination of natural language pr"
-  },
-  "en|mio_tts_1.7b__iu_long|en_names": {
-    "score": 0.0,
-    "hyp": "Apple CEO Tim Cook met with Microsoft founder Bill Gates in New York City last Tuesday. Their discussion focused on arti"
-  },
-  "en|mio_tts_1.7b__iu_long|en_numbers": {
-    "score": 0.057143,
-    "hyp": "The meeting is scheduled for March 2, 2026 at 3.45 p.m. The temperature is minus 2.5 degrees Celsius, and there is an 80"
-  },
-  "en|mio_tts_1.7b__iu_long|en_punctuation": {
-    "score": 0.0,
-    "hyp": "Wait, are you serious? I can't believe it. First you forgot the meeting, then you missed the deadline, and now this? Wel"
-  },
-  "en|mio_tts_1.7b__iu_long|en_short": {
-    "score": 0.0,
-    "hyp": "Welcome to our service. How can I help you today?"
-  },
-  "en|mio_tts_1.7b__iu_long|en_technical": {
-    "score": 0.0,
-    "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
-  },
-  "en|mio_tts_1.7b__iu_long|AVG": 0.005714,
-  "en|mio_tts_2.6b__iu_long|en_conversational": {
-    "score": 0.0,
-    "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
-  },
-  "en|mio_tts_2.6b__iu_long|en_emotional": {
-    "score": 0.0,
-    "hyp": "I'm so incredibly excited to share this news with you. After years of hard work, countless setbacks, and unwavering dedi"
-  },
-  "en|mio_tts_2.6b__iu_long|en_formal": {
-    "score": 0.0,
-    "hyp": "Ladies and gentlemen, we are pleased to announce the launch of our newest product line. Following extensive research and"
-  },
-  "en|mio_tts_2.6b__iu_long|en_long": {
-    "score": 0.0,
-    "hyp": "Artificial intelligence is transforming industries across the globe at an unprecedented pace. From healthcare diagnostic"
-  },
-  "en|mio_tts_2.6b__iu_long|en_medium": {
-    "score": 0.0,
-    "hyp": "Artificial intelligence speech synthesis technology has made remarkable progress. The combination of natural language pr"
-  },
-  "en|mio_tts_2.6b__iu_long|en_names": {
-    "score": 0.0,
-    "hyp": "Apple CEO Tim Cook met with Microsoft founder Bill Gates in New York City last Tuesday. Their discussion focused on arti"
-  },
-  "en|mio_tts_2.6b__iu_long|en_numbers": {
-    "score": 0.057143,
-    "hyp": "The meeting is scheduled for March 2, 2026 at 3.45 p.m. The temperature is minus 2.5 degrees Celsius, and there is an 80"
-  },
-  "en|mio_tts_2.6b__iu_long|en_punctuation": {
-    "score": 0.0,
-    "hyp": "Wait, are you serious? I can't believe it. First, you forgot the meeting. Then, you missed the deadline. And now this? W"
-  },
-  "en|mio_tts_2.6b__iu_long|en_short": {
-    "score": 0.0,
-    "hyp": "Welcome to our service. How can I help you today?"
-  },
-  "en|mio_tts_2.6b__iu_long|en_technical": {
-    "score": 0.0,
-    "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
-  },
-  "en|mio_tts_2.6b__iu_long|AVG": 0.005714,
-  "en|parler__iu_long|en_short": {
-    "score": 0.0,
-    "hyp": "Welcome to our service. How can I help you today?"
-  },
-  "en|parler__iu_long|AVG": 0.0,
-  "en|qwen3_tts_0.6b__iu_long|en_conversational": {
-    "score": 0.0,
-    "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
-  },
-  "en|qwen3_tts_0.6b__iu_long|en_emotional": {
-    "score": 0.0,
-    "hyp": "I'm so incredibly excited to share this news with you. After years of hard work, countless setbacks, and unwavering dedi"
-  },
-  "en|qwen3_tts_0.6b__iu_long|en_formal": {
-    "score": 0.0,
-    "hyp": "Ladies and gentlemen, we are pleased to announce the launch of our newest product line. Following extensive research and"
-  },
-  "en|qwen3_tts_0.6b__iu_long|en_long": {
-    "score": 0.0,
-    "hyp": "Artificial intelligence is transforming industries across the globe at an unprecedented pace. From healthcare diagnostic"
-  },
-  "en|qwen3_tts_0.6b__iu_long|en_medium": {
-    "score": 0.04,
-    "hyp": "Artificial intelligence speech synthesis technology has made a remarkable progress. The combination of natural language "
-  },
-  "en|qwen3_tts_0.6b__iu_long|en_names": {
-    "score": 0.051282,
-    "hyp": "Apple CEO Tim Cook met with Microsoft founder Bill Gates in New York City last Tuesday. Their discussion focused on arti"
-  },
-  "en|qwen3_tts_0.6b__iu_long|en_numbers": {
-    "score": 0.142857,
-    "hyp": "The meeting is scheduled for March NND 2029 at 3.45 pm. The temperature is minus 2.5 degrees celsius and there is an 80%"
-  },
-  "en|qwen3_tts_0.6b__iu_long|en_punctuation": {
-    "score": 0.0,
-    "hyp": "Wait, are you serious? I can't believe it. First, you forgot the meeting, then you missed the deadline, and now this? We"
-  },
-  "en|qwen3_tts_0.6b__iu_long|en_short": {
-    "score": 0.1,
-    "hyp": "Welcome to our services. How can I help you today?"
-  },
-  "en|qwen3_tts_0.6b__iu_long|en_technical": {
-    "score": 0.0,
-    "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
-  },
-  "en|qwen3_tts_0.6b__iu_long|AVG": 0.033414,
-  "en|qwen3_tts_1.7b__iu_long|en_conversational": {
-    "score": 0.0,
-    "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
-  },
-  "en|qwen3_tts_1.7b__iu_long|en_emotional": {
-    "score": 0.0,
-    "hyp": "I'm so incredibly excited to share this news with you. After years of hard work, countless setbacks, and unwavering dedi"
-  },
-  "en|qwen3_tts_1.7b__iu_long|en_formal": {
-    "score": 0.0,
-    "hyp": "Ladies and gentlemen, we are pleased to announce the launch of our newest product line. Following extensive research and"
-  },
-  "en|qwen3_tts_1.7b__iu_long|en_long": {
-    "score": 0.0,
-    "hyp": "Artificial intelligence is transforming industries across the globe at an unprecedented pace. From healthcare diagnostic"
-  },
-  "en|qwen3_tts_1.7b__iu_long|en_medium": {
-    "score": 0.0,
-    "hyp": "Artificial intelligence speech synthesis technology has made remarkable progress. The combination of natural language pr"
-  },
-  "en|qwen3_tts_1.7b__iu_long|en_names": {
-    "score": 0.0,
-    "hyp": "Apple CEO Tim Cook met with Microsoft founder Bill Gates in New York City last Tuesday. Their discussion focused on arti"
-  },
-  "en|qwen3_tts_1.7b__iu_long|en_numbers": {
-    "score": 0.2,
-    "hyp": "The meeting is scheduled for March 2nd, 2026 at 7.40pm. The temperature is minus 2.0 degrees Celsius and there is a peri"
-  },
-  "en|qwen3_tts_1.7b__iu_long|en_punctuation": {
-    "score": 0.0,
-    "hyp": "Wait, are you serious? I can't believe it. First, you forgot the meeting, then you missed the deadline, and now this? We"
-  },
-  "en|qwen3_tts_1.7b__iu_long|en_short": {
-    "score": 0.1,
-    "hyp": "Welcome to our services. How can I help you today?"
-  },
-  "en|qwen3_tts_1.7b__iu_long|en_technical": {
-    "score": 0.032258,
-    "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
-  },
-  "en|qwen3_tts_1.7b__iu_long|AVG": 0.033226,
-  "en|spark_tts__iu_long|en_conversational": {
-    "score": 0.0,
-    "hyp": "Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since w"
-  },
-  "en|spark_tts__iu_long|en_emotional": {
-    "score": 0.0,
-    "hyp": "I'm so incredibly excited to share this news with you. After years of hard work, countless setbacks and unwavering dedic"
-  },
-  "en|spark_tts__iu_long|en_formal": {
-    "score": 0.0,
-    "hyp": "Ladies and gentlemen, we are pleased to announce the launch of our newest product line. Following extensive research and"
-  },
-  "en|spark_tts__iu_long|en_long": {
-    "score": 0.0,
-    "hyp": "Artificial intelligence is transforming industries across the globe at an unprecedented pace. From healthcare diagnostic"
-  },
-  "en|spark_tts__iu_long|en_medium": {
-    "score": 0.0,
-    "hyp": "artificial intelligence speech synthesis technology has made remarkable progress the combination of natural language pro"
-  },
-  "en|spark_tts__iu_long|en_names": {
-    "score": 0.0,
-    "hyp": "Apple CEO Tim Cook met with Microsoft founder Bill Gates in New York City last Tuesday. Their discussion focused on arti"
-  },
-  "en|spark_tts__iu_long|en_numbers": {
-    "score": 0.142857,
-    "hyp": "The meeting is scheduled for March 2, 2026 at 3.45pm. The temperature is minus 2.5 degrees Celsius and there is an 80% c"
-  },
-  "en|spark_tts__iu_long|en_punctuation": {
-    "score": 0.0,
-    "hyp": "Wait, are you serious? I can't believe it. First you forgot the meeting, then you missed the deadline, and now this. Wel"
-  },
-  "en|spark_tts__iu_long|en_short": {
-    "score": 0.0,
-    "hyp": "Welcome to our service. How can I help you today?"
-  },
-  "en|spark_tts__iu_long|en_technical": {
-    "score": 0.0,
-    "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
-  },
-  "en|spark_tts__iu_long|AVG": 0.014286,
-  "en|styletts2__iu_long|en_short": {
-    "score": 0.0,
-    "hyp": "Welcome to our service, How Can I Help You Today?"
-  },
-  "en|styletts2__iu_long|AVG": 0.0,
-  "en|voicecraftx__iu_long|en_conversational": {
-    "score": 1.0,
-    "hyp": ""
-  },
-  "en|voicecraftx__iu_long|en_emotional": {
-    "score": 0.975,
-    "hyp": "Thank you."
-  },
-  "en|voicecraftx__iu_long|en_formal": {
-    "score": 1.0,
-    "hyp": ""
-  },
-  "en|voicecraftx__iu_long|en_long": {
-    "score": 1.0,
-    "hyp": ""
-  },
-  "en|voicecraftx__iu_long|en_medium": {
-    "score": 1.0,
-    "hyp": "Thank you."
-  },
-  "en|voicecraftx__iu_long|en_names": {
-    "score": 1.0,
-    "hyp": ""
-  },
-  "en|voicecraftx__iu_long|en_numbers": {
-    "score": 1.0,
-    "hyp": "Thank you."
-  },
-  "en|voicecraftx__iu_long|en_punctuation": {
-    "score": 0.933333,
-    "hyp": "Thank you for listening to the podcast."
-  },
-  "en|voicecraftx__iu_long|en_short": {
-    "score": 0.9,
-    "hyp": "Thank you."
-  },
-  "en|voicecraftx__iu_long|en_technical": {
-    "score": 1.0,
-    "hyp": ""
-  },
-  "en|voicecraftx__iu_long|AVG": 0.980833,
-  "en|xtts__iu_long|en_short": {
-    "score": 0.0,
-    "hyp": "Welcome to our service. How can I help you today?"
-  },
-  "en|xtts__iu_long|AVG": 0.0,
-  "ja|kokoro__iu_long|ja_short": {
-    "score": 0.944444,
-    "hyp": "日本語データ"
-  },
-  "ja|kokoro__iu_long|AVG": 0.944444,
-  "ja|qwen3_tts_0.6b__iu_long|ja_short": {
-    "score": 0.611111,
-    "hyp": "本当にいい天気ですね。"
-  },
-  "ja|qwen3_tts_0.6b__iu_long|AVG": 0.611111,
-  "ja|qwen3_tts_1.7b__iu_long|ja_short": {
-    "score": 0.055556,
-    "hyp": "こんにちは 今日はとてもいい天気ですね"
-  },
-  "ja|qwen3_tts_1.7b__iu_long|AVG": 0.055556,
-  "ja|voicecraftx__iu_long|ja_short": {
-    "score": 0.888889,
-    "hyp": "ありがとうございました"
-  },
-  "ja|voicecraftx__iu_long|AVG": 0.888889,
-  "zh|f5tts__iu_long|zh_short": {
-    "score": 1.0,
-    "hyp": "来 来 来 来"
-  },
-  "zh|f5tts__iu_long|AVG": 1.0,
-  "zh|kani__iu_long|zh_conversational": {
-    "score": 0.078947,
-    "hyp": "哎,你今天中午吃什么?我想吃火锅,最近天气冷,吃点热乎的最舒服了,你有什么想法吗?"
-  },
-  "zh|kani__iu_long|zh_formal": {
-    "score": 0.058824,
-    "hyp": "尊敬的各位来宾,感谢您出席本次活动 我公司在过去十年中取得了长足的发展 在全球市场上建立了强大的竞争优势 未来,我们将继续努力,不负各方期望"
-  },
-  "zh|kani__iu_long|zh_medium": {
-    "score": 0.0,
-    "hyp": "人工智能、语音合成技术取得了令人瞩目的进展 自然语言处理和深度学习的结合 使得语音合成更加自然流畅"
-  },
-  "zh|kani__iu_long|zh_short": {
-    "score": 0.1,
-    "hyp": "你好,今天天气真不错"
-  },
-  "zh|kani__iu_long|zh_technical": {
-    "score": 0.053333,
-    "hyp": "深度学习模型在试炼过程中通过批量归一化和随机丢弃来防止过拟合。 Transformer架构的注意力机制能够并行处理序列数据,显著提高了训练效率和模型性能。"
-  },
-  "zh|kani__iu_long|AVG": 0.058221,
-  "zh|kokoro__iu_long|zh_short": {
-    "score": 1.0,
-    "hyp": "中文字幕志愿者 杨茜茜"
-  },
-  "zh|kokoro__iu_long|AVG": 1.0,
-  "zh|maskgct__iu_long|zh_conversational": {
-    "score": 1.0,
-    "hyp": "最近更加的乐歌歌 来在韩国的旅游评论里 可是谈恋人家 我们人人都感叹了"
-  },
-  "zh|maskgct__iu_long|zh_formal": {
-    "score": 0.985294,
-    "hyp": "请不吝点赞 订阅 转发 打赏支持明镜与点点栏目"
-  },
-  "zh|maskgct__iu_long|zh_medium": {
-    "score": 1.0,
-    "hyp": ""
-  },
-  "zh|maskgct__iu_long|zh_short": {
-    "score": 1.0,
-    "hyp": ""
-  },
-  "zh|maskgct__iu_long|AVG": 0.996324,
-  "zh|qwen3_tts_0.6b__iu_long|zh_short": {
-    "score": 1.0,
-    "hyp": "1号电台秩序"
-  },
-  "zh|qwen3_tts_0.6b__iu_long|AVG": 1.0,
-  "zh|qwen3_tts_1.7b__iu_long|zh_short": {
-    "score": 0.1,
-    "hyp": "你好 今天天气真不错"
-  },
-  "zh|qwen3_tts_1.7b__iu_long|AVG": 0.1,
-  "ja|index_tts2__ja_male|ja_short": {
-    "score": 0.0,
-    "hyp": "ツァンツァンツァン今日が変わる、明日が変わる、天が変わる"
-  },
-  "ja|index_tts2__iu_long|ja_short": {
-    "score": 0.0,
-    "hyp": "たんたんたんたんたん今日たんたんたん天道がんがんあんたん"
-  },
-  "ja|index_tts2__ja_male|ja_medium": {
-    "score": 0.0,
-    "hyp": "人工智能音声合成器材 目ちょいちょいちょいどどど水ちょいちょいちょい 自然言ちょい理ちょい身ちょいちょいちょい 国ちょい 和ちょいちょいパイサンザンドアリョウザ 音声合成サンタンタンザ開板"
-  },
-  "ja|index_tts2__iu_long|ja_medium": {
-    "score": 0.0,
-    "hyp": "人工智能音声合成技タバムタタパタタタパ水タバダバ自然源ダバリタリ生道学超把タババタタ道自然道流道道道音声合成道"
-  },
-  "ja|index_tts2__ja_male|ja_formal": {
-    "score": 0.0,
-    "hyp": "授業を始めます。"
-  },
-  "ja|index_tts2__iu_long|ja_formal": {
-    "score": 0.0,
-    "hyp": "ジェジ 本日寄寄照道道宝 道宝 道宝 道宝避暑道道宝 十年道道道成功成就 水走水道宝 頭倒水金金金鑽鑽字 圓鑽断裂断断断断断断断断 深鑽上鑽"
-  },
-  "ja|index_tts2__ja_male|ja_conversational": {
-    "score": 1.0,
-    "hyp": "Bai Chuan 今日中川川川Bai Chuan Chuan, Bai Chuan Bai MiGai Bai Chuan 最近寒川Wen Zhuan Chuan, Wen Zhuan, Zhuan, Shi Zhuan"
-  },
-  "ja|index_tts2__iu_long|ja_conversational": {
-    "score": 0.0,
-    "hyp": ""
-  },
-  "ja|index_tts2__ja_male|ja_technical": {
-    "score": 1.0,
-    "hyp": "前回戦 前回戦マン やっぱり 財務も狙いツアい cartoon increases 用材材用ファー恋エスつおり キーディ リチョ 穿伐 全関 チャンチャン元 kotasまた ココは といっておけん画性能大幅座向上ちょいちょい"
-  },
-  "ja|index_tts2__iu_long|ja_technical": {
-    "score": 0.0,
-    "hyp": "たたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたたた"
-  },
-  "ja|index_tts2|AVG": 0.2,
+  "ko|xtts__kor_male_deep|AVG": 0.1397981,
   "zh|index_tts2__zh_male|zh_short": {
-    "score": 0.0,
-    "hyp": "你好今天天气真不错"
-  },
-  "zh|index_tts2__iu_long|zh_short": {
     "score": 0.0,
     "hyp": "你好今天天气真不错"
   },
@@ -3214,15 +2424,7 @@
     "score": 0.0,
     "hyp": "人工智能语音合成技术取得了令人瞩目的进展自然语言处理和深度学习的结合使得语音合成更加自然流畅"
   },
-  "zh|index_tts2__iu_long|zh_medium": {
-    "score": 0.0,
-    "hyp": "人工智能语音合成技术取得了令人瞩目的进展自然语言处理和深度学习的结合使得语音合成更加自然流畅"
-  },
   "zh|index_tts2__zh_male|zh_formal": {
-    "score": 0.0,
-    "hyp": "尊敬的各位来宾,感谢您出席本次活动,我公司在过去十年中取得了长足的发展,在全球市场上建立了强大的竞争优势,未来我们将继续努力,不负各方期望。"
-  },
-  "zh|index_tts2__iu_long|zh_formal": {
     "score": 0.0,
     "hyp": "尊敬的各位来宾,感谢您出席本次活动,我公司在过去十年中取得了长足的发展,在全球市场上建立了强大的竞争优势,未来我们将继续努力,不负各方期望。"
   },
@@ -3230,17 +2432,9 @@
     "score": 0.0,
     "hyp": "哎 你今天中午吃什么我想吃火锅最近天气冷吃点热乎的最舒服了你有什么想法吗"
   },
-  "zh|index_tts2__iu_long|zh_conversational": {
-    "score": 0.0,
-    "hyp": "你今天中午吃什么我想吃火锅最近天气冷吃点热乎的最舒服了你有什么想法吗"
-  },
   "zh|index_tts2__zh_male|zh_technical": {
     "score": 0.0,
     "hyp": "深度学习模型在训练过程中通过批量归一化和随机丢弃来防止过泥河Transformer架构的注意力机制能够并行处理序列数据显著提高了训练效率和模型性能"
-  },
-  "zh|index_tts2__iu_long|zh_technical": {
-    "score": 0.0,
-    "hyp": "深度学习模型在训练过程中,通过批量皈依化和随机丢弃来防止过你和Transformer架构的注意力机制能够并行处理序列数据,显著提高了训练效率和模型性能。"
   },
   "zh|index_tts2|AVG": 0.0,
   "en|maskgct__en_female|en_conversational": {
@@ -3283,7 +2477,7 @@
     "score": 0.032258,
     "hyp": "the transformer architecture uses multi-head self-attention mechanisms to process sequential  data in parallel, achievin"
   },
-  "en|maskgct__en_female|AVG": 0.026475,
+  "en|maskgct__en_female|AVG": 0.0264748,
   "en|maskgct__en_male|en_conversational": {
     "score": 0.0,
     "hyp": "Hey, what's up?  Are you free this weekend?  I was thinking we could grab some coffee and catch up.  It's been ages sinc"
@@ -3324,7 +2518,7 @@
     "score": 0.0,
     "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving"
   },
-  "en|maskgct__en_male|AVG": 0.061429,
+  "en|maskgct__en_male|AVG": 0.0614286,
   "zh|maskgct__zh_female|zh_conversational": {
     "score": 0.170732,
     "hyp": "你今天中午吃什么 我想吃火锅 最近天气冷 吃点热乎的最舒服了 你有什么想法吗"
@@ -3366,7 +2560,1207 @@
     "score": 0.909091,
     "hyp": "通过一项成终 批量国标 贵宜化 和随机 随机丢弃器来防止过逆 Transformer 具有力加工的设计 能够并行除数据 助体更去序列数 显著高率 体国链数据 数据 充实中 同常数 故意 不善三心 传三个 传三个 夹过 抓"
   },
-  "zh|maskgct__zh_male|AVG": 0.457734,
-  "en|maskgct|AVG": 0.026475,
-  "zh|maskgct|AVG": 0.184769
+  "zh|maskgct__zh_male|AVG": 0.4577344,
+  "en|maskgct|AVG": 0.0439517,
+  "zh|maskgct|AVG": 0.3212517,
+  "ja|cosyvoice2__ja_female|ja_short": {
+    "score": 0.8889,
+    "hyp": "ご視聴ありがとうございました"
+  },
+  "ja|cosyvoice2__ja_female|ja_medium": {
+    "score": 0.9697,
+    "hyp": "ご視聴ありがとうございました"
+  },
+  "ja|cosyvoice2__ja_female|ja_formal": {
+    "score": 0.8493,
+    "hyp": "お祈りしますご視聴ありがとうございました"
+  },
+  "ja|cosyvoice2__ja_female|ja_conversational": {
+    "score": 1.0,
+    "hyp": "このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、このように、",
+    "score_uncapped": 7.1667
+  },
+  "ja|cosyvoice2__ja_female|ja_technical": {
+    "score": 0.9794,
+    "hyp": "お疲れ様でしたご視聴ありがとうございました"
+  },
+  "ja|cosyvoice2__ja_male|ja_short": {
+    "score": 1.0,
+    "hyp": "おわわピギチルポーおわわアコウオウオウオウパクリーオウオウオウオウオカコウオウオウオウオチリリオウオウオウオウロロロロロロ",
+    "score_uncapped": 3.3889
+  },
+  "ja|cosyvoice2__ja_male|ja_medium": {
+    "score": 1.0,
+    "hyp": "ご視聴ありがとうございましたご視聴ありがとうございました"
+  },
+  "ja|cosyvoice2__ja_male|ja_formal": {
+    "score": 0.8219,
+    "hyp": "ご視聴ありがとうございましたご視聴ありがとうございました"
+  },
+  "ja|cosyvoice2__ja_male|ja_conversational": {
+    "score": 1.0,
+    "hyp": "ご視聴ありがとうございましたご視聴ありがとうございました",
+    "score_uncapped": 1.1481
+  },
+  "ja|cosyvoice2__ja_male|ja_technical": {
+    "score": 1.0,
+    "hyp": "ご視聴ありがとうございましたご視聴ありがとうございました",
+    "score_uncapped": 1.0928
+  },
+  "ja|cosyvoice2|AVG": 0.95092,
+  "ja|cosyvoice3__ja_female|ja_short": {
+    "score": 1.0,
+    "hyp": "終わった"
+  },
+  "ja|cosyvoice3__ja_female|ja_medium": {
+    "score": 0.9697,
+    "hyp": "次の動画でお会いしましょう。"
+  },
+  "ja|cosyvoice3__ja_female|ja_formal": {
+    "score": 0.9452,
+    "hyp": "次の動画でお会いしましょう"
+  },
+  "ja|cosyvoice3__ja_female|ja_conversational": {
+    "score": 1.0,
+    "hyp": "ご視聴ありがとうございました"
+  },
+  "ja|cosyvoice3__ja_female|ja_technical": {
+    "score": 0.9897,
+    "hyp": "お疲れ様でした"
+  },
+  "ja|cosyvoice3__ja_male|ja_short": {
+    "score": 1.0,
+    "hyp": "ポピーマン版の文物版の字アップ"
+  },
+  "ja|cosyvoice3__ja_male|ja_medium": {
+    "score": 0.9697,
+    "hyp": "ご視聴ありがとうございました"
+  },
+  "ja|cosyvoice3__ja_male|ja_formal": {
+    "score": 0.8493,
+    "hyp": "ご視聴ありがとうございました"
+  },
+  "ja|cosyvoice3__ja_male|ja_conversational": {
+    "score": 1.0,
+    "hyp": "ポピーマン版の文物版の字アップ"
+  },
+  "ja|cosyvoice3__ja_male|ja_technical": {
+    "score": 0.9794,
+    "hyp": "ご視聴ありがとうございました"
+  },
+  "ja|cosyvoice3|AVG": 0.9703,
+  "ja|gpt_sovits__ja_female|ja_short": {
+    "score": 1.0,
+    "hyp": "ゆうしんの感情と時間が視聴者の時に紹介される反面",
+    "score_uncapped": 1.6667
+  },
+  "ja|gpt_sovits__ja_female|ja_medium": {
+    "score": 0.5303,
+    "hyp": "人工知能音声合成技術 目絶近部推自然言語出力 深層学習組合 自然流暢音声合成実現"
+  },
+  "ja|gpt_sovits__ja_female|ja_formal": {
+    "score": 0.9452,
+    "hyp": "次の動画でお会いしましょう。"
+  },
+  "ja|gpt_sovits__ja_female|ja_conversational": {
+    "score": 1.0,
+    "hyp": "お気に入りの感想と、 視聴者の皆さまの感想をお聞かせください。今日のお食事は、最近、温室です。",
+    "score_uncapped": 1.3704
+  },
+  "ja|gpt_sovits__ja_female|ja_technical": {
+    "score": 0.9691,
+    "hyp": "次の動画でお会いしましょう。"
+  },
+  "ja|gpt_sovits__ja_male|ja_short": {
+    "score": 1.0,
+    "hyp": "スタンナサー"
+  },
+  "ja|gpt_sovits__ja_male|ja_medium": {
+    "score": 1.0,
+    "hyp": "ん"
+  },
+  "ja|gpt_sovits__ja_male|ja_formal": {
+    "score": 0.9315,
+    "hyp": "ゼア・トン・ジョン・スイ今後知人協力人身上"
+  },
+  "ja|gpt_sovits__ja_male|ja_conversational": {
+    "score": 1.0,
+    "hyp": "おわり"
+  },
+  "ja|gpt_sovits__ja_male|ja_technical": {
+    "score": 0.8454,
+    "hyp": "このように、正規化組合の反応性能を大幅に上げます。"
+  },
+  "ja|gpt_sovits|AVG": 0.92215,
+  "ja|qwen3_tts_0.6b__ja_female|ja_short": {
+    "score": 0.5,
+    "hyp": "こちらはとても良いタンキーですね"
+  },
+  "ja|qwen3_tts_0.6b__ja_female|ja_medium": {
+    "score": 1.0,
+    "hyp": "人工知能 陰性発生実習は 物価増し進歩をする原因です知らん言語とりと 心臓の知能を 準備しているようにより自然で 良好な 陰性発生が 実現する"
+  },
+  "ja|qwen3_tts_0.6b__ja_female|ja_formal": {
+    "score": 0.3562,
+    "hyp": "本日はご参加いただきありがとうございます。美少はこの10年間、きっつけたな 절정をせげて参りみせました。ちもともご自慢ご協力のほどよろしくお願い申し上げます。"
+  },
+  "ja|qwen3_tts_0.6b__ja_female|ja_conversational": {
+    "score": 1.0,
+    "hyp": "私たちの動画をご覧いただきありがとうございます。私たちの動画をご覧いただきありがとうございます。どうもありがとうございました。",
+    "score_uncapped": 1.6111
+  },
+  "ja|qwen3_tts_0.6b__ja_female|ja_technical": {
+    "score": 0.4536,
+    "hyp": "トランスフォローアクテクチャはマルチヘッド付き注意金額を 用いてシチェンスデータを便利に処理しますバッチ電源とドロップアウトを 準備やすいでここでみんなのスローカー性能を 多分に反省させることができます"
+  },
+  "ja|qwen3_tts_0.6b__ja_male|ja_short": {
+    "score": 1.0,
+    "hyp": "このナリコナプラネタラーは、この村を散策するのは、この村を散策するのは、はっ、火事だ。",
+    "score_uncapped": 2.0
+  },
+  "ja|qwen3_tts_0.6b__ja_male|ja_medium": {
+    "score": 0.2879,
+    "hyp": "進歩を遂げています。自然援護処理と深層学習の組み合わせにより、より自然で流暢な音声養成が実現されています。"
+  },
+  "ja|qwen3_tts_0.6b__ja_male|ja_formal": {
+    "score": 0.0685,
+    "hyp": "皆様、本日はお集まりいただきありがとうございます。弊社はこの10年間、継続的な成長を告げてまいりました。金吾ともご支援ご協力のほど、よろしくお願い申し上げます。"
+  },
+  "ja|qwen3_tts_0.6b__ja_male|ja_conversational": {
+    "score": 0.0741,
+    "hyp": "ねえ今日の昼ご飯どうするラーメンかカレーか戻ってるんだけど最近寒いし大阪へものが食べたいよねあなたはどう思う"
+  },
+  "ja|qwen3_tts_0.6b__ja_male|ja_technical": {
+    "score": 0.1753,
+    "hyp": "トランスフォーマーや薬器、テクチャーはマルチヘッド、自己注意機構を用いて支援ステータを並列処理します。バチシェギカとドロップアウトを組み合わせることで、モデルの反過性能を大芝に向上させることができます。"
+  },
+  "ja|qwen3_tts_0.6b|AVG": 0.49156,
+  "ja|qwen3_tts_1.7b__ja_female|ja_short": {
+    "score": 0.0556,
+    "hyp": "こんにちは。今日はとてもいい天気ですね。"
+  },
+  "ja|qwen3_tts_1.7b__ja_female|ja_medium": {
+    "score": 0.803,
+    "hyp": "人工知能、N3補充技術は、無鋼麻糸チンポをすげています。"
+  },
+  "ja|qwen3_tts_1.7b__ja_female|ja_formal": {
+    "score": 0.2877,
+    "hyp": "会長、こんにちは。お邪魔いただきありがとうございます。フィッシャーはこの10年間、急速的な成長を続けてまいりました。今後ともご支援ご協力のほどよろしくお願い申し上げます。"
+  },
+  "ja|qwen3_tts_1.7b__ja_female|ja_conversational": {
+    "score": 0.3333,
+    "hyp": "ねえ、中国の中国ファンどうする?ランかカレーか見てるんだけど最近ハミンシー今回ものが食べたいよねあなたはどう思う?"
+  },
+  "ja|qwen3_tts_1.7b__ja_female|ja_technical": {
+    "score": 0.5052,
+    "hyp": "Transformer Architectureはマルチヘッド磁気注意空間を有意で、シークエンスでタワーを面列上にします。パッチチョンキカとドロップアウトを組み合わせることで、モデルの本化性能を幅に補充させることができます。"
+  },
+  "ja|qwen3_tts_1.7b|AVG": 0.39696,
+  "ja|cosyvoice2__ja_female|AVG": 0.93746,
+  "ja|cosyvoice2__ja_male|AVG": 0.96438,
+  "ja|cosyvoice3__ja_female|AVG": 0.98092,
+  "ja|cosyvoice3__ja_male|AVG": 0.95968,
+  "ja|gpt_sovits__ja_female|AVG": 0.88892,
+  "ja|gpt_sovits__ja_male|AVG": 0.95538,
+  "ja|qwen3_tts_0.6b__ja_female|AVG": 0.66196,
+  "ja|qwen3_tts_0.6b__ja_male|AVG": 0.32116,
+  "ja|qwen3_tts_1.7b__ja_female|AVG": 0.39696,
+  "zh|index_tts2__zh_male|AVG": 0.0,
+  "en|hierspeech|AVG": 0.0438005,
+  "en|index_tts2|AVG": 0.0228572,
+  "en|kani|AVG": 0.0392308,
+  "en|voicecraftx|AVG": 0.9808333,
+  "ko|hierspeech|AVG": 0.8221902,
+  "ko|kani|AVG": 0.0847999,
+  "ko|maskgct|AVG": 0.3686302,
+  "ko|voicecraftx|AVG": 0.9705952,
+  "zh|f5tts__zh_male|zh_short": {
+    "score": 1.0,
+    "hyp": ""
+  },
+  "zh|f5tts__zh_male|zh_conversational": {
+    "score": 0.894737,
+    "hyp": "愛心重視 某樣是火鍋究竟有什麽效法嗎"
+  },
+  "zh|f5tts__zh_male|zh_medium": {
+    "score": 0.869565,
+    "hyp": "人工智能語音和程式學習的鏈準 我們再進來探討下一個大戰鬥場"
+  },
+  "zh|f5tts__zh_male|zh_formal": {
+    "score": 0.661765,
+    "hyp": "首先借助各位来宾感谢您出席本期的 我们公司在内的长途发展在群手上 见谅强大几个人不负过期望"
+  },
+  "zh|f5tts__zh_male|zh_technical": {
+    "score": 0.666667,
+    "hyp": "深度实习们在训练过程中 通话随地下载放直播能和传送门架构的注意 即使能够选取新的效率和模型性能"
+  },
+  "zh|f5tts__zh_male|AVG": 0.818547,
+  "zh|f5tts__zh_female|zh_short": {
+    "score": 1.0,
+    "hyp": ""
+  },
+  "zh|f5tts__zh_female|zh_conversational": {
+    "score": 0.657895,
+    "hyp": "今天中午什么?我想说过最近天气的认识上方吧"
+  },
+  "zh|f5tts__zh_female|zh_medium": {
+    "score": 0.804348,
+    "hyp": "在音樂曲的錄像和修圖曲的令你成功加自然流暢"
+  },
+  "zh|f5tts__zh_female|zh_formal": {
+    "score": 0.632353,
+    "hyp": "最近的各位来宾感谢您出世中求到长足的法轮 在全球市场上建立强大的金融市场 多多希望"
+  },
+  "zh|f5tts__zh_female|zh_technical": {
+    "score": 0.653333,
+    "hyp": "深度学习模拟在训练过程中 配合高压随机解答方式 不明显Transformer加购有助于 地形周旋转模型"
+  },
+  "zh|f5tts__zh_female|AVG": 0.749586,
+  "zh|fish_speech__zh_male|zh_short": {
+    "score": 1.0,
+    "hyp": ""
+  },
+  "zh|fish_speech__zh_male|zh_conversational": {
+    "score": 0.157895,
+    "hyp": "你今天中午吃什么 我想吃火锅 最近天气冷 吃得热乎得最舒服了 你有什么想法吗"
+  },
+  "zh|fish_speech__zh_male|zh_medium": {
+    "score": 0.043478,
+    "hyp": "人工智能语音合成基础取得了令人瞩目的进展 自然语言处理和深度学习的结合 使得语音合成更加自然流畅"
+  },
+  "zh|fish_speech__zh_male|zh_formal": {
+    "score": 0.058824,
+    "hyp": "尊敬的各位来宾 感谢您出席本次活动 我公司在过去十年中取得了长足的发展 在全球市场上建立了强大的竞争优势 未来我们将继续努力 不负各方期望"
+  },
+  "zh|fish_speech__zh_male|zh_technical": {
+    "score": 0.346667,
+    "hyp": "深度学习模型在训练过程中通过批量规划和随机标题来防止过敏和 开始光能架构的注意力机制能够并进处理虚的数据 省住提高的训练效率和模型性能"
+  },
+  "zh|fish_speech__zh_male|AVG": 0.321373,
+  "zh|fish_speech__zh_female|zh_short": {
+    "score": 1.0,
+    "hyp": ""
+  },
+  "zh|fish_speech__zh_female|zh_conversational": {
+    "score": 0.342105,
+    "hyp": "你今天中午吃什么 我想吃火锅 今天天气冷 吃点热乎的最舒服了"
+  },
+  "zh|fish_speech__zh_female|zh_medium": {
+    "score": 0.152174,
+    "hyp": "人工智能语音合同不俗 取得老人人瞅目的进展 自然语言处理和深度学习的结合 使得语音合同更加自然流畅"
+  },
+  "zh|fish_speech__zh_female|zh_formal": {
+    "score": 0.117647,
+    "hyp": "谢谢各位来宾 感谢您出席本次活动 我公司在过去十年中 取得了长足的发展 在全球市场上 建立了强大的竞争优势 未来我们将继续努力 不负各方希望"
+  },
+  "zh|fish_speech__zh_female|zh_technical": {
+    "score": 0.506667,
+    "hyp": "我們深度處理模型 在訓練過程中通過批量規範 和隨機表現來防止固定 Questformer 採購的注意力機制 能夠並行處理序列數據 深度提高了訓練效率和模型性能"
+  },
+  "zh|fish_speech__zh_female|AVG": 0.423719,
+  "zh|kani__zh_male|zh_short": {
+    "score": 0.3,
+    "hyp": "你好,今天天氣真不錯"
+  },
+  "zh|kani__zh_male|zh_conversational": {
+    "score": 0.078947,
+    "hyp": "哎,你今天中午吃什么?我想吃火锅,最近天气冷,吃点热乎的最舒服了,你有什么想法吗?"
+  },
+  "zh|kani__zh_male|zh_medium": {
+    "score": 0.0,
+    "hyp": "人工智能语音合成技术取得了令人瞩目的进展 自然语言处理和深度学习的结合 使得语音合成更加自然流畅"
+  },
+  "zh|kani__zh_male|zh_formal": {
+    "score": 0.058824,
+    "hyp": "尊敬的各位来宾,感谢您出席本次活动 我公司在过去十年中取得了长足的发展 在全球市场上建立了强大的竞争优势 未来,我们将继续努力,不负各方期望"
+  },
+  "zh|kani__zh_male|zh_technical": {
+    "score": 0.026667,
+    "hyp": "深度学习模型在训练过程中,通过批量归一化和随机丢弃来防止过拟合,Transformer架构的注意力机制能够并行处理序列数据,显著提高了训练效率和模型性能。"
+  },
+  "zh|kani__zh_male|AVG": 0.092888,
+  "zh|kani__zh_female|zh_short": {
+    "score": 0.1,
+    "hyp": "你好,今天天气真不错"
+  },
+  "zh|kani__zh_female|zh_conversational": {
+    "score": 0.105263,
+    "hyp": "唉,你今天中午吃什么?我想吃火锅。 最近天气冷,吃点热乎的最舒服了,你有什么想法吗?"
+  },
+  "zh|kani__zh_female|zh_medium": {
+    "score": 0.043478,
+    "hyp": "屏风智能语音合成技术取得了令人瞩目的进展,自然语言处理和深度学习的结合使得语音合成更加自然流畅。"
+  },
+  "zh|kani__zh_female|zh_formal": {
+    "score": 0.058824,
+    "hyp": "尊敬的各位来宾,感谢您出席本次活动,我公司在过去十年中取得了长足的发展,在全球市场上建立了强大的竞争优势,未来,我们将继续努力,不负各方期望。"
+  },
+  "zh|kani__zh_female|zh_technical": {
+    "score": 0.066667,
+    "hyp": "深度学习模型在训练过程中 通过批量皈依化和随机丢弃 来防止过拟和Transformer架构的注意力机制 能够并行处理序列数据 显著提高了训练效率和模型性能"
+  },
+  "zh|kani__zh_female|AVG": 0.074846,
+  "zh|spark_tts__zh_male|zh_short": {
+    "score": 0.1,
+    "hyp": "你好,今天天气真不错"
+  },
+  "zh|spark_tts__zh_male|zh_conversational": {
+    "score": 0.078947,
+    "hyp": "哎,你今天中午吃什么?我想吃火锅,最近天气冷,吃点热乎的最舒服了,你有什么想法吗?"
+  },
+  "zh|spark_tts__zh_male|zh_medium": {
+    "score": 0.0,
+    "hyp": "人工智能语音合成技术 取得了令人瞩目的进展 自然语言处理和深度学习的结合 使得语音合成更加自然流畅"
+  },
+  "zh|spark_tts__zh_male|zh_formal": {
+    "score": 0.058824,
+    "hyp": "尊敬的各位来宾 感谢您出席本次活动 我公司在过去十年中 取得了长足的发展 在全球市场上建立了强大的竞争优势 未来我们将继续努力 不负各方期望"
+  },
+  "zh|spark_tts__zh_male|zh_technical": {
+    "score": 0.053333,
+    "hyp": "深度学习模型在训练过程中通过批量归一化和随机丢弃来防止过泥河 Transformer架构的注意力机制能够并行处理序列数据 显著提高了训练效率和模型性能"
+  },
+  "zh|spark_tts__zh_male|AVG": 0.058221,
+  "zh|spark_tts__zh_female|zh_short": {
+    "score": 0.1,
+    "hyp": "你好,今天天气真不错"
+  },
+  "zh|spark_tts__zh_female|zh_conversational": {
+    "score": 0.105263,
+    "hyp": "你今天中午吃什么?我想吃火锅,最近天气冷,吃点热乎的最舒服了,你有什么想法吗?"
+  },
+  "zh|spark_tts__zh_female|zh_medium": {
+    "score": 0.0,
+    "hyp": "人工智能语音合成技术取得了令人瞩目的进展,自然语言处理和深度学习的结合使得语音合成更加自然流畅。"
+  },
+  "zh|spark_tts__zh_female|zh_formal": {
+    "score": 0.058824,
+    "hyp": "尊敬的各位来宾,感谢您出席本次活动,我公司在过去十年中取得了长足的发展,在全球市场上建立了强大的竞争优势,未来我们将继续努力不负各方期望。"
+  },
+  "zh|spark_tts__zh_female|zh_technical": {
+    "score": 0.026667,
+    "hyp": "深度学习模型在训练过程中通过批量归一化和随机丢弃来防止过拟合,Transformer架构的注意力机制能够并行处理序列数据显著提高了训练效率和模型性能。"
+  },
+  "zh|spark_tts__zh_female|AVG": 0.058151,
+  "ja|fish_speech__ja_male|ja_short": {
+    "score": 0.055556,
+    "hyp": "こんにちは。今日はとてもいい天気ですね。"
+  },
+  "ja|fish_speech__ja_male|ja_conversational": {
+    "score": 0.092593,
+    "hyp": "今日の昼間どうするバーメンかカレーか迷ってるんだけど 最近寒いし温かいものが食べたいよね あなたはどう思う?"
+  },
+  "ja|fish_speech__ja_male|ja_medium": {
+    "score": 0.19697,
+    "hyp": "日本人の目覚まし技術が目覚まし進歩を遂げています 自然語処理と真相学習の組み合わせにより より自然で流暢な音声合成が実現されています"
+  },
+  "ja|fish_speech__ja_male|ja_formal": {
+    "score": 0.09589,
+    "hyp": "皆さま、本日はお集まりいただきありがとうございます。 今朝この10年間、継続的な成長を遂げてまいりました。 今後ともご支援、ご協力のほどよろしくお願い申し上げます。"
+  },
+  "ja|fish_speech__ja_male|ja_technical": {
+    "score": 0.247423,
+    "hyp": "トランスフォームアーキテクチャは、マルチヘッド自己注意機構を用いて、 シーケンスデータを提出していたとしです。 ワッチセキュリティとドロップアウトを組み合わせることで、 モデルの発火性能をアーファブに向上させることができます。"
+  },
+  "ja|fish_speech__ja_male|AVG": 0.137686,
+  "ja|fish_speech__ja_female|ja_short": {
+    "score": 0.055556,
+    "hyp": "こんにちは 今日はとてもいい天気ですね"
+  },
+  "ja|fish_speech__ja_female|ja_conversational": {
+    "score": 0.074074,
+    "hyp": "今日の昼はどうするラーメンかカレーか迷ってるんだけど 最近寒いし温かいものが食べたいよね あなたはどう思う?"
+  },
+  "ja|fish_speech__ja_female|ja_medium": {
+    "score": 0.424242,
+    "hyp": "日本人の温泉保存技術は、おそらく進歩を遂げています。 西洋連合創りと水素学習の組み合わせにより、 より自然で文化の養護性が実現されています。"
+  },
+  "ja|fish_speech__ja_female|ja_formal": {
+    "score": 0.082192,
+    "hyp": "皆さま、本日はお集まりいただきありがとうございます。 今朝はこの10年間、継続的な成長を遂げてまいりました。 今後ともご支援、ご協力のほどよろしくお願い申し上げます。"
+  },
+  "ja|fish_speech__ja_female|ja_technical": {
+    "score": 0.134021,
+    "hyp": "トランスフォーマーアーキテクチャは、マルチヘッド自己注意報についてシーケンスデータをエリス処理します。 パッチ的化とドロップアウトを組み合わせることで、モデルの反対性能を幅に向上させることができます。"
+  },
+  "ja|fish_speech__ja_female|AVG": 0.154017,
+  "ja|index_tts2__ja_male|ja_short": {
+    "score": 1.0,
+    "hyp": "ツァン ツァン ツァン 今日 轉 轉 兩 轉 天 轉 擺"
+  },
+  "ja|index_tts2__ja_male|ja_conversational": {
+    "score": 0.888889,
+    "hyp": "白鶴 今日中鶴鶴鶴 白鶴鶴 白鶴白眠 赤白鶴最近寒鶴 温鶴鶴 温鶴 鶴 石鶴"
+  },
+  "ja|index_tts2__ja_male|ja_medium": {
+    "score": 1.090909,
+    "hyp": "人工智能音声合成器材 目ちょいちょいちょいどどど 水ちょいちょいちょい 自然言ちょい理ちょい 身ちょいちょいちょい 国ちょい 和ちょいちょい パイサンザンドアリョウザ 音声合成サンタンタンザ 開板"
+  },
+  "ja|index_tts2__ja_male|ja_formal": {
+    "score": 0.890411,
+    "hyp": "お祝いをお祝いします"
+  },
+  "ja|index_tts2__ja_male|ja_technical": {
+    "score": 1.175258,
+    "hyp": "チョアンチョアンチョアンチョアンチョアンチョアンチョアン。 自己注意。 衰。 用衰衰。 用衰衰。 衰。 衰。 衰。 利。 ロコリ nóiating singタオル。 轉轉轉轉轉轉。 Höd n落base n落base n落base n。 H"
+  },
+  "ja|index_tts2__ja_male|AVG": 1.009093,
+  "ja|kokoro__ja_male|ja_short": {
+    "score": 0.944444,
+    "hyp": "日本語の記者"
+  },
+  "ja|kokoro__ja_male|ja_conversational": {
+    "score": 0.981481,
+    "hyp": "日本語字幕作成 by 天神子兎音"
+  },
+  "ja|kokoro__ja_male|ja_medium": {
+    "score": 0.984848,
+    "hyp": "日本語字幕"
+  },
+  "ja|kokoro__ja_male|ja_formal": {
+    "score": 0.986301,
+    "hyp": "日本語字幕"
+  },
+  "ja|kokoro__ja_male|ja_technical": {
+    "score": 0.958763,
+    "hyp": "日本語字幕をオンにしてご視聴ください。"
+  },
+  "ja|kokoro__ja_male|AVG": 0.971167,
+  "ja|kokoro__ja_female|ja_short": {
+    "score": 1.5,
+    "hyp": "日本語・商用話 日本語・翻訳 日本語と日本語と日本語と日本語と序盤"
+  },
+  "ja|kokoro__ja_female|ja_conversational": {
+    "score": 0.981481,
+    "hyp": "日本語字幕作成 by 天神子兎音"
+  },
+  "ja|kokoro__ja_female|ja_medium": {
+    "score": 0.984848,
+    "hyp": "日本語字幕"
+  },
+  "ja|kokoro__ja_female|ja_formal": {
+    "score": 0.986301,
+    "hyp": "日本語字幕"
+  },
+  "ja|kokoro__ja_female|ja_technical": {
+    "score": 0.958763,
+    "hyp": "日本語字幕をオンにしてください。"
+  },
+  "ja|kokoro__ja_female|AVG": 1.082279,
+  "ja|mio_tts_1.7b__ja_male|ja_short": {
+    "score": 0.0,
+    "hyp": "こんにちは。今日はとても良い天気ですね。"
+  },
+  "ja|mio_tts_1.7b__ja_male|ja_conversational": {
+    "score": 0.0,
+    "hyp": "ねえ、今日の昼ご飯どうする?ラーメンかカレーか迷ってるんだけど。最近寒いし、温かいものが食べたいよね。あなたはどう思う?"
+  },
+  "ja|mio_tts_1.7b__ja_male|ja_medium": {
+    "score": 0.0,
+    "hyp": "人工知能音声合成技術は目覚ましい進歩を遂げています。 自然言語処理と深層学習の組み合わせにより、より自然で流暢な音声合成が実現されています。"
+  },
+  "ja|mio_tts_1.7b__ja_male|ja_formal": {
+    "score": 0.027397,
+    "hyp": "皆様、本日はお集まりいただきありがとうございます。 弊社はこの10年間、継続的な成長を遂げてまいりました。 今後ともご支援ご協力のほどよろしくお願い申し上げます。"
+  },
+  "ja|mio_tts_1.7b__ja_male|ja_technical": {
+    "score": 0.061856,
+    "hyp": "トランスフォーマーアーキテクチャは、マルチヘッド・自己注意機構を用いて、シーケンスデータを並列処理します。 バッチシェイキ化とドロップアウトを組み合わせることで、モデルの繁華性能を大幅に向上させることができます。"
+  },
+  "ja|mio_tts_1.7b__ja_male|AVG": 0.017851,
+  "ja|mio_tts_1.7b__ja_female|ja_short": {
+    "score": 0.0,
+    "hyp": "こんにちは 今日はとても良い天気ですね"
+  },
+  "ja|mio_tts_1.7b__ja_female|ja_conversational": {
+    "score": 0.037037,
+    "hyp": "ねえ、今日の昼ごはんどうする?ラーメンかカレーか迷ってるんだけど。最近寒いし、温かいものが食べたいよね。あなたはどう思う?"
+  },
+  "ja|mio_tts_1.7b__ja_female|ja_medium": {
+    "score": 0.030303,
+    "hyp": "人工知能音声合成技術は目覚ましい進歩を遂げています。 自然言語処理と真相学習の組み合わせにより、より自然で流暢な音声合成が実現されています。"
+  },
+  "ja|mio_tts_1.7b__ja_female|ja_formal": {
+    "score": 0.027397,
+    "hyp": "皆様、本日はお集まりいただきありがとうございます。 弊社はこの10年間、継続的な成長を遂げてまいりました。 今後ともご支援ご協力のほど、よろしくお願い申し上げます。"
+  },
+  "ja|mio_tts_1.7b__ja_female|ja_technical": {
+    "score": 0.020619,
+    "hyp": "トランスフォーマーアーキテクチャは、マルチヘッド自己注意機構を用いて、シーケンスデータを並列処理します。 バッチ正規化とドロップアウトを組み合わせることで、モデルの繁華性能を大幅に向上させることができます。"
+  },
+  "ja|mio_tts_1.7b__ja_female|AVG": 0.023071,
+  "ja|mio_tts_2.6b__ja_male|ja_short": {
+    "score": 1.0,
+    "hyp": "こんにちは 今日はとても良い天気ですね こんにちは 今日はとても良い天気ですね"
+  },
+  "ja|mio_tts_2.6b__ja_male|ja_conversational": {
+    "score": 0.0,
+    "hyp": "ねえ、今日の昼ご飯どうする? ラーメンかカレーか迷ってるんだけど、最近寒いし、温かいものが食べたいよね。 あなたはどう思う?"
+  },
+  "ja|mio_tts_2.6b__ja_male|ja_medium": {
+    "score": 0.030303,
+    "hyp": "人工知能音声合成技術は目覚ましい進歩を遂げています。 自然言語処理と真相学習の組み合わせにより、より自然で流暢な音声合成が実現されています。"
+  },
+  "ja|mio_tts_2.6b__ja_male|ja_formal": {
+    "score": 0.027397,
+    "hyp": "皆様、本日はお集まりいただきありがとうございます。 弊社はこの10年間、継続的な成長を遂げてまいりました。 今後ともご支援ご協力のほど、よろしくお願い申し上げます。"
+  },
+  "ja|mio_tts_2.6b__ja_male|ja_technical": {
+    "score": 0.020619,
+    "hyp": "トランスフォーマーアーキテクチャは、マルチヘッド自己注意機構を用いて、シーケンスデータを並列処理します。 バッチ正規化とドロップアウトを組み合わせることで、モデルの繁華性能を大幅に向上させることができます。"
+  },
+  "ja|mio_tts_2.6b__ja_male|AVG": 0.215664,
+  "ja|mio_tts_2.6b__ja_female|ja_short": {
+    "score": 0.0,
+    "hyp": "こんにちは 今日はとても良い天気ですね"
+  },
+  "ja|mio_tts_2.6b__ja_female|ja_conversational": {
+    "score": 0.037037,
+    "hyp": "ねえ、今日の昼ごはんどうする?ラーメンかカレーか迷ってるんだけど。最近寒いし、温かいものが食べたいよね。あなたはどう思う?"
+  },
+  "ja|mio_tts_2.6b__ja_female|ja_medium": {
+    "score": 0.030303,
+    "hyp": "人工知能音声合成技術は目覚ましい進歩を遂げています。 自然言語処理と真相学習の組み合わせにより、より自然で流暢な音声合成が実現されています。"
+  },
+  "ja|mio_tts_2.6b__ja_female|ja_formal": {
+    "score": 0.054795,
+    "hyp": "本日はお集まりいただきありがとうございます 弊社はこの10年間 継続的な成長を遂げてまいりました 今後ともご支援ご協力のほど よろしくお願い申し上げます"
+  },
+  "ja|mio_tts_2.6b__ja_female|ja_technical": {
+    "score": 0.020619,
+    "hyp": "トランスフォーマーアーキテクチャは、マルチヘッド自己注意機構を用いて、シーケンスデータを並列処理します。 バッチ正規化とドロップアウトを組み合わせることで、モデルの繁華性能を大幅に向上させることができます。"
+  },
+  "ja|mio_tts_2.6b__ja_female|AVG": 0.028551,
+  "ja|outetss|ja_short": {
+    "score": 0.277778,
+    "hyp": "今日はとても良い天気ですね。"
+  },
+  "ja|outetss|ja_conversational": {
+    "score": 0.0,
+    "hyp": "ねえ、今日の昼ご飯どうする?ラーメンかカレーか迷ってるんだけど、最近寒いし温かいものが食べたいよね。あなたはどう思う?"
+  },
+  "ja|outetss|ja_medium": {
+    "score": 0.060606,
+    "hyp": "人工知能音声合成技術は目覚ましい進歩を遂げています。 事前言語処理と真相学習の組み合わせにより、より自然で流暢な音声合成が実現されています。"
+  },
+  "ja|outetss|ja_formal": {
+    "score": 0.109589,
+    "hyp": "皆様、本日はお集まりいただきありがとうございます。 フイッシャーはこの10年間、継続的な成長を遂げてまいりました。 今後ともご支援、ご協力のほどよろしくお願い申し上げます。"
+  },
+  "ja|outetss|ja_technical": {
+    "score": 0.051546,
+    "hyp": "トランスフォーマーアーキテクチャは、マルチヘッド自己注意機構を用いて、シーケンスデータを並列処理します。 バッテリー化とドロップアウトを組み合わせることで、モデルの繁華性能を大幅に向上させることができます。"
+  },
+  "ja|outetss|AVG": 0.099904,
+  "ja|voicecraftx__ja_female|ja_short": {
+    "score": 0.888889,
+    "hyp": "ご視聴ありがとうございました"
+  },
+  "ja|voicecraftx__ja_female|AVG": 0.888889,
+  "ja|voicecraftx__ja_male|ja_short": {
+    "score": 1.0,
+    "hyp": ""
+  },
+  "ja|voicecraftx__ja_male|ja_medium": {
+    "score": 0.954545,
+    "hyp": "ご視聴ありがとうございました。"
+  },
+  "ja|voicecraftx__ja_male|AVG": 0.977272,
+  "en|voicecraftx__en_female|en_short": {
+    "score": 1.0,
+    "hyp": ""
+  },
+  "en|voicecraftx__en_female|en_medium": {
+    "score": 1.0,
+    "hyp": "Thank you."
+  },
+  "en|voicecraftx__en_female|en_long": {
+    "score": 1.0,
+    "hyp": "Thank you."
+  },
+  "en|voicecraftx__en_female|en_numbers": {
+    "score": 1.0,
+    "hyp": "Thank you."
+  },
+  "en|voicecraftx__en_female|en_technical": {
+    "score": 1.0,
+    "hyp": ""
+  },
+  "en|voicecraftx__en_female|en_conversational": {
+    "score": 0.971429,
+    "hyp": "Thank you."
+  },
+  "en|voicecraftx__en_female|en_formal": {
+    "score": 0.976744,
+    "hyp": "Thank you."
+  },
+  "en|voicecraftx__en_female|en_punctuation": {
+    "score": 1.0,
+    "hyp": "Oh, my God."
+  },
+  "en|voicecraftx__en_female|en_names": {
+    "score": 1.0,
+    "hyp": "Thank you."
+  },
+  "en|voicecraftx__en_female|en_emotional": {
+    "score": 0.975,
+    "hyp": "Thank you."
+  },
+  "en|voicecraftx__en_female|AVG": 0.992317,
+  "en|voicecraftx__en_male|en_short": {
+    "score": 1.0,
+    "hyp": "Oh, my God."
+  },
+  "en|voicecraftx__en_male|en_medium": {
+    "score": 1.0,
+    "hyp": "Oh, cool."
+  },
+  "en|voicecraftx__en_male|en_long": {
+    "score": 1.0,
+    "hyp": "Thank you."
+  },
+  "en|voicecraftx__en_male|en_numbers": {
+    "score": 1.0,
+    "hyp": ""
+  },
+  "en|voicecraftx__en_male|en_technical": {
+    "score": 1.0,
+    "hyp": ""
+  },
+  "en|voicecraftx__en_male|en_conversational": {
+    "score": 0.971429,
+    "hyp": "Thank you."
+  },
+  "en|voicecraftx__en_male|en_formal": {
+    "score": 0.976744,
+    "hyp": "Thank you."
+  },
+  "en|voicecraftx__en_male|en_punctuation": {
+    "score": 0.966667,
+    "hyp": "I don't know."
+  },
+  "en|voicecraftx__en_male|en_names": {
+    "score": 1.0,
+    "hyp": ""
+  },
+  "en|voicecraftx__en_male|en_emotional": {
+    "score": 1.0,
+    "hyp": ""
+  },
+  "en|voicecraftx__en_male|AVG": 0.991484,
+  "zh|qwen3_tts_0.6b__zh_male|zh_short": {
+    "score": 0.1,
+    "hyp": "你好,今天天气真不错"
+  },
+  "zh|qwen3_tts_0.6b__zh_male|zh_conversational": {
+    "score": 0.078947,
+    "hyp": "哎,你今天中午吃什么?我想吃火锅,最近天气冷,吃点热乎的最舒服了,你有什么想法吗?"
+  },
+  "zh|qwen3_tts_0.6b__zh_male|zh_medium": {
+    "score": 0.0,
+    "hyp": "人工智能语音合成技术取得了令人瞩目的进展 自然语言处理和深度学习的结合 使得语音合成更加自然流畅"
+  },
+  "zh|qwen3_tts_0.6b__zh_male|zh_formal": {
+    "score": 0.058824,
+    "hyp": "尊敬的各位来宾,感谢您出席本次活动,我公司在过去十年中取得了长足的发展,在全球市场上建立了强大的竞争优势,未来我们将继续努力,不负各方期望。"
+  },
+  "zh|qwen3_tts_0.6b__zh_male|zh_technical": {
+    "score": 0.053333,
+    "hyp": "深度学习模型在训练过程中通过批量、皈依化和随机丢弃来防止过拟合,Transformer架构的注意力机制能够并行处理序列数据,显著提高了训练效率和模型性能。"
+  },
+  "zh|qwen3_tts_0.6b__zh_male|AVG": 0.058221,
+  "zh|qwen3_tts_1.7b__zh_male|zh_short": {
+    "score": 0.1,
+    "hyp": "你好,今天天气真不错"
+  },
+  "zh|qwen3_tts_1.7b__zh_male|zh_conversational": {
+    "score": 0.078947,
+    "hyp": "哎,你今天中午吃什么? 我想吃火锅,最近天气冷,吃点热乎的最舒服了,你有什么想法吗?"
+  },
+  "zh|qwen3_tts_1.7b__zh_male|zh_medium": {
+    "score": 0.0,
+    "hyp": "人工智能语音合成技术取得了令人瞩目的进展,自然语言处理和深度学习的结合,使得语音合成更加自然流畅。"
+  },
+  "zh|qwen3_tts_1.7b__zh_male|zh_formal": {
+    "score": 0.058824,
+    "hyp": "尊敬的各位来宾,感谢您出席本次活动,我公司在过去十年中取得了长足的发展,在全球市场上建立了强大的竞争优势,未来我们将继续努力,不负各方期望。"
+  },
+  "zh|qwen3_tts_1.7b__zh_male|zh_technical": {
+    "score": 0.026667,
+    "hyp": "深度学习模型在训练过程中 通过批量归一化和随机丢弃来防止过拟合 Transformer架构的注意力机制 能够并行处理序列数据 显著提高了训练效率和模型性能"
+  },
+  "zh|qwen3_tts_1.7b__zh_male|AVG": 0.052888,
+  "zh|kokoro__zh_male|zh_short": {
+    "score": 1.8,
+    "hyp": "中文字幕由 Amara.org 社群提供"
+  },
+  "zh|kokoro__zh_male|zh_conversational": {
+    "score": 0.973684,
+    "hyp": "中文字幕志愿者 杨茜茜"
+  },
+  "zh|kokoro__zh_male|zh_medium": {
+    "score": 1.0,
+    "hyp": "中文字幕志愿者 杨茜茜"
+  },
+  "zh|kokoro__zh_male|zh_formal": {
+    "score": 0.985294,
+    "hyp": "中文字幕志愿者 杨茜茜"
+  },
+  "zh|kokoro__zh_male|zh_technical": {
+    "score": 0.986667,
+    "hyp": "中文字幕志愿者 杨茜茜"
+  },
+  "zh|kokoro__zh_male|AVG": 1.149129,
+  "zh|kokoro__iu_long|zh_short": {
+    "score": 1.0,
+    "hyp": "中文字幕志愿者 杨茜茜"
+  },
+  "zh|kokoro__iu_long|zh_conversational": {
+    "score": 0.973684,
+    "hyp": "中文字幕志愿者 杨茜茜"
+  },
+  "zh|kokoro__iu_long|zh_medium": {
+    "score": 1.0,
+    "hyp": "中文字幕志愿者 杨茜茜"
+  },
+  "zh|kokoro__iu_long|zh_formal": {
+    "score": 0.985294,
+    "hyp": "中文字幕志愿者 杨茜茜"
+  },
+  "zh|kokoro__iu_long|zh_technical": {
+    "score": 0.986667,
+    "hyp": "中文字幕志愿者 杨茜茜"
+  },
+  "zh|kokoro__iu_long|AVG": 0.989129,
+  "ja|qwen3_tts_1.7b__ja_male|ja_short": {
+    "score": 4.722222,
+    "hyp": "こんにちがあります。かります。かります。このかちらしびきてるじゅじゅきご、かんじか、ごがごろどかくのかりたこん…。 こんにちがれとらしとれそろけらってるちゅうか。こんぶるきがらんかいなくればすめたるしわで。"
+  },
+  "ja|qwen3_tts_1.7b__ja_male|ja_conversational": {
+    "score": 0.0,
+    "hyp": "ねえ今日の昼ご飯どうするラーメンかカレーか迷ってるんだけど最近寒いし温かいものが食べたいよねあなたはどう思う"
+  },
+  "ja|qwen3_tts_1.7b__ja_male|ja_medium": {
+    "score": 1.484848,
+    "hyp": "人権主論から価値があります。価値がありふかく、人間にしぽりき。 人権主訓ね、しっくれからけだると、ぎんろん、えるがんた、じんくれからかけどあからかれあちょくらすからいなて、がんだげよすから、からちがいだくれまじゅくぬるみれくすぱす。"
+  },
+  "ja|qwen3_tts_1.7b__ja_male|ja_formal": {
+    "score": 1.123288,
+    "hyp": "皆をするのは価値が、価値があります。 リマスブラ、ミラク、ミナクシロ、クットゴカチテコ、デハシ、ミナク、ミナクシロ、ミナコ、ミナ、価値が、ケイシャ、ケイシャ、ゴレラ、ケイシャ、ケイシャ、クレチ、ケイシャ、クレチ。"
+  },
+  "ja|qwen3_tts_1.7b__ja_male|ja_technical": {
+    "score": 1.0,
+    "hyp": "トラン星がありますありますメリトキオキエト トランソロケッタラトランドロゴトラックスルゴトロコトランドロゴトラックスクラ トランドロゴトラックスルコトトラントランコロトラントラントラント beneficiaries"
+  },
+  "ja|qwen3_tts_1.7b__ja_male|AVG": 1.666072,
+  "en|fish_speech__en_male|en_short": {
+    "score": 0.6,
+    "hyp": "Welcome to our service."
+  },
+  "en|fish_speech__en_male|en_medium": {
+    "score": 0.0,
+    "hyp": "Artificial intelligence speech synthesis technology has made remarkable progress. The combination of natural language pr"
+  },
+  "en|fish_speech__en_male|en_long": {
+    "score": 0.0,
+    "hyp": "Artificial intelligence is transforming industries across the globe at an unprecedented pace. From healthcare diagnostic"
+  },
+  "en|fish_speech__en_male|en_numbers": {
+    "score": 0.428571,
+    "hyp": "The meeting is scheduled for March 6th. The temperature is minus 2 degrees Celsius and there is an 80% chance of rain."
+  },
+  "en|fish_speech__en_male|en_technical": {
+    "score": 0.290323,
+    "hyp": "call transform architecture uses multi-head self-attention mechanisms to process sequential data in parallel gradient ch"
+  },
+  "en|fish_speech__en_male|en_conversational": {
+    "score": 0.028571,
+    "hyp": "Hey, what's up? Are you free this weekend? I was just thinking we could grab some coffee and catch up. It's been ages si"
+  },
+  "en|fish_speech__en_male|en_formal": {
+    "score": 0.069767,
+    "hyp": "Ladies and gentlemen, we are pleased to announce the launch of our newest product line. Following a sense of research an"
+  },
+  "en|fish_speech__en_male|en_punctuation": {
+    "score": 0.3,
+    "hyp": "wait are you serious i can't believe it first you forgot the meeting then you missed the deadline and now this"
+  },
+  "en|fish_speech__en_male|en_names": {
+    "score": 0.0,
+    "hyp": "Apple CEO Tim Cook met with Microsoft founder Bill Gates in New York City last Tuesday. Their discussion focused on arti"
+  },
+  "en|fish_speech__en_male|en_emotional": {
+    "score": 0.0,
+    "hyp": "I'm so incredibly excited to share this news with you. After years of hard work, countless setbacks, and unwavering dedi"
+  },
+  "en|fish_speech__en_male|AVG": 0.171723,
+  "en|fish_speech__en_female|en_short": {
+    "score": 0.6,
+    "hyp": "Welcome to our service."
+  },
+  "en|fish_speech__en_female|en_medium": {
+    "score": 0.36,
+    "hyp": "Artificial intelligence, speech synthesis, technology has made reliable progress in mathematical processing, natural lan"
+  },
+  "en|fish_speech__en_female|en_long": {
+    "score": 0.019231,
+    "hyp": "artificial intelligence transforming industries across the globe at an unprecedented pace from healthcare diagnostics to"
+  },
+  "en|fish_speech__en_female|en_numbers": {
+    "score": 0.771429,
+    "hyp": "This meeting is scheduled for March 2, 2020 at 7p.m. Please call 1-1-1-1-2-3-4-3-4-3-4-3-4-3-5-4-3-4-3-4-3-5-4."
+  },
+  "en|fish_speech__en_female|en_technical": {
+    "score": 0.193548,
+    "hyp": "The transformer architectures is multi-hand self-attaching mechanisms to process the sequential data and parallel achiev"
+  },
+  "en|fish_speech__en_female|en_conversational": {
+    "score": 0.0,
+    "hyp": "hey what's up are you free this weekend i was thinking we could grab some coffee and catch up it's been ages since we la"
+  },
+  "en|fish_speech__en_female|en_formal": {
+    "score": 0.139535,
+    "hyp": "Ladies and gentlemen, we are pleased to announce the launch of our newest product at the Bain. Following extensive resea"
+  },
+  "en|fish_speech__en_female|en_punctuation": {
+    "score": 0.333333,
+    "hyp": "Wait, are you serious? I can't believe it. First you forgot the meeting, and you missed the deadline, and now this?"
+  },
+  "en|fish_speech__en_female|en_names": {
+    "score": 0.179487,
+    "hyp": "Every CEO, Tim Cook, man with Microsoft founder Bill Gates in New York City, their discussion focused on artificial inte"
+  },
+  "en|fish_speech__en_female|en_emotional": {
+    "score": 0.1,
+    "hyp": "I am so incredibly excited to share this news with you. After years of hard work, countless setbacks, and a lingering de"
+  },
+  "en|fish_speech__en_female|AVG": 0.269656,
+  "zh|qwen3_tts_0.6b__zh_female|zh_short": {
+    "score": 0.2,
+    "hyp": "也好今天天气真不错"
+  },
+  "zh|qwen3_tts_0.6b__zh_female|zh_conversational": {
+    "score": 0.421053,
+    "hyp": "哎,你今天中午吃什么? 我想吃褲褲,最近天才利用期間有戶都繼續服了,你有什麼想法嗎?"
+  },
+  "zh|qwen3_tts_0.6b__zh_female|zh_medium": {
+    "score": 0.717391,
+    "hyp": "安控制等有益呼稱接觸 取得人員尊貿的健全 自然有影響處理和扇動消息的改革 使得有影響市場更加自然流暢"
+  },
+  "zh|qwen3_tts_0.6b__zh_female|zh_formal": {
+    "score": 0.5,
+    "hyp": "尊敬的各位来宾 感谢您出席本期 公共社会国区训练中 巨大的长寿的发展 在各个市场上 给予了全体的竞争优势 未来的文明和继续奴隶 不复格的希望"
+  },
+  "zh|qwen3_tts_0.6b__zh_female|zh_technical": {
+    "score": 0.76,
+    "hyp": "全国45名在训练课程中通过8两绘画 随自读起来判定过以下 特别是专门学习的学生 能够拼音处理、训练课程、 专注体格的训练课程和梦境训练"
+  },
+  "zh|qwen3_tts_0.6b__zh_female|AVG": 0.519689,
+  "zh|qwen3_tts_1.7b__zh_female|zh_short": {
+    "score": 0.1,
+    "hyp": "你好 今天天气真不错"
+  },
+  "zh|qwen3_tts_1.7b__zh_female|zh_conversational": {
+    "score": 0.105263,
+    "hyp": "你今天中午吃什么? 我想吃火锅,最近天气冷 吃点热乎的最舒服了 你有什么想法吗?"
+  },
+  "zh|qwen3_tts_1.7b__zh_female|zh_medium": {
+    "score": 0.282609,
+    "hyp": "人工智能语音呼声技术取得了令人瞩目的进展 使然语言抽离或深度学习的 可以合适的语音呼声更加使然流畅"
+  },
+  "zh|qwen3_tts_1.7b__zh_female|zh_formal": {
+    "score": 0.176471,
+    "hyp": "尊敬的各位来宾,感谢您学习完不后奔 我公司在过去十年中取得了长足的发展 在全国市场上起立了强大的竞争优势 未来我们将继续努力不负各方期望"
+  },
+  "zh|qwen3_tts_1.7b__zh_female|zh_technical": {
+    "score": 0.333333,
+    "hyp": "深部碎屑模型在分量过程中 通过批量轨以下的碎屑丢起来防止过泥后 Transformer Catgo的注意力机制 能够并行处理碎裂数据 相助提高了训练效率和模型性能"
+  },
+  "zh|qwen3_tts_1.7b__zh_female|AVG": 0.199535,
+  "zh|cosyvoice2__zh_male|zh_short": {
+    "score": 1.0,
+    "hyp": "旋律 運動 旋律"
+  },
+  "zh|cosyvoice2__zh_male|zh_conversational": {
+    "score": 1.0,
+    "hyp": "好日報 東國好日報 歐巴克 吉里 伊利 高國 吉"
+  },
+  "zh|cosyvoice2__zh_male|zh_medium": {
+    "score": 1.0,
+    "hyp": "字幕志愿者 杨栋梁"
+  },
+  "zh|cosyvoice2__zh_male|zh_formal": {
+    "score": 0.985294,
+    "hyp": "中文字幕由 Amara.org 社群提供 中文字幕由 Amara.org 社群提供"
+  },
+  "zh|cosyvoice2__zh_male|zh_technical": {
+    "score": 1.0,
+    "hyp": "字幕志愿者 杨栋梁"
+  },
+  "zh|cosyvoice2__zh_male|AVG": 0.997059,
+  "zh|cosyvoice3__zh_male|zh_short": {
+    "score": 1.0,
+    "hyp": "我们按个订阅点赞"
+  },
+  "zh|cosyvoice3__zh_male|zh_conversational": {
+    "score": 0.947368,
+    "hyp": "我们按个订阅点赞"
+  },
+  "zh|cosyvoice3__zh_male|zh_medium": {
+    "score": 1.0,
+    "hyp": "我们按这个订阅按键"
+  },
+  "zh|cosyvoice3__zh_male|zh_formal": {
+    "score": 0.970588,
+    "hyp": "我们按个订阅点赞"
+  },
+  "zh|cosyvoice3__zh_male|zh_technical": {
+    "score": 0.986667,
+    "hyp": "我们按了订阅按键"
+  },
+  "zh|cosyvoice3__zh_male|AVG": 0.980925,
+  "ko|gpt_sovits_v4__zh_female|ko_short": {
+    "score": 0.3333,
+    "hyp": "오늘 날씨가 정말 좋네요"
+  },
+  "ko|gpt_sovits_v4__zh_male|ko_short": {
+    "score": 0.0,
+    "hyp": "안녕하세요. 오늘 날씨가 정말 좋네요."
+  },
+  "ko|gpt_sovits_v4__zh_female|ko_medium": {
+    "score": 0.0,
+    "hyp": "안녕하세요. 인공지능 음성 합성 기술이 놀라울 정도로 발전했습니다. 한국어 발음의 정확성과 자연스러움을 평가하고 있습니다."
+  },
+  "ko|gpt_sovits_v4__zh_male|ko_medium": {
+    "score": 0.0,
+    "hyp": "안녕하세요. 인공지능 음성 합성 기술이 놀라울 정도로 발전했습니다. 한국어 발음의 정확성과 자연스러움을 평가하고 있습니다."
+  },
+  "ko|gpt_sovits_v4__zh_female|ko_long": {
+    "score": 0.1681,
+    "hyp": "조약의 쉬더동우 이반 안쇼 오이신디언카 안녕하세요 오늘은 여러가지 오픈소스 TTS 모델들을 벤치마크 테스트합니다 인공지능 음성합성 기술은 최근 몇 년 사이에 놀라울 정도로 발전했으며 자연스러운 한국어 발음과 억양을 재현하는 능력이 크게 향상되었습니다 각 모델의 출원속도"
+  },
+  "ko|gpt_sovits_v4__zh_male|ko_long": {
+    "score": 0.0177,
+    "hyp": "안녕하세요. 오늘은 여러가지 오픈소스 TTS 모델들을 벤치마크 테스트합니다. 인공지능 음성 합성 기술은 최근 몇 년 사이에 놀라울 정도로 발전했으며 자연스러운 한국어 발음과 억양을 재현하는 능력이 크게 향상되었습니다. 각 모델의 출원속도와 음성 품질을 비교하겠습니다."
+  },
+  "ko|gpt_sovits_v4__zh_female|ko_numbers": {
+    "score": 0.3881,
+    "hyp": "지구의 제5의 카롱 집년 3월 2일 오후 34분입니다. 서울 기온은 영하 2, 5도이며 내일 강수 확률은 8%입니다. 문의 전화번호는 010-12345678입니다."
+  },
+  "ko|gpt_sovits_v4__zh_male|ko_numbers": {
+    "score": 0.1791,
+    "hyp": "2026년 3월 2일 오후 3시 45분입니다. 서울 기온은 영하 2, 5도이며 내일 강수 확률은 8연 퍼센트입니다. 문의 전화번호는 010-12345678입니다."
+  },
+  "ko|gpt_sovits_v4__zh_female|ko_mixed": {
+    "score": 0.2051,
+    "hyp": "주배 출구의 처음의 포럼킨더, 머신러닝 기술을 활용한 TTS 시스템이 발전하고 있습니다. GPT와 CLAUD 같은 대형 언어 모델들도 음성 기능을 지원합니다. RTF형, OE하면 실시간 서비스에 적합합니다."
+  },
+  "ko|gpt_sovits_v4__zh_male|ko_mixed": {
+    "score": 0.0513,
+    "hyp": "AI와 머신러닝 기술을 활용한 DTS 시스템이 발전하고 있습니다 GPT와 CLAUD 같은 대형 언어 모델들도 음성 기능을 지원합니다 RTF여 오이하면 실시간 서비스에 적합합니다"
+  },
+  "ko|gpt_sovits_v4__zh_female|ko_formal": {
+    "score": 0.1183,
+    "hyp": "최고의 정의의 커런신더, 존경하는 여러분, 오늘 이 자리에 함께해 주셔서 감사드립니다. 저희 회사는 지난 1억 년간 꾸준한 성장을 거듭하며 글로벌 시장에서 경쟁력을 갖춘 기업으로 발전해 왔습니다. 앞으로도 최선을 다해 여러분의 기대에 부응하겠습니다."
+  },
+  "ko|gpt_sovits_v4__zh_male|ko_formal": {
+    "score": 0.086,
+    "hyp": "오늘 이 자리에 함께해 주셔서 감사드립니다. 저희 회사는 지난 1억 년간 꾸준한 성장을 거듭하며 글로벌 시장에서 경쟁력을 갖춘 기업으로 발전해 왔습니다. 앞으로도 최선을 다해 여러분의 기대에 부응하겠습니다."
+  },
+  "ko|gpt_sovits_v4__zh_female|ko_conversational": {
+    "score": 0.0179,
+    "hyp": "오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데. 아니면 짜장면도 괜찮고. 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 네 생각은 어때?"
+  },
+  "ko|gpt_sovits_v4__zh_male|ko_conversational": {
+    "score": 0.0179,
+    "hyp": "오늘 점심 뭐 먹을래? 나는 김치찌개가 당기는데. 아니면 짜장면도 괜찮고. 요즘 날씨도 추운데 따뜻한 국물이 최고 아니겠어? 네 생각은 어때?"
+  },
+  "ko|gpt_sovits_v4__zh_female|ko_technical": {
+    "score": 0.0353,
+    "hyp": "트런치 러닝 모델의 학습 과정에서 배치 정규화와 드롭아웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
+  },
+  "ko|gpt_sovits_v4__zh_male|ko_technical": {
+    "score": 0.0471,
+    "hyp": "딥러닝 모델의 학습 과정에서 배치, 정규화와 트로바웃을 적용하면 과적합을 효과적으로 방지할 수 있습니다. 트랜스포머와 아키텍처의 어텐션 메커니즘은 시퀀스 데이터를 병렬로 처리하여 훈련 효율을 높입니다."
+  },
+  "ko|gpt_sovits_v4__zh_female|ko_question": {
+    "score": 0.1167,
+    "hyp": "들어갈 수가 없네요. 믿을 수가 없네요. 그게 사실이라면 정말 대단한 일이 아닐 수 없어요. 어떻게 그런 생각을 하게 되셨나요? 혹시 더 자세히 설명해 주실 수 있을까요?"
+  },
+  "ko|gpt_sovits_v4__zh_male|ko_question": {
+    "score": 0.0,
+    "hyp": "정말요. 믿을 수가 없네요. 그게 사실이라면 정말 대단한 일이 아닐 수 없어요. 어떻게 그런 생각을 하게 되셨나요? 혹시 더 자세히 설명해 주실 수 있을까요?"
+  },
+  "ko|gpt_sovits_v4__zh_female|ko_proverb": {
+    "score": 0.2692,
+    "hyp": "천리 길도 한 걸음부터 시작되니 포기하지 말고 꾸준히 노력해보세요. 3살 버릇 80까지 간다는 말처럼 좋은 습관을 지금 시작하는 것이 중요합니다."
+  },
+  "ko|gpt_sovits_v4__zh_male|ko_proverb": {
+    "score": 0.0385,
+    "hyp": "가는 말이 고와야 오는 말이 꼽다고 했습니다. 천리 길도 한 걸음부터 시작되니 포기하지 말고 꾸준히 노력해보세요. 3살 버른 여든까지 간다는 말처럼 좋은 습관을 지금 시작하는 것이 중요합니다."
+  },
+  "ko|gpt_sovits_v4|AVG": 0.10448,
+  "en|gpt_sovits_v4__zh_female|en_short": {
+    "score": 0.5,
+    "hyp": "How can I help you today?"
+  },
+  "en|gpt_sovits_v4__zh_male|en_short": {
+    "score": 0.0,
+    "hyp": "Welcome to our service. How can I help you today?"
+  },
+  "en|gpt_sovits_v4__zh_female|en_medium": {
+    "score": 0.4286,
+    "hyp": "The combination of natural language processing and deep learning makes speech synthesis more natural and fluent."
+  },
+  "en|gpt_sovits_v4__zh_male|en_medium": {
+    "score": 0.0,
+    "hyp": "artificial intelligence speech synthesis technology has made remarkable progress. The combination of natural language processing and deep learning mak"
+  },
+  "en|gpt_sovits_v4__zh_female|en_long": {
+    "score": 0.0,
+    "hyp": "Artificial intelligence is transforming industries across the globe at an unprecedented pace. From healthcare diagnostics to autonomous vehicles, mach"
+  },
+  "en|gpt_sovits_v4__zh_male|en_long": {
+    "score": 0.0,
+    "hyp": "Artificial intelligence is transforming industries across the globe at an unprecedented pace. From healthcare diagnostics to autonomous vehicles, mach"
+  },
+  "en|gpt_sovits_v4__zh_female|en_numbers": {
+    "score": 0.0641,
+    "hyp": "The meeting is scheduled for March 2, 2026 at 3.45 p.m. The temperature is minus 2.5 degrees Celsius, and there is an 80% chance of rain. Please call "
+  },
+  "en|gpt_sovits_v4__zh_male|en_numbers": {
+    "score": 0.0641,
+    "hyp": "The meeting is scheduled for March 2nd, 2026 at 3.45. The temperature is minus 2.5 degrees Celsius, and there is an 80% chance of rain. Please call us"
+  },
+  "en|gpt_sovits_v4__zh_female|en_technical": {
+    "score": 0.1164,
+    "hyp": "维新电化的Transformer Architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving state-of-the-art performance"
+  },
+  "en|gpt_sovits_v4__zh_male|en_technical": {
+    "score": 0.0474,
+    "hyp": "The transformer architecture uses multi-head self-attention mechanisms to process sequential data in parallel, achieving state-of-the-art performance."
+  },
+  "en|gpt_sovits_v4__zh_female|en_conversational": {
+    "score": 0.1181,
+    "hyp": "主要的石头公母一般来说,卫星计划,Hey, what's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since we last hung o"
+  },
+  "en|gpt_sovits_v4__zh_male|en_conversational": {
+    "score": 0.0079,
+    "hyp": "hay. What's up? Are you free this weekend? I was thinking we could grab some coffee and catch up. It's been ages since we last hung out, and I've got "
+  },
+  "en|gpt_sovits_v4__zh_female|en_formal": {
+    "score": 0.9628,
+    "hyp": "Thank you very much."
+  },
+  "en|gpt_sovits_v4__zh_male|en_formal": {
+    "score": 0.0,
+    "hyp": "Ladies and gentlemen, we are pleased to announce the launch of our newest product line. Following extensive research and development spanning three ye"
+  },
+  "en|gpt_sovits_v4__zh_female|en_punctuation": {
+    "score": 0.064,
+    "hyp": "一般來說,衛星電話,wait, are you serious? I can't believe it. First, you forgot the meeting then, you missed the deadline. And now this, well, I suppose we'll "
+  },
+  "en|gpt_sovits_v4__zh_male|en_punctuation": {
+    "score": 0.0,
+    "hyp": "wait. Are you serious? I can't believe it. First, you forgot the meeting, then you missed the deadline. And now this. Well, I suppose we'll have to st"
+  },
+  "en|gpt_sovits_v4__zh_female|en_names": {
+    "score": 0.0717,
+    "hyp": "不要的审核动物一般来说,微信电话Apple CEO Tim Cook met with Micros off Founder Bill Gates in New York City last Tuesday. Their discussion focused on artificial intell"
+  },
+  "en|gpt_sovits_v4__zh_male|en_names": {
+    "score": 0.0045,
+    "hyp": "Apple CEO Tim Cook met with micros of founder Bill Gates in New York City last Tuesday. Their discussion focused on artificial intelligence developmen"
+  },
+  "en|gpt_sovits_v4__zh_female|en_emotional": {
+    "score": 0.0099,
+    "hyp": "I am so incredibly excited to share this news with you. After years of hard work, countless setbacks, and unwavering dedication, we finally achieved w"
+  },
+  "en|gpt_sovits_v4__zh_male|en_emotional": {
+    "score": 0.0,
+    "hyp": "I'm so incredibly excited to share this news with you. After years of hard work, countless setbacks, and unwavering dedication, we finally achieved wh"
+  },
+  "en|gpt_sovits_v4|AVG": 0.122975,
+  "ja|gpt_sovits_v4__zh_female|ja_short": {
+    "score": 1.7222,
+    "hyp": "お気に入りの石頭動物一般的にウェイティング電話今日の天気"
+  },
+  "ja|gpt_sovits_v4__zh_male|ja_short": {
+    "score": 0.8333,
+    "hyp": "今日 涼天起"
+  },
+  "ja|gpt_sovits_v4__zh_female|ja_medium": {
+    "score": 0.9697,
+    "hyp": "ご視聴ありがとうございました"
+  },
+  "ja|gpt_sovits_v4__zh_male|ja_medium": {
+    "score": 0.5455,
+    "hyp": "人工智能音声合成技術目絶尽不遂自然言语处理深層学習組合自然流暢音声合成实現"
+  },
+  "ja|gpt_sovits_v4__zh_female|ja_formal": {
+    "score": 0.8493,
+    "hyp": "ご視聴ありがとうございました"
+  },
+  "ja|gpt_sovits_v4__zh_male|ja_formal": {
+    "score": 0.7808,
+    "hyp": "皆様本日起毕生十年間继续的成长岁今後支援協力愿身上"
+  },
+  "ja|gpt_sovits_v4__zh_female|ja_conversational": {
+    "score": 1.0,
+    "hyp": "ご視聴ありがとうございました"
+  },
+  "ja|gpt_sovits_v4__zh_male|ja_conversational": {
+    "score": 0.8519,
+    "hyp": "今日 昼飯み 最近寒 温室す"
+  },
+  "ja|gpt_sovits_v4__zh_female|ja_technical": {
+    "score": 0.9794,
+    "hyp": "ご視聴ありがとうございました"
+  },
+  "ja|gpt_sovits_v4__zh_male|ja_technical": {
+    "score": 0.7835,
+    "hyp": "自己注意機構用並列处理正規化組合繁華性能大幅向上"
+  },
+  "ja|gpt_sovits_v4|AVG": 0.93156,
+  "zh|gpt_sovits_v4__zh_female|zh_short": {
+    "score": 1.8889,
+    "hyp": "那么不要的食草动物一般来说,微信电话你好,今天天气真不错。"
+  },
+  "zh|gpt_sovits_v4__zh_male|zh_short": {
+    "score": 0.0,
+    "hyp": "你好 今天天气真不错"
+  },
+  "zh|gpt_sovits_v4__zh_female|zh_medium": {
+    "score": 0.3261,
+    "hyp": "主要的食草动物一单来说卫星电化人工智能语音合成技术取得了令人瞩目的进展自然语言处理和深度学习的结合使得语音合成更加自然流畅"
+  },
+  "zh|gpt_sovits_v4__zh_male|zh_medium": {
+    "score": 0.0,
+    "hyp": "人工智能语音合成技术取得了令人瞩目的进展自然语言处理和深度学习的结合使得语音合成更加自然流畅"
+  },
+  "zh|gpt_sovits_v4__zh_female|zh_formal": {
+    "score": 0.9844,
+    "hyp": "请不吝点赞 订阅 转发 打赏支持明镜与点点栏目"
+  },
+  "zh|gpt_sovits_v4__zh_male|zh_formal": {
+    "score": 0.0,
+    "hyp": "尊敬的各位来宾感谢您出席本次活动我公司在过去十年中取得了长足的发展在全球市场上建立了强大的竞争优势未来我们将继续努力不负各方期望"
+  },
+  "zh|gpt_sovits_v4__zh_female|zh_conversational": {
+    "score": 0.4857,
+    "hyp": "蛮可爱的石头豆腐一般来说为今天花爱你今天中午吃什么我想吃火锅最近天气冷吃点热乎的最舒服了你有什么想法吗"
+  },
+  "zh|gpt_sovits_v4__zh_male|zh_conversational": {
+    "score": 0.0,
+    "hyp": "哎 你今天中午吃什么我想吃火锅最近天气冷吃点热乎的最舒服了你有什么想法吗"
+  },
+  "zh|gpt_sovits_v4__zh_female|zh_technical": {
+    "score": 0.2603,
+    "hyp": "一个来生微信电话深度学习模型在训练过程中,通过批量归一化和随机丢弃来防止过拟合。苗米架构的注意力机制能够并行处理序列数据,显著提高了训练效率和模型性能。"
+  },
+  "zh|gpt_sovits_v4__zh_male|zh_technical": {
+    "score": 0.1507,
+    "hyp": "深度学习模型在训练过程中通过批量归一化和随机丢弃来防止过拟合苗米架构的注意力机制能够并行处理序列数据显著提高了训练效率和模型性能"
+  },
+  "zh|gpt_sovits_v4|AVG": 0.40961000000000003
 }

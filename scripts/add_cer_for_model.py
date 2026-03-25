@@ -38,8 +38,8 @@ def main():
             d = json.loads(line.strip())
             if d.get("model_key") != args.model:
                 continue
-            if d.get("run_index", 0) != 0:
-                continue
+            # accept any run_index (last-run dedup may have kept non-0)
+            pass
             if not d.get("success", False):
                 continue
             if d.get("lang") not in langs:

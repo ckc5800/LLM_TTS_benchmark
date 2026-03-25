@@ -2,7 +2,7 @@
 다국어 TTS 벤치마크 HTML 보고서 생성기
 사용법: python generate_multilingual_report.py --results-dir results_multilingual
 """
-import os, sys, json, argparse
+import os, sys, json, argparse, re
 from datetime import datetime
 
 SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -47,41 +47,34 @@ EXCLUDED_MODELS = {
         {"model": "MARS5-TTS",      "org": "Camb-AI",      "lic": "CC BY-NC-SA 4.0", "reason": "비상업 전용 + RTF ~3.3 느림"},
         {"model": "IndexTTS-2",     "org": "Bilibili",     "lic": "CC BY-NC-SA 4.0", "reason": "비상업 전용 + 한국어 미지원"},
     ],
-    "한국어 미지원 (OOV 문제)": [
-        {"model": "Spark-TTS",       "org": "SparkAudio",   "lic": "Apache 2.0",  "reason": "ZH/EN만 지원, 한국어 어휘 없음"},
-        {"model": "Dia",             "org": "Nari Labs",    "lic": "Apache 2.0",  "reason": "영어 전용 대화형 모델"},
-        {"model": "StyleTTS2 (S2)",  "org": "yl4579",       "lic": "MIT",         "reason": "영어 전용 합성 모델"},
-        {"model": "Parler-TTS-mini", "org": "HuggingFace",  "lic": "Apache 2.0",  "reason": "영어 전용 합성 모델"},
-        {"model": "Kokoro",          "org": "hexgrad",      "lic": "Apache 2.0",  "reason": "다국어 지원하나 한국어 미포함"},
-        {"model": "Chatterbox-TTS",  "org": "Resemble AI",  "lic": "MIT",         "reason": "기본 모델(500M) 영어 전용 — 한국어 포함 멀티링구얼은 Chatterbox-ML로 별도 공개"},
-        {"model": "LLMVoX",          "org": "MBZUAI",       "lic": "MIT",         "reason": "영어 전용 단일 모델"},
-    ],
     "기술적 제약 (G2P 필수 등)": [
         {"model": "Piper-TTS", "org": "Home Assistant", "lic": "MIT",      "reason": "phoneme 변환(G2P) 전처리 필수 (End-to-End 아님)"},
         {"model": "MMS-TTS",   "org": "Meta",           "lic": "CC BY-NC", "reason": "uroman 로마자 변환 필수 및 비상업"},
-        {"model": "VITS2",     "org": "jaywalnut310",   "lic": "불명확",   "reason": "논문·비공식 구현만 존재, 공식 가중치/라이선스 불명확, G2P 의존도 있음 — 상업·실시간 KO TTS 비교 대상으로 가치 낮음"},
+        {"model": "VITS2",     "org": "jaywalnut310",   "lic": "불명확",   "reason": "논문·비공식 구현만 존재, 공식 가중치/라이선스 불명확 — G2P 전처리 의존, 한국어 공식 지원 없음"},
     ],
     "속도 기준 미달 (RTF > 1.0)": [
-        {"model": "Kani-TTS", "org": "Kani Team", "lic": "Apache 2.0", "reason": "KO RTF 4.9 (심각하게 느림)"},
+        {"model": "Kani-TTS", "org": "Kani Team", "lic": "Apache 2.0", "reason": "KO RTF 4.085 (실측값) — 실시간 활용 불가"},
         {"model": "OuteTTS",  "org": "OuteAI",    "lic": "Apache 2.0", "reason": "RTF 3.3 내외로 실시간 활용 불가"},
         {"model": "Bark",     "org": "Suno AI",   "lic": "MIT",        "reason": "한국어 공식 지원하나 Transformer 3단계 생성(semantic→coarse→fine) 구조로 RTF 극도로 높음 — 실시간 서비스 불가"},
     ],
     "가중치 비공개 (Closed)": [
+        {"model": "Higgs Audio V2.5", "org": "Boson AI",    "lic": "Apache 2.0", "reason": "V2.5(1B) 가중치 미공개(API 전용) — V2(3B)는 VRAM 24GB 권장으로 RTX 5080 16GB 단독 운용 불가"},
         {"model": "Seed-TTS",           "org": "ByteDance",  "lic": "비공개", "reason": "가중치·모델카드 미공개, 블로그만 존재, 상업 불가 — 공식 수치·라이선스 기반 조사 대상 아님"},
         {"model": "NaturalSpeech 1/2/3","org": "Microsoft",  "lic": "비공개", "reason": "가중치 미공개"},
         {"model": "VALL-E / BASE TTS",  "org": "Microsoft",  "lic": "비공개", "reason": "코드/가중치 비공개"},
         {"model": "E2-TTS",             "org": "Microsoft",   "lic": "비공개", "reason": "논문(Embarrassingly Easy TTS)만 공개, 공식 가중치 미공개"},
+        {"model": "Voicebox",           "org": "Meta",         "lic": "비공개", "reason": "가중치·코드 미공개 (논문 및 데모만 공개), 상업 불가"},
+        {"model": "SoundStorm",         "org": "Google",       "lic": "비공개", "reason": "가중치·코드 미공개 (논문만 공개), 상업 불가"},
     ],
     "TTS 범위 외 (음악·효과음 등)": [
         {"model": "Stable Audio Open 1.0", "org": "Stability AI", "lic": "Stability AI Community", "reason": "음악·효과음 생성 전용 오디오 모델, 한국어 TTS 범위 밖"},
     ],
     "중복 또는 구조적 비호환": [
-        {"model": "Chatterbox-ML",    "org": "Resemble AI", "lic": "MIT",              "reason": "기존 Chatterbox-TTS(동일 아키텍처) 결과 중복 — 멀티링구얼 버전은 언어 확장판이며 한국어 품질이 V1 대비 퇴보했다는 사용자 보고 존재"},
+        {"model": "Chatterbox-ML",    "org": "Resemble AI", "lic": "MIT",              "reason": "레퍼런스 오디오 기반 zero-shot 클론을 지원하지만 기존 Chatterbox-TTS와 동일 아키텍처(CFM 기반) — 벤치마크 결과 중복으로 독립 측정 실익 없음"},
         {"model": "Supertonic-v2",    "org": "Supertone",   "lic": "MIT+OpenRAIL-M",   "reason": "레퍼런스 오디오 기반 음성 복제 미지원 (preset 화자 고정) — 동일 레퍼런스로 공정 비교하는 벤치마크 프레임워크와 구조적으로 비호환"},
-        {"model": "Higgs Audio V2.5", "org": "Boson AI",    "lic": "Custom",           "reason": "V2.5(1B) 가중치 미공개(API 전용) — V2(3B)는 VRAM 24GB 권장으로 RTX 5080 16GB 단독 운용 불가"},
     ],
     "테스트 진행 예정 (후보)": [
-        {"model": "GPT-SoVITS V4",    "org": "RVC-Boss",    "lic": "MIT",              "reason": "V3 측정 완료 — V4는 48kHz 출력·metallic 아티팩트 제거 개선판. 별도 환경 구성 후 추가 측정 예정"},
+        {"model": "VoXtream2",  "org": "herimor",  "lic": "MIT+CC BY 4.0(weights)", "reason": "Full-stream zero-shot TTS — RTF 0.173~0.256, TTFA 74ms. KO 지원 가능성 있음(eSpeak NG 내장 KO 포함), 실측 필요. Ubuntu 환경 테스트됨"},
     ]
 }
 
@@ -95,6 +88,7 @@ MODEL_INFO = {
         "langs": ["ko","en","ja","zh"],
         "license": "Apache-2.0",
         "streaming": "지원",
+        "streaming_detail": "Bi-Streaming — text-in + audio-out 동시 스트리밍, EOS/청크 기반 추론 모드, 화자 유사도 무손실(SS 0.629~0.630)",
         "official_summary": "ZH CER 1.45% / UTMOS 4.23",
         "official_perf": [
             "UTMOS 4.23 (Spark-TTS 논문 비교 기준)",
@@ -122,6 +116,7 @@ MODEL_INFO = {
         "langs": ["ko","en","ja","zh"],
         "license": "Apache-2.0",
         "streaming": "지원",
+        "streaming_detail": "EOS 토큰 기반 청크 스트리밍 — CosyVoice2 대비 TTFA 단축, 청크 단위 오디오 출력",
         "official_summary": "ZH→KO CER 14.4%",
         "official_perf": [
             "CosyVoice2 기반 스트리밍 개선판 — 청크 단위 출력으로 TTFA 단축",
@@ -145,6 +140,7 @@ MODEL_INFO = {
         "langs": ["ko","en","ja","zh"],
         "license": "Apache-2.0",
         "streaming": "지원",
+        "streaming_detail": "Dual-Track 하이브리드 구조 — 스트리밍/비스트리밍 동시 지원, first packet 저지연 명시 (GitHub: Qwen3-TTS)",
         "official_summary": "EN WER 2.8% / ZH WER 1.9% / MOS 4.53",
         "official_perf": [
             "MOS 4.53 (업계 평균 4.1 대비 우월, 48kHz)",
@@ -172,6 +168,7 @@ MODEL_INFO = {
         "langs": ["ko","en","ja","zh"],
         "license": "Apache-2.0",
         "streaming": "지원",
+        "streaming_detail": "Dual-Track 하이브리드 구조 — 스트리밍/비스트리밍 동시 지원, first packet 저지연 명시 (GitHub: Qwen3-TTS)",
         "official_summary": "EN WER 2.8% / ZH WER 1.9% / MOS 4.53",
         "official_perf": [
             "MOS 4.53 (0.6B와 동일 평가 기준, 대형 모델로 감정·운율 표현 향상)",
@@ -197,6 +194,7 @@ MODEL_INFO = {
         "langs": ["ko","en","ja","zh"],
         "license": "MIT",
         "streaming": "지원",
+        "streaming_detail": "공식 API 서버(api_v2.py)에 streaming_mode 0~3 내장 — mode 0: 일괄 합성(비스트리밍) / mode 1: 구두점 기준 문장 단위 청크 / mode 2: 짧은 텍스트 단위로 첫 청크 대기 단축 / mode 3: 최소 단위 분할로 최저 초기 지연. FastAPI StreamingResponse + return_fragment=True로 WAV 바이트 순차 전송. 단, 각 청크는 GPT(AR 의미 토큰 생성)→SoVITS 보코더 전체 완료 후 송출 — 진정한 토큰 단위 스트리밍은 아님",
         "official_summary": None,
         "official_perf": [
             "공식 논문 없음 (GitHub Wiki 문서 기반)",
@@ -214,6 +212,32 @@ MODEL_INFO = {
             "짧은(3초 미만) 참조 음성에서 kernel 에러 — 참조 음성 길이가 너무 짧으면 음성 분석 실패. 최소 3~5초 이상의 참조 오디오 필요",
         ],
     },
+    "gpt_sovits_v4": {
+        "display_name": "GPT-SoVITS-V4",
+        "developer": "RVC-Boss",
+        "arch_type": "LLM",
+        "arch_detail": "GPT-2 AR + SoVITS + HiFiGAN (48kHz), T_ref=500, T_chunk=1000",
+        "langs": ["ko","en","ja","zh"],
+        "license": "MIT",
+        "streaming": "지원",
+        "streaming_detail": "공식 API 서버(api_v2.py)에 streaming_mode 0~3 내장 — mode 0: 일괄 합성(비스트리밍) / mode 1: 구두점 기준 문장 단위 청크 / mode 2: 짧은 텍스트 단위로 첫 청크 대기 단축 / mode 3: 최소 단위 분할로 최저 초기 지연. FastAPI StreamingResponse + return_fragment=True로 WAV 바이트 순차 전송. 단, 각 청크는 GPT(AR 의미 토큰 생성)→SoVITS 보코더 전체 완료 후 송출 — 진정한 토큰 단위 스트리밍은 아님",
+        "official_summary": None,
+        "official_perf": [
+            "공식 논문 없음 (GitHub Wiki 문서 기반)",
+            "V3 대비 보코더 교체: BigVGAN v2(24kHz) → HiFiGAN(48kHz)",
+            "32kHz 중간 표현 → 48kHz 출력 업샘플링으로 메탈릭 아티팩트 제거",
+            "T_ref=500, T_chunk=1000 청크 기반 추론",
+        ],
+        "paper_url": "https://github.com/RVC-Boss/GPT-SoVITS/wiki",
+        "pros": [
+            "KO RTF 0.402 — V3(0.546) 대비 26% 빠름. 48kHz 출력으로 HiFiGAN 보코더 메탈릭 노이즈 대폭 감소",
+            "4개 언어 교차 언어 클론 — 한국어 참조 음성으로 일본어·중국어를 자연스럽게 생성, VRAM ~2GB",
+        ],
+        "cons": [
+            "한국어 CER 43.1% — 일부 텍스트에서 Prefix hallucination(참조 음성 내용 앞에 삽입) 발생. 참조 음성 언어와 타겟 언어 불일치 시 두드러짐",
+            "영어 WER 119% — V4 SoVITS(s2Gv4.pth)가 영어 음향 코드를 올바르게 처리하지 못해 EN 합성 품질이 매우 낮음. 영어 용도에는 V3 권장",
+        ],
+    },
     "xtts": {
         "display_name": "XTTS-v2",
         "developer": "Coqui AI",
@@ -222,6 +246,7 @@ MODEL_INFO = {
         "langs": ["ko","en","ja","zh"],
         "license": "CPAL-1.0 (Non-commercial)",
         "streaming": "지원",
+        "streaming_detail": "inference_stream() API 공식 제공 — 공식 문서에 첫 청크 &lt;200ms 지연 명시 (Coqui XTTS docs)",
         "official_summary": "UTMOS 4.007",
         "official_perf": [
             "CMOS(자연스러움/음질/인간 유사도): HierSpeech++ 및 Mega-TTS 2 대비 우월",
@@ -246,6 +271,7 @@ MODEL_INFO = {
         "langs": ["en","ja","zh"],
         "license": "CC BY-NC-SA 4.0",
         "streaming": "지원",
+        "streaming_detail": "공식 API 서버(fish_speech/webapi.py)에 streaming=True 파라미터 내장 — 의미 토큰 생성과 동시에 FireflyGAN 보코더가 청크 단위로 오디오를 디코딩하여 WebSocket/HTTP로 전송. Fish Speech v1.5+부터 공식 지원",
         "official_summary": "WER 0.008 / RTF 0.195",
         "official_perf": [
             "후속 S2 Pro 시스템: RTF=0.195, TTFA≈100ms, 처리량 3,000+ acoustic tokens/s (H200 GPU)",
@@ -410,6 +436,7 @@ MODEL_INFO = {
         "langs": ["en"],
         "license": "MIT",
         "streaming": "지원",
+        "streaming_detail": "streaming_server.py 내장, multi-queue 실시간 스트리밍, initial_dump_size 파라미터로 첫 청크 크기 제어",
         "official_summary": None,
         "official_perf": [
             "파라미터 크기 30M 내외로 오버헤드 최소화 (정량 벤치마크 미비)"
@@ -523,7 +550,7 @@ MODEL_INFO = {
         "arch_detail": "Qwen2.5-0.5B + BiCodec 음성 코덱",
         "langs": ["en","zh"],
         "license": "Apache-2.0",
-        "streaming": "미확인",
+        "streaming": "미지원",
         "official_summary": "WER 1.98 / UTMOS 4.35",
         "official_perf": [
             "UTMOS 4.35 (GT=4.08 초과, CosyVoice2=4.23 대비 우월)",
@@ -549,7 +576,7 @@ MODEL_INFO = {
         "arch_detail": "Qwen GPT + BigVGAN, 개선된 다국어 처리",
         "langs": ["en","ja","zh"],
         "license": "CC BY-NC-SA 4.0",
-        "streaming": "미확인",
+        "streaming": "미지원",
         "official_summary": "T2S RTF 0.119",
         "official_perf": [
             "IndexTTS 2.5: T2S 모듈 RTF 0.232→0.119 (2.28× 속도 향상, 품질 저하 무감지)",
@@ -573,7 +600,8 @@ MODEL_INFO = {
         "arch_detail": "Qwen3-1.7B + MioCodec",
         "langs": ["en","ja"],
         "license": "Apache-2.0",
-        "streaming": "지원",
+        "streaming": "부분 지원",
+        "streaming_detail": "AR(Next-token prediction) 아키텍처 + MioCodec(25Hz 저프레임) 구조상 토큰 생성 즉시 오디오 변환 가능 — 이론적 스트리밍 최적. 단, 공식 코드(inference.py)는 전체 문장 생성 후 .wav 저장 방식만 제공하며, 실시간 스트리밍을 위해서는 vLLM/llama.cpp 기반 추론 엔진 + FastAPI 중계 서버를 직접 구현해야 함",
         "official_summary": "EN WER ~3% / RTF < 0.5 (A100)",
         "official_perf": [
             "EN WER ~3% (MioTeam 내부 평가, 제3자 미검증), JA 공식 평가 미공개",
@@ -581,7 +609,6 @@ MODEL_INFO = {
         ],
         "pros": [
             "Qwen3-1.7B 기반 영어·일본어 고품질 — 최신 LLM 백본으로 복잡한 영어 문장과 일본어 경어·구어체를 자연스럽게 처리",
-            "스트리밍 지원 — 청크 단위 실시간 출력 가능, 지연 시간 최소화",
             "경량 모델 — 1.7B 파라미터로 소비자급 GPU(VRAM 8GB)에서 실시간 추론 가능",
         ],
         "cons": [
@@ -596,7 +623,8 @@ MODEL_INFO = {
         "arch_detail": "LFM2-2.6B + MioCodec",
         "langs": ["en","ja"],
         "license": "Apache-2.0",
-        "streaming": "지원",
+        "streaming": "부분 지원",
+        "streaming_detail": "AR(Next-token prediction) 아키텍처 + MioCodec(25Hz 저프레임) 구조상 토큰 생성 즉시 오디오 변환 가능 — 이론적 스트리밍 최적. 단, 공식 코드(inference.py)는 전체 문장 생성 후 .wav 저장 방식만 제공하며, 실시간 스트리밍을 위해서는 vLLM/llama.cpp 기반 추론 엔진 + FastAPI 중계 서버를 직접 구현해야 함",
         "official_summary": "EN WER ~2% / RTF < 0.6 (A100)",
         "official_perf": [
             "EN WER ~2% (MioTeam 내부 평가, 1.7B 대비 개선, 제3자 미검증)",
@@ -604,7 +632,6 @@ MODEL_INFO = {
         ],
         "pros": [
             "LFM2-2.6B 대형 모델 — 1.7B 대비 더 풍부한 표현력. 영어·일본어 중 높은 품질이 필요한 콘텐츠 제작에 최적",
-            "스트리밍 지원 — 청크 단위 실시간 출력, 방송·게임 등 실시간 서비스 적합",
             "Liquid Foundation Model 아키텍처 — 기존 Transformer 대비 긴 시퀀스 처리 효율 개선",
         ],
         "cons": [
@@ -621,6 +648,7 @@ MODEL_INFO = {
         "langs": ["en","zh"],
         "license": "Apache-2.0",
         "streaming": "지원",
+        "streaming_detail": "README에 streaming inference 명시, flow/flow.py에 실시간 생성 경로 설명 (GitHub: zai-org/GLM-TTS)",
         "official_summary": "ZH CER 0.89%",
         "official_perf": [
             "중국어 CER 0.89% (RL 최적화 후) — 오픈소스 모델 중 최고, 상용 MiniMax(0.83%)와 경쟁적",
@@ -791,15 +819,12 @@ MODEL_INFO = {
         "developer": "자체 파인튜닝 (Aicess)",
         "arch_type": "FM",
         "arch_detail": "Flow Matching, ZipVoice 123M, Vocos 24kHz",
-        "langs": ["ko", "en", "zh", "ja"],
-        "license": "GPL-3.0",
-        "streaming": "지원",
-        "official_summary": "KO RTF 0.003 (벤치마크 최고속)",
-        "official_perf": [
-            "KO RTF 0.003 — 이 벤치마크 전체 모델 중 한국어 추론 최고속 (REST API 캐시 적중 기준)",
-            "KO CER 0% — 한국어 발음 정확도 완벽 (Whisper large-v3 기준)",
-            "내부 평가 수치이며 독립 제3자 검증 미완료",
-        ],
+        "langs": ["ko", "en"],
+        "license": "Apache 2.0",
+        "streaming": "부분 지원",
+        "streaming_detail": "Flow Matching(NAR) 구조 — 전체 시퀀스를 한 번에 병렬 합성하므로 토큰 단위 실시간 스트리밍 불가. REST API(tts-api-simple) 경유 시 HTTP chunked transfer로 음성 수신은 가능하나, 이는 전송 방식이며 합성 자체는 non-streaming. 진정한 실시간 스트리밍을 위해서는 구조적 변경 필요",
+        "official_summary": None,
+        "official_perf": [],
         "pros": [
             "한국어 특화 파인튜닝 — 자체 한국어 데이터로 추가 학습하여 원본 ZipVoice 대비 한국어 발음 정확도 개선",
             "Flow Matching 빠른 추론 — 123M 경량 모델로 RTF가 낮고 스트리밍 가능",
@@ -815,7 +840,7 @@ MODEL_INFO = {
         "arch_type": "Flow",
         "arch_detail": "Original ZipVoice (Flow Matching)",
         "langs": ["en", "zh"],
-        "license": "GPL-3.0",
+        "license": "Apache 2.0",
         "streaming": "미지원",
         "pros": [
             "오리지널 ZipVoice 아키텍처 — 논문에서 검증된 Flow Matching 기반 구조. 영어·중국어에서 안정적 품질",
@@ -831,7 +856,7 @@ MODEL_INFO = {
         "arch_detail": "370M AR LLM 기반 다국어 TTS",
         "langs": ["ko", "en", "zh"],
         "license": "Apache-2.0",
-        "streaming": "미확인",
+        "streaming": "미지원",
         "official_summary": "WER <5% / MOS 4.3",
         "official_perf": [
             "MOS 4.3/5 (공식 자체 주장)",
@@ -862,7 +887,7 @@ MODEL_INFO = {
             "KO/EN/ES/PT/FR 5개 언어 zero-shot 지원",
         ],
         "cons": [
-            "벤치마크 미실행 — RTF·CER 직접 측정 전, 설치·검증 진행 중",
+            "벤치마크 제외 — 레퍼런스 오디오 기반 zero-shot 클론 미지원(preset 화자 고정 방식)으로 공정 비교 불가",
             "OpenRAIL-M 조항 — 일부 금지 사용 사례(딥페이크 등) 제한",
         ],
     },
@@ -887,8 +912,8 @@ MODEL_INFO = {
             "23언어 zero-shot 클론 — 한국어 포함, 짧은 참조 음성으로 준수한 품질",
         ],
         "cons": [
-            "RTF 미측정 — 벤치마크 실행 전, 실시간성 검증 필요",
-            "내부 한국어 G2P 등 세부 처리 능력 검증 필요",
+            "벤치마크 제외 — 동일 아키텍처의 단일 언어 Chatterbox-TTS가 이미 EN 벤치마크 완료. 멀티링구얼 버전은 한국어 품질이 기본 모델 대비 퇴보했다는 사용자 보고 다수",
+            "KO 품질 불확실 — 내부 한국어 G2P 처리 수준 미검증",
         ],
     },
     "fish_speech_s2": {
@@ -899,6 +924,7 @@ MODEL_INFO = {
         "langs": ["ko", "en", "ja", "zh"],
         "license": "Research License (Apache 2.0 병기 혼재 — 상업 시 별도 계약)",
         "streaming": "지원",
+        "streaming_detail": "SGLang 기반 streaming inference engine 명시, TTFA ~100ms (H200) — 공식 블로그/테크리포트 기준",
         "official_summary": "EN WER 0.99% / ZH WER 0.54%",
         "official_perf": [
             "EN WER 0.99% / ZH WER 0.54% (SeedTTS test 기준, 공식 레포)",
@@ -924,7 +950,7 @@ MODEL_INFO = {
         "arch_detail": "LLM 기반 다국어 TTS, ~10만 시간(100K hr) 학습 데이터",
         "langs": ["ko", "en", "zh"],
         "license": "Apache 2.0",
-        "streaming": "미확인",
+        "streaming": "미지원",
         "official_summary": None,
         "official_perf": [
             "한국어 자연스러움 1위 주장 — 약 10만 시간(100K hr) 다국어 학습 데이터 기반",
@@ -937,26 +963,8 @@ MODEL_INFO = {
             "한국어 품질 강점 주장 — 대규모 데이터 학습으로 KO 자연스러움 최상위 주장",
         ],
         "cons": [
-            "벤치마크 미실행 — RTF·CER 직접 측정 전, 라이선스·설치 검증 중",
-            "공식 RTF 미공개 — 실시간성 불확실",
-        ],
-    },
-    "gpt_sovits_v4": {
-        "display_name": "GPT-SoVITS V4",
-        "developer": "RVC-Boss",
-        "arch_type": "LLM",
-        "arch_detail": "GPT + SoVITS, 48kHz 고품질, V3 개선판",
-        "langs": ["ko", "en", "ja", "zh"],
-        "license": "MIT",
-        "streaming": "지원",
-        "pros": [
-            "V3 대비 48kHz 고해상도 오디오 — 음질 대폭 향상",
-            "MIT 상업 라이선스",
-            "GPT-SoVITS V3 이미 벤치마크 완료 — 비교 기준 확보됨",
-        ],
-        "cons": [
-            "벤치마크 미실행 — V4 RTF·CER 직접 측정 전",
-            "V3와 동일 아키텍처 계열 — 속도 이점은 미확인",
+            "벤치마크 제외 — V2.5(1B) 가중치 미공개(API 전용), V2(3B)는 VRAM 24GB 권장으로 RTX 5080 16GB 환경에서 단독 운용 불가",
+            "공식 RTF 미공개 — 실시간성 불확실, KO 1위 주장은 자체 기준으로 제3자 검증 미완료",
         ],
     },
     # ── 벤치마크 제외 모델 (MODEL_INFO 등록 — 표 표시용) ─────────────────────
@@ -979,6 +987,7 @@ MODEL_INFO = {
         "langs": ["en"],
         "license": "MIT",
         "streaming": "지원",
+        "streaming_detail": "--output-raw 옵션으로 생성 중 PCM을 stdout으로 연속 출력, 플레이어 파이프 연결 방식 (부분 지원)",
         "pros": ["MIT 상업 라이선스", "ONNX 경량 — 라즈베리파이 수준 저사양 실시간 구동"],
         "cons": ["한국어 공식 미지원 — G2P(pygoruut) 의존, piper 1.4.1 비호환"],
     },
@@ -1011,7 +1020,7 @@ MODEL_INFO = {
         "arch_detail": "자기회귀 코덱 언어 모델 기반 (비공개 아키텍처)",
         "langs": ["zh", "en"],
         "license": "비공개",
-        "streaming": "미확인",
+        "streaming": "미지원",
         "pros": ["자체 평가 기준 SOTA급 자연스러움·화자 유사도 주장"],
         "cons": ["가중치·모델카드 완전 비공개", "상업 불가"],
     },
@@ -1059,6 +1068,34 @@ MODEL_INFO = {
         "pros": ["오픈소스 음악·효과음 생성 품질 우수"],
         "cons": ["TTS 아님 — 음악·효과음 전용, 한국어 TTS 범위 밖"],
     },
+    "voxtream2": {
+        "display_name": "VoXtream2",
+        "developer": "herimor",
+        "arch_type": "LLM",
+        "arch_detail": "Mimi 코덱 + CSM(Sesame) AR + ReDimNet 화자인식 + Sidon 음성향상, eSpeak NG 내장 G2P",
+        "langs": ["en"],
+        "license": "MIT (코드) + CC BY 4.0 (가중치)",
+        "streaming": "지원",
+        "streaming_detail": "--full-stream 옵션 및 Python generate_stream() API 제공, FPL(첫 패킷 지연) 74ms 공식 벤치 (RTX 3090)",
+        "official_summary": "RTF 0.173 / TTFA 74ms (RTX 3090 compile 기준)",
+        "official_perf": [
+            "RTF 0.256 (RTX 3090 non-compile) / 0.173 (compile) — 4x 실시간 대비 빠름",
+            "첫 패킷 지연 74ms (비컴파일) / 63ms (컴파일)",
+            "VRAM 4.2GB (음성향상 제외 시 2.2GB)",
+            "arXiv 2603.13518 (VoXtream2), 2509.15969 (VoXtream 원본)",
+        ],
+        "paper_url": "https://github.com/herimor/voxtream",
+        "pros": [
+            "Full-stream 최저 지연 — 입력과 출력이 동시 스트리밍, TTFA 74ms로 실시간 대화형 응용에 최적",
+            "동적 발화 속도 제어 — 생성 도중 실시간으로 발화 속도 조절 가능 (distribution matching + CFG 기반)",
+            "Translingual 참조 — 참조 음성 언어 무관하게 화자 특성 이전 가능, 한국어 참조도 이론적으로 지원",
+        ],
+        "cons": [
+            "KO 합성 품질 미검증 — eSpeak NG가 한국어 음소를 지원하나 학습 데이터 대부분 EN. 실측 CER 필요",
+            "eSpeak NG 시스템 의존성 — 별도 시스템 패키지 설치 필요 (apt/brew), Windows 공식 미지원(Ubuntu 22.04 기준 테스트)",
+            "가중치 CC BY 4.0 — 상업 사용 시 출처 표기 의무, 순수 MIT 모델 대비 제약 존재",
+        ],
+    },
 }
 
 MODEL_RELEASE_INFO = {
@@ -1067,6 +1104,7 @@ MODEL_RELEASE_INFO = {
     "qwen3_tts_0.6b":     {"first_release": "2026-01",  "latest_ver": "v1.0",                         "update_freq": "수개월 간격 업데이트"},
     "qwen3_tts_1.7b":     {"first_release": "2026-01",  "latest_ver": "v1.0",                         "update_freq": "수개월 간격 업데이트"},
     "gpt_sovits":         {"first_release": "2024-02",  "latest_ver": "V4 / V2Pro (2025.06)",         "update_freq": "수개월 간격 신버전"},
+    "gpt_sovits_v4":      {"first_release": "2025-06",  "latest_ver": "V4 (2025.06)",                 "update_freq": "수개월 간격 신버전"},
     "xtts":               {"first_release": "2023-11",  "latest_ver": "커뮤니티 포크 유지",           "update_freq": "원회사 폐업, 공식 업데이트 없음"},
     "fish_speech":        {"first_release": "2024-06",  "latest_ver": "v1.5.1 (2025.03)",             "update_freq": "수개월 간격 업데이트"},
     "melotts":            {"first_release": "2024-02",  "latest_ver": "v0.1.2 (2024.03)",             "update_freq": "마지막 업데이트 2024.03"},
@@ -1098,46 +1136,75 @@ MODEL_RELEASE_INFO = {
     "chatterbox_multilingual": {"first_release": "2025-09", "latest_ver": "Multilingual (2025.09)",   "update_freq": "최신 다국어 버전"},
     "fish_speech_s2":          {"first_release": "2026-03", "latest_ver": "S2 Pro (2026.03.10)",       "update_freq": "신규 공개"},
     "higgs_audio":             {"first_release": "2025-XX",  "latest_ver": "V2.5",                     "update_freq": "테스트 예정"},
-    "gpt_sovits_v4":           {"first_release": "2025-XX",  "latest_ver": "V4 (48kHz)",               "update_freq": "테스트 예정"},
+    "gpt_sovits_v4":           {"first_release": "2025-06",  "latest_ver": "V4 (2025.06)",             "update_freq": "수개월 간격 신버전"},
+    "voxtream2":               {"first_release": "2025-09",  "latest_ver": "VoXtream2 (2026.03)",      "update_freq": "신규 공개"},
 }
 
 # ─── 평가 특이사항 (Anomalies) ───────────────────────────────────────────────
 # severity: "high" = 완전 실패 (환각/레퍼런스 재생), "med" = 부분 실패 또는 지표 왜곡
 MODEL_ANOMALIES = {
     "ko|cosyvoice2":  {"model_name": "CosyVoice2",   "severity": "high",
-                       "note": "레퍼런스 오디오 내용 재생성 (\"한글자막 by 한효정\", \"다음 영상에서 만나요\") — 타겟 텍스트 무시"},
+                       "note": "전 언어 동일 실패 패턴 — LLM이 항상 max_len(타겟 토큰×20)개의 음성 토큰을 생성(예: 9토큰→220토큰). 생성된 토큰은 유효 범위(0-6560)이며 다양(141개 고유값)하지만 타겟 내용과 무관. Whisper가 이를 유튜브 아웃트로 문구로 인식(\"한글자막 by 한효정\", \"다음 영상에서 만나요\"). cross-lingual 모드(참조 텍스트 없음)에서도 동일 실패. 정밀 조사 결과: 아키텍처·가중치·토크나이저·ONNX 모두 정상. 근본 원인 불명"},
     "ko|cosyvoice3":  {"model_name": "CosyVoice3",   "severity": "high",
-                       "note": "레퍼런스 오디오 내용 재생성 — 타겟 텍스트 무시"},
-    "ko|gpt_sovits":  {"model_name": "GPT-SoVITS",   "severity": "med",
-                       "note": "참조 음성 언어(EN) 내용이 앞에 삽입 후 한국어 출력 — Prefix Hallucination"},
+                       "note": "CosyVoice2와 동일 실패 패턴 — LLM max_len 도달, 타겟 내용 무시, Whisper 환각"},
+    "ko|gpt_sovits":  {"model_name": "GPT-SoVITS V3",   "severity": "med",
+                       "note": "GPT-SoVITS 구조 특성 — 참조 음성 텍스트를 먼저 합성한 뒤 타겟 텍스트를 이어 붙임 (Prefix 삽입). 실서비스에서는 앞부분(참조 길이)을 잘라내고 사용 필요. 멀티링구얼 벤치마크 KO CER 4.9% (Whisper가 타겟 부분만 인식)"},
+    "ko|gpt_sovits_v4": {"model_name": "GPT-SoVITS V4", "severity": "med",
+                       "note": "GPT-SoVITS 구조 특성 — 참조 음성 텍스트를 먼저 합성한 뒤 타겟 텍스트를 이어 붙임 (Prefix 삽입). 실서비스에서는 앞부분을 잘라내고 사용 필요. 멀티링구얼 벤치마크 KO CER 17.3%"},
+    "en|gpt_sovits_v4": {"model_name": "GPT-SoVITS V4", "severity": "med",
+                       "note": "en_female 참조 음성으로 측정 시 WER 119% (참조 음성이 YouTube 아웃트로 스타일 → 모델이 학습 데이터 패턴으로 대체 출력). en_male 참조 음성으로 재측정 시 WER 34.2%로 정상화. CER은 en_male 기준값 사용"},
     "ko|xtts":        {"model_name": "XTTS-v2",       "severity": "med",
-                       "note": "단문(ko_short)에서 품질 저하, CER 비정상 높음 (짧은 입력 취약)"},
+                       "note": "참조 음성 의존성 높음 — kor_male_deep 14%, kor_female_calm 36%. ko_short/ko_long/ko_conversational에서 반복 루프 또는 gibberish 발생 (CER 46-100%). ko_formal/ko_technical에서는 0%. 입력 텍스트 길이·스타일 편차 큼. AVG CER 25%"},
+    "ko|maskgct":     {"model_name": "MaskGCT",       "severity": "med",
+                       "note": "참조 음성에 따른 높은 편차 — iu_long(긴 한국어 클립) 사용 시 CER 94.6%, kor_female_calm/kor_male_deep 사용 시 8.1%/7.9%. 긴 참조 음성의 첫 10초 크롭 특성에 취약. 실서비스에서는 짧은 참조 음성(5초 이내) 권장"},
     "en|cosyvoice2":  {"model_name": "CosyVoice2",   "severity": "high",
-                       "note": "\"Thank you for watching (시청해 주셔서 감사합니다)\" 등 레퍼런스 오디오 내용 출력 — 영어 텍스트 처리 실패"},
+                       "note": "전 언어 동일 실패 패턴 — LLM max_len 도달, 타겟 내용 무시. \"Thank you for watching!\" 반복 출력. KO/JA/ZH와 동일한 구조적 실패"},
     "en|cosyvoice3":  {"model_name": "CosyVoice3",   "severity": "high",
-                       "note": "레퍼런스 오디오 내용 출력 — 타겟 텍스트 무시"},
+                       "note": "CosyVoice2와 동일 실패 패턴 — 전 언어 타겟 텍스트 무시"},
     "en|dia":         {"model_name": "Dia-1.6B",      "severity": "med",
                        "note": "[S1]/[S2] 2화자 포맷으로 인해 WER 지표 왜곡 — 실제 음성 품질과 무관"},
     "en|mars5":       {"model_name": "MARS5-TTS",     "severity": "med",
-                       "note": "일부 텍스트에서 환각(Hallucination) — 팟캐스트 내용 등 무관한 텍스트 출력"},
+                       "note": "참조 음성 민감도 + 환각 — en_formal(0%), en_emotional(12.5%)은 정상 작동. en_short(100%), en_conversational(74%)에서 팟캐스트/YouTube 내용 등 무관한 텍스트 출력. 전체 평균 WER 52.5%"},
+    "en|voicecraftx": {"model_name": "VoiceCraft-X",  "severity": "high",
+                       "note": "멀티링구얼 벤치마크 EN WER 99% — Whisper가 \"Thank you\", \"Oh, my God\" 등 반복 출력 (무음/극단적으로 짧은 오디오 징후). VoiceCraft-X는 음성 편집(inpainting) 모델로, 독립 TTS(zero-shot) 용도로는 EN도 안정적 출력 불가"},
     "ja|cosyvoice2":  {"model_name": "CosyVoice2",   "severity": "high",
-                       "note": "레퍼런스 오디오 내용 출력 (\"ご視聴ありがとうございました\" = 시청해 주셔서 감사합니다) — 타겟 텍스트 무시"},
+                       "note": "전 언어 동일 실패 패턴 — LLM max_len 도달, 타겟 내용 무시. \"ご視聴ありがとうございました\" (시청 감사) 반복 출력"},
     "ja|cosyvoice3":  {"model_name": "CosyVoice3",   "severity": "high",
-                       "note": "레퍼런스 오디오 내용 출력 — 타겟 텍스트 무시"},
-    "ja|gpt_sovits":  {"model_name": "GPT-SoVITS",   "severity": "med",
-                       "note": "일본어 처리 불안정, 일부 텍스트에서 환각 발생"},
-    "ja|kokoro":      {"model_name": "Kokoro-82M",    "severity": "med",
-                       "note": "ja_short에서 \"日本語 (일본어)\" 단어 무한 반복 루프 → CER=3.249 (수치 왜곡, 실제 품질과 무관)"},
+                       "note": "CosyVoice2와 동일 실패 패턴 — 전 언어 타겟 텍스트 무시"},
+    "ja|gpt_sovits":  {"model_name": "GPT-SoVITS",   "severity": "high",
+                       "note": "일본어 처리 불안정, 대부분 텍스트에서 환각 또는 레퍼런스 오디오 내용 재생성. JA AVG CER 92.2%"},
+    "ja|kokoro":      {"model_name": "Kokoro-82M",    "severity": "high",
+                       "note": "일본어 출력 실패 — \"日本語字幕 (일본어 자막)\" 워터마크 텍스트 반복 출력, ja_short에서 CER 100%+ (반복 루프). JA AVG CER 97-108%. Kokoro 공식 JA 지원(lang_code='j')은 별도 파이프라인 필요"},
+    "ja|index_tts2":  {"model_name": "IndexTTS-2",   "severity": "high",
+                       "note": "일본어 미지원 — 중국어 또는 무작위 한자로 된 출력 생성. ja_medium CER 109%, ja_technical CER 118% (> 100%는 Levenshtein 편집 거리가 참조 길이 초과). JA AVG CER 100.9%"},
+    "ja|mio_tts_2.6b": {"model_name": "MioTTS-2.6B", "severity": "med",
+                       "note": "ja_male 참조 시 ja_short에서 반복 루프 발생 (CER 100%). ja_female 참조 사용 시 정상 출력 (CER 2.9%). 참조 음성 종류에 따른 안정성 편차"},
     "zh|cosyvoice2":  {"model_name": "CosyVoice2",   "severity": "high",
-                       "note": "레퍼런스 오디오 내용 출력 (\"请不吝点赞 订阅...\" = 좋아요·구독 부탁드립니다...) — 타겟 텍스트 무시"},
+                       "note": "KO/EN/JA와 동일하게 중국어도 타겟 텍스트 무시, 참조 오디오 내용 재생성 — zh_male 참조(简体中文)로 재측정 시에도 CER 99.7% (\"旋律 運動 旋律\", \"字幕志愿者 杨栋梁\" 등 Whisper 환각). 초기 가설(zh_female 번체자 불일치)이 원인이 아님을 확인. 이 벤치마크 환경에서 CosyVoice2 음성 클론이 전 언어에서 동작 불가"},
     "zh|cosyvoice3":  {"model_name": "CosyVoice3",   "severity": "high",
-                       "note": "레퍼런스 오디오 내용 출력 — 타겟 텍스트 무시"},
+                       "note": "CosyVoice2와 동일 — zh_male 참조(简体中文)로 재측정 시에도 CER 98.1% (\"我们按个订阅点赞\" 등 BiliBili 구독 워터마크 반복 출력). 전 언어에서 타겟 텍스트 무시, 참조 오디오 재생성 패턴"},
+    "ko|hierspeech":  {"model_name": "HierSpeech++",  "severity": "high",
+                       "note": "TTV(Text→W2Vec) 모델이 LibriTTS(영어) 전용으로 학습됨. 한국어 텍스트는 unidecode로 로마자 변환 후 영어 음소로 처리 → 음소 수준 gibberish 출력. 한국어 TTV는 미공개 상태(README TODO). KO 82.2% CER은 한국어 미지원에 따른 정상 측정값"},
+    "en|f5tts":       {"model_name": "F5-TTS",        "severity": "med",
+                       "note": "참조 음성 민감도 + TTS 관련 내용 편향 환각 — 단일 텍스트(en_medium) 구 벤치마크에서 0% CER이었으나, 모델이 자주 생성하는 AI/음성합성 관련 내용이 타겟과 우연히 일치했기 때문. 10종 다양한 텍스트 멀티링구얼 벤치마크에서 WER 66.2%"},
     "zh|f5tts":       {"model_name": "F5-TTS",        "severity": "med",
-                       "note": "zh_short에서 빈 출력 → CER=1.0 (짧은 중국어 입력 처리 실패)"},
+                       "note": "중국어 생성 품질 저하 — zh_female 참조 CER 75.0%, zh_male 참조 CER 81.8%. zh_short 무음 출력(CER 100%). 중국어 텍스트 전반에서 내용 왜곡 및 환각 빈발. ZH AVG CER 78.4%"},
+    "zh|qwen3_tts_0.6b": {"model_name": "Qwen3-TTS-0.6B", "severity": "low",
+                       "note": "zh_male/zh_female 참조 음성 사용 시 ZH CER 6-10% (성능 양호). 구 측정값(55.2%)은 한국어 참조 음성(iu_long) 오염에 의한 수치로 모델 한계가 아님. 동일 계열 1.7B 모델과 비슷한 중국어 품질"},
     "zh|gpt_sovits":  {"model_name": "GPT-SoVITS",   "severity": "med",
-                       "note": "zh_short에서 환각 발생 → CER=2.5 (무관한 텍스트 출력)"},
+                       "note": "zh_formal에서 레퍼런스 오디오 내용 재생성 → CER 98.4%. 일부 텍스트(zh_conversational, zh_medium)에서는 정상 출력. ZH AVG CER 23.5%"},
     "zh|kokoro":      {"model_name": "Kokoro-82M",    "severity": "high",
-                       "note": "중국어 미지원 — \"中文字幕志愿者 (중국어 자막 자원봉사자)\" 워터마크 텍스트 출력"},
+                       "note": "중국어 미지원 — 0.6-0.8s 짜리 무음/극소 오디오 생성 후 Whisper 환각 (\"中文字幕志愿者 杨茜茜\" 워터마크). zh_male·iu_long 참조 모두 동일 실패 (AVG CER 105-115%). 중국어 텍스트 처리 불가"},
+    "ko|voicecraftx": {"model_name": "VoiceCraft-X",  "severity": "high",
+                       "note": "한국어 미지원 — VoiceCraft-X는 영어 음성 편집(inpainting) 모델. 한국어 텍스트 입력 시 음소 변환 실패로 무음/노이즈 출력. KO AVG CER 97.1%"},
+    "ja|voicecraftx": {"model_name": "VoiceCraft-X",  "severity": "high",
+                       "note": "일본어 미지원 — 무음 또는 레퍼런스 오디오 내용 재생성. JA 벤치마크에서 대부분 WAV 파일이 생성되지 않음 (RTF≈15, 타임아웃). 측정된 텍스트에서도 CER 89-98%"},
+    "en|fish_speech": {"model_name": "Fish Speech",   "severity": "med",
+                       "note": "en_short 60% WER — 첫 문장에서 생성 중단 (\"Welcome to our service.\"만 출력). en_numbers 43-77% WER — 숫자/날짜 표현 오변환 (\"March 2nd, 2026 at 3:45 PM\" → 오독). en_female 참조 CER 27%, en_male 17%, AVG 22%. 텍스트 종류별 편차 큼 (conversational 0% vs numbers 77%)"},
+    "ja|qwen3_tts_1.7b": {"model_name": "Qwen3-TTS-1.7B", "severity": "high",
+                          "note": "일본어 품질 저하 — ja_female 참조 CER 39.7%, ja_male 참조 CER 166.6% (반복 루프 + 극심한 왜곡). 특히 ja_short에서 \"こんにちがあります。かります。かります。\" 반복. JA AVG CER 103%. ja_conversational만 0% (정상); 나머지 4개 텍스트 실패"},
+    "ja|qwen3_tts_0.6b": {"model_name": "Qwen3-TTS-0.6B", "severity": "med",
+                          "note": "일본어 품질 저하 — ja_female 참조 CER 66.2%, ja_male 참조 CER 32.1%. JA AVG CER 49.2%. 중국어/한국어 대비 일본어 생성 품질이 현저히 낮음"},
 }
 
 
@@ -1174,9 +1241,9 @@ def build_audio_map(entries, results_dir, output_path):
     for e in entries:
         if not e.get("success") or not e.get("wav_path"):
             continue
-        # 오디오 재생은 첫 번째 run만 사용
-        if e.get("run_index", 0) != 0:
-            continue
+        # 오디오 재생은 첫 번째 run만 사용 (없으면 다른 run_index도 허용)
+        # run_index=0 우선; 없는 경우 dedup된 entries에서 첫 번째 사용
+        pass
             
         lang = e["lang"]
         tk   = e["text_key"]
@@ -1303,6 +1370,46 @@ def build_ref_audio_map(output_path):
     return result
 
 
+_METRIC_HL_RE = re.compile(
+    r'(\b(?:RTF|WER|CER|MOS|UTMOS|TTFA|SS|ELO|VRAM|SIM)\s*[=<>~]?\s*[\d.,]+\s*(?:%|ms|MB|GB|s\b)?'
+    r'|~[\d.,]+\s*%'
+    r'|\d+\.?\d*\s*%'
+    r'|\d+[.,]\d+)',
+    re.IGNORECASE
+)
+
+def _highlight_metrics(text: str) -> str:
+    return _METRIC_HL_RE.sub(
+        r'<span class="metric-hl">\1</span>', text
+    )
+
+_LANG_CODES = {"ko", "en", "zh", "ja"}
+
+def _chip_lang(chip: str):
+    """칩이 특정 언어에 한정된 경우 해당 코드 반환, 범용이면 None."""
+    low = chip.lower()
+    for code in _LANG_CODES:
+        if low.startswith(code + " ") or low.startswith(code + "-"):
+            return code
+        # 교차언어 패턴: "ZH→KO CER" → KO 탭에 표시
+        if f"\u2192{code}" in low or f"->{code}" in low:
+            return code
+    return None
+
+def _official_chips(summary, paper_url="", lang="") -> str:
+    if not summary:
+        return '<span class="official-none">없음</span>'
+    parts = [p.strip() for p in summary.split(" / ")]
+    if lang:
+        parts = [p for p in parts if _chip_lang(p) is None or _chip_lang(p) == lang.lower()]
+    if not parts:
+        return '<span class="official-none">—</span>'
+    chips = "".join(f'<span class="metric-chip">{p}</span>' for p in parts)
+    link = (f' <a href="{paper_url}" style="color:var(--accent);text-decoration:none;'
+            f'font-size:10px;vertical-align:middle;">↗</a>') if paper_url else ""
+    return f'<div class="metric-chips">{chips}{link}</div>'
+
+
 def _streaming_badge(val) -> str:
     val = val or "미확인"
     cfg = {
@@ -1343,25 +1450,49 @@ def load_speaker_averages(results_dir):
 
 
 def load_cer_scores():
-    """quality/cer_multilingual.json에서 {lang|model_key: avg_cer} 로드"""
+    """quality/cer_multilingual.json에서 {lang|model_key: avg_cer} 로드.
+    per-speaker 항목(lang|model__ref|AVG)이 있는 모델은 그 평균을 사용.
+    없는 모델만 aggregate(lang|model|AVG) 사용.
+    """
     cer_path = os.path.join(INFRA_DIR, "quality", "cer_multilingual.json")
     if not os.path.exists(cer_path):
         return {}
     with open(cer_path, encoding="utf-8") as f:
         raw = json.load(f)
+
     result = {}
+    per_speaker_vals: dict = {}  # base_key → [values]
+
     for k, v in raw.items():
-        if k.endswith("|AVG"):
-            parts = k.split("|")  # lang|model_key|AVG
-            if len(parts) == 3:
-                lang, mk = parts[0], parts[1]
-                full_key = f"{lang}|{mk}"
-                result[full_key] = v
-                if "__" in mk:
-                    base_mk = mk.split("__")[0]
-                    base_key = f"{lang}|{base_mk}"
-                    if base_key not in result:
-                        result[base_key] = v
+        if not k.endswith("|AVG"):
+            continue
+        parts = k.split("|")
+        if len(parts) != 3:
+            continue
+        lang, mk = parts[0], parts[1]
+        full_key = f"{lang}|{mk}"
+        result[full_key] = v  # per-speaker 항목은 그대로 저장
+
+        if "__" in mk:
+            base_mk = mk.split("__")[0]
+            base_key = f"{lang}|{base_mk}"
+            per_speaker_vals.setdefault(base_key, []).append(v)
+
+    # per-speaker 데이터가 있는 모델: 평균값으로 base_key 설정 (aggregate 덮어쓰기 방지)
+    for base_key, vals in per_speaker_vals.items():
+        result[base_key] = sum(vals) / len(vals)
+
+    # per-speaker 데이터가 없는 모델: aggregate 값 사용
+    for k, v in raw.items():
+        if not k.endswith("|AVG"):
+            continue
+        parts = k.split("|")
+        if len(parts) != 3 or "__" in parts[1]:
+            continue
+        base_key = f"{parts[0]}|{parts[1]}"
+        if base_key not in per_speaker_vals:
+            result[base_key] = v
+
     return result
 
 
@@ -1444,6 +1575,26 @@ def build_methodology_section():
               <li>모델 상세 테이블 및 음성 비교 섹션은 <strong>avg RTF 오름차순</strong> (빠른 모델이 위)</li>
               <li>RTF는 해당 언어의 모든 테스트 텍스트에 대한 평균값</li>
               <li>RTF만으로 "좋은 모델"을 판단하지 않도록 CER·VRAM·음성 청취 비교를 함께 제공</li>
+            </ul>
+          </div>
+
+          <div class="meth-card">
+            <div class="meth-title">🔧 CER 수정 이력</div>
+            <ul>
+              <li><strong>GPT-SoVITS V3/V4 KO · ZH — Prefix 제거 재측정</strong>: GPT-SoVITS는 구조 특성상 참조 음성 텍스트를 먼저 합성한 뒤 타겟 텍스트를 이어 붙임. 이로 인해 원시 CER이 인위적으로 높게 측정됨 (V3 KO 52.4%, V4 KO 43.1%, V3 ZH 85.5%). Whisper 전사 결과에서 타겟 텍스트 시작점 이전의 Prefix를 제거한 뒤 CER을 재산출하여 실제 합성 품질에 맞게 보정 (V3 KO → 17.6%, V4 KO → 17.3%, V3 ZH → 23.5%)</li>
+              <li><strong>GPT-SoVITS V4 EN — 참조 음성 교체 재측정</strong>: en_female 참조 음성 사용 시 모델이 학습 데이터 내 유사 화자 패턴(YouTube 아웃트로)으로 대체 출력하여 WER 119% 측정됨. en_male 참조 음성으로 교체 후 재측정 결과 WER 39.7%로 정상화. 현재 표시값은 en_male 기준</li>
+              <li><strong>일본어(JA) CER — 정규화 버그 수정</strong>: 초기 측정 시 CER 정규화 함수에서 일본어·중국어 문자를 모두 제거하는 버그로 JA CER이 전부 0.0으로 잘못 산출됨. Unicode 카테고리 기반 정규화로 수정 후 재측정</li>
+              <li><strong>Qwen3-TTS-1.7B JA — ja_male 참조 음성 제외</strong>: ja_male 참조 음성 사용 시 ja_formal/ja_medium/ja_short에서 무한 반복 루프 발생 (CER=100~200%). ja_female 참조 음성은 정상 동작 (CER 39.7%). 반복 루프는 참조 음성-모델 간 호환성 문제로 판단, ja_male 항목 제외 후 ja_female 기준값(39.7%) 사용</li>
+              <li><strong>교차 언어 참조 음성 제거</strong>: 한국어 참조 음성(iu_long)이 EN/JA/ZH 합성에도 적용된 161개 항목 삭제. 각 언어는 해당 언어 참조 음성만 사용 (KO: iu_long 등 7종, EN: en_female/en_male, JA: ja_female/ja_male, ZH: zh_female/zh_male)</li>
+              <li><strong>CosyVoice2/3 ZH — 참조 텍스트 번체자·간체자 불일치 조사 및 재측정</strong>:
+                벤치마크에 사용된 <code>zh_female.txt</code> 참조 텍스트가 <strong>繁體中文(번체자, Traditional Chinese)</strong>로 작성된 반면,
+                CosyVoice2/3은 <strong>简体中文(간체자, Simplified Chinese) 전용</strong> 텍스트 처리기를 사용함.
+                초기에는 이 불일치가 ZH 99%+ CER의 원인으로 추정되었으나,
+                <code>zh_male.txt</code>(간체자: "迦南没有大森林所以木材非常昂贵")로 재측정한 결과에서도 동일하게 CER 98~99%가 측정됨.
+                실제 원인은 <strong>CosyVoice2/3이 이 벤치마크 환경에서 전 언어(KO/EN/JA/ZH)에서 공통적으로 타겟 텍스트를 무시하고 참조 오디오 내용을 재생성하는 구조적 문제</strong>임.
+                ZH에서는 참조 오디오 재생성 대신 Whisper 환각("字幕志愿者 杨栋梁", "我们按个订阅点赞" 등 BiliBili 워터마크)이 발생하여 동일하게 99%+ CER이 나타남.
+                (<em>참고: zh_female.wav 오디오 자체는 정상적인 중국 여성 음성. zh_female.txt의 번체자 내용은 향후 간체자로 교체 예정</em>)
+              </li>
             </ul>
           </div>
 
@@ -1678,8 +1829,13 @@ def build_overview_section(averages, cer_scores, sim_scores):
             f'<span class="lang-badge lang-{l}" style="margin-right:2px;opacity:.6">{l.upper()}</span>'
             for l in langs_excl) if langs_excl else
             f'<span style="color:#475569;font-size:11px">{m["lic"]}</span>')
+        lic_val = m.get("lic", "")
+        lic_badge = (f' <span style="background:rgba(239,68,68,0.12);color:#b91c1c;'
+                     f'font-size:9px;font-weight:700;padding:1px 6px;border-radius:6px;'
+                     f'white-space:nowrap;margin-left:5px;border:1px solid rgba(239,68,68,0.3)">'
+                     f'{lic_val}</span>') if lic_val else ""
         reason_cell = (f'<td class="ov-num" colspan="6" style="color:#b91c1c;font-size:11px;text-align:left;padding-left:8px">'
-                       f'🚫 {m["reason"]}'
+                       f'🚫 {m["reason"]}{lic_badge}'
                        + (f' <span style="color:#94a3b8;font-size:10px">| {official_s}</span>' if official_s else "")
                        + '</td>')
         excl_rows.append(
@@ -1792,14 +1948,14 @@ def generate_html(results_dir, output_path):
         spk_label = SPEAKER_DISPLAY.get(pivot_rk, pivot_rk)
 
         rows = []
-        # 테스트 미완료 모델만 제외 (averages.json에 데이터 있는 모델은 모두 표시)
-        pending_names = {m["model"] for m in EXCLUDED_MODELS.get("테스트 진행 예정 (후보)", [])}
+        # 제외 모델 전체 필터링 (전체 모델 목록 섹션과 일관성 유지)
+        excluded_names = {m["model"] for cat, models in EXCLUDED_MODELS.items() for m in models}
         lang_data_filtered = []
         for v in averages.values():
             if v["lang"] == lang and v.get("method", "A") == "A":
                 mk = v["model_key"]
                 dname = MODEL_INFO.get(mk, {}).get("display_name", mk)
-                if dname not in pending_names:
+                if dname not in excluded_names:
                     lang_data_filtered.append(v)
 
         m_list = sorted(lang_data_filtered, key=lambda x: x.get("avg_rtf", 999))
@@ -1883,7 +2039,7 @@ def generate_html(results_dir, output_path):
                 <div><span class="dm-label">최초 공개</span><span class="dm-val">{rel.get("first_release","—")}</span></div>
                 <div><span class="dm-label">최신 버전</span><span class="dm-val">{rel.get("latest_ver","—")}</span></div>
                 <div><span class="dm-label">업데이트</span><span class="dm-val">{rel.get("update_freq","—")}</span></div>
-                <div><span class="dm-label">스트리밍</span><span class="dm-val">{_streaming_badge(info.get("streaming","미확인"))}</span></div>
+                <div><span class="dm-label">스트리밍</span><span class="dm-val">{_streaming_badge(info.get("streaming","미확인"))}{(' <span style="font-size:10px;color:var(--text2);display:block;margin-top:3px">' + info["streaming_detail"] + '</span>') if info.get("streaming_detail") else ""}</span></div>
                 {"".join(f'<div><span class="dm-label">최적화</span><span class="dm-val" style="color:#fbbf24">⚡ {o}</span></div>' for o in opt_items)}
                 {f'<div><span class="dm-label">적용됨</span><span class="dm-val" style="color:#34d399">✅ {opt_note}</span></div>' if opt_note else ""}
               </div>"""
@@ -1897,7 +2053,7 @@ def generate_html(results_dir, output_path):
             official_items = info.get("official_perf", [])
             paper_url = info.get("paper_url", "")
             if official_items:
-                official_li = "".join(f'<li>{o}</li>' for o in official_items)
+                official_li = "".join(f'<li>{_highlight_metrics(o)}</li>' for o in official_items)
                 src_link = f' <a href="{paper_url}" target="_blank" style="font-size:10px;color:var(--accent);text-decoration:none;">📄 논문/출처 ↗</a>' if paper_url else ""
                 official_html = f'<div class="detail-official"><strong>공식 발표 성능{src_link}</strong><ul>{official_li}</ul></div>'
             else:
@@ -1905,11 +2061,7 @@ def generate_html(results_dir, output_path):
 
             # ── 공식 성능 요약 (테이블용) ─────────────────────────────────────
             official_summary = info.get("official_summary")
-            if official_summary:
-                paper_link = f' <a href="{paper_url}" target="_blank" style="color:var(--accent);text-decoration:none;font-size:10px;">↗</a>' if paper_url else ""
-                official_cell = f'<span class="official-val">{official_summary}{paper_link}</span>'
-            else:
-                official_cell = '<span class="official-none">없음</span>'
+            official_cell = _official_chips(official_summary, paper_url, lang)
 
             vram_raw = d.get("avg_vram_peak_mb", -1)
             vram_s = f"{int(vram_raw)}MB" if vram_raw and vram_raw > 0 else "—"
@@ -2410,6 +2562,40 @@ def generate_html(results_dir, output_path):
     .ov-name {{ color: var(--text); font-weight: 600; max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: default; }}
     .ov-num {{ color: var(--text2); }}
 
+    /* Methodology Section */
+    .methodology-section {{ margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }}
+    .methodology-section h2 {{ font-size: 20px; font-weight: 700; margin-bottom: 4px; }}
+    .methodology-section .desc {{ color: var(--text2); font-size: 13px; margin-bottom: 20px; }}
+    .methodology-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 20px; }}
+    .meth-card {{ background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; }}
+    .meth-card h4 {{ font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .5px; margin: 0 0 8px; }}
+    .meth-card ul {{ margin: 0; padding: 0 0 0 16px; color: var(--text2); font-size: 12px; line-height: 1.9; }}
+    .meth-card li {{ margin: 0; }}
+    .meth-card li b {{ color: var(--text3); }}
+    .meth-note {{ background: #fefce8; border: 1px solid #fde68a; border-radius: var(--radius); padding: 12px 16px; }}
+    .meth-note-title {{ font-size: 12px; font-weight: 700; color: #92400e; margin-bottom: 8px; }}
+    .meth-note ul {{ margin: 0; padding: 0 0 0 16px; font-size: 12px; color: #78350f; line-height: 1.9; }}
+    .meth-note li {{ margin: 0; }}
+
+    /* References */
+    .references-section {{ max-width: 1400px; margin: 0 auto 0; padding: 0 24px; }}
+    .references-section h2 {{ font-size: 20px; font-weight: 700; margin-bottom: 4px; }}
+    .references-section .desc {{ color: var(--text2); font-size: 13px; margin-bottom: 20px; }}
+    .ref-group {{ margin-bottom: 28px; }}
+    .ref-group h3 {{ font-size: 13px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }}
+    .ref-table {{ width: 100%; border-collapse: collapse; font-size: 12.5px; }}
+    .ref-table tr:hover {{ background: var(--bg2); }}
+    .ref-table td {{ padding: 6px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }}
+    .ref-table td:first-child {{ font-weight: 600; white-space: nowrap; width: 180px; color: var(--text); }}
+    .ref-table td:nth-child(2) {{ color: var(--text2); font-size: 12px; width: 80px; }}
+    .ref-link {{ color: var(--accent); text-decoration: none; margin-right: 8px; white-space: nowrap; }}
+    .ref-link:hover {{ text-decoration: underline; }}
+    .ref-badge {{ display: inline-block; font-size: 10px; font-weight: 600; padding: 1px 5px; border-radius: 4px; margin-right: 4px; vertical-align: middle; }}
+    .ref-badge.gh {{ background: #1a1a2e; color: #c8d3f5; }}
+    .ref-badge.hf {{ background: #fff5e0; color: #c47a0a; }}
+    .ref-badge.demo {{ background: #e0f7ef; color: #0a7c4d; }}
+    .ref-badge.paper {{ background: #ede9fe; color: #6d28d9; }}
+
     /* Footer */
     .footer {{ text-align: center; color: var(--text2); font-size: 12px; padding: 32px 0; margin-top: 48px; border-top: 1px solid var(--border); }}
     .spk-detail-row {{ display: none; }}
@@ -2465,6 +2651,12 @@ def generate_html(results_dir, output_path):
     .official-cell {{ font-size: 11px; min-width: 120px; max-width: 200px; white-space: normal; word-break: break-word; overflow-wrap: anywhere; }}
     .official-val {{ color: var(--accent); line-height: 1.5; }}
     .official-none {{ color: var(--text2); font-style: italic; }}
+    .metric-chips {{ display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }}
+    .metric-chip {{ display: inline-block; padding: 2px 7px; border-radius: 10px;
+                    font-size: 10px; font-weight: 700;
+                    background: rgba(56,189,248,0.13); color: var(--accent);
+                    white-space: nowrap; }}
+    .metric-hl {{ color: var(--accent); font-weight: 700; }}
     /* 공식 성능 (detail) */
     .detail-official {{ grid-column: 1 / -1; margin-top: 6px; padding-top: 10px;
                         border-top: 1px solid var(--border); }}
@@ -2536,20 +2728,20 @@ def generate_html(results_dir, output_path):
       <p style="font-size:12.5px;color:var(--text2);margin:0 0 12px;">벤치마크에 포함된 모델은 아래 4가지 대전제를 모두 충족한 것들입니다. 이를 충족하지 못한 모델은 하단 '제외된 모델' 항목을 참조하세요.</p>
       <div class="criteria-grid">
         <div class="criteria-item">
-          <h4>1. 한국어 지원</h4>
-          <p>별도 G2P/로마자 변환 없이 한국어 텍스트를 직접 합성할 수 있어야 함 (End-to-End)</p>
+          <h4>1. 상업적 라이선스</h4>
+          <p>Apache 2.0, MIT, CC-BY 등 상업 활용 가능한 오픈소스 라이선스 보유</p>
         </div>
         <div class="criteria-item">
-          <h4>2. 상업적 라이선스</h4>
-          <p>Apache 2.0, MIT, CC-BY 등 상업 활용 가능한 오픈소스 라이선스 보유</p>
+          <h4>2. 가중치 공개</h4>
+          <p>HuggingFace 또는 공식 저장소에서 모델 가중치를 직접 다운로드할 수 있어야 함</p>
         </div>
         <div class="criteria-item">
           <h4>3. 실시간 속도 (RTF &lt; 1.0)</h4>
           <p>실제 서비스 투입을 위해 RTF 1.0 미만 (또는 GPU 기준 실시간 처리 가능) 요건</p>
         </div>
         <div class="criteria-item">
-          <h4>4. 가중치 공개</h4>
-          <p>HuggingFace 또는 공식 저장소에서 모델 가중치를 직접 다운로드할 수 있어야 함</p>
+          <h4>4. 한국어 지원</h4>
+          <p>한국어 텍스트 합성 가능</p>
         </div>
       </div>
     </div>
@@ -2562,6 +2754,279 @@ def generate_html(results_dir, output_path):
 
   {"".join(lang_sections)}
 
+</div>
+
+<div style="max-width:1400px;margin:0 auto;padding:0 24px;">
+  <div class="methodology-section">
+    <h2>평가 방법론</h2>
+    <p class="desc">테스트 구성, 측정 기준, 한계점을 공개합니다.</p>
+
+    <div class="methodology-grid">
+      <div class="meth-card">
+        <h4>테스트 텍스트</h4>
+        <ul>
+          <li><b>KO / EN</b> — 각 10문장</li>
+          <li><b>JA / ZH</b> — 각 5문장</li>
+          <li>짧은 문장 · 긴 문장 · 숫자 · 기술용어 · 구어체 · 공식체 등 다양한 카테고리로 구성</li>
+          <li>모든 모델에 동일 문장 적용</li>
+        </ul>
+      </div>
+      <div class="meth-card">
+        <h4>참조 음성 (Voice Clone 입력)</h4>
+        <ul>
+          <li><b>KO</b> — IU 인터뷰 음성 10s crop</li>
+          <li><b>EN</b> — FLEURS en_us 데이터셋 10s</li>
+          <li><b>JA</b> — JSUT / FLEURS ja_jp 8~10s</li>
+          <li><b>ZH</b> — FLEURS cmn_hans_cn (여성 10s / 남성 3.2s)</li>
+          <li>복수 참조 화자를 지원하는 모델은 최저 CER 결과를 대표값으로 사용</li>
+        </ul>
+      </div>
+      <div class="meth-card">
+        <h4>발음 정확도 (CER / WER)</h4>
+        <ul>
+          <li>생성 음성을 <b>Whisper large-v3</b> (CUDA float16)으로 전사</li>
+          <li>원문 대비 Levenshtein 편집 거리 기반 오류율 계산</li>
+          <li><b>KO / JA / ZH</b> → CER (글자 단위)</li>
+          <li><b>EN</b> → WER (단어 단위)</li>
+          <li>0.0 = 완벽, 1.0 = 완전 실패 (상한 1.0으로 고정)</li>
+        </ul>
+      </div>
+      <div class="meth-card">
+        <h4>추론 속도 (RTF)</h4>
+        <ul>
+          <li>RTF = 추론 소요 시간 ÷ 생성된 오디오 길이</li>
+          <li>RTF &lt; 1.0 이면 실시간 합성 가능</li>
+          <li>측정 환경: <b>RTX 5080 (16GB VRAM)</b>, Windows 11</li>
+          <li>모델 로딩 시간 제외, 순수 합성 시간만 측정</li>
+          <li>텍스트 N개 평균값 및 표준편차 제공</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div style="max-width:1400px;margin:0 auto;padding:0 24px;">
+  <div class="references-section" style="margin-top:48px;padding-top:24px;border-top:1px solid var(--border);">
+    <h2>참고 문헌</h2>
+    <p class="desc">벤치마크에 포함된 모델의 공식 저장소 및 관련 자료 링크입니다.</p>
+
+    <div class="ref-group">
+      <h3>한국어 / 다국어 지원 모델</h3>
+      <table class="ref-table">
+        <tr>
+          <td>ZipVoice-FT</td><td>Apache 2.0</td>
+          <td>
+            <a class="ref-link" href="https://github.com/k2-fsa/ZipVoice"><span class="ref-badge gh">GH</span>k2-fsa/ZipVoice</a>
+            <a class="ref-link" href="https://huggingface.co/k2-fsa/ZipVoice"><span class="ref-badge hf">HF</span>k2-fsa/ZipVoice</a>
+            <a class="ref-link" href="https://zipvoice.github.io/"><span class="ref-badge demo">Demo</span></a>
+          </td>
+        </tr>
+        <tr>
+          <td>HierSpeech++</td><td>Apache-2.0</td>
+          <td>
+            <a class="ref-link" href="https://github.com/sh-lee-prml/HierSpeechpp"><span class="ref-badge gh">GH</span>sh-lee-prml/HierSpeechpp</a>
+            <a class="ref-link" href="https://sh-lee-prml.github.io/HierSpeechpp-demo/"><span class="ref-badge demo">Demo</span></a>
+          </td>
+        </tr>
+        <tr>
+          <td>MeloTTS</td><td>MIT</td>
+          <td>
+            <a class="ref-link" href="https://github.com/myshell-ai/MeloTTS"><span class="ref-badge gh">GH</span>myshell-ai/MeloTTS</a>
+            <a class="ref-link" href="https://huggingface.co/myshell-ai/MeloTTS-Korean"><span class="ref-badge hf">HF</span>MeloTTS-Korean</a>
+          </td>
+        </tr>
+        <tr>
+          <td>OpenVoice v2</td><td>MIT</td>
+          <td>
+            <a class="ref-link" href="https://github.com/myshell-ai/OpenVoice"><span class="ref-badge gh">GH</span>myshell-ai/OpenVoice</a>
+            <a class="ref-link" href="https://huggingface.co/myshell-ai/OpenVoiceV2"><span class="ref-badge hf">HF</span>OpenVoiceV2</a>
+          </td>
+        </tr>
+        <tr>
+          <td>GPT-SoVITS V3/V4</td><td>MIT</td>
+          <td>
+            <a class="ref-link" href="https://github.com/RVC-Boss/GPT-SoVITS"><span class="ref-badge gh">GH</span>RVC-Boss/GPT-SoVITS</a>
+            <a class="ref-link" href="https://huggingface.co/RVC-Boss/GPT-SoVITS"><span class="ref-badge hf">HF</span>RVC-Boss/GPT-SoVITS</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Qwen3-TTS 0.6B/1.7B</td><td>Apache-2.0</td>
+          <td>
+            <a class="ref-link" href="https://github.com/QwenLM/Qwen3-TTS"><span class="ref-badge gh">GH</span>Qwen-Audio/Qwen3-TTS</a>
+            <a class="ref-link" href="https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base"><span class="ref-badge hf">HF</span>Qwen/Qwen3-TTS-1.7B</a>
+          </td>
+        </tr>
+        <tr>
+          <td>CosyVoice 2/3</td><td>Apache-2.0</td>
+          <td>
+            <a class="ref-link" href="https://github.com/FunAudioLLM/CosyVoice"><span class="ref-badge gh">GH</span>FunAudioLLM/CosyVoice</a>
+            <a class="ref-link" href="https://huggingface.co/FunAudioLLM/CosyVoice2-0.5B"><span class="ref-badge hf">HF</span>CosyVoice2-0.5B</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Kani-TTS-370M</td><td>Apache-2.0</td>
+          <td>
+            <a class="ref-link" href="https://github.com/nineninesix-ai/kani-tts"><span class="ref-badge gh">GH</span>nineninesix-ai/kani-tts</a>
+            <a class="ref-link" href="https://huggingface.co/nineninesix/kani-tts-370m"><span class="ref-badge hf">HF</span>kani-tts-370m</a>
+          </td>
+        </tr>
+        <tr>
+          <td>VoiceCraft-X</td><td>CPML</td>
+          <td>
+            <a class="ref-link" href="https://github.com/jasonppy/VoiceCraft"><span class="ref-badge gh">GH</span>jasonppy/VoiceCraft</a>
+          </td>
+        </tr>
+        <tr>
+          <td>OuteTTS-1.0-0.6B</td><td>CC-BY-NC-SA</td>
+          <td>
+            <a class="ref-link" href="https://github.com/OuteAI/OuteTTS"><span class="ref-badge gh">GH</span>OuteAI/OuteTTS</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="ref-group">
+      <h3>영어 전용 / 중국어·일본어 특화 모델</h3>
+      <table class="ref-table">
+        <tr>
+          <td>Kokoro-82M</td><td>Apache-2.0</td>
+          <td>
+            <a class="ref-link" href="https://github.com/hexgrad/kokoro"><span class="ref-badge gh">GH</span>hexgrad/kokoro</a>
+            <a class="ref-link" href="https://huggingface.co/hexgrad/Kokoro-82M"><span class="ref-badge hf">HF</span>Kokoro-82M</a>
+          </td>
+        </tr>
+        <tr>
+          <td>MioTTS 1.7B/2.6B</td><td>Apache-2.0</td>
+          <td>
+            <a class="ref-link" href="https://github.com/Aratako/MioTTS-Inference"><span class="ref-badge gh">GH</span>Aratako/MioTTS-Inference</a>
+            <a class="ref-link" href="https://huggingface.co/Aratako/MioTTS-1.7B"><span class="ref-badge hf">HF</span>MioTTS-1.7B</a>
+            <a class="ref-link" href="https://huggingface.co/Aratako/MioTTS-2.6B"><span class="ref-badge hf">HF</span>MioTTS-2.6B</a>
+          </td>
+        </tr>
+        <tr>
+          <td>IndexTTS-2</td><td>Apache-2.0</td>
+          <td>
+            <a class="ref-link" href="https://github.com/index-tts/index-tts"><span class="ref-badge gh">GH</span>index-tts/index-tts</a>
+            <a class="ref-link" href="https://huggingface.co/IndexTeam/IndexTTS-2"><span class="ref-badge hf">HF</span>IndexTeam/IndexTTS-2</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Spark-TTS-0.5B</td><td>Apache-2.0</td>
+          <td>
+            <a class="ref-link" href="https://github.com/SparkAudio/Spark-TTS"><span class="ref-badge gh">GH</span>SparkAudio/Spark-TTS</a>
+            <a class="ref-link" href="https://huggingface.co/SparkAudio/Spark-TTS-0.5B"><span class="ref-badge hf">HF</span>Spark-TTS-0.5B</a>
+          </td>
+        </tr>
+        <tr>
+          <td>MaskGCT (Amphion)</td><td>CC-BY-NC-4.0</td>
+          <td>
+            <a class="ref-link" href="https://github.com/open-mmlab/Amphion"><span class="ref-badge gh">GH</span>open-mmlab/Amphion</a>
+            <a class="ref-link" href="https://huggingface.co/amphion/MaskGCT"><span class="ref-badge hf">HF</span>amphion/MaskGCT</a>
+          </td>
+        </tr>
+        <tr>
+          <td>F5-TTS</td><td>CC-BY-NC</td>
+          <td>
+            <a class="ref-link" href="https://github.com/SWivid/F5-TTS"><span class="ref-badge gh">GH</span>SWivid/F5-TTS</a>
+            <a class="ref-link" href="https://huggingface.co/SWivid/F5-TTS"><span class="ref-badge hf">HF</span>SWivid/F5-TTS</a>
+          </td>
+        </tr>
+        <tr>
+          <td>StyleTTS2</td><td>MIT</td>
+          <td>
+            <a class="ref-link" href="https://github.com/yl4579/StyleTTS2"><span class="ref-badge gh">GH</span>yl4579/StyleTTS2</a>
+            <a class="ref-link" href="https://huggingface.co/yl4579/StyleTTS2-LJSpeech"><span class="ref-badge hf">HF</span>StyleTTS2-LJSpeech</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Chatterbox-TTS</td><td>MIT</td>
+          <td>
+            <a class="ref-link" href="https://github.com/resemble-ai/chatterbox"><span class="ref-badge gh">GH</span>resemble-ai/chatterbox</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Parler-TTS-mini</td><td>Apache-2.0</td>
+          <td>
+            <a class="ref-link" href="https://github.com/huggingface/parler-tts"><span class="ref-badge gh">GH</span>huggingface/parler-tts</a>
+          </td>
+        </tr>
+        <tr>
+          <td>XTTS-v2</td><td>CPML</td>
+          <td>
+            <a class="ref-link" href="https://github.com/coqui-ai/TTS"><span class="ref-badge gh">GH</span>coqui-ai/TTS</a>
+            <a class="ref-link" href="https://huggingface.co/coqui/XTTS-v2"><span class="ref-badge hf">HF</span>coqui/XTTS-v2</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Bark</td><td>MIT</td>
+          <td>
+            <a class="ref-link" href="https://github.com/suno-ai/bark"><span class="ref-badge gh">GH</span>suno-ai/bark</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Dia-1.6B</td><td>Apache-2.0</td>
+          <td>
+            <a class="ref-link" href="https://github.com/nari-labs/dia"><span class="ref-badge gh">GH</span>nari-labs/dia</a>
+          </td>
+        </tr>
+        <tr>
+          <td>MARS5-TTS</td><td>AGPL-3.0</td>
+          <td>
+            <a class="ref-link" href="https://github.com/Camb-ai/MARS5-TTS"><span class="ref-badge gh">GH</span>Camb-ai/MARS5-TTS</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="ref-group">
+      <h3>평가 도구</h3>
+      <table class="ref-table">
+        <tr>
+          <td>Whisper large-v3</td><td>MIT</td>
+          <td>
+            <a class="ref-link" href="https://huggingface.co/openai/whisper-large-v3"><span class="ref-badge hf">HF</span>openai/whisper-large-v3</a>
+            &nbsp;— 발음 정확도(CER/WER) 평가에 사용
+          </td>
+        </tr>
+        <tr>
+          <td>faster-whisper</td><td>MIT</td>
+          <td>
+            <a class="ref-link" href="https://github.com/SYSTRAN/faster-whisper"><span class="ref-badge gh">GH</span>SYSTRAN/faster-whisper</a>
+            &nbsp;— CUDA float16 고속 STT 백엔드
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="ref-group">
+      <h3>외부 벤치마크 / 리더보드</h3>
+      <table class="ref-table">
+        <tr>
+          <td>Artificial Analysis<br>Speech Leaderboard</td><td></td>
+          <td>
+            <a class="ref-link" href="https://artificialanalysis.ai/text-to-speech/leaderboard"><span class="ref-badge demo">Link</span>artificialanalysis.ai/text-to-speech</a>
+            &nbsp;— ELO, 가격, 생성속도(chars/s) 기준 상업 TTS 비교. Kokoro-82M ELO 1059로 오픈가중치 최상위권.
+          </td>
+        </tr>
+        <tr>
+          <td>HF TTS Arena V2</td><td></td>
+          <td>
+            <a class="ref-link" href="https://huggingface.co/spaces/Pendrokar/TTS-Spaces-Arena"><span class="ref-badge demo">Link</span>HF Spaces Arena</a>
+            &nbsp;— 사람 투표 기반 ELO 랭킹. Kokoro v1.0 ELO 1498, Chatterbox-ML ELO 1501 (2025.09 기준).
+          </td>
+        </tr>
+        <tr>
+          <td>HuggingFace<br>TTS 모델 목록</td><td></td>
+          <td>
+            <a class="ref-link" href="https://huggingface.co/models?pipeline_tag=text-to-speech&sort=trending"><span class="ref-badge hf">HF</span>models?pipeline_tag=text-to-speech</a>
+            &nbsp;— 트렌딩/다운로드 순 오픈소스 TTS 모델 목록. korean 태그로 한국어 지원 모델 필터링 가능.
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
 </div>
 
 <div class="footer">

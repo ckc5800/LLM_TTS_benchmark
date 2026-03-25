@@ -56,8 +56,10 @@ class TTSQualityEvaluator:
         }
 
     def _normalize(self, text: str) -> str:
+        import unicodedata
         text = text.lower()
-        text = re.sub(r'[^가-힣a-zA-Z0-9]', '', text)
+        # Keep all Unicode letters and digits (covers KO, JA, ZH, EN, etc.)
+        text = ''.join(c for c in text if unicodedata.category(c)[0] in ('L', 'N'))
         return text
 
     def _error_rate(self, ref, hyp):

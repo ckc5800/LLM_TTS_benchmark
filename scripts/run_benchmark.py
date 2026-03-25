@@ -296,6 +296,18 @@ MODEL_REGISTRY = {
         "status": "ready",
         "notes": "V3 (BigVGAN vocoder), 한국어 지원",
     },
+    "gpt_sovits_v4": {
+        "python_exe": r"D:\list\Scripts\python.exe",
+        "run_model_key": "gpt_sovits_v4",
+        "model_dir": os.path.join(ROOT_DIR, "models", "GPT-SoVITS"),
+        "model_name": "GPT-SoVITS-V4",
+        "model_size_params": "~200M",
+        "korean_support": True,
+        "supported_languages": ["ko", "en", "ja", "zh"],
+        "is_llm_based": True,
+        "status": "ready",
+        "notes": "V4 (HiFiGAN vocoder, 48kHz), 한국어 지원",
+    },
     "f5tts": {
         "python_exe": os.path.join(ROOT_DIR, "engines", "f5tts", ".venv", "Scripts", "python.exe"),
         "run_model_key": "f5tts",
